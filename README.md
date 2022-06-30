@@ -77,7 +77,7 @@ information.
 * Require Authentication: false
 * Request
   * Method: POST
-  * URL: /login/users/:userId
+  * URL: /login
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -144,7 +144,7 @@ user's information.
 * Require Authentication: false
 * Request
   * Method: POST
-  * URL: /login/users/:userId
+  * URL: /signup
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -1318,7 +1318,7 @@ Returns the details of a playlist specified by its id.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /playlists/:playlist:id
+  * URL: /playlists/:playlistId
   * Body: none
 
 * Successful Response
