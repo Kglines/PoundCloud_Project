@@ -2,6 +2,7 @@
 
 ## Database Schema Design
 
+
 `<insert database schema design here>`
 
 ## API Documentation
@@ -356,7 +357,7 @@ Creates and returns a new song.
 * Require proper authorization: Album must belong to the current user
 * Request
   * Method: POST
-  * URL: /albums/:albumId/songs
+  * URL: /albums/:albumId/song
   * Headers:
     * Content-Type: application/json
   * Body:
