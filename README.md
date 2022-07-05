@@ -51,7 +51,7 @@ Returns the information about the current user that is logged in.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /users/:userId
+  * URL: /currentUser
   * Body: none
 
 * Successful Response
@@ -269,7 +269,7 @@ Returns all the songs created by the current user.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /users/:userId/songs
+  * URL: /currentUser/songs
   * Body: none
 
 * Successful Response
@@ -569,7 +569,7 @@ Returns all the Albums created by the current user.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /users/:userId/albums
+  * URL: /currentUser/albums
   * Body: none
 
 * Successful Response
@@ -1475,7 +1475,7 @@ Returns all the playlists created by the current user.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /users/:userId/playlists
+  * URL: /currentUser/playlists
   * Body: none
 
 * Successful Response
