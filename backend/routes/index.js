@@ -3,19 +3,7 @@ const express = require('express');
 const router = express.Router();
 const apiRouter = require('./api');
 
-// User Ath Middleware Test
-const { setTokenCookie } = require('../utils/auth.js');
-const { User } = require('../db/models');
-
-router.get('/api/set-token-cookie', async (_req, res) => {
-  const user = await User.findOne({
-      where: {
-        username: 'Demo-lition'
-      }
-    });
-  setTokenCookie(res, user);
-  return res.json({ user });
-});
+router.use('/api', apiRouter);
 
 // GET /api/restore-user
 const { restoreUser } = require('../utils/auth.js');
@@ -37,11 +25,11 @@ router.get(
   }
 );
 
-
-router.get('/hello/world', function(req, res) {
-  res.cookie('XSRF-TOKEN', req.csrfToken());
-  res.send('Hello World!');
-});
+// Hello World Test Route
+// router.get('/hello/world', function(req, res) {
+//   res.cookie('XSRF-TOKEN', req.csrfToken());
+//   res.send('Hello World!');
+// });
 
 // Add a XSRF-TOKEN cookie
 router.get("/api/csrf/restore", (req, res) => {
@@ -52,6 +40,6 @@ router.get("/api/csrf/restore", (req, res) => {
   });
 });
 
-router.use('/api', apiRouter);
+
 
 module.exports = router;

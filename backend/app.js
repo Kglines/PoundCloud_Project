@@ -41,6 +41,7 @@ app.use(
   })
 );
 
+// connect all routes
 app.use(routes);
 
 // Catch unhandled requests and forward to error handler.
