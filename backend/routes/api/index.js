@@ -18,23 +18,23 @@ const { restoreUser } = require('../../utils/auth.js');
 //   }
 // );
 
-// router.use('/session', sessionRouter);
+router.use('/session', sessionRouter);
 
-// router.use('/users', usersRouter);
+router.use('/users', usersRouter);
 
 router.use(restoreUser);
 
-router.get(
-  '/restore-user',
-  (req, res) => {
-    return res.json(req.user);
-  }
-);
+// router.get(
+//   '/restore-user',
+//   (req, res) => {
+//     return res.json(req.user);
+//   }
+// );
 
 
-// router.post('/test', (req, res) => {
-//   res.json({ requestBody: req.body });
-// });
+router.post('/test', (req, res) => {
+  res.json({ requestBody: req.body });
+});
 
 // A router is created and an API test route is added to the router
 // router.post('/test', function(req, res) {

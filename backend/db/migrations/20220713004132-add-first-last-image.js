@@ -8,8 +8,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    
-    // Should I use Promise.all([])???
+
     await queryInterface.addColumn('Users', 'firstName', { type: Sequelize.STRING(50), allowNull: false }),
     await queryInterface.addColumn('Users', 'lastName', { type: Sequelize.STRING(50), allowNull: false }),
     await queryInterface.addColumn('Users', 'previewImage', { type: Sequelize.STRING(100) })
