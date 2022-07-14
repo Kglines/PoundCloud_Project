@@ -8,6 +8,7 @@ const router = require('express').Router();
 // const { User } = require('../../db/models');
 // GET /api/restore-user
 const { restoreUser } = require('../../utils/auth.js');
+
 // GET /api/require-auth
 // const { requireAuth } = require('../../utils/auth.js');
 // router.get(
@@ -31,10 +32,6 @@ router.use(restoreUser);
 //   }
 // );
 
-
-// router.post('/test', (req, res) => {
-//   res.json({ requestBody: req.body });
-// });
 
 // A router is created and an API test route is added to the router
 // router.post('/test', function(req, res) {
