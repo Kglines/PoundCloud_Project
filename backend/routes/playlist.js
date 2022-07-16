@@ -14,9 +14,9 @@ router.get('/:playlistId', async (req, res) => {
             }  
     })
 
-    if(!playlist){
-        console.log("no playlist")
-    }
+    // if(!playlist){
+    //     console.log("no playlist")
+    // }
 
     res.json(playlist)
 })
