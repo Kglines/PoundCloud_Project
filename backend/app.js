@@ -9,12 +9,42 @@ const { environment } = require('./config');
 const isProduction = environment === 'Production';
 const routes = require('./routes');
 const { ValidationError } = require('sequelize');
+// const { User, Artist, Album, Song, Comment, Playlist } = require('./db/models');
 
 const app = express();
 
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());
+
+// app.get('/users', async (req,res) => {
+//   const users = await User.findAll();
+//   res.json(users)
+// })
+// app.get('/artists', async (req, res) => {
+//   const artists = await Artist.findAll();
+//   res.json(artists);
+// })
+// app.get('/albums', async(req, res) => {
+//   const albums = await Album.findAll();
+//   res.json(albums)
+// })
+// app.get('/songs', async(req,res) => {
+//   const songs = await Song.findAll();
+//   res.json(songs);
+// })
+// app.get('/comments', async (req,res) => {
+//   const comments = await Comment.findAll()
+//   res.json(comments);
+// })
+// app.get('/playlists', async (req, res) => {
+//   const playlists = await Playlist.findAll({
+//     include: {
+//       model: Song
+//     }
+//   });
+//   res.json(playlists)
+// })
 
 // Security Middleware
 if (!isProduction) {
