@@ -2,14 +2,17 @@
 const bcrypt = require('bcryptjs');
 const { STRING } = require('sequelize');
 
+
 const {
   Model, Validator
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     toSafeObject(){
-      const { id, username, email } = this; // context will be the User instance
-      return { id, username, email };
+      
+      const { id, firstName, lastName, email, username } = this; // context will be the User instance
+      
+      return { id, firstName, lastName, email, username };
     }
 
     validatePassword(password){
@@ -57,7 +60,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Album, { foreignKey: 'userId' });
       User.hasMany(models.Song, { foreignKey: 'userId' });
-      User.hasOne(models.Artist, { foreignKey: 'userId' });
       
     }
   }

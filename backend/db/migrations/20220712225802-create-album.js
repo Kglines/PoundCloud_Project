@@ -22,10 +22,9 @@ module.exports = {
       artistId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Artists',
+          model: 'Users',
           key: 'id'
-        },
-        onDelete: 'CASCADE'
+        }
       },
       userId: {
         type: Sequelize.INTEGER,

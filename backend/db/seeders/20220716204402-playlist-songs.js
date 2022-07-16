@@ -11,18 +11,22 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-   await queryInterface.bulkInsert('Artists', [
+   await queryInterface.bulkInsert('PlaylistSongs', [
     {
-      userId: 1,
-      previewImage: 'Artist Art'
+      playlistId: 1,
+      songId: 2
     },
     {
-      userId: 2,
-      previewImage: 'Artist Art'
+      playlistId: 1,
+      songId: 3
     },
     {
-      userId: 3,
-      previewImage: 'Artist Art'
+      playlistId: 2,
+      songId: 1
+    },
+    {
+      playlistId: 2,
+      songId: 3
     }
    ])
   },
@@ -34,6 +38,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Artists', null, {})
+    await queryInterface.bulkDelete('PlaylistSongs', null, {})
   }
 };
