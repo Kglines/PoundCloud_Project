@@ -4,7 +4,8 @@ const router = express.Router();
 const songsRouter = require('./songs.js');
 const currentUserRouter = require('./currentUser.js');
 const playlistRouter = require('./playlist.js');
-const commentRouter = require('./comments')
+const commentRouter = require('./comments.js')
+const albumRouter = require('./albums.js');
 const apiRouter = require('./api');
 
 const { restoreUser } = require('../utils/auth.js');
@@ -12,7 +13,8 @@ router.use('/api', apiRouter);
 router.use('/songs', songsRouter);
 router.use('/currentUser', currentUserRouter);
 router.use('/playlists', playlistRouter);
-router.use('/comments', commentRouter)
+router.use('/comments', commentRouter);
+router.use('/albums', albumRouter);
 
 // GET /api/restore-user
 router.get(
