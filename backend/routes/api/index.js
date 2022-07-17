@@ -1,12 +1,16 @@
 // backend/routes/api/index.js
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 const loginRouter = require('./login.js');
 const signupRouter = require('./signup.js');
-const { restoreUser } = require("../../utils/auth.js");
+const { User } = require('../../db/models');
+const { restoreUser, setTokenCookie, requireAuth } = require("../../utils/auth.js");
+
+router.use('/login', loginRouter);
+
+router.use('/signup', signupRouter);
 
 // GET /api/set-token-cookie
-const { setTokenCookie } = require('../../utils/auth.js');
-const { User } = require('../../db/models');
 router.get('/set-token-cookie', async (_req, res) => {
   const user = await User.findOne({
       where: {
@@ -23,20 +27,13 @@ router.get('/set-token-cookie', async (_req, res) => {
 router.use(restoreUser);
 
 // GET /api/restore-user
-router.get(
-  '/restore-user',
-  restoreUser,
-  (req, res) => {
+router.get('/restore-user', restoreUser, (req, res) => {
     return res.json(req.user);
   }
 );
 
 // GET /api/require-auth
-const { requireAuth } = require('../../utils/auth.js');
-router.get(
-  '/require-auth',
-  requireAuth,
-  (req, res) => {
+router.get('/require-auth', requireAuth, (req, res) => {
     return res.json(req.user);
   }
 );
@@ -49,12 +46,6 @@ router.get("/csrf/restore", (req, res) => {
     'XSRF-Token': csrfToken
   });
 });
-
-router.use('/login', loginRouter);
-
-router.use('/signup', signupRouter);
-
-
 
 router.post('/test', (req, res) => {
   res.json({ requestBody: req.body });

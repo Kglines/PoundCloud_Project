@@ -5,7 +5,7 @@ const { requireAuth } = require('../utils/auth');
 const router = express.Router();
 
 // Get Details of a song from an id
-router.get('/:songId', async (req, res) => {
+router.get('/:songId', requireAuth, async (req, res) => {
     const song = await Song.findOne({
         where: {
             id: req.params.songId
