@@ -1,7 +1,5 @@
 'use strict';
 const bcrypt = require('bcryptjs');
-const { STRING } = require('sequelize');
-
 
 const {
   Model, Validator
@@ -16,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     validatePassword(password){
-      return bcrypt.compareSync(password, this.hashedPassword.toString()); // Returns false if there is no match
+      return bcrypt.compareSync(password, this.hashedPassword.toString());
     }
 
     static getCurrentUserById(id){
@@ -116,7 +114,7 @@ module.exports = (sequelize, DataTypes) => {
         attributes: { exclude: ['hashedPassword'] }
       },
       loginUser: {
-        attributes: { exclude: ['hashedPassword'] }
+        attributes: { include: ['firstName', 'lastName', 'userName', 'email'] }
       }
     }
   });
