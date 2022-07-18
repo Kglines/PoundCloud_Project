@@ -6,6 +6,11 @@ const signupRouter = require('./signup.js');
 const { User } = require('../../db/models');
 const { restoreUser, setTokenCookie, requireAuth } = require("../../utils/auth.js");
 
+// Connect restoreUser middleware to the API router
+  // If current user session is valid, set req.user to the user in the database
+  // If current user session is not valid, set req.user to null
+router.use(restoreUser);
+
 router.use('/login', loginRouter);
 
 router.use('/signup', signupRouter);
@@ -21,10 +26,7 @@ router.get('/set-token-cookie', async (_req, res) => {
   return res.json({ user });
 });
 
-// Connect restoreUser middleware to the API router
-  // If current user session is valid, set req.user to the user in the database
-  // If current user session is not valid, set req.user to null
-router.use(restoreUser);
+
 
 // GET /api/restore-user
 router.get('/restore-user', restoreUser, (req, res) => {

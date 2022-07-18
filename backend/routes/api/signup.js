@@ -30,24 +30,18 @@ const validateSignup = [
 ];
 
 // Sign up
-router.post(
-  '/',
-  validateSignup,
-  async (req, res) => {
+router.post('/', validateSignup, async (req, res) => {
     const { email, password, username, firstName, lastName } = req.body;
+
     const user = await User.signup({ email, username, password, firstName, lastName });
 
-    await setTokenCookie(res, user);
+    const token = await setTokenCookie(res, user);
 
     return res.json({
       user,
+      token
     });
   }
 );
-
-// router.get('/', async (req, res) => {
-//   const users = await User.findAll();
-//   res.json(users);
-// })
 
 module.exports = router;
