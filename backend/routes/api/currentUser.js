@@ -1,6 +1,6 @@
 const express = require('express');
-const { User, Song } = require('../db/models');
-const { restoreUser, requireAuth } = require('../utils/auth');
+const { User, Song } = require('../../db/models');
+const { restoreUser, requireAuth } = require('../../utils/auth');
 const router = express.Router();
 
 

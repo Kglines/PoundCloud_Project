@@ -1,7 +1,7 @@
 
 const express = require('express');
-const { Song, Artist, Album, User, sequelize } = require('../db/models')
-const { requireAuth } = require('../utils/auth');
+const { Song, Artist, Album, User, sequelize } = require('../../db/models')
+const { requireAuth } = require('../../utils/auth');
 const router = express.Router();
 
 // Get Details of a song from an id

@@ -1,20 +1,10 @@
 // backend/routes/index.js
 const express = require('express');
 const router = express.Router();
-const songsRouter = require('./songs.js');
-const currentUserRouter = require('./currentUser.js');
-const playlistRouter = require('./playlist.js');
-const commentRouter = require('./comments.js')
-const albumRouter = require('./albums.js');
+
 const apiRouter = require('./api');
 
 router.use('/api', apiRouter);
-router.use('/songs', songsRouter);
-router.use('/currentUser', currentUserRouter);
-router.use('/playlists', playlistRouter);
-router.use('/comments', commentRouter);
-router.use('/albums', albumRouter);
-
 
 // Add a XSRF-TOKEN cookie
 router.get("/api/csrf/restore", (req, res) => {

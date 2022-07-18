@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Playlist, Song } = require('../db/models/');
+const { Playlist, Song } = require('../../db/models/');
 
 router.get('/:playlistId', async (req, res) => {
     const { playlistId } = req.params;

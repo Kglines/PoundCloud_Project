@@ -1,5 +1,5 @@
 const express = require('express');
-const { Album } = require('../db/models');
+const { Album } = require('../../db/models');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
