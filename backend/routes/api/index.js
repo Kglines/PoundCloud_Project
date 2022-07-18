@@ -38,14 +38,7 @@ router.get('/require-auth', requireAuth, (req, res) => {
   }
 );
 
-// Add a XSRF-TOKEN cookie
-router.get("/csrf/restore", (req, res) => {
-  const csrfToken = req.csrfToken();
-  res.cookie("XSRF-TOKEN", csrfToken);
-  res.status(200).json({
-    'XSRF-Token': csrfToken
-  });
-});
+
 
 router.post('/test', (req, res) => {
   res.json({ requestBody: req.body });
