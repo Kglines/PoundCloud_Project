@@ -114,7 +114,7 @@ module.exports = (sequelize, DataTypes) => {
         attributes: { exclude: ['hashedPassword'] }
       },
       loginUser: {
-        attributes: { include: ['firstName', 'lastName', 'userName', 'email'] }
+        attributes: { include: ['firstName', 'lastName', 'username', 'email'] }
       }
     }
   });
