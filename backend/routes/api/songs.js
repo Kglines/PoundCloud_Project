@@ -24,7 +24,7 @@ router.get('/:songId', requireAuth, async (req, res) => {
             as: 'Artist',
             attributes: [
                 'id',
-                'userName',
+                'username',
                 'previewImage'
             ]
         }],
