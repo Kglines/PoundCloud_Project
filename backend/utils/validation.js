@@ -23,6 +23,12 @@ const handleValidationErrors = (req, _res, next) => {
 
 // Validate Signup
 const validateSignup = [
+  check('firstName')
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a first name"),
+  check('lastName')
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a last name"),
   check('email')
     .exists({ checkFalsy: true })
     .isEmail()
