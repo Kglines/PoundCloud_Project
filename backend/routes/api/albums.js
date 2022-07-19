@@ -1,19 +1,21 @@
 const express = require('express');
 const { Album } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
+const { validateAlbum } = require('../../utils/validation')
 const router = express.Router();
 
 
 // Create an Album
-router.post('/albums', requireAuth, async (req, res) => {
+router.post('/', [requireAuth, validateAlbum], async (req, res) => {
     const { user } = req;
-    const { title, description, imageUrl} = req.body;
+    const { title, description, imageUrl } = req.body;
     const album = await Album.create({
         userId: user.id,
         title,
         description,
-        imageUrl
+        previewImage: imageUrl
     })
+    res.status(201);
     res.json(album);
 })
 

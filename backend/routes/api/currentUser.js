@@ -1,13 +1,36 @@
 const express = require('express');
-const { User, Song } = require('../../db/models');
-const { restoreUser, requireAuth } = require('../../utils/auth');
+const { Song, Album } = require('../../db/models');
+const { requireAuth } = require('../../utils/auth');
 const router = express.Router();
 
+// GET all albums created by the current user
+router.get('/albums', requireAuth, async (req, res) => {
+    const { user } = req;
+    const albums = await Album.findAll({
+        where: {
+            userId: user.id
+        },
+        attributes: [
+            "id",
+            "userId",
+            "title",
+            "description",
+            "createdAt",
+            "updatedAt",
+            "previewImage"
+        ]
+    });
+    res.json(albums);
+})
 
 // GET all songs by currentUser
-router.get('/songs', async (req, res) => {
-    const user = await User.findByPk();
+router.get('/songs', requireAuth, async (req, res) => {
+    const { user } = req;
+    
     const songs = await Song.findAll({
+        where: {
+            userId: user.id
+        },
         attributes: [
             'id',
             'userId',
@@ -18,21 +41,18 @@ router.get('/songs', async (req, res) => {
             'createdAt',
             'updatedAt',
             'previewImage'
-        ],
-        where: {
-            userId: user.id
-        }
+        ]
     })
+    
     res.json(songs);
 })
 
 // Get Current User
-router.get('/', restoreUser, async (req, res) => {
+router.get('/', requireAuth, async (req, res) => {
     const { user } = req;
 
     if(user){
-        res.status(200);
-        return res.json({
+        res.status(200).json({
             ...user.toSafeObject()
         })
     } else {
