@@ -1,13 +1,14 @@
 // backend/routes/api/index.js
 const express = require('express');
 const router = express.Router();
-const loginRouter = require('./login');
+const loginRouter = require('./login.js');
 const signupRouter = require('./signup.js');
 const songsRouter = require('./songs.js');
 const currentUserRouter = require('./currentUser.js');
 const playlistRouter = require('./playlist.js');
 const commentRouter = require('./comments.js');
 const albumRouter = require('./albums.js');
+const artistRouter = require('./artists.js');
 const { User } = require('../../db/models');
 const { restoreUser, setTokenCookie, requireAuth } = require("../../utils/auth.js");
 
@@ -23,6 +24,7 @@ router.use('/currentUser', currentUserRouter);
 router.use('/playlists', playlistRouter);
 router.use('/comments', commentRouter);
 router.use('/albums', albumRouter);
+router.use('/artists', artistRouter);
 
 // GET /api/set-token-cookie
 router.get('/set-token-cookie', async (_req, res) => {

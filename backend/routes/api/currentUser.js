@@ -31,6 +31,7 @@ router.get('/', restoreUser, async (req, res) => {
     const { user } = req;
 
     if(user){
+        res.status(200);
         return res.json({
             ...user.toSafeObject()
         })
