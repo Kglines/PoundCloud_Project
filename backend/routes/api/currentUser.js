@@ -1,6 +1,6 @@
 const express = require('express');
 const { Song, Album } = require('../../db/models');
-const { requireAuth } = require('../../utils/auth');
+const { requireAuth, restoreUser } = require('../../utils/auth');
 const router = express.Router();
 
 // GET all albums created by the current user
@@ -48,15 +48,20 @@ router.get('/songs', requireAuth, async (req, res) => {
 })
 
 // Get Current User
-router.get('/', requireAuth, async (req, res) => {
+router.get('/', requireAuth , async (req, res) => {
     const { user } = req;
 
     if(user){
-        res.status(200).json({
-            ...user.toSafeObject()
-        })
+        res.status(200);
+        res.json({
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            username: user.username,
+        });
     } else {
-        return res.json({})
+        res.json({})
     }
 })
 
