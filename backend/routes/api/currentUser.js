@@ -1,5 +1,5 @@
 const express = require('express');
-const { Song, Album } = require('../../db/models');
+const { Song, Album, User } = require('../../db/models');
 const { requireAuth, restoreUser } = require('../../utils/auth');
 const router = express.Router();
 

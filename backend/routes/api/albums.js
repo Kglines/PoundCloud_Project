@@ -19,6 +19,11 @@ router.post('/', [requireAuth, validateAlbum], async (req, res) => {
     res.json(album);
 })
 
+// EDIT an Album
+router.put('/:albumId', requireAuth, async (req, res) => {
+    
+})
+
 // GET details of an Album from an id
 router.get('/:albumId', async (req, res) => {
     const { albumId } = req.params;
