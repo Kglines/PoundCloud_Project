@@ -1,6 +1,6 @@
 const express = require('express');
 const { Song, Album, User } = require('../../db/models');
-const { requireAuth, restoreUser } = require('../../utils/auth');
+const { requireAuth, restoreUser, setTokenCookie } = require('../../utils/auth');
 const router = express.Router();
 
 // GET all albums created by the current user
@@ -50,18 +50,20 @@ router.get('/songs', requireAuth, async (req, res) => {
 // Get Current User
 router.get('/', requireAuth , async (req, res) => {
     const { user } = req;
+    const jToken = await setTokenCookie(res, user);
+    const currentUser = await User.findOne({
+        where: {
+            id: req.user.id
+        },
+        attributes: ["id", "firstName", "lastName", "email"]
+    });
 
-    if(user){
-        res.status(200);
-        res.json({
-            id: user.id,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            username: user.username,
-        });
+    if(currentUser){
+        currentUser.dataValues.token = jToken;
+        return res.json(currentUser)
     } else {
-        res.json({})
+        currentUser.dataValues.token = "";
+        return res.json({})
     }
 })
 
