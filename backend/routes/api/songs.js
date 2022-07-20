@@ -103,7 +103,19 @@ router.delete('/:songId', requireAuth, async (req, res) => {
 
 // GET all songs
 router.get('/', async (req, res) => {
-    const songs = await Song.findAll();
+    const songs = await Song.findAll({
+        attributes: [
+            "id",
+            "userId",
+            "albumId",
+            "title",
+            "description",
+            "url",
+            "createdAt",
+            "updatedAt",
+            "previewImage"
+        ]
+    });
 
     res.json(songs);
 });
