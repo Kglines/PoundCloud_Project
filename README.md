@@ -2,8 +2,8 @@
 
 ## Database Schema Design
 
+<img src='./images/db.png'>
 
-`<insert database schema design here>`
 
 ## API Documentation
 
