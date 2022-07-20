@@ -13,27 +13,30 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-   return queryInterface.bulkInsert('Users', [
+   await queryInterface.bulkInsert('Users', [
     {
       firstName: 'Demo',
       lastName: 'lition',
       email: 'demo@user.io',
       username: 'Demo-lition',
-      hashedPassword: bcrypt.hashSync('password')
+      hashedPassword: bcrypt.hashSync('password'),
+      previewImage: 'www.image.com'
     },
     {
       firstName: 'Fake1',
       lastName: 'User1',
       email: 'user1@user.io',
       username: 'FakeUser1',
-      hashedPassword: bcrypt.hashSync('password2')
+      hashedPassword: bcrypt.hashSync('password2'),
+      previewImage: 'www.image.com'
     },
     {
       firstName: 'Fake2',
       lastName: 'User2',
       email: 'user2@user.io',
       username: 'FakeUser2',
-      hashedPassword: bcrypt.hashSync('password3')
+      hashedPassword: bcrypt.hashSync('password3'),
+      previewImage: 'www.image.com'
     }
    ], {})
   },
@@ -45,39 +48,10 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    return queryInterface.bulkDelete('Users', {
+    await queryInterface.bulkDelete('Users', {
       username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
     }, {})
   }
 };
-
-// 'use strict';
-
-// module.exports = {
-//   async up (queryInterface, Sequelize) {
-//     /**
-//      * Add altering commands here.
-//      *
-//      * Example:
-//      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-//      */
-
-//     await queryInterface.addColumn('Users', 'firstName', { type: Sequelize.STRING(50), allowNull: false }),
-//     await queryInterface.addColumn('Users', 'lastName', { type: Sequelize.STRING(50), allowNull: false }),
-//     await queryInterface.addColumn('Users', 'previewImage', { type: Sequelize.STRING(100) })
-//   },
-
-//   async down (queryInterface, Sequelize) {
-//     /**
-//      * Add reverting commands here.
-//      *
-//      * Example:
-//      * await queryInterface.dropTable('users');
-//      */
-//     await queryInterface.removeColumn('Users', 'firstName'),
-//     await queryInterface.removeColumn('Users', 'lastName'),
-//     await queryInterface.removeColumn('Users', 'previewImage')
-//   }
-// };
 
 

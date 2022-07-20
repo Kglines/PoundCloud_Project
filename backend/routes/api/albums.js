@@ -21,7 +21,7 @@ router.post('/', [requireAuth, validateAlbum], async (req, res) => {
 
 // EDIT an Album
 router.put('/:albumId', requireAuth, async (req, res) => {
-    
+
 })
 
 // GET details of an Album from an id
@@ -36,7 +36,8 @@ router.get('/:albumId', async (req, res) => {
             "createdAt",
             "updatedAt",
             "previewImage"
-        ],include: [
+        ],
+        include: [
             {
                 model: User,
                 as: 'Artist',
