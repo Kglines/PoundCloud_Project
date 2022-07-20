@@ -15,7 +15,7 @@ router.get('/:songId/comments', async (req, res) => {
                     {
                         model: User,
                         attributes: [
-                            "id", "userName"
+                            "id", "username"
                         ]
                     }
                 ]
