@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Playlist, Song } = require('../../db/models/');
+const { requireAuth } = require('../../utils/auth');
 
 router.get('/:playlistId', async (req, res) => {
     const { playlistId } = req.params;
@@ -39,6 +40,20 @@ router.get('/:playlistId', async (req, res) => {
     }
 
     res.json(playlist)
+})
+
+// Create a Playlist
+router.post('/', requireAuth, async (req, res) => {
+    const { user } = req;
+    const { name, imageUrl } = req.body;
+
+    const playlist = await Playlist.create({
+        userId: user.id,
+        name,
+        imageUrl
+    })
+    res.status(201);
+    res.json(playlist);
 })
 
 module.exports = router;

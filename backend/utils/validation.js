@@ -89,6 +89,14 @@ const validateComment = [
   handleValidationErrors
 ]
 
+// Playlist Validation
+const validatePlaylist = [
+  check('name')
+    .exists({ checkFalsy: true })
+    .withMessage('Playlist name is required'),
+  handleValidationErrors
+]
+
 module.exports = {
   handleValidationErrors,
   validateLogin,
