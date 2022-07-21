@@ -168,7 +168,7 @@ router.delete('/:songId', requireAuth, async (req, res) => {
             throw error;
         }
     } else {
-        const error = new Error("Song not found");
+        const error = new Error("Song couldn't be found");
         error.status = 404;
         throw error
     }
