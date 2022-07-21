@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       
       const { id, firstName, lastName, email, username } = this; // context will be the User instance
       
-      return { id, firstName, lastName, email, username };
+      return { id, firstName, lastName, email };
     }
 
     validatePassword(password){
@@ -110,9 +110,8 @@ module.exports = (sequelize, DataTypes) => {
         attributes: { exclude: ['hashedPassword'] }
       },
       loginUser: {
-        attributes: { include: ['firstName', 'lastName', 'username', 'email'] }
+        attributes: { include: ['firstName', 'lastName', 'email' ]}
+      },
       }
-    }
   });
-  return User;
 };
