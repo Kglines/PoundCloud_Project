@@ -4,6 +4,31 @@ const { requireAuth } = require('../../utils/auth');
 const { validateAlbum } = require('../../utils/validation')
 const router = express.Router();
 
+// Create a song for an Album based on the Album's id
+router.post('/:albumId/song', requireAuth, async (req, res) => {
+    const { albumId } = req.params;
+    const { title, description, imageUrl, url } = req.body;
+    const { user } = req;
+    const album = await Album.findByPk(albumId);
+
+    if(album){
+        const newSong = await Song.create({
+            userId: user.id,
+            albumId,
+            title,
+            description,
+            url,
+            previewImage: imageUrl,
+        })
+        res.status(201);
+        res.json(newSong); 
+    } else {
+        const error = new Error("Album couldn't be found");
+        error.status = 404;
+        throw error;
+    }
+
+})
 
 // Create an Album
 router.post('/', [requireAuth, validateAlbum], async (req, res) => {
