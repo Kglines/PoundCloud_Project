@@ -1,6 +1,7 @@
 
 const express = require('express');
 const { Song, Album, User, Comment } = require('../../db/models')
+const { validateSong } = require('../../utils/validation');
 const { requireAuth } = require('../../utils/auth');
 const router = express.Router();
 
