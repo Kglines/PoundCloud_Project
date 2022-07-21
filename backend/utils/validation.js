@@ -68,7 +68,8 @@ const validateSong = [
   check('url')
     .exists({ checkFalsy: true })
     .notEmpty()
-    .withMessage('Audio is required')
+    .withMessage('Audio is required'),
+    handleValidationErrors
 ]
 
 // Album Validation
