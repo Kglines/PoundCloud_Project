@@ -33,9 +33,6 @@ module.exports = (sequelize, DataTypes) => {
     previewImage: {
       type: DataTypes.STRING
     },
-    artistId: {
-      type: DataTypes.INTEGER
-    },
     userId: {
       type: DataTypes.INTEGER
     }

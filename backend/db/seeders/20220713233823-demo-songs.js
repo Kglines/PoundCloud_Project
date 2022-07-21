@@ -16,7 +16,6 @@ module.exports = {
    await queryInterface.bulkInsert('Songs', [
     {
       userId: 1,
-      artistId: 1,
       albumId: 1,
       title: 'Title1',
       description: 'Description1',
@@ -25,7 +24,6 @@ module.exports = {
     },
     {
       userId: 2,
-      artistId: 2,
       albumId: 2,
       title: 'Title2',
       description: 'Description2',
@@ -34,7 +32,6 @@ module.exports = {
     },
     {
       userId: 3,
-      artistId: 3,
       albumId: 3,
       title: 'Title3',
       description: 'Description3',

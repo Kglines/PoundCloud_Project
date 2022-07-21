@@ -16,14 +16,6 @@ module.exports = {
           key: 'id'
         }
       },
-      artistId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id'
-        }
-      },
       albumId: {
         allowNull: false,
         type: Sequelize.INTEGER,
