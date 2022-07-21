@@ -66,21 +66,11 @@ router.get('/:artistId', async (req, res) => {
         ]
     });
 
-    const totalSongs = await Song.count({ where: 
-            { 
-                userId: artistId
-            }
-        }
-    );
-    const totalAlbums = await Album.count({ where: 
-            {
-                userId: artistId
-            }
-        }
-    );
+    const totalSongs = await Song.count({ where: { userId: artistId }});
+    const totalAlbums = await Album.count({ where: { userId: artistId }});
 
     if(artist){
-        res.json({artist, totalSongs, totalAlbums})
+        res.json({...artist.dataValues, totalSongs, totalAlbums})
     } else {
         const error = new Error("Artist couldn't be found");
         error.status = 404;
