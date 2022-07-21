@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Playlist, Song } = require('../../db/models/');
 const { requireAuth } = require('../../utils/auth');
+const { validatePlaylist } = require('../../utils/validation')
 
 router.get('/:playlistId', async (req, res) => {
     const { playlistId } = req.params;
@@ -43,7 +44,7 @@ router.get('/:playlistId', async (req, res) => {
 })
 
 // Create a Playlist
-router.post('/', requireAuth, async (req, res) => {
+router.post('/', [requireAuth, validatePlaylist], async (req, res) => {
     const { user } = req;
     const { name, imageUrl } = req.body;
 
