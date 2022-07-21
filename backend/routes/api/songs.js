@@ -122,7 +122,7 @@ router.get('/', async (req, res) => {
 });
 
 // Edit a song
-router.put('/:songId', [requireAuth, validateSong], async (req, res) => {
+router.put('/:songId', requireAuth, validateSong, async (req, res) => {
     const { user } = req;
     const { songId } = req.params;
     const { title, description, url, imageUrl } = req.body;
