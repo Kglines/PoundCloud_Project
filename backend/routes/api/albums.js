@@ -60,7 +60,7 @@ router.put('/:albumId', [requireAuth, validateAlbum], async (req, res) => {
 
     if(album){
         if(album.userId === user.id){
-            await Album.update({
+            await album.update({
                 title,
                 description,
                 imageUrl
