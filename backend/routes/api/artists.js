@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const { Artist, User, Song, Album } = require('../../db/models');
+const { User, Song, Album } = require('../../db/models');
 
 // GET all Albums of an Artist based on the Artist's id
 router.get('/:artistId/albums', async (req, res) => {
     const { artistId } = req.params;
-    const artist = await Artist.findByPk(artistId);
+    const artist = await User.findByPk(artistId);
 
     if(artist){
         const albums = await Album.findAll({
