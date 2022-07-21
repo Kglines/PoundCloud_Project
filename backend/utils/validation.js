@@ -81,10 +81,19 @@ const validateAlbum = [
   handleValidationErrors
 ]
 
+// Comment Validation
+const validateComment = [
+  check('body')
+    .exists({ checkFalsy: true })
+    .withMessage("Comment body text is required"),
+  handleValidationErrors
+]
+
 module.exports = {
   handleValidationErrors,
   validateLogin,
   validateSignup,
   validateSong,
-  validateAlbum
+  validateAlbum, 
+  validateComment
 };

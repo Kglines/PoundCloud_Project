@@ -1,7 +1,7 @@
 
 const express = require('express');
 const { Song, Album, User, Comment } = require('../../db/models')
-const { validateSong } = require('../../utils/validation');
+const { validateSong, validateComment } = require('../../utils/validation');
 const { requireAuth } = require('../../utils/auth');
 const router = express.Router();
 
@@ -76,32 +76,6 @@ router.get('/:songId', requireAuth, async (req, res) => {
     }
 })
 
-// Delete a song
-router.delete('/:songId', requireAuth, async (req, res) => {
-    const { user } = req;
-    const { songId } = req.params;
-
-    const song = await Song.findByPk(songId);
-
-    if(song){
-        if(song.userId === user.id){
-            await song. destroy();
-            res.json({
-                message: "Successfully deleted",
-                statusCode: 200
-            })
-        } else {
-            const error = new Error("Unauthorized");
-            error.status = 403;
-            throw error;
-        }
-    } else {
-        const error = new Error("Song not found");
-        error.status = 404;
-        throw error
-    }
-})
-
 // GET all songs
 router.get('/', async (req, res) => {
     const songs = await Song.findAll({
@@ -120,6 +94,30 @@ router.get('/', async (req, res) => {
 
     res.json(songs);
 });
+
+// Create a Comment for a song based on the Song's id
+router.post('/:songId/comments', [requireAuth, validateComment], async (req, res) => {
+    const { user } = req;
+    const { songId } = req.params;
+    const { body } = req.body;
+
+    const song = await Song.findByPk(songId);
+
+    if(song){
+        const comment = await Comment.create({
+            body,
+            songId,
+            userId: user.id
+        });
+        res.json(comment);
+    } else {
+        const error = new Error("Song couldn't be found")
+        error.status = 404;
+        throw error;
+    }
+
+
+})
 
 // Edit a song
 router.put('/:songId', [requireAuth, validateSong], async (req, res) => {
@@ -147,6 +145,32 @@ router.put('/:songId', [requireAuth, validateSong], async (req, res) => {
         const error = new Error("Song couldn't be found")
         error.status = 404;
         throw error;
+    }
+});
+
+// Delete a song
+router.delete('/:songId', requireAuth, async (req, res) => {
+    const { user } = req;
+    const { songId } = req.params;
+
+    const song = await Song.findByPk(songId);
+
+    if(song){
+        if(song.userId === user.id){
+            await song. destroy();
+            res.json({
+                message: "Successfully deleted",
+                statusCode: 200
+            })
+        } else {
+            const error = new Error("Unauthorized");
+            error.status = 403;
+            throw error;
+        }
+    } else {
+        const error = new Error("Song not found");
+        error.status = 404;
+        throw error
     }
 })
 
