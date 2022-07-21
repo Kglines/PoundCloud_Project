@@ -51,7 +51,7 @@ router.post('/', [requireAuth, validatePlaylist], async (req, res) => {
     const playlist = await Playlist.create({
         userId: user.id,
         name,
-        imageUrl
+        previewImage: imageUrl
     })
     res.status(201);
     res.json(playlist);
