@@ -64,7 +64,6 @@ const validateLogin = [
 const validateSong = [
   check('title')
     .exists({ checkFalsy: true })
-    .notEmpty()
     .withMessage('Song title is required'),
   check('url')
     .exists({ checkFalsy: true })
