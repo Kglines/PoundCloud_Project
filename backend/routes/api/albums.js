@@ -63,7 +63,7 @@ router.put('/:albumId', [requireAuth, validateAlbum], async (req, res) => {
             await album.update({
                 title,
                 description,
-                imageUrl
+                previewImage: imageUrl
             });
             res.json(album)
         } else {
