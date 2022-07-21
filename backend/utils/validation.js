@@ -60,6 +60,18 @@ const validateLogin = [
   handleValidationErrors
 ];
 
+// Song Validation
+const validateSong = [
+  check('title')
+    .exists({ checkFalsy: true })
+    .notEmpty()
+    .withMessage('Song title is required'),
+  check('url')
+    .exists({ checkFalsy: true })
+    .notEmpty()
+    .withMessage('Audio is required')
+]
+
 // Album Validation
 const validateAlbum = [
   check('title')
@@ -73,5 +85,6 @@ module.exports = {
   handleValidationErrors,
   validateLogin,
   validateSignup,
+  validateSong,
   validateAlbum
 };
