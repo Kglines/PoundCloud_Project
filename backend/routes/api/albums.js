@@ -51,7 +51,31 @@ router.post('/', [requireAuth, validateAlbum], async (req, res) => {
 })
 
 // EDIT an Album
-router.put('/:albumId', requireAuth, async (req, res) => {
+router.put('/:albumId', [requireAuth, validateAlbum], async (req, res) => {
+    const { user } = req;
+    const { albumId } = req.params;
+    const { title, description, imageUrl } = req.body;
+
+    const album = await Album.findByPk(albumId);
+
+    if(album){
+        if(album.userId === user.id){
+            const album = await Album.update({
+                title,
+                description,
+                imageUrl
+            });
+            res.json(album)
+        } else {
+            const error = new Error("Unauthorized");
+            error.status = 403;
+            throw error;
+        }
+    } else {
+        const error = new Error("Album couldn't be found")
+        error.status = 404;
+        throw error;
+    }
 
 })
 
