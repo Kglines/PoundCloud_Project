@@ -143,6 +143,10 @@ router.put('/:songId', [requireAuth, validateSong], async (req, res) => {
             error.status = 403;
             throw error;
         }
+    } else {
+        const error = new Error("Song couldn't be found")
+        error.status = 404;
+        throw error;
     }
 })
 
