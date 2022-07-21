@@ -103,5 +103,6 @@ module.exports = {
   validateSignup,
   validateSong,
   validateAlbum, 
-  validateComment
+  validateComment,
+  validatePlaylist
 };
