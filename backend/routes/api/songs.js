@@ -120,4 +120,29 @@ router.get('/', async (req, res) => {
     res.json(songs);
 });
 
+// Edit a song
+router.put('/:songId', [requireAuth, validateSong], async (req, res) => {
+    const { user } = req;
+    const { songId } = req.params;
+    const { title, description, url, imageUrl } = req.body;
+
+    const song = await Song.findByPk(songId);
+
+    if(song){
+        if(song.userId === user.id){
+            await song.update({
+                title,
+                description,
+                url,
+                imageUrl
+            })
+            res.json(song);
+        } else {
+            const error = new Error("Unauthorized");
+            error.status = 403;
+            throw error;
+        }
+    }
+})
+
 module.exports = router;
