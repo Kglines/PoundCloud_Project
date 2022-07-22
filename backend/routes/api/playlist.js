@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Playlist, Song } = require('../../db/models/');
+const { Playlist, Song, PlaylistSong } = require('../../db/models/');
 const { requireAuth } = require('../../utils/auth');
 const { validatePlaylist } = require('../../utils/validation')
 
@@ -41,6 +41,40 @@ router.get('/:playlistId', async (req, res) => {
     }
 
     res.json(playlist)
+})
+
+// Add a Song to a Playlist based on the Playlist's id
+router.post('/:playlistId', requireAuth, async (req, res) => {
+    const { user } = req;
+    const { playlistId } = req.params;
+    const { songId } = req.body;
+
+    const playlist = await Playlist.findByPk(playlistId);
+    const song = await Song.findByPk(songId);
+
+    if(playlist){
+        if(song){
+            if(playlist.userId === user.id){
+                const playlistSong = await PlaylistSong.create({
+                    playlistId,
+                    songId
+                })
+                res.json(playlistSong);
+            } else {
+                const error = new Error("Unauthorized");
+                error.status = 403;
+                throw error;
+            }
+        } else {
+            const error = new Error("Song couldn't be found");
+            error.status = 404;
+            throw error;
+        }
+    } else {
+        const error = new Error("Playlist couldn't be found");
+        error.status = 404;
+        throw error;
+    }
 })
 
 // Create a Playlist
