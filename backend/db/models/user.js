@@ -58,7 +58,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Album, { foreignKey: 'userId' });
       User.hasMany(models.Song, { foreignKey: 'userId' });
-      
+      User.hasMany(models.Playlist, { foreignKey: 'userId' });
     }
   }
   User.init({
