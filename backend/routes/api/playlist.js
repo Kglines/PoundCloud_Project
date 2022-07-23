@@ -1,3 +1,4 @@
+const e = require('express');
 const express = require('express');
 const router = express.Router();
 const { Playlist, Song, PlaylistSong } = require('../../db/models/');
@@ -139,6 +140,32 @@ router.put('/:playlistId', [requireAuth, validatePlaylist], async (req, res) => 
 
 /******** DELETE ********/
 
+// Delete a playlist
+router.delete('/:playlistId', requireAuth, async (req, res) => {
+    const { user } = req;
+    const { playlistId } = req.params;
+
+    const playlist = await Playlist.findByPk(playlistId);
+
+    if(playlist){
+        if(playlist.userId === user.id){
+            await playlist.destroy();
+
+            res.json({
+                message: "Successfully deleted",
+                statusCode: 200
+            })
+        } else {
+            const error = new Error("Unauthorized");
+            error.status = 403;
+            throw error;
+        }
+    } else {
+        const error = new Error("Playlist couldn't be found");
+        error.status = 404;
+        throw error;
+    }
+})
 
 
 module.exports = router;
