@@ -1,6 +1,6 @@
 const express = require('express');
 const { Song, Album, User, Playlist } = require('../../db/models');
-const { requireAuth, restoreUser, setTokenCookie } = require('../../utils/auth');
+const { requireAuth, setTokenCookie } = require('../../utils/auth');
 const router = express.Router();
 
 /******************** GET ********************/

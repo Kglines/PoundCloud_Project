@@ -1,4 +1,3 @@
-
 const express = require('express');
 const { Song, Album, User, Comment } = require('../../db/models')
 const { validateSong, validateComment, validateQuery } = require('../../utils/validation');
