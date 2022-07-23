@@ -56,7 +56,6 @@ router.post('/:playlistId', requireAuth, async (req, res) => {
         if(song){
             if(playlist.userId === user.id){
                 const newPlaylistSong = await PlaylistSong.create({
-                    id: song.id,
                     playlistId,
                     songId
                 });
