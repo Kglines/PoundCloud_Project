@@ -55,10 +55,21 @@ router.post('/:playlistId', requireAuth, async (req, res) => {
     if(playlist){
         if(song){
             if(playlist.userId === user.id){
-                const playlistSong = await PlaylistSong.create({
+                const newPlaylistSong = await PlaylistSong.create({
                     id: song.id,
                     playlistId,
                     songId
+                });
+                const playlistSong = await PlaylistSong.findOne({
+                    where: {
+                        playlist,
+                        songId
+                    },
+                    attributes: [
+                        "id",
+                        "playlistId",
+                        "songId"
+                    ]
                 })
                 res.json(playlistSong);
             } else {
