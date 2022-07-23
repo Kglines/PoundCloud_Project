@@ -88,7 +88,7 @@ router.get('/', validateQuery, async (req, res) => {
     if(Number.isNaN(size)) size = 2;
 
     if(page < 0) page = 0;
-    if(page > 10) page = 0;
+    if(page > 10) page = 10;
 
     if(size < 0) size = 0;
     if(size > 20) size = 20;
