@@ -133,5 +133,32 @@ router.get('/', async (req, res) => {
     res.json(albums);
 })
 
+// Delete an Album
+router.delete('/:albumId', requireAuth, async (req, res) => {
+    const { user } = req;
+    const { albumId } = req.params;
+
+    const album = await Album.findByPk(albumId);
+
+    if(album){
+        if(album.userId === user.id){
+            await album.destroy();
+
+            res.json({
+                message: "Successfully deleted",
+                statusCode: 200
+            })
+        } else {
+            const error = new Error("Unauthorized");
+            error.status = 403;
+            throw error;
+        }
+    } else {
+        const error = new Error("Album couldn't be found");
+        error.status = 404;
+        throw error;
+    }
+})
+
 
 module.exports = router;
