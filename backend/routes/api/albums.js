@@ -56,8 +56,8 @@ router.get('/:albumId', async (req, res) => {
 
 // Gets all albums
 router.get('/', async (req, res) => {
-    const albums = await Album.findAll();
-    res.json(albums);
+    const Albums = await Album.findAll();
+    res.json({ Albums });
 })
 
 /******************** POST ********************/

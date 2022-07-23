@@ -8,7 +8,7 @@ const router = express.Router();
 // GET all albums created by the current user
 router.get('/albums', requireAuth, async (req, res) => {
     const { user } = req;
-    const albums = await Album.findAll({
+    const Albums = await Album.findAll({
         where: {
             userId: user.id
         },
@@ -22,14 +22,14 @@ router.get('/albums', requireAuth, async (req, res) => {
             "previewImage"
         ]
     });
-    res.json(albums);
+    res.json({ Albums });
 })
 
 // GET all Playlists created by the current user
 router.get('/playlists', requireAuth, async (req, res) => {
     const { user } = req;
 
-    const playlists = await Playlist.findAll({
+    const Playlists = await Playlist.findAll({
         where: {
             userId: user.id
         },
@@ -42,14 +42,14 @@ router.get('/playlists', requireAuth, async (req, res) => {
             "previewImage"
         ]
     })
-    res.json(playlists);
+    res.json({ Playlists });
 })
 
 // GET all songs by currentUser
 router.get('/songs', requireAuth, async (req, res) => {
     const { user } = req;
     
-    const songs = await Song.findAll({
+    const Songs = await Song.findAll({
         where: {
             userId: user.id
         },
@@ -66,7 +66,7 @@ router.get('/songs', requireAuth, async (req, res) => {
         ]
     })
     
-    res.json(songs);
+    res.json({ Songs });
 })
 
 // Get Current User

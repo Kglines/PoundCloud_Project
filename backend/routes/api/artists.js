@@ -11,7 +11,7 @@ router.get('/:artistId/albums', async (req, res) => {
     const artist = await User.findByPk(artistId);
 
     if(artist){
-        const albums = await Album.findAll({
+        const Albums = await Album.findAll({
             where: { userId: artistId },
             attributes: [
                 "id",
@@ -23,7 +23,7 @@ router.get('/:artistId/albums', async (req, res) => {
                 "previewImage"
             ]
         })
-        res.json(albums)
+        res.json({ Albums })
     } else {
         const error = new Error("Artist couldn't be found");
         error.status = 404;
@@ -37,7 +37,7 @@ router.get('/:artistId/playlists', async (req, res) => {
     const artist = await User.findByPk(artistId);
 
     if(artist){
-        const playlists = await Playlist.findAll({
+        const Playlists = await Playlist.findAll({
             where: { userId: artistId },
             attributes: [
                 "id",
@@ -48,7 +48,8 @@ router.get('/:artistId/playlists', async (req, res) => {
                 "previewImage"
             ]
         });
-        res.json(playlists)
+        res.json({ Playlists })
+        // res.json({ Playlists: artist.Playlists })
     } else {
         const error = new Error("Artist couldn't be found");
         error.status = 404;
@@ -62,7 +63,7 @@ router.get('/:artistId/songs', async (req, res) => {
     const artist = await User.findByPk(artistId);
 
     if(artist){
-        const songs = await Song.findAll({
+        const Songs = await Song.findAll({
             where: { userId: artistId },
             attributes: [
                 "id",
@@ -76,7 +77,7 @@ router.get('/:artistId/songs', async (req, res) => {
                 "previewImage"
             ]
         })
-        res.json(songs);
+        res.json({ Songs });
     } else {
         const error = new Error("Artist couldn't be found");
         error.status = 404;

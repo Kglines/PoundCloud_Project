@@ -93,7 +93,7 @@ router.get('/', validateQuery, async (req, res) => {
     if(size < 0) size = 0;
     if(size > 20) size = 20;
 
-    const songs = await Song.findAll({
+    const Songs = await Song.findAll({
         attributes: [
             "id",
             "userId",
@@ -109,7 +109,7 @@ router.get('/', validateQuery, async (req, res) => {
         offset: size * (page - 1)
     });
     
-    res.json({ songs, page, size });
+    res.json({ Songs, page, size });
 });
 
 /******************** POST ********************/
