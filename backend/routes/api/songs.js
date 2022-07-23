@@ -109,7 +109,11 @@ router.get('/', validateQuery, async (req, res) => {
         offset: size * (page - 1)
     });
     
-    res.json({ Songs, page, size });
+    res.json({ 
+        Songs, 
+        page, 
+        size 
+    });
 });
 
 /******************** POST ********************/
