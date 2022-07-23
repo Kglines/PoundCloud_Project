@@ -1,5 +1,5 @@
 const express = require('express');
-const { Song, Album, User } = require('../../db/models');
+const { Song, Album, User, Playlist } = require('../../db/models');
 const { requireAuth, restoreUser, setTokenCookie } = require('../../utils/auth');
 const router = express.Router();
 
@@ -21,6 +21,26 @@ router.get('/albums', requireAuth, async (req, res) => {
         ]
     });
     res.json(albums);
+})
+
+// GET all Playlists created by the current user
+router.get('/playlists', requireAuth, async (req, res) => {
+    const { user } = req;
+
+    const playlists = await Playlist.findAll({
+        where: {
+            userId: user.id
+        },
+        attributes: [
+            "id",
+            "userId",
+            "name",
+            "createdAt",
+            "updatedAt",
+            "previewImage"
+        ]
+    })
+    res.json(playlists);
 })
 
 // GET all songs by currentUser
