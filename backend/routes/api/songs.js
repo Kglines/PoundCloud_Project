@@ -1,7 +1,7 @@
 
 const express = require('express');
 const { Song, Album, User, Comment } = require('../../db/models')
-const { validateSong, validateComment } = require('../../utils/validation');
+const { validateSong, validateComment, validateQuery } = require('../../utils/validation');
 const { requireAuth } = require('../../utils/auth');
 const router = express.Router();
 
@@ -77,7 +77,19 @@ router.get('/:songId', requireAuth, async (req, res) => {
 })
 
 // GET all songs
-router.get('/', async (req, res) => {
+router.get('/', validateQuery, async (req, res) => {
+    let page = parseInt(req.query.page, 10);
+    let size = parseInt(req.query.size, 10);
+
+    if(Number.isNaN(page)) page = 0;
+    if(Number.isNaN(size)) size = 2;
+
+    if(page < 0) page = 0;
+    if(page > 10) page = 0;
+
+    if(size < 0) size = 0;
+    if(size > 20) size = 20;
+
     const songs = await Song.findAll({
         attributes: [
             "id",
@@ -89,10 +101,12 @@ router.get('/', async (req, res) => {
             "createdAt",
             "updatedAt",
             "previewImage"
-        ]
+        ],
+        limit: size,
+        offset: size * (page - 1)
     });
-
-    res.json(songs);
+    
+    res.json({ songs, page, size });
 });
 
 // Create a Comment for a song based on the Song's id

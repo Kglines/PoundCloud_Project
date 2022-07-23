@@ -1,4 +1,5 @@
 // backend/utils/validation.js
+const { query } = require('express');
 const { validationResult, check } = require('express-validator');
 
 
@@ -97,6 +98,20 @@ const validatePlaylist = [
   handleValidationErrors
 ]
 
+// Query Validation
+const validateQuery = [
+  check('page')
+    .optional({ checkFalsy: true })
+    .isInt({ min: 0 })
+    .withMessage('Page must be greater than or equal to 0'),
+  check('size')
+    .optional({ checkFalsy: true })
+    .isInt({ min: 0 })
+    .withMessage('Size must be greater than or equal to 0'),
+  handleValidationErrors
+  
+]
+
 module.exports = {
   handleValidationErrors,
   validateLogin,
@@ -104,5 +119,6 @@ module.exports = {
   validateSong,
   validateAlbum, 
   validateComment,
-  validatePlaylist
+  validatePlaylist,
+  validateQuery
 };

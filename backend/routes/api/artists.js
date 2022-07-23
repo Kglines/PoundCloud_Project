@@ -101,7 +101,6 @@ router.get('/:artistId', async (req, res) => {
         error.status = 404;
         throw error;
     }
-
 })
 
 module.exports = router;
