@@ -3,6 +3,8 @@ const { Song, Album, User, Playlist } = require('../../db/models');
 const { requireAuth, restoreUser, setTokenCookie } = require('../../utils/auth');
 const router = express.Router();
 
+/******************** GET ********************/
+
 // GET all albums created by the current user
 router.get('/albums', requireAuth, async (req, res) => {
     const { user } = req;

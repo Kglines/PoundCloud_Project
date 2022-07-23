@@ -6,6 +6,7 @@ const { setTokenCookie } = require('../../utils/auth');
 const { User } = require('../../db/models');
 const { validateSignup } = require('../../utils/validation');
 
+/******************** POST ********************/
 
 // Sign up
 router.post('/', validateSignup, async (req, res) => {

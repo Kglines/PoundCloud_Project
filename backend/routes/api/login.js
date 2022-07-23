@@ -6,7 +6,23 @@ const { validateLogin } = require('../../utils/validation');
 const { User } = require('../../db/models');
 const router = express.Router();
 
+/******************** GET ********************/
 
+// Restore session user
+router.get(
+  '/',
+  restoreUser,
+  (req, res) => {
+    const { user } = req;
+    if (user) {
+      return res.json({
+        user: user.toSafeObject()
+      });
+    } else return res.json({});
+  }
+);
+
+/******************** POST ********************/
 
 // Log in
 router.post(
@@ -42,18 +58,6 @@ router.delete(
   }
 );
 
-// Restore session user
-router.get(
-  '/',
-  restoreUser,
-  (req, res) => {
-    const { user } = req;
-    if (user) {
-      return res.json({
-        user: user.toSafeObject()
-      });
-    } else return res.json({});
-  }
-);
+
 
 module.exports = router;

@@ -11,6 +11,9 @@ router.get('/', async (req, res) => {
     res.json(comments);
 })
 
+
+/******************** PUT ********************/
+
 // Edit a Comment
 router.put('/:commentId', [requireAuth, validateComment], async (req, res) => {
     const { user } = req;
@@ -35,6 +38,8 @@ router.put('/:commentId', [requireAuth, validateComment], async (req, res) => {
         throw error;
     }
 })
+
+/******************** DELETE ********************/
 
 // Delete a Comment
 router.delete('/:commentId', requireAuth, async (req, res) => {

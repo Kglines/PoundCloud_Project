@@ -3,6 +3,8 @@ const router = express.Router();
 
 const { User, Song, Album, Playlist } = require('../../db/models');
 
+/******************** GET ********************/
+
 // GET all Albums of an Artist based on the Artist's id
 router.get('/:artistId/albums', async (req, res) => {
     const { artistId } = req.params;

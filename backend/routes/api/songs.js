@@ -5,6 +5,9 @@ const { validateSong, validateComment, validateQuery } = require('../../utils/va
 const { requireAuth } = require('../../utils/auth');
 const router = express.Router();
 
+
+/******************** GET ********************/
+
 // GET all comments by a Song's id
 router.get('/:songId/comments', async (req, res) => {
     const { songId } = req.params;
@@ -109,6 +112,8 @@ router.get('/', validateQuery, async (req, res) => {
     res.json({ songs, page, size });
 });
 
+/******************** POST ********************/
+
 // Create a Comment for a song based on the Song's id
 router.post('/:songId/comments', [requireAuth, validateComment], async (req, res) => {
     const { user } = req;
@@ -132,6 +137,8 @@ router.post('/:songId/comments', [requireAuth, validateComment], async (req, res
 
 
 })
+
+/******************** PUT ********************/
 
 // Edit a song
 router.put('/:songId', [requireAuth, validateSong], async (req, res) => {
@@ -161,6 +168,8 @@ router.put('/:songId', [requireAuth, validateSong], async (req, res) => {
         throw error;
     }
 });
+
+/******************** DELETE ********************/
 
 // Delete a song
 router.delete('/:songId', requireAuth, async (req, res) => {

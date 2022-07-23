@@ -5,7 +5,7 @@ const { Playlist, Song, PlaylistSong } = require('../../db/models/');
 const { requireAuth } = require('../../utils/auth');
 const { validatePlaylist } = require('../../utils/validation')
 
-/******** GET ********/
+/******************** GET ********************/
 
 // GET details of a Playlist from an id
 router.get('/:playlistId', async (req, res) => {
@@ -47,7 +47,7 @@ router.get('/:playlistId', async (req, res) => {
     res.json(playlist)
 })
 
-/******** POST ********/
+/******************** POST ********************/
 
 // Add a Song to a Playlist based on the Playlist's id
 router.post('/:playlistId', requireAuth, async (req, res) => {
@@ -108,7 +108,7 @@ router.post('/', [requireAuth, validatePlaylist], async (req, res) => {
     res.json(playlist);
 })
 
-/******** PUT ********/
+/******************** PUT ********************/
 
 // Edit a Playlist
 router.put('/:playlistId', [requireAuth, validatePlaylist], async (req, res) => {
@@ -138,7 +138,7 @@ router.put('/:playlistId', [requireAuth, validatePlaylist], async (req, res) => 
 })
 
 
-/******** DELETE ********/
+/******************** DELETE ********************/
 
 // Delete a playlist
 router.delete('/:playlistId', requireAuth, async (req, res) => {
