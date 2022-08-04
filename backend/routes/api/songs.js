@@ -183,7 +183,7 @@ router.delete('/:songId', requireAuth, async (req, res) => {
 
     if(song){
         if(song.userId === user.id){
-            await song. destroy();
+            await song.destroy();
             res.json({
                 message: "Successfully deleted",
                 statusCode: 200
