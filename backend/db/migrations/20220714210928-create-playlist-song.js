@@ -14,8 +14,7 @@ module.exports = {
         references: {
           model: 'Playlists',
           key: 'id'
-        },
-        onDelete: "CASCADE"
+        }
       },
       songId: {
         allowNull: false,
@@ -23,8 +22,7 @@ module.exports = {
         references: {
           model: 'Songs',
           key: 'id'
-        },
-        onDelete: "CASCADE"
+        }
       },
       createdAt: {
         allowNull: false,
