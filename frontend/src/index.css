@@ -1,0 +1,14 @@
+/* TODO Add site wide styles */
+* {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button {
+    background-color: orange;
+    color: white;
+}
+
+button:hover {
+    background-color: rgba(255, 165, 0, 0.9);
+}

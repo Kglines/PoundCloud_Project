@@ -1,0 +1,19 @@
+.song-page {
+    text-align: center;
+}
+
+.song-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px auto;
+    padding: 5px;
+    width: 200px;
+    border: 1px solid black;
+}
+
+.song-img {
+    
+    width: 200px;
+    height: 200px;
+}

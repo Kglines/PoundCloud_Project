@@ -1,0 +1,41 @@
+.navbar {
+    font-size: 10px;
+    background-color: black;
+    height: 30px;
+}
+
+.nav-items {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px auto;
+    padding: 5px;
+}
+
+.nav-links {
+    color: white;
+    
+}
+
+.nav-links:hover {
+    color: rgba(255, 255, 255, 0.9)
+}
+
+.profile-btn {
+   
+}
+
+.profile-dropdown {
+    color: white;
+    list-style: none;
+}
+
+.signup-link {
+    color: white;
+    padding-top: 5px;
+}
+
+.signup-link:hover {
+    color: rgba(255, 255, 255, 0.9)
+}
