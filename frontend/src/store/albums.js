@@ -4,8 +4,10 @@ import { csrfFetch } from './csrf';
 const GET_ALBUMS = 'albums/get';
 const CREATE_ALBUMS = 'albums/create';
 const EDIT_ALBUMS = 'albums/edit';
+const DELETE_ALBUMS = 'albums/delete';
 
 // Album Actions
+// Get albums
 export const getAlbums = (album) => {
     return {
         type: GET_ALBUMS,
@@ -13,6 +15,7 @@ export const getAlbums = (album) => {
     }
 }
 
+// Create albums
 export const createAlbum = (album) => {
     return {
         type: CREATE_ALBUMS,
@@ -20,6 +23,7 @@ export const createAlbum = (album) => {
     }
 }
 
+// Edit albums
 export const editAlbums = (album) => {
     return {
         type: EDIT_ALBUMS,
@@ -27,18 +31,28 @@ export const editAlbums = (album) => {
     }
 }
 
+// Delete albums
+export const deleteAlbums = (id) => {
+    return {
+        type: DELETE_ALBUMS,
+        payload: id
+    }
+}
+
 // Album Thunks
+
+// Get albums
 export const fetchAlbums = () => async dispatch => {
     const res = await csrfFetch('/api/albums');
 
     if(res.ok){
         const albums = await res.json();
         dispatch(getAlbums(albums.Albums));
-        console.log('albums', albums);
         return albums;
     }
 }
 
+// Create Albums thunk
 export const fetchCreateAlbums = (album) => async dispatch => {
     const res = await csrfFetch('/api/albums', {
       method: 'POST',
@@ -53,6 +67,7 @@ export const fetchCreateAlbums = (album) => async dispatch => {
     }
 }
 
+// Edit albums thunk
 export const fetchEditAlbums = (album) => async dispatch => {
     const res = await csrfFetch(`/albums/${album.id}`, {
       method: 'PUT',
@@ -63,6 +78,19 @@ export const fetchEditAlbums = (album) => async dispatch => {
     if(res.ok){
         const album = await res.json();
         dispatch(editAlbums(album));
+        return album;
+    }
+}
+
+// Delete albums thunk
+export const fetchDeleteAlbums = (albumId) => async dispatch => {
+    const res = await csrfFetch(`/api/albums/${albumId}`, {
+        method: 'DELETE'
+    })
+
+    if(res.ok){
+        const album = await res.json();
+        dispatch(deleteAlbums(album));
         return album;
     }
 }
@@ -81,6 +109,9 @@ const albumsReducer = (state = initialState, action) => {
         return newState;
     case EDIT_ALBUMS:
         newState = action.payload;
+        return newState;
+    case DELETE_ALBUMS:
+        delete newState[action.payload];
         return newState;
     default:
       return newState;

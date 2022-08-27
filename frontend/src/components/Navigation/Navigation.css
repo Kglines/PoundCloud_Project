@@ -7,15 +7,13 @@
 .nav-items {
     list-style: none;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
     margin: 10px auto;
     padding: 5px;
 }
 
 .nav-links {
     color: white;
-    
+    margin: 0 250px;
 }
 
 .nav-links:hover {
@@ -23,7 +21,7 @@
 }
 
 .profile-btn {
-   
+    
 }
 
 .profile-dropdown {

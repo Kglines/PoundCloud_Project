@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchAlbums } from '../../store/albums';
+import './Albums.css';
 
 function Albums() {
     const dispatch = useDispatch();
@@ -10,6 +11,7 @@ function Albums() {
     useEffect(() => {
       dispatch(fetchAlbums(albums));
     }, [dispatch]);
+    
   return (
     <>
       <h2>Albums</h2>

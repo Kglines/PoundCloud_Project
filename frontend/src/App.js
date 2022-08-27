@@ -31,6 +31,9 @@ function App() {
           <Route path='/songs'>
             <Songs />
           </Route>
+          <Route path='/songs/:songId'>
+            <SongDetails />
+          </Route>
           <Route path='/albums'>
             <Albums />
           </Route>
