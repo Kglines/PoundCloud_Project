@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import './LoginForm.css';
 
 function LoginForm() {
   const dispatch = useDispatch();
-  // const currentUser = useSelector(state => state.session);
+  const history = useHistory();
+
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
@@ -16,9 +19,11 @@ function LoginForm() {
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
-
       }
     );
+
+    if (errors.length === 0) history.push('/currentuser');
+
     return res;
   };
 
@@ -47,9 +52,12 @@ function LoginForm() {
           required
         />
       </label>
-      <button type='submit'>Log In</button>
+      <button type='submit' className='login-btn'>
+        Log In
+      </button>
     </form>
   );
 }
 
 export default LoginForm;
+

@@ -1,4 +1,13 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .login-btn {
     background-color: orange;
     color: white;
+    width: 75px;
+    height: 30px;
 }
