@@ -1,3 +1,4 @@
+// frontend/src/components/SignupFormPage/index.js
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -34,8 +35,8 @@ function SignupFormPage() {
   };
 
   return (
-    <form className='signup-form' onSubmit={handleSubmit}>
-      <ul className='form-errors'>
+    <form onSubmit={handleSubmit}>
+      <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
@@ -46,7 +47,6 @@ function SignupFormPage() {
           type='text'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder='Enter a valid email'
           required
         />
       </label>
@@ -56,7 +56,6 @@ function SignupFormPage() {
           type='text'
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder='Enter a username'
           required
         />
       </label>
@@ -66,7 +65,6 @@ function SignupFormPage() {
           type='text'
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
-          placeholder='Enter first name'
           required
         />
       </label>
@@ -76,7 +74,6 @@ function SignupFormPage() {
           type='text'
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
-          placeholder='Enter last name'
           required
         />
       </label>
@@ -86,7 +83,6 @@ function SignupFormPage() {
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder='Enter a password'
           required
         />
       </label>
@@ -96,7 +92,6 @@ function SignupFormPage() {
           type='password'
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          placeholder='Confirm your password'
           required
         />
       </label>

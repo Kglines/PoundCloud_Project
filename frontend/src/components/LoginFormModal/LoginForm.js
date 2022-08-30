@@ -1,13 +1,12 @@
+// frontend/src/components/LoginFormModal/LoginForm.js
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import './LoginForm.css';
 
 function LoginForm() {
+    const history = useHistory();
   const dispatch = useDispatch();
-  const history = useHistory();
-
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
@@ -21,9 +20,7 @@ function LoginForm() {
         if (data && data.errors) setErrors(data.errors);
       }
     );
-
-    if (errors.length === 0) history.push('/currentuser');
-
+      if(errors.length === 0) return history.push('/currentuser');
     return res;
   };
 
@@ -52,12 +49,9 @@ function LoginForm() {
           required
         />
       </label>
-      <button type='submit' className='login-btn'>
-        Log In
-      </button>
+      <button type='submit'>Log In</button>
     </form>
   );
 }
 
 export default LoginForm;
-
