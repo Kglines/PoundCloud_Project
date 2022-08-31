@@ -15,10 +15,11 @@ function CurrentUser() {
     const songList = [];
     const albumList = [];
 
-    songs.find(song => {
+    // It's not recognizing my user right away...do I need to make this async?
+    songs.forEach(song => {
         if(song.userId === user.id) songList.push(song)
     });
-    albums.find(album => {
+    albums.forEach(album => {
         if (album.userId === user.id) albumList.push(album)
     });
     
