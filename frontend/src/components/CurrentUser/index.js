@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { fetchAllSongs } from '../../store/songs';
 import { fetchAlbums } from '../../store/albums';
+import './CurrentUser.css';
 
 function CurrentUser() {
     const dispatch = useDispatch();
@@ -35,15 +36,18 @@ function CurrentUser() {
 
   return (
     <div>
-        <h2>{user.firstName}-{user.lastName}</h2>
-        <h3>Albums:</h3>
+        <h2 className='welcome-banner'>Welcome {user.username}!</h2>
+        <h3 className='user-albums'>{user.username}'s Albums: </h3>
         {albumList.map(album => (
-            <>
+            <div className='album-link-card'>
+            <NavLink className='album-links' key={album.id} to={`/albums/${album.id}`}>
                 <h4>{album.title}</h4>
                 <p>{album.description}</p>
-            </>
+            </NavLink>
+                <button>Edit</button>
+            </div>
         ))}
-        <h3>Songs</h3>
+        <h3>My Songs: </h3>
         {songList.map(song => (
             <>
                 <h4>{song.title}</h4>

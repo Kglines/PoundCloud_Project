@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 // Album Action Variables
 const GET_ALBUMS = 'albums/get';
+const GET_ALBUM = 'album/get'
 const CREATE_ALBUMS = 'albums/create';
 const EDIT_ALBUMS = 'albums/edit';
 const DELETE_ALBUMS = 'albums/delete';
@@ -14,6 +15,14 @@ export const getAlbums = (album) => {
     payload: album,
   };
 };
+
+// Get one album
+export const getAlbum = (album) => {
+  return {
+    type: GET_ALBUM,
+    payload: album
+  }
+}
 
 // Create albums
 export const createAlbum = (album) => {
@@ -41,7 +50,7 @@ export const deleteAlbums = (id) => {
 
 // Album Thunks
 
-// Get albums
+// Get all albums
 export const fetchAlbums = () => async (dispatch) => {
   const res = await csrfFetch('/api/albums');
 
@@ -51,6 +60,16 @@ export const fetchAlbums = () => async (dispatch) => {
     return albums;
   }
 };
+
+// Get one album thunk
+export const fetchAlbum = (albumId) => async (dispatch) => {
+  const res = await csrfFetch(`api/albums/${albumId}`)
+
+  if(res.ok){
+    const album = await res.json();
+    dispatch(getAlbum(album))
+  }
+}
 
 // Create Albums thunk
 export const fetchCreateAlbums = (album) => async (dispatch) => {

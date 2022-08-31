@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       
       const { id, firstName, lastName, email, username } = this; // context will be the User instance
       
-      return { id, firstName, lastName, email };
+      return { id, firstName, lastName, email, username };
     }
 
     validatePassword(password){

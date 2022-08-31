@@ -1,0 +1,5 @@
+.album-link-card {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+}
