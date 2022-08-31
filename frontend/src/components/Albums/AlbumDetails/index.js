@@ -1,12 +1,14 @@
 import React from 'react'
+import { useParams, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import './AlbumDetails.css';
 
 function AlbumDetails() {
+    
+
   return (
-    <>
-        <p>Image</p>
-        <h3>Title</h3>
-        <p>Description</p>
-    </>
+    <h2>Album Details</h2>
+
   )
 }
 

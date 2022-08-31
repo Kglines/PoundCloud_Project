@@ -1,13 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCreateAlbums } from '../../../store/albums';
+import { useHistory } from 'react-router-dom';
 import './CreateAlbum.css';
 
 function CreateAlbum() {
+    const dispatch = useDispatch();
+    const history = useHistory();
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [imageUrl, setImageUrl] = useState('');
 
+    // useEffect(() => {
+
+    // }, [])
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const payload = {
+            title,
+            description,
+            imageUrl
+        }
+        let createdAlbum = await dispatch(fetchCreateAlbums(payload));
+
+        if(createdAlbum){
+            setTitle('');
+            setDescription('');
+            setImageUrl('');
+        }
+        history.push(`/albums/${createdAlbum.id}`)
+    }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h2>Create an album</h2>
       <label>
         Title
@@ -30,7 +58,7 @@ function CreateAlbum() {
         />
       </label>
       <label>
-        Album art
+        Album Art
         <input
           type='text'
           value={imageUrl}
@@ -39,6 +67,7 @@ function CreateAlbum() {
           placeholder='Album art url'
         />
       </label>
+      <button>Submit</button>
     </form>
   );
 }

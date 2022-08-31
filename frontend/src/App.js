@@ -9,6 +9,7 @@ import CurrentUser from './components/CurrentUser';
 import Home from './components/Home';
 import Songs from './components/Songs';
 import Albums from './components/Albums';
+import AlbumDetails from './components/Albums/AlbumDetails';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path='/albums'>
             <Albums />
+          </Route>
+          <Route path='/albums/:albumId'>
+            <AlbumDetails />
           </Route>
         </Switch>
       )}
