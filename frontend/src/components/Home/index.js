@@ -27,7 +27,9 @@ function Home() {
         {albums.map(album => {
           return ( 
               <li>
-                <AlbumDetails />
+                <img src={album.previewImage} alt={album.title} />
+                <h2>{album.title}</h2>
+                <p>{album.description}</p>
               </li>
           )
         })}

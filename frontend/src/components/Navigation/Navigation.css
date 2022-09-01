@@ -1,0 +1,31 @@
+.navbar {
+    background-color: black;
+    height: 25px;
+    list-style: none;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 2fr 4fr 2fr 2fr;
+    grid-template-areas:
+        'home . my-btn profile-btn';
+}
+
+.item-1 {
+    grid-area: 'home';
+}
+
+.item-2 {
+    grid-area: 'my-btn';
+}
+
+.item-3 {
+    grid-area: 'profile-btn';
+}
+
+.home {
+    color: white;
+    text-decoration: none;
+}
+
+.home:hover{
+    text-decoration: underline;
+}

@@ -1,17 +1,23 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
+  const history = useHistory()
   const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = (
+      <>
+        <button className='my-btn' onClick={() => history.push('/currentuser')}>My Music</button>
+        <ProfileButton className='profile-btn' user={sessionUser} />
+      </>
+    )
   } else {
     sessionLinks = (
       <>
@@ -22,9 +28,9 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <ul>
+    <ul className='navbar'>
       <li>
-        <NavLink exact to='/'>
+        <NavLink className='home' exact to='/'>
           Home
         </NavLink>
         {isLoaded && sessionLinks}

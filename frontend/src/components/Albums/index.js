@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { fetchAlbums } from '../../store/albums';
 import AlbumDetails from './AlbumDetails';
 import './Albums.css';
@@ -17,25 +17,30 @@ function Albums() {
   }, [dispatch]);
 
   return (
-    <>
-      <h2>Albums</h2>
+    <div className='album-container'>
+      <h2 className='album-header'>Albums</h2>
       {albums.map((album) => (
-        <Link key={album.id} to={`/albums/${album.id}`}>
-          {/* <div>
-            <h3>{album.title}</h3>
-            <p>{album.description}</p>
-            <img src={album.previewImage} alt={album.title} />
-          </div> */}
-          <AlbumDetails />
-        </Link>
+        <div className='album-card'>
+          <NavLink
+            className='album-link'
+            key={album.id}
+            to={`/albums/${album.id}`}
+          >
+            <div className='album-banner'>
+              <img
+                className='album-img'
+                src={album.previewImage}
+                alt={album.title}
+              />
+              <h3 className='album-title'>{album.title}</h3>
+            </div>
+          </NavLink>
+          <p className='album-desc'>{album.description}</p>
+        </div>
       ))}
-      <button onClick={() => setShowCreateForm(true)}>Create Album</button>
-      {showCreateForm && (
-        
-          <CreateAlbum />
-        
-      )}
-    </>
+      <button className='create-album-btn' onClick={() => setShowCreateForm(true)}>Create Album</button>
+      {showCreateForm && <CreateAlbum />}
+    </div>
   );
 }
 

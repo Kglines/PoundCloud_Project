@@ -63,7 +63,7 @@ export const fetchAlbums = () => async (dispatch) => {
 
 // Get one album thunk
 export const fetchAlbum = (albumId) => async (dispatch) => {
-  const res = await csrfFetch(`api/albums/${albumId}`)
+  const res = await csrfFetch(`/api/albums/${albumId}`)
 
   if(res.ok){
     const album = await res.json();
@@ -88,7 +88,7 @@ export const fetchCreateAlbums = (album) => async (dispatch) => {
 
 // Edit albums thunk
 export const fetchEditAlbums = (album) => async (dispatch) => {
-  const res = await csrfFetch(`/albums/${album.id}`, {
+  const res = await csrfFetch(`/api/albums/${album.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(album),
@@ -121,6 +121,9 @@ const albumsReducer = (state = initialState, action) => {
   let newState = { ...state };
   switch (action.type) {
     case GET_ALBUMS:
+      newState = action.payload;
+      return newState;
+    case GET_ALBUM:
       newState = action.payload;
       return newState;
     case CREATE_ALBUMS:

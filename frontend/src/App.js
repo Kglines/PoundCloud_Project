@@ -35,11 +35,11 @@ function App() {
           <Route path='/songs'>
             <Songs />
           </Route>
-          <Route path='/albums'>
-            <Albums />
-          </Route>
           <Route exact path='/albums/:albumId'>
             <AlbumDetails />
+          </Route>
+          <Route exact path='/albums'>
+            <Albums />
           </Route>
         </Switch>
       )}
