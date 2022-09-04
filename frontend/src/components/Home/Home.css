@@ -1,0 +1,25 @@
+.home-container {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    
+}
+
+.home-album-img {
+    width: 100px;
+    height: 100px;
+}
+
+.album-container-home, .song-container-home {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    border: none;
+    height: 200px;
+    box-sizing: content-box;
+}
+
+

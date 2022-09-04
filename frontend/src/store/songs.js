@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 // ACTION VARIABLES
 const GET_SONGS = 'songs/get';
+const GET_SONG = 'song/get';
 const CREATE_SONGS = 'songs/create';
 const EDIT_SONGS = 'songs/edit';
 const DELETE_SONGS = 'songs/delete';
@@ -15,6 +16,14 @@ export const getSongs = (songs) => {
     payload: songs,
   };
 };
+
+// Get a song
+export const getSong = (song) => {
+  return {
+    type: GET_SONG,
+    payload: song
+  }
+}
 
 // Create a song
 export const createSongs = (song) => {
@@ -48,24 +57,33 @@ export const fetchAllSongs = () => async (dispatch) => {
   if (songs.ok) {
     const res = await songs.json();
     dispatch(getSongs(res.Songs));
-    return songs;
   }
 };
 
-// Create a song based on album id thunk
-export const fetchCreateSongs = (song, albumId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/albums/${albumId}/song`, {
+// Get a song thunk
+export const fetchSong = (songId) => async (dispatch) => {
+  const song = await csrfFetch(`/api/songs/${songId}`);
+
+  if(song.ok){
+    const res = await song.json();
+    dispatch(getSong(res));
+  }
+}
+
+// Create a song thunk
+
+export const fetchCreateSongs = (song) => async (dispatch) => {
+  const res = await csrfFetch(`/api/songs`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(song),
+    body: JSON.stringify(song)
   });
 
-  if (res.ok) {
+  if(res.ok){
     const song = await res.json();
     dispatch(createSongs(song));
-    return song;
   }
-};
+}
 
 // Edit song thunk
 export const fetchEditSong = (song) => async (dispatch) => {
@@ -78,7 +96,6 @@ export const fetchEditSong = (song) => async (dispatch) => {
   if (res.ok) {
     const song = await res.json();
     dispatch(editSong(song));
-    return song;
   }
 };
 
@@ -91,7 +108,6 @@ export const fetchDeleteSongs = (id) => async (dispatch) => {
   if (res.ok) {
     const song = await res.json();
     dispatch(deleteSongs(id));
-    return song;
   }
 };
 
@@ -104,10 +120,12 @@ const songsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_SONGS:
       action.payload.forEach((song) => (newState[song.id] = song));
-      // console.log('newState = ', newState);
+      return newState;
+    case GET_SONG:
+      newState = action.payload;
       return newState;
     case CREATE_SONGS:
-      newState[action.payload.id] = action.payload;
+      newState = { ...state, [action.payload.id]: action.payload }
       return newState;
     case EDIT_SONGS:
       newState[action.payload.id] = action.payload;

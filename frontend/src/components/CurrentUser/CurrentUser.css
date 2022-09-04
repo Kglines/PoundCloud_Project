@@ -1,5 +1,62 @@
+.currentuser-container {
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+    margin: auto;
+    /* display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto; */
+}
+
 .album-link-card {
     display: flex;
     flex-direction: column;
-    width: 50px;
+    width: 150px;
+    border: 1px solid black;
 }
+
+.album-art {
+    width: 100px;
+    height: 100px;
+}
+
+.create-album-btn, .create-song-btn {
+    background-color: orange;
+    color: white;
+    height: 20px;
+    width: 75px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px grey;
+}
+
+.create-album-btn:hover, .create-song-btn:hover {
+    background-color: rgb(232, 151, 0);
+}
+
+.user-album-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    border: none;
+    width: 80%;
+    height: 200px;
+    margin: auto;
+    box-sizing: content-box;
+}
+
+.user-song-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    border: none;
+    width: 80%;
+    height: 200px;
+    margin: auto;
+    box-sizing: content-box;
+}
+
+

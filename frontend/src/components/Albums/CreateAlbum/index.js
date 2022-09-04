@@ -4,7 +4,7 @@ import { fetchCreateAlbums } from '../../../store/albums';
 import { useHistory } from 'react-router-dom';
 import './CreateAlbum.css';
 
-function CreateAlbum() {
+function CreateAlbum({ setShowCreateAlbumForm }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -31,7 +31,7 @@ function CreateAlbum() {
             setDescription('');
             setImageUrl('');
         }
-        history.push(`/albums/${createdAlbum.id}`)
+        history.push(`/albums/${createdAlbum.id}/song`)
     }
 
   return (
@@ -68,6 +68,7 @@ function CreateAlbum() {
         />
       </label>
       <button>Submit</button>
+      <button onClick={() => setShowCreateAlbumForm(false)}>Cancel</button>
     </form>
   );
 }

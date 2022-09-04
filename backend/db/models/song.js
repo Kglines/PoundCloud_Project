@@ -26,7 +26,6 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     albumId: {
-      allowNull: false,
       type: DataTypes.INTEGER,
       validate: {
         isNumeric: true

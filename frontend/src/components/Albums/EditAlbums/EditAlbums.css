@@ -1,0 +1,29 @@
+.edit-form {
+    border: 1px solid black;
+    padding: 5px;
+    display: flex;
+    align-items: flex-end;
+    width: 225px;
+}
+
+.edit-form-header {
+    margin-right: 60px;
+}
+
+.edit-album-save {
+    background-color: orange;
+    color: white;
+    width: 45px;
+    padding: 3px;
+    margin-right: 5px;
+}
+.edit-album-cancel {
+    background-color:black;
+    color: white;
+    width: 45px;
+    padding: 3px;
+}
+
+.edit-album-btns {
+    margin-right: 60px;
+}

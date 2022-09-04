@@ -35,7 +35,7 @@ router.get('/:songId/comments', async (req, res) => {
 })
 
 // Get Details of a song from an id
-router.get('/:songId', requireAuth, async (req, res) => {
+router.get('/:songId', async (req, res) => {
     const { songId } = req.params;
     const song = await Song.findByPk(songId, {
         attributes: [
@@ -116,6 +116,22 @@ router.get('/', validateQuery, async (req, res) => {
 });
 
 /******************** POST ********************/
+
+// Create a Song
+router.post('/', [requireAuth, validateSong], async (req, res) => {
+    const { user } = req;
+    const { title, description, url, imageUrl, albumId } = req.body;
+    const song = await Song.create({
+        userId: user.id,
+        title,
+        description,
+        url,
+        previewImage: imageUrl,
+        albumId
+    })
+    res.status(201);
+    res.json(song);
+})
 
 // Create a Comment for a song based on the Song's id
 router.post('/:songId/comments', [requireAuth, validateComment], async (req, res) => {

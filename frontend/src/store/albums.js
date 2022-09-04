@@ -97,6 +97,7 @@ export const fetchEditAlbums = (album) => async (dispatch) => {
   if (res.ok) {
     const album = await res.json();
     dispatch(editAlbums(album));
+    console.log('store album edit', album)
     return album;
   }
 };
@@ -127,7 +128,7 @@ const albumsReducer = (state = initialState, action) => {
       newState = action.payload;
       return newState;
     case CREATE_ALBUMS:
-      newState = action.payload;
+      newState = { ...state, [action.payload.id]: action.payload }
       return newState;
     case EDIT_ALBUMS:
       newState = action.payload;

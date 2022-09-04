@@ -1,7 +1,7 @@
 // frontend/src/components/SignupFormPage/index.js
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { NavLink, Redirect, useHistory } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './SignupForm.css';
 
@@ -101,6 +101,7 @@ function SignupFormPage() {
         />
       </label>
       <button type='submit'>Sign Up</button>
+      <p>Already a member? <NavLink to='/login'>Click Here</NavLink></p>
     </form>
   );
 }

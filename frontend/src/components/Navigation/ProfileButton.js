@@ -1,7 +1,7 @@
 // frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { NavLink, Redirect, useHistory } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
@@ -42,7 +42,19 @@ function ProfileButton({ user }) {
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <NavLink className='nav-album-link' to='/currentuser/albums'>
+              My Albums
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className='nav-song-link' to='/currentuser/songs'>
+              My Songs
+            </NavLink>
+          </li>
+          <li>
+            <button className='logout-btn' onClick={logout}>
+              Log Out
+            </button>
           </li>
         </ul>
       )}

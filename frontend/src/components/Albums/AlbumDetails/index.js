@@ -3,35 +3,82 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './AlbumDetails.css';
 import { fetchAlbum } from '../../../store/albums';
-import CreateAlbum from '../CreateAlbum';
 import EditAlbums from '../EditAlbums';
 import DeleteAlbum from '../DeleteAlbum';
 
 function AlbumDetails() {
+  const [showForm, setShowForm] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
+  // const [showCreateSongForm, setShowCreateSongForm] = useState(false);
+  
     const { albumId } = useParams();
     const dispatch = useDispatch();
     const album = useSelector(state => state.albums)
-    const [showForm, setShowForm] = useState(false);
-    const [showDelete, setShowDelete] = useState(false);
-
+    const sessionUser = useSelector(state => state.session.user);
     const { Artist, Songs } = album;
 
+    console.log('albumDetails album', album, Songs)
+    
     useEffect(() => {
-        dispatch(fetchAlbum(albumId))
-    }, [dispatch]);
-
+      dispatch(fetchAlbum(albumId))
+    }, [dispatch, albumId]);
+    
   return (
     <>
-      <img src={album.previewImage} alt={album.title} />
-      <h2>{album.title}</h2>
-      <p>{album.description}</p>
-      <p>Artist: {Artist && Artist.username}</p>
-      <h3>Songs</h3>
-      <ol>{Songs && Songs.map((song) => <li>{song.title}</li>)}</ol>
-      <button onClick={() => setShowForm(true)}>Edit</button>
-      <button onClick={() => setShowDelete(true)}>Delete</button>
-      {showForm && <EditAlbums setShowForm={setShowForm} />}
-      {showDelete &&  <DeleteAlbum setShowDelete={setShowDelete} albumId={albumId} />}
+      <div className='album-detail-container'>
+        <div className='album-detail-card'>
+          <img
+            className='album-detail-img'
+            src={album.previewImage}
+            alt={album.title}
+          />
+          <h2>{album.title}</h2>
+          <p>{album.description}</p>
+          <p>Artist: {Artist && Artist.username}</p>
+          <h3>Songs</h3>
+          {/* {sessionUser && (
+            <div>
+              <button
+                className='create-song-btn'
+                onClick={() => setShowCreateSongForm(true)}
+              >
+                Add Song
+              </button>
+            </div>
+          )} */}
+          {/* {showCreateSongForm && (
+            <CreateSong setShowCreateSongForm={setShowCreateSongForm} />
+          )} */}
+          <ol>{Songs && Songs.map((song) => <li>{song.title}</li>)}</ol>
+        </div>
+        <div className='album-detail-btns'>
+          {/* {sessionUser && (
+            <button
+              className='album-detail-edit'
+              disabled={sessionUser.id !== album.userId}
+              onClick={() => setShowForm(true)}
+            >
+              Edit
+            </button>
+          )} */}
+          {sessionUser && (
+            <button
+              className='album-detail-delete'
+              disabled={sessionUser.id !== album.userId}
+              onClick={() => setShowDelete(true)}
+            >
+              Delete
+            </button>
+          )}
+
+          {showForm && (
+            <EditAlbums setShowForm={setShowForm} albumId={albumId} />
+          )}
+          {showDelete && (
+            <DeleteAlbum setShowDelete={setShowDelete} albumId={albumId} />
+          )}
+        </div>
+      </div>
     </>
   );
 }

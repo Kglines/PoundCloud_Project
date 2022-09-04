@@ -5,9 +5,13 @@ form {
     align-items: center;
 }
 
-.login-btn {
+.log-in-btn {
     background-color: orange;
     color: white;
-    width: 75px;
-    height: 30px;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+
+.log-in-btn:hover {
+    background-color: rgb(231, 150, 0);
 }

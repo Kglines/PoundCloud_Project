@@ -22,16 +22,24 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to='/signup'>Sign Up</NavLink>
+        <NavLink className='signup-btn' to='/signup'>
+          Sign Up
+        </NavLink>
       </>
     );
   }
 
   return (
     <ul className='navbar'>
-      <li>
+      <li className='navbar-items'>
         <NavLink className='home' exact to='/'>
           Home
+        </NavLink>
+        <NavLink className='navbar-albums' to='/albums'>
+          All Albums
+        </NavLink>
+        <NavLink className='navbar-songs' to='/songs'>
+          All Songs
         </NavLink>
         {isLoaded && sessionLinks}
       </li>

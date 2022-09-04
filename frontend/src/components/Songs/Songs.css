@@ -1,0 +1,42 @@
+.song-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    border: none;
+    width: 80%;
+    height: 200px;
+    margin: auto;
+    box-sizing: content-box;
+}
+
+.song-header {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.song-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 10px grey;
+}
+
+.song-card:hover {
+    background-color: rgb(239, 235, 235);
+}
+
+.song-img {
+    width: 120px;
+    height: 80px;
+}
+
+

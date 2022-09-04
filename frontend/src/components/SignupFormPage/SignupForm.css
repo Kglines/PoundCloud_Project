@@ -1,0 +1,9 @@
+.signup-btn {
+    color: white;
+    text-decoration: none;
+    background-color: black;
+}
+
+.signup-btn:hover {
+    text-decoration: underline;
+}

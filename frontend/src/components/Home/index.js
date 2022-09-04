@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { fetchAlbums } from '../../store/albums';
 import { fetchAllSongs } from '../../store/songs';
-import AlbumDetails from '../Albums/AlbumDetails';
-import SongDetails from '../Songs/SongDetails';
 import './Home.css';
 
 function Home() {
@@ -20,34 +19,51 @@ function Home() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className='home-container'>
       <h2>Top Albums</h2>
       <p>The best albums on SoundCloud</p>
-      <ol>
-        {albums.map(album => {
-          return ( 
-              <li>
-                <img src={album.previewImage} alt={album.title} />
-                <h2>{album.title}</h2>
-                <p>{album.description}</p>
-              </li>
-          )
-        })}
-
-      </ol>
+        <ol>
+          <div className='album-container-home'>
+            {albums.map((album) => {
+              return (
+                <div className='album-card'>
+                  <li>
+                    <NavLink className='album-link' to={`/albums/${album.id}`}>
+                      <h2 className='album-title'>{album.title}</h2>
+                      <img
+                        className='album-img'
+                        src={album.previewImage}
+                        alt={album.title}
+                      />
+                    </NavLink>
+                    <p className='album-desc'>{album.description}</p>
+                  </li>
+                </div>
+              );
+            })}
+          </div>
+        </ol>
       <h2>Top Songs</h2>
       <p>The best hit music is on SoundCloud</p>
-      <ol>
-        {songs.map(song => {
-          return (
-            <li>
-              <SongDetails />
-            </li>
-          )
-        })}
-      </ol>
+        <ol>
+      <div className='song-container-home'>
+          {songs.map((song) => {
+            return (
+              <div className='song-card'>
+                <li>
+                  <NavLink className='song-link' to={`/songs/${song.id}`}>
+                    <h2 className='song-title'>{song.title}</h2>
+                    <img className='song-img' src={song.previewImage} alt={song.title} />
+                  </NavLink>
+                  <p className='song-desc'>{song.description}</p>
+                </li>
+              </div>
+            );
+          })}
+      </div>
+        </ol>
     </div>
-  )
+  );
 }
 
 export default Home

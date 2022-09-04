@@ -10,6 +10,11 @@ import Home from './components/Home';
 import Songs from './components/Songs';
 import Albums from './components/Albums';
 import AlbumDetails from './components/Albums/AlbumDetails';
+import SongDetails from './components/Songs/SongDetails';
+import LoginForm from './components/LoginFormModal/LoginForm';
+import CreateSong from './components/Songs/CreateSong';
+import CurrentuserSongs from './components/CurrentUser/CurrentuserSongs';
+import CurrentuserAlbums from './components/CurrentUser/CurrentuserAlbums';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,23 +28,38 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path='/signup'>
+          <Route exact path='/signup'>
             <SignupFormPage />
           </Route>
-          <Route path='/currentuser'>
+          <Route exact path='/login'>
+            <LoginForm />
+          </Route>
+          <Route path='/currentuser/albums'>
+            <CurrentuserAlbums />
+          </Route>
+          <Route path='/currentuser/songs'>
+            <CurrentuserSongs />
+          </Route>
+          <Route exact path='/currentuser'>
             <CurrentUser />
           </Route>
-          <Route exact path='/'>
-            <Home />
+          <Route exact path='/songs/:songId'>
+            <SongDetails />
           </Route>
-          <Route path='/songs'>
+          <Route exact path='/songs'>
             <Songs />
+          </Route>
+          <Route path='/albums/:albumId/song'>
+            <CreateSong />
           </Route>
           <Route exact path='/albums/:albumId'>
             <AlbumDetails />
           </Route>
           <Route exact path='/albums'>
             <Albums />
+          </Route>
+          <Route exact path='/'>
+            <Home />
           </Route>
         </Switch>
       )}

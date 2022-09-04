@@ -1,12 +1,23 @@
 .navbar {
-    background-color: black;
-    height: 25px;
+    /* background-color: black; */
+    margin: 0px;
     list-style: none;
-    display: grid;
+
+    /* display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 2fr 4fr 2fr 2fr;
     grid-template-areas:
-        'home . my-btn profile-btn';
+        'home . my-btn profile-btn'; */
+}
+
+.navbar-items {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 5px 10px 5px 10px;
+    height: 30px;
+    width: 100%;
+    background-color: black;
 }
 
 .item-1 {
@@ -21,7 +32,7 @@
     grid-area: 'profile-btn';
 }
 
-.home {
+.home, .navbar-albums, .navbar-songs {
     color: white;
     text-decoration: none;
 }
@@ -29,3 +40,49 @@
 .home:hover{
     text-decoration: underline;
 }
+
+ .profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    color: white;
+    height: 20vh;
+    background-color: black;
+    width: 15%;
+    padding-left: 15px;
+    border-radius: 5px;
+ }
+
+ .profile-dropdown li {
+    margin: 2px;
+ }
+
+ .logout-btn {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 0px 2px;
+ }
+
+ .my-btn {
+    background-color: orange;
+    border-radius: 5px;
+    padding: 0px 5px;
+ }
+
+ .my-btn:hover {
+    background-color: rgb(233, 152, 2);
+ }
+
+ .navbar-albums:hover, .navbar-songs:hover {
+    text-decoration: underline;
+ }
+
+ .nav-album-link, .nav-song-link {
+    color:orange;
+    text-decoration: none;
+ }
+
+ .nav-album-link:hover, .nav-song-link:hover {
+    text-decoration: underline;
+ }

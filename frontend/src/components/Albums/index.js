@@ -8,39 +8,43 @@ import CreateAlbum from './CreateAlbum';
 
 function Albums() {
   const dispatch = useDispatch();
-  const [showCreateForm, setShowCreateForm] = useState(false);
+  
+  const user = useSelector(state => state.session.user);
+  // console.log(user)
 
   const albums = Object.values(useSelector(state => state.albums));
-
+console.log('albums = ', albums)
   useEffect(() => {
     dispatch(fetchAlbums(albums));
   }, [dispatch]);
 
   return (
-    <div className='album-container'>
-      <h2 className='album-header'>Albums</h2>
-      {albums.map((album) => (
-        <div className='album-card'>
-          <NavLink
-            className='album-link'
-            key={album.id}
-            to={`/albums/${album.id}`}
-          >
-            <div className='album-banner'>
-              <img
-                className='album-img'
-                src={album.previewImage}
-                alt={album.title}
-              />
-              <h3 className='album-title'>{album.title}</h3>
-            </div>
-          </NavLink>
-          <p className='album-desc'>{album.description}</p>
-        </div>
-      ))}
-      <button className='create-album-btn' onClick={() => setShowCreateForm(true)}>Create Album</button>
-      {showCreateForm && <CreateAlbum />}
-    </div>
+    <>
+      <h2 className='album-header'>SoundCloud Albums</h2>
+      <div className='album-container'>
+        {albums.map((album) => (
+          <div className='album-card'>
+            <NavLink
+              className='album-link'
+              key={album.id}
+              to={`/albums/${album.id}`}
+            >
+              <div className='album-banner'>
+                <img
+                  className='album-img'
+                  src={album.previewImage}
+                  alt={album.title}
+                />
+                <h3 className='album-title'>{album.title}</h3>
+              </div>
+            </NavLink>
+            <p className='album-desc'>{album.description}</p>
+          </div>
+        ))}
+        
+      </div>
+
+    </>
   );
 }
 

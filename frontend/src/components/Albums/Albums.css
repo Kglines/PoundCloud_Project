@@ -1,25 +1,34 @@
 .album-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    width: 70%;
-    margin-left: 15%;
-
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    border: none;
+    width: 80%;
+    height: 200px;
+    margin: auto;
+    box-sizing: content-box;
 }
+
 .album-header {
-    margin-left: 50px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
 }
 
-.album-card {
+.album-link-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 200px;
-    height: 200px;
+    align-items: center;
+    width: 150px;
+    height: 150px;
     margin: 10px;
     padding: 15px;
     border: 1px solid black;
+    border-radius: 5px;
     box-shadow: 1px 1px 10px grey;
 }
 
@@ -32,13 +41,8 @@
     height: 80px;
 }
 
-.create-album-btn {
-    background-color: orange;
-    color: white;
-    height: 35px;
-    width: 110px;
+.album-link {
+    margin: 5px;
 }
 
-.create-album-btn:hover {
-    background-color: rgb(232, 151, 0);
-}
+

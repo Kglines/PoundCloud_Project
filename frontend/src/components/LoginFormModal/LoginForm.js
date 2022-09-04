@@ -2,9 +2,10 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
+import './LoginForm.css'
 
-function LoginForm() {
+function LoginForm({ setShowModal }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
@@ -54,7 +55,11 @@ function LoginForm() {
           required
         />
       </label>
-      <button type='submit'>Log In</button>
+      <button className='log-in-btn' type='submit'>Log In</button>
+      <p>
+      Not a member yet? <NavLink to='signup' onClick={() => setShowModal(false)}>Click Here</NavLink> to sign up today!
+
+      </p>
     </form>
   );
 }
