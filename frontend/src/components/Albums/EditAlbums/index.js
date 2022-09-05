@@ -14,8 +14,8 @@ function EditAlbums({ setShowForm, albumId }) {
     const [title, setTitle] = useState(album.title);
     const [description, setDescription] = useState(album.description);
     const [imageUrl, setImageUrl] = useState(album.previewImage);
-    const [songDetails, setSongDetails] = useState(Songs);
-    const [artistDetails, setArtistDetails] = useState(Artist);
+    // const [songDetails, setSongDetails] = useState(Songs);
+    // const [artistDetails, setArtistDetails] = useState(Artist);
     // const [showForm, setShowForm] = useState(true);
     console.log('albumId on edit album page', album)
 
@@ -31,8 +31,8 @@ function EditAlbums({ setShowForm, albumId }) {
         title,
         description,
         imageUrl,
-        Artist: setArtistDetails(Artist),
-        Songs: setSongDetails(Songs)
+        Artist,
+        Songs
       };
 
       let editedAlbum = await dispatch(fetchEditAlbums(payload));

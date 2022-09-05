@@ -31,7 +31,9 @@ function CreateAlbum({ setShowCreateAlbumForm }) {
             setDescription('');
             setImageUrl('');
         }
-        history.push(`/albums/${createdAlbum.id}/song`)
+        history.push(`/currentuser/albums`);
+        setShowCreateAlbumForm(false);
+        return createdAlbum;
     }
 
   return (

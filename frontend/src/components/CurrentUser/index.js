@@ -14,28 +14,30 @@ function CurrentUser() {
 
   const [showCreateAlbumForm, setShowCreateAlbumForm] = useState(false);
   
-
+  
+  const user = useSelector((state) => state.session.user);
   const songs = Object.values(useSelector((state) => state.songs));
   const albums = Object.values(useSelector((state) => state.albums));
-  const user = useSelector((state) => state.session.user);
   
   const songList = [];
   const albumList = [];
-  
-  songs.forEach((song) => {
-      if (song.userId === user.id) songList.push(song);
-    });
 
-  albums.forEach((album) => {
-        if (album.userId === user.id) albumList.push(album);
-    });
-            
+  songs.forEach(async (song) => {
+    if (song.userId === user.id) await songList.push(song);
+  });
+
+  albums.forEach(async (album) => {
+    if (album.userId === user.id) await albumList.push(album);
+  });
+  
     useEffect(() => {
         dispatch(fetchAllSongs());
         dispatch(fetchAlbums());
     }, [dispatch]);
 
-    if (!user) return <Redirect to='/' />;
+    console.log('songs  current user file = ', songs);
+
+    if (!user) return <Redirect to='/login' />;
 
   return (
     <div>
@@ -44,14 +46,7 @@ function CurrentUser() {
           <div className='currentuser-banner'>
             <h2 className='welcome-banner'>Welcome {user.username}!</h2>
             <h3 className='user-albums'>{user.username}'s Albums: </h3>
-            {user && (
-              <button
-                className='create-album-btn'
-                onClick={() => setShowCreateAlbumForm(true)}
-              >
-                Add Album
-              </button>
-            )}
+            
           </div>
           {albumList.map((album) => (
             <div className='album-link-card'>
@@ -96,9 +91,7 @@ function CurrentUser() {
         </div>
       </div>
 
-      {showCreateAlbumForm && (
-        <CreateAlbum setShowCreateAlbumForm={setShowCreateAlbumForm} />
-      )}
+      
     </div>
   );
 }

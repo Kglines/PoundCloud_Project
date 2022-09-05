@@ -15,6 +15,7 @@ import LoginForm from './components/LoginFormModal/LoginForm';
 import CreateSong from './components/Songs/CreateSong';
 import CurrentuserSongs from './components/CurrentUser/CurrentuserSongs';
 import CurrentuserAlbums from './components/CurrentUser/CurrentuserAlbums';
+import EditSong from './components/Songs/EditSong';
 
 function App() {
   const dispatch = useDispatch();
@@ -60,6 +61,9 @@ function App() {
           </Route>
           <Route exact path='/'>
             <Home />
+          </Route>
+          <Route>
+            :Page Not Found
           </Route>
         </Switch>
       )}

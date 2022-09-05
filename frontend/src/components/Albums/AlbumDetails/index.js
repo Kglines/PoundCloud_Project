@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './AlbumDetails.css';
 import { fetchAlbum } from '../../../store/albums';
@@ -49,7 +49,14 @@ function AlbumDetails() {
           {/* {showCreateSongForm && (
             <CreateSong setShowCreateSongForm={setShowCreateSongForm} />
           )} */}
-          <ol>{Songs && Songs.map((song) => <li>{song.title}</li>)}</ol>
+          <ol>{Songs && Songs.map((song) => 
+            <li>
+            <NavLink to={`/songs/${song.id}`}>
+              {song.title}
+            </NavLink>
+            </li>
+            )}
+          </ol>
         </div>
         <div className='album-detail-btns'>
           {/* {sessionUser && (

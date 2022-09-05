@@ -20,10 +20,10 @@ function CurrentuserSongs() {
     });
 
     useEffect(() => {
-        dispatch(fetchAllSongs()).then(() => {
-          
-        })
+        dispatch(fetchAllSongs())
     }, [dispatch])
+
+    if (!user) return <Redirect to='/login' />;
   return (
     <div>
       <h3 className='song-header'>My Songs: </h3>
@@ -35,7 +35,7 @@ function CurrentuserSongs() {
       )}
       <div className='user-song-container'>
         {songList.map((song) => (
-          <div className='song-card'>
+          <div key={song.id} className='song-card'>
             <Link className='song-link' to={`/songs/${song.id}`}>
               <div className='song-banner'>
                 <img

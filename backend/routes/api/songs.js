@@ -120,14 +120,13 @@ router.get('/', validateQuery, async (req, res) => {
 // Create a Song
 router.post('/', [requireAuth, validateSong], async (req, res) => {
     const { user } = req;
-    const { title, description, url, imageUrl, albumId } = req.body;
+    const { title, description, url, imageUrl } = req.body;
     const song = await Song.create({
         userId: user.id,
         title,
         description,
         url,
-        previewImage: imageUrl,
-        albumId
+        previewImage: imageUrl
     })
     res.status(201);
     res.json(song);
@@ -163,7 +162,7 @@ router.post('/:songId/comments', [requireAuth, validateComment], async (req, res
 router.put('/:songId', [requireAuth, validateSong], async (req, res) => {
     const { user } = req;
     const { songId } = req.params;
-    const { title, description, url, imageUrl } = req.body;
+    const { title, description, url, imageUrl, albumId } = req.body;
 
     const song = await Song.findByPk(songId);
 
@@ -173,7 +172,8 @@ router.put('/:songId', [requireAuth, validateSong], async (req, res) => {
                 title,
                 description,
                 url,
-                imageUrl
+                previewImage: imageUrl,
+                albumId
             })
             res.json(song);
         } else {

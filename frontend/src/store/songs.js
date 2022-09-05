@@ -96,18 +96,20 @@ export const fetchEditSong = (song) => async (dispatch) => {
   if (res.ok) {
     const song = await res.json();
     dispatch(editSong(song));
+    return song
   }
 };
 
 // Delete a song thunk
-export const fetchDeleteSongs = (id) => async (dispatch) => {
-  const res = await csrfFetch(`/api/songs/${id}`, {
+export const fetchDeleteSongs = (songId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/songs/${songId}`, {
     method: 'DELETE',
   });
 
   if (res.ok) {
     const song = await res.json();
-    dispatch(deleteSongs(id));
+    dispatch(deleteSongs(song));
+    return song;
   }
 };
 
@@ -119,19 +121,22 @@ const songsReducer = (state = initialState, action) => {
   let newState = { ...state };
   switch (action.type) {
     case GET_SONGS:
-      action.payload.forEach((song) => (newState[song.id] = song));
+      // action.payload.forEach((song) => (newState[song.id] = song));
+      newState = action.payload
       return newState;
     case GET_SONG:
       newState = action.payload;
       return newState;
     case CREATE_SONGS:
       newState = { ...state, [action.payload.id]: action.payload }
+      // newState = action.payload;
       return newState;
     case EDIT_SONGS:
-      newState[action.payload.id] = action.payload;
+      // newState = { ...state, [action.payload.id]: action.payload}
+      newState = action.payload;
       return newState;
     case DELETE_SONGS:
-      delete newState[action.payload.id];
+      delete newState[action.payload];
       return newState;
     default:
       return newState;

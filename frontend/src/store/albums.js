@@ -97,7 +97,6 @@ export const fetchEditAlbums = (album) => async (dispatch) => {
   if (res.ok) {
     const album = await res.json();
     dispatch(editAlbums(album));
-    console.log('store album edit', album)
     return album;
   }
 };
