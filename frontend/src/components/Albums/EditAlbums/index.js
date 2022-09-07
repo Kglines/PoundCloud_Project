@@ -9,15 +9,18 @@ function EditAlbums({ setShowForm, albumId }) {
     const history = useHistory();
     // const { albumId } = useParams();
     const album = useSelector((state) => state.albums);
-    const {Artist, Songs} = album;
+    // const {Artist, Songs} = album;
 
     const [title, setTitle] = useState(album.title);
     const [description, setDescription] = useState(album.description);
     const [imageUrl, setImageUrl] = useState(album.previewImage);
+    const [ Artist, setArtist] = useState(album.Artist);
+    const [Songs, setSongs] = useState(album.Songs)
     // const [songDetails, setSongDetails] = useState(Songs);
     // const [artistDetails, setArtistDetails] = useState(Artist);
     // const [showForm, setShowForm] = useState(true);
-    console.log('albumId on edit album page', album)
+    const [validationErrors, setValidationErrors] = useState([])
+    console.log('SONGS on edit album page', Songs, 'ARTIST on edit page', Artist)
 
     useEffect(() => {
       dispatch(fetchAlbum(albumId));
@@ -30,21 +33,20 @@ function EditAlbums({ setShowForm, albumId }) {
         id: albumId,
         title,
         description,
-        imageUrl,
-        Artist,
-        Songs
+        previewImage: imageUrl,
+        // Artist: album.userId,
+        // Songs: album.Songs
       };
 
-      let editedAlbum = await dispatch(fetchEditAlbums(payload));
-
-      if(editedAlbum){
-        setShowForm(false);
-        setTitle(album.title);
-        setDescription(album.description);
-        setImageUrl(album.previewImage);
-        // setArtistDetails(Artist);
-        // setSongDetails(Songs);
-      }
+      await dispatch(fetchEditAlbums(payload))
+        .then(() => {
+          setShowForm(false);
+          history.push(`/currentuser/albums`);
+        })
+        .catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors) setValidationErrors(data.errors);
+        });
     }
 
   return (

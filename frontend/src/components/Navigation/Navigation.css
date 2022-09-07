@@ -12,7 +12,7 @@
 
 .navbar-items {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     /* align-items: center; */
     padding: 5px 10px 5px 10px;
     height: 30px;
@@ -51,6 +51,7 @@
     width: 15%;
     padding-left: 15px;
     border-radius: 5px;
+    z-index: 1;
  }
 
  .profile-dropdown li {
@@ -86,3 +87,19 @@
  .nav-album-link:hover, .nav-song-link:hover {
     text-decoration: underline;
  }
+
+ .home-icon:hover, .fa-user-circle:hover{
+   color: orange;
+ }
+
+ .nav-link {
+   font-size: 10px;
+ }
+
+ .home-icon {
+   color: white;
+   font-size: 18px;
+   margin-top: -2px;
+ }
+
+ 

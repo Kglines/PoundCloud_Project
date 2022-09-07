@@ -24,7 +24,7 @@ function EditSong({ setShowEditForm, setShowForm, songId }) {
   const [description, setDescription] = useState(song.description);
   const [url, setUrl] = useState(song.url);
   const [imageUrl, setImageUrl] = useState(song.previewImage);
-  const [selectedAlbumId, setSelectedAlbumId] = useState(song.albumId);
+  const [selectedAlbumId, setSelectedAlbumId] = useState(null);
   const [validationErros, setValidationErrors] = useState([]);
 
   console.log('SELECTED ALBUM ID =', selectedAlbumId)
@@ -43,7 +43,7 @@ function EditSong({ setShowEditForm, setShowForm, songId }) {
       description,
       url,
       previewImage: imageUrl,
-      albumId: selectedAlbumId || 0,
+      albumId: selectedAlbumId,
     };
 
     dispatch(fetchEditSong(payload))
@@ -54,7 +54,7 @@ function EditSong({ setShowEditForm, setShowForm, songId }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Create a song</h2>
+      <h2>Edit your song</h2>
       <label>
         Title
         <input
@@ -95,21 +95,17 @@ function EditSong({ setShowEditForm, setShowForm, songId }) {
           placeholder='Image url'
         />
       </label>
-      {albums.length > 0 && (
-        <label>
-          Select Album
-          <select
-            value={selectedAlbumId}
-            onChange={(e) => setSelectedAlbumId(e.target.value)}
-          >
-            {myAlbums.map((album) => (
-              <option key={album.id} value={album.id}>
-                {album.title}
-              </option>
-            ))}
-          </select>
+      {myAlbums.map((album) => (
+        <label key={album.id}>
+          <input
+            type='button'
+            value={album.id}
+            onClick={(e) => setSelectedAlbumId(e.target.value)}
+            className='select-album-input'
+          ></input>
+          {album.title}
         </label>
-      )}
+      ))}
       <button type='submit'>Submit</button>
       <button onClick={() => setShowEditForm(false)}>Cancel</button>
     </form>

@@ -14,15 +14,15 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <button className='my-btn' onClick={() => history.push('/currentuser')}>My Music</button>
-        <ProfileButton className='profile-btn' user={sessionUser} />
+        <button className='my-btn nav-link' onClick={() => history.push('/currentuser')}>My Music</button>
+        <ProfileButton className='profile-btn nav-link' user={sessionUser} />
       </>
     )
   } else {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink className='signup-btn' to='/signup'>
+        <NavLink className='signup-btn nav-link' to='/signup'>
           Sign Up
         </NavLink>
       </>
@@ -32,13 +32,16 @@ function Navigation({ isLoaded }) {
   return (
     <ul className='navbar'>
       <li className='navbar-items'>
-        <NavLink className='home' exact to='/'>
-          Home
+        <NavLink className='home-icon nav-link' to='/'>
+          <i class='fa-brands fa-soundcloud'></i>
         </NavLink>
-        <NavLink className='navbar-albums' to='/albums'>
+        {/* <NavLink className='home' exact to='/'>
+          Home
+        </NavLink> */}
+        <NavLink className='navbar-albums nav-link' to='/albums'>
           All Albums
         </NavLink>
-        <NavLink className='navbar-songs' to='/songs'>
+        <NavLink className='navbar-songs nav-link' to='/songs'>
           All Songs
         </NavLink>
         {isLoaded && sessionLinks}

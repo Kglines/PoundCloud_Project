@@ -1,21 +1,51 @@
 .home-container {
     width: 50%;
-    height: 100vw;
-    margin: 0px 30px;
+    height: 100%;
+    margin: 90px 30px;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
     border-right: 1px solid black;
 }
 
+.home-page-title {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 50px;
+    color: orange;
+    text-shadow: 1px 1px 8px white;
+    z-index: 2;
+}
+
+
+.home-banner-img {
+    margin: 0px auto;
+    width: 100vw;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    border: 1px solid white;
+}
+
 .album-container-home, .song-container-home {
+    /* position: relative; */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    height: 120px;
-    box-sizing: content-box;
+    height: auto;
+    padding: 10px;
+    /* box-sizing: content-box; */
+    
+}
+
+.song-container-home {
+    /* border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    padding-bottom: 40px;
+    padding-right: 15px; */
 }
 
 
@@ -30,8 +60,17 @@
     border-bottom: 1px dashed black;
 }
 
+.album-title-home, .song-title-home {
+    font-size: 10px;
+}
+
+.album-item-home, .song-item-home {
+    font-size: 10px;
+}
+
 .song-banner-home {
     border-top: 1px dashed black;
+    
 }
 
 .album-card-home, .song-card-home {
@@ -46,9 +85,31 @@
 }
 
 .right-container {
+    margin: 225px 0px;
     position: absolute;
-    right: 30px;
-    top: 50px;
+    right: 100px;
+    top: 0px;
+    font-size: 10px;
+}
+
+.media-links {
+    width: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-brands {
+    color: orange;
+    margin: 4px;
+    font-size: 17px;
+}
+
+.demo-btn {
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+    width: 65px;
+    margin-top: 10px;
 }
 
 

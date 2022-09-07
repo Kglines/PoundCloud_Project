@@ -21,10 +21,10 @@ function CreateSong({ setShowModal }) {
     const [description, setDescription] = useState('');
     const [url, setUrl] = useState('');
     const [imageUrl, setImageUrl] = useState('');
-    const [selectedAlbumId, setSelectedAlbumId] = useState(0);
-    const [validationErros, setValidationErrors] = useState([]);
+    const [selectedAlbumId, setSelectedAlbumId] = useState(null);
+    const [addToAlbum, setAddToAlbum] = useState(false);
+    const [validationErrors, setValidationErrors] = useState([]);
 
-     console.log('selectedAlbumId = ', selectedAlbumId);
 
     useEffect(() => {
         dispatch(fetchAlbums())
@@ -42,16 +42,19 @@ function CreateSong({ setShowModal }) {
             albumId: selectedAlbumId
         }
 
-        await dispatch(fetchCreateSongs(payload))
+        await dispatch(fetchCreateSongs(payload)).catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors) setValidationErrors(data.errors);
+        });
         setShowModal(false);
         // return <Redirect to='/currentuser' />
     }
 
-   
-
   return (
     <form onSubmit={handleSubmit}>
       <h2>Create a song</h2>
+      {validationErrors > 0 &&
+        validationErrors.map((error) => <h2>{error}</h2>)}
       <label>
         Title
         <input
@@ -92,23 +95,22 @@ function CreateSong({ setShowModal }) {
           placeholder='Image url'
         />
       </label>
-      {myAlbums.length > 0 && (
-        <label>
-          Select Album
-          <select
-            autoComplete='on'
-            value={selectedAlbumId}
-            onChange={(e) => setSelectedAlbumId(e.target.value)}
-          >
-            {myAlbums.map((album) => (
-                <option key={album.id} value={album.id}>
-                    {album.title}
-                </option>
-            ))}
-          </select>
+
+      {myAlbums.map((album) => (
+        <label key={album.id}>
+          <input
+            type='button'
+            value={album.id}
+            onClick={(e) => setSelectedAlbumId(e.target.value)}
+            className='select-album-input'
+          ></input>
+          {album.title}
         </label>
-      )}
-      <button type='submit'>Submit</button>
+      ))}
+
+      <button type='submit' disabled={validationErrors.length}>
+        Submit
+      </button>
       <button onClick={() => setShowModal(false)}>Cancel</button>
     </form>
   );

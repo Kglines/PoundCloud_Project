@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, Redirect, useHistory } from 'react-router-dom';
+import { Link, NavLink, Redirect, useHistory } from 'react-router-dom';
 import { fetchAllSongs } from '../../store/songs';
 import { fetchAlbums } from '../../store/albums';
 import CreateAlbum from '../Albums/CreateAlbum';
@@ -42,36 +42,43 @@ function CurrentUser() {
   return (
     <div>
       <div className='currentuser-container'>
-        <div className='album-container'>
-          <div className='currentuser-banner'>
-            <h2 className='welcome-banner'>Welcome {user.username}!</h2>
-            <h3 className='user-albums'>{user.username}'s Albums: </h3>
-            
-          </div>
+        <div className='currentuser-banner'>
+          <h2 className='welcome-banner'>Welcome {user.username}!</h2>
+        </div>
+        <h4 className='user-albums'>{user.username}'s Albums: </h4>
+        <p className='user-albums-p'>
+          <NavLink className='user-albums-btn' to='/currentuser/albums'>
+            Click Here
+          </NavLink>{' '}
+          to see all of your albums...
+        </p>
+        <div className='user-album-container'>
           {albumList.map((album) => (
-            <div className='album-link-card'>
+            <div className='album-card'>
               <Link
                 className='album-links'
                 key={album.id}
                 to={`/albums/${album.id}`}
               >
                 <img
-                  className='album-art'
+                  className='album-img'
                   src={album.previewImage}
                   alt={album.title}
                 />
-                <h4>{album.title}</h4>
-                <p>{album.description}</p>
+                <h4 className='album-title-home'>{album.title}</h4>
+                {/* <p>{album.description}</p> */}
               </Link>
             </div>
           ))}
-          <button onClick={() => history.push('/currentuser/albums')}>
-            My Albums
-          </button>
         </div>
-        <div className='songs-container'>
-          <h3>My Songs: </h3>
-
+        <h4>{user.username}'s Songs: </h4>
+        <p className='user-songs-p'>
+          <NavLink className='user-songs-btn' to='/currentuser/songs'>
+            Click Here
+          </NavLink>{' '}
+          to see all of your songs...
+        </p>
+        <div className='user-songs-container'>
           {songList.map((song) => (
             <div className='song-card'>
               <Link to={`/songs/${song.id}`}>
@@ -80,18 +87,13 @@ function CurrentUser() {
                   src={song.previewImage}
                   alt={song.title}
                 />
-                <h4>{song.title}</h4>
+                <h4 className='song-title-home'>{song.title}</h4>
               </Link>
-              <p>{song.description}</p>
+              {/* <p>{song.description}</p> */}
             </div>
           ))}
-          <button onClick={() => history.push('/currentuser/songs')}>
-            My Songs
-          </button>
         </div>
       </div>
-
-      
     </div>
   );
 }

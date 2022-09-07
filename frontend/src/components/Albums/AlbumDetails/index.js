@@ -17,7 +17,7 @@ function AlbumDetails() {
     const sessionUser = useSelector(state => state.session.user);
     const { Artist, Songs } = album;
 
-    console.log('albumDetails album', album, Songs)
+    console.log('albumDetails song = ', album)
     
     useEffect(() => {
       dispatch(fetchAlbum(albumId))
@@ -27,39 +27,30 @@ function AlbumDetails() {
     <>
       <div className='album-detail-container'>
         <div className='album-detail-card'>
-          <img
-            className='album-detail-img'
-            src={album.previewImage}
-            alt={album.title}
-          />
-          <h2>{album.title}</h2>
-          <p>{album.description}</p>
-          <p>Artist: {Artist && Artist.username}</p>
-          <h3>Songs</h3>
-          {/* {sessionUser && (
-            <div>
-              <button
-                className='create-song-btn'
-                onClick={() => setShowCreateSongForm(true)}
-              >
-                Add Song
-              </button>
-            </div>
-          )} */}
-          {/* {showCreateSongForm && (
-            <CreateSong setShowCreateSongForm={setShowCreateSongForm} />
-          )} */}
-          <ol>{Songs && Songs.map((song) => 
-            <li>
-            <NavLink to={`/songs/${song.id}`}>
-              {song.title}
-            </NavLink>
-            </li>
-            )}
-          </ol>
+          <div className='album-side'>
+            <img
+              className='album-detail-img'
+              src={album.previewImage}
+              alt={album.title}
+            />
+            <h2>{album.title}</h2>
+            <p>{album.description}</p>
+          </div>
+          <div className='songs-side'>
+            <p>Artist: {Artist && Artist.username}</p>
+            <h3>Songs</h3>
+            <ol>{Songs && Songs.map((song) => 
+              <li>
+              <NavLink to={`/songs/${song.id}`}>
+                {song.title}
+              </NavLink>
+              </li>
+              )}
+            </ol>
+          </div>
         </div>
         <div className='album-detail-btns'>
-          {/* {sessionUser && (
+          {sessionUser && (
             <button
               className='album-detail-edit'
               disabled={sessionUser.id !== album.userId}
@@ -67,7 +58,7 @@ function AlbumDetails() {
             >
               Edit
             </button>
-          )} */}
+          )}
           {sessionUser && (
             <button
               className='album-detail-delete'

@@ -1,0 +1,9 @@
+.select-album-input{
+    color: lightgray;
+    background-color: lightgrey;
+}
+
+.select-album-input:focus {
+    background-color: black;
+    color:black;
+}

@@ -55,7 +55,7 @@ function LoginForm({ setShowModal }) {
           required
         />
       </label>
-      <button className='log-in-btn' type='submit'>Log In</button>
+      <button className='log-in-btn nav-link' type='submit'>Log In</button>
       <p>
       Not a member yet? <NavLink to='signup' onClick={() => setShowModal(false)}>Click Here</NavLink> to sign up today!
 

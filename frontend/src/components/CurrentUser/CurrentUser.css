@@ -1,6 +1,6 @@
 .currentuser-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 75%;
     margin: auto;
     /* display: grid;
@@ -33,30 +33,24 @@
     background-color: rgb(232, 151, 0);
 }
 
-.user-album-container {
+.user-album-container, .user-songs-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    border: none;
     width: 80%;
-    height: 200px;
-    margin: auto;
+    height: auto;
+    margin: 10px auto;
+    padding: 5px;
     box-sizing: content-box;
+    border: 1px solid silver;
+    background-color: rgb(230, 230, 230);
 }
 
-.user-song-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    border: none;
-    width: 80%;
-    height: 200px;
-    margin: auto;
-    box-sizing: content-box;
+.user-albums-btn, .user-songs-btn {
+    color: orange;
+    font-size: 10px;
 }
 
 

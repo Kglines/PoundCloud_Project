@@ -6,6 +6,9 @@ form {
 }
 
 .log-in-btn {
+    font-size: 10px;
+    width: 45px;
+    height: 18px;
     background-color: orange;
     color: white;
     border-radius: 5px;

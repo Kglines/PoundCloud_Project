@@ -120,13 +120,14 @@ router.get('/', validateQuery, async (req, res) => {
 // Create a Song
 router.post('/', [requireAuth, validateSong], async (req, res) => {
     const { user } = req;
-    const { title, description, url, imageUrl } = req.body;
+    const { title, description, url, imageUrl, albumId } = req.body;
     const song = await Song.create({
         userId: user.id,
         title,
         description,
         url,
-        previewImage: imageUrl
+        previewImage: imageUrl,
+        albumId
     })
     res.status(201);
     res.json(song);

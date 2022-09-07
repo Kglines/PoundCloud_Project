@@ -114,7 +114,7 @@ router.post('/', [requireAuth, validateAlbum], async (req, res) => {
 router.put('/:albumId', [requireAuth, validateAlbum], async (req, res) => {
     const { user } = req;
     const { albumId } = req.params;
-    const { title, description, imageUrl } = req.body;
+    const { title, description, imageUrl, Artist, Songs } = req.body;
 
     const album = await Album.findByPk(albumId);
 
@@ -123,7 +123,9 @@ router.put('/:albumId', [requireAuth, validateAlbum], async (req, res) => {
             await album.update({
                 title,
                 description,
-                previewImage: imageUrl
+                previewImage: imageUrl,
+                Artist,
+                Songs
             });
             res.json(album)
         } else {
