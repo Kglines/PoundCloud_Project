@@ -46,9 +46,9 @@ function CurrentuserAlbums() {
                 src={album.previewImage}
                 alt={album.title}
               />
-              <h4>{album.title}</h4>
-              <p>{album.description}</p>
+              <h4 className='album-title-home'>{album.title}</h4>
             </Link>
+            <p>{album.description}</p>
           </div>
         ))}
       </div>

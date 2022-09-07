@@ -33,7 +33,7 @@ function CurrentuserSongs() {
           <CreateSong setShowModal={setShowModal} />
         </Modal>
       )}
-      <div className='user-song-container'>
+      <div className='user-songs-container'>
         {songList.map((song) => (
           <div key={song.id} className='song-card'>
             <Link className='song-link' to={`/songs/${song.id}`}>
@@ -43,7 +43,7 @@ function CurrentuserSongs() {
                   src={song.previewImage}
                   alt={song.title}
                 />
-                <h4 className='song-title'>{song.title}</h4>
+                <h4 className='song-title-home'>{song.title}</h4>
               </div>
             </Link>
             <p>{song.description}</p>

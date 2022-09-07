@@ -11,6 +11,7 @@
 .album-link-card {
     display: flex;
     flex-direction: column;
+    height: auto;
     width: 150px;
     border: 1px solid black;
 }
@@ -22,6 +23,7 @@
 
 .create-album-btn, .create-song-btn {
     background-color: orange;
+    font-size: 10px;
     color: white;
     height: 20px;
     width: 75px;
