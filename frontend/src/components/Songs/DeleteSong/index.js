@@ -10,7 +10,7 @@ function DeleteSong({ songId, setShowDelModal }) {
 
     const onDelete = () => {
         dispatch(fetchDeleteSongs(songId));
-        return history.push('/currentuser');
+        return history.push('/currentuser/songs');
     }
 
   return (

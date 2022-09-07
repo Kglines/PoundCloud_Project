@@ -28,6 +28,9 @@ function AlbumDetails() {
     
   return (
     <>
+      <NavLink className='return-link' to='/currentuser/albums'>
+        Back to My Albums
+      </NavLink>
       <div className='album-detail-container'>
         <div className='album-detail-card'>
           <div className='album-side'>

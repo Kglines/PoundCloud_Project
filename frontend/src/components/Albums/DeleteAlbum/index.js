@@ -11,14 +11,14 @@ function DeleteAlbum({ albumId, setShowDeleteModal }) {
 
     const onDelete = () => {
         dispatch(fetchDeleteAlbums(albumId));
-        return history.push('/currentuser');
+        return history.push('/currentuser/albums');
     }
 
   return (
     <div>
-        <h2>Are you sure you want to delete this album?</h2>
-        <button onClick={() => onDelete()}>Delete</button>
-        <button onClick={() => setShowDeleteModal(false)}>Cancel</button>
+        <h5>Are you sure you want to delete this album?</h5>
+        <button className='album-delete-btn' onClick={() => onDelete()}>Delete</button>
+        <button className='album-cancel-del-btn' onClick={() => setShowDeleteModal(false)}>Cancel</button>
     </div>
   )
 }

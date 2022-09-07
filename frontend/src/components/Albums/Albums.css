@@ -48,4 +48,26 @@
     font-size: 12px;
 }
 
+.album-delete-btn {
+    background-color: orange;
+    color: white;
+    font-size: 12px;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 2px;
+}
 
+.album-cancel-del-btn {
+    font-size: 12px;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.album-delete-btn:hover {
+    background-color: rgb(228, 149, 3);
+}
+
+.album-cancel-del-btn:hover {
+    background-color: lightgrey;
+}

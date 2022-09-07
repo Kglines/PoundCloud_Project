@@ -27,7 +27,7 @@ function SongDetails() {
   return (
     <>
       {user ? (
-        <NavLink className='return-link' to='/currentuser'>Back to My Music</NavLink>
+        <NavLink className='return-link' to='/currentuser/songs'>Back to My Songs</NavLink>
       ) : (
         <NavLink to='/songs'>Back to all songs</NavLink>
       )}

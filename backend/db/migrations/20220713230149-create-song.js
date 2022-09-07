@@ -22,7 +22,8 @@ module.exports = {
         references: {
           model: 'Albums',
           key: 'id'
-        }
+        },
+        onDelete: 'SET NULL'
       },
       title: {
         allowNull: false,
