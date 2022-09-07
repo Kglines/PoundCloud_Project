@@ -5,16 +5,19 @@ import './AlbumDetails.css';
 import { fetchAlbum } from '../../../store/albums';
 import EditAlbums from '../EditAlbums';
 import DeleteAlbum from '../DeleteAlbum';
+import { Modal } from '../../../context/Modal';
 
 function AlbumDetails() {
   const [showForm, setShowForm] = useState(false);
-  const [showDelete, setShowDelete] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   // const [showCreateSongForm, setShowCreateSongForm] = useState(false);
   
     const { albumId } = useParams();
     const dispatch = useDispatch();
     const album = useSelector(state => state.albums)
     const sessionUser = useSelector(state => state.session.user);
+    const userAlbum = sessionUser.id === album.userId;
     const { Artist, Songs } = album;
 
     console.log('albumDetails song = ', album)
@@ -33,14 +36,14 @@ function AlbumDetails() {
               src={album.previewImage}
               alt={album.title}
             />
-            <h2>{album.title}</h2>
+            <h3>{album.title}</h3>
             <p>{album.description}</p>
           </div>
           <div className='songs-side'>
             <p>Artist: {Artist && Artist.username}</p>
-            <h3>Songs</h3>
-            <ol>{Songs && Songs.map((song) => 
-              <li>
+            <h4>Songs</h4>
+            <ol className='album-detail-song-list'>{Songs && Songs.map((song) => 
+              <li className='album-detail-song-item'>
               <NavLink to={`/songs/${song.id}`}>
                 {song.title}
               </NavLink>
@@ -50,31 +53,35 @@ function AlbumDetails() {
           </div>
         </div>
         <div className='album-detail-btns'>
-          {sessionUser && (
+          {sessionUser && userAlbum && (
             <button
               className='album-detail-edit'
               disabled={sessionUser.id !== album.userId}
-              onClick={() => setShowForm(true)}
+              onClick={() => setShowEditModal(true)}
             >
               Edit
             </button>
           )}
-          {sessionUser && (
+          {sessionUser && userAlbum && (
             <button
               className='album-detail-delete'
               disabled={sessionUser.id !== album.userId}
-              onClick={() => setShowDelete(true)}
+              onClick={() => setShowDeleteModal(true)}
             >
               Delete
             </button>
           )}
 
-          {showForm && (
-            <EditAlbums setShowForm={setShowForm} albumId={albumId} />
-          )}
-          {showDelete && (
-            <DeleteAlbum setShowDelete={setShowDelete} albumId={albumId} />
-          )}
+          {showEditModal && 
+            <Modal>
+              <EditAlbums setShowEditModal={setShowEditModal} albumId={albumId} />
+            </Modal>
+          }
+          {showDeleteModal &&
+            <Modal>
+              <DeleteAlbum setShowDeleteModal={setShowDeleteModal} albumId={albumId} />
+            </Modal>
+          }
         </div>
       </div>
     </>

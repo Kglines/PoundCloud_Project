@@ -54,14 +54,14 @@ function CurrentUser() {
         </p>
         <div className='user-album-container'>
           {albumList.map((album) => (
-            <div className='album-card'>
+            <div className='user-album-card'>
               <Link
                 className='album-links'
                 key={album.id}
                 to={`/albums/${album.id}`}
               >
                 <img
-                  className='album-img'
+                  className='user-album-art'
                   src={album.previewImage}
                   alt={album.title}
                 />
@@ -80,10 +80,10 @@ function CurrentUser() {
         </p>
         <div className='user-songs-container'>
           {songList.map((song) => (
-            <div className='song-card'>
+            <div className='user-song-card'>
               <Link to={`/songs/${song.id}`}>
                 <img
-                  className='song-img'
+                  className='user-song-art'
                   src={song.previewImage}
                   alt={song.title}
                 />

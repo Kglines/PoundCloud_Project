@@ -27,7 +27,7 @@ function CurrentuserSongs() {
   return (
     <div>
       <h3 className='song-header'>My Songs: </h3>
-      <button onClick={() => setShowModal(true)}>Add Song</button>
+      <button className='user-add-song-btn' onClick={() => setShowModal(true)}>+Add Song</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <CreateSong setShowModal={setShowModal} />

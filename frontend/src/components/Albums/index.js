@@ -20,7 +20,7 @@ console.log('albums = ', albums)
 
   return (
     <>
-      <h2 className='album-header'>SoundCloud Albums</h2>
+      <h2 className='album-header-home'>SoundCloud Albums</h2>
       <div className='album-container'>
         {albums.map((album) => (
           <div className='album-card'>
@@ -35,10 +35,10 @@ console.log('albums = ', albums)
                   src={album.previewImage}
                   alt={album.title}
                 />
-                <h3 className='album-title'>{album.title}</h3>
+                <h3 className='album-title-home'>{album.title}</h3>
               </div>
             </NavLink>
-            <p className='album-desc'>{album.description}</p>
+            <p className='album-desc-home'>{album.description}</p>
           </div>
         ))}
         

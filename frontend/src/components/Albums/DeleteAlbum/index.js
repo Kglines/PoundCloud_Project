@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { fetchDeleteAlbums } from '../../../store/albums';
 
 
-function DeleteAlbum({ albumId, setShowDelete }) {
+function DeleteAlbum({ albumId, setShowDeleteModal }) {
     const history = useHistory();
     const dispatch = useDispatch()
     console.log('albumId', albumId);
@@ -18,7 +18,7 @@ function DeleteAlbum({ albumId, setShowDelete }) {
     <div>
         <h2>Are you sure you want to delete this album?</h2>
         <button onClick={() => onDelete()}>Delete</button>
-        <button onClick={() => setShowDelete(false)}>Cancel</button>
+        <button onClick={() => setShowDeleteModal(false)}>Cancel</button>
     </div>
   )
 }

@@ -3,9 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchAlbums } from '../../../store/albums';
 import { Link, Redirect } from 'react-router-dom';
 import CreateAlbum from '../../Albums/CreateAlbum';
+import { Modal } from '../../../context/Modal';
 
 function CurrentuserAlbums() {
     const [showCreateAlbumForm, setShowCreateAlbumForm] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
     const dispatch = useDispatch();
     const albums = Object.values(useSelector(state => state.albums));
     const user = useSelector((state) => state.session.user);
@@ -27,22 +30,22 @@ function CurrentuserAlbums() {
       <h3 className='album-header'>My Albums: </h3>
       {user && (
         <button
-          className='create-album-btn'
-          onClick={() => setShowCreateAlbumForm(true)}
+          className='user-add-album-btn'
+          onClick={() => setShowModal(true)}
         >
-          Add Album
+          +Add Album
         </button>
       )}
       <div className='user-album-container'>
         {albumList.map((album) => (
-          <div className='album-link-card'>
+          <div className='user-album-card'>
             <Link
               className='album-links'
               key={album.id}
               to={`/albums/${album.id}`}
             >
               <img
-                className='album-art'
+                className='user-album-art'
                 src={album.previewImage}
                 alt={album.title}
               />
@@ -52,8 +55,10 @@ function CurrentuserAlbums() {
           </div>
         ))}
       </div>
-      {showCreateAlbumForm && (
-        <CreateAlbum setShowCreateAlbumForm={setShowCreateAlbumForm} />
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <CreateAlbum setShowModal={setShowModal} />
+        </Modal>
       )}
     </div>
   );

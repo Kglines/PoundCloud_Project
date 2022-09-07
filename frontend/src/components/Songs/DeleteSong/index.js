@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchDeleteSongs } from '../../../store/songs';
 
-function DeleteSong({ songId, setShowDelForm }) {
+function DeleteSong({ songId, setShowDelModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
     console.log('songId', songId)
@@ -17,7 +17,7 @@ function DeleteSong({ songId, setShowDelForm }) {
     <div>
       <h2>Are you sure you want to delete this song?</h2>
       <button onClick={() => onDelete()}>Delete</button>
-      <button onClick={() => setShowDelForm(false)}>Cancel</button>
+      <button onClick={() => setShowDelModal(false)}>Cancel</button>
     </div>
   );
 }

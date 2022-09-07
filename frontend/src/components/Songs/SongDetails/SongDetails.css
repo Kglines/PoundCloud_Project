@@ -1,0 +1,60 @@
+.song-detail-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 30%;
+    height: auto;
+    margin: 0px auto;
+    padding: 5px;
+}
+
+.return-link {
+    font-size: 10px;
+}
+
+.song-detail-img {
+    width: 200px;
+    height: 200px;
+}
+
+.song-detail-title {
+    font-size: 16px;
+}
+
+.song-detail-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.song-detail-edit-btn {
+    margin: 10px;
+    padding: 3px;
+    background-color: rgb(252, 171, 84);
+    color: white;
+    border: none;
+    box-shadow: 2px 2px 4px grey;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.song-detail-delete-btn {
+    margin: 10px;
+    padding: 3px;
+    background-color: rgb(65, 88, 133);
+    color: white;
+    border: none;
+    box-shadow: 2px 2px 4px grey;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.song-detail-edit-btn:hover {
+    background-color: rgb(247, 138, 54);
+}
+
+.song-detail-delete-btn:hover{
+    background-color: rgb(47, 92, 198);
+}

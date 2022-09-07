@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { fetchAlbum, fetchEditAlbums } from '../../../store/albums';
 import './EditAlbums.css';
 
-function EditAlbums({ setShowForm, albumId }) {
+function EditAlbums({ setShowEditModal, albumId }) {
     const dispatch = useDispatch();
     const history = useHistory();
     // const { albumId } = useParams();
@@ -18,7 +18,7 @@ function EditAlbums({ setShowForm, albumId }) {
     const [Songs, setSongs] = useState(album.Songs)
     // const [songDetails, setSongDetails] = useState(Songs);
     // const [artistDetails, setArtistDetails] = useState(Artist);
-    // const [showForm, setShowForm] = useState(true);
+    // const [showModal, setShowModal] = useState(true);
     const [validationErrors, setValidationErrors] = useState([])
     console.log('SONGS on edit album page', Songs, 'ARTIST on edit page', Artist)
 
@@ -40,7 +40,7 @@ function EditAlbums({ setShowForm, albumId }) {
 
       await dispatch(fetchEditAlbums(payload))
         .then(() => {
-          setShowForm(false);
+          setShowEditModal(false);
           history.push(`/currentuser/albums`);
         })
         .catch(async (res) => {
@@ -84,7 +84,7 @@ function EditAlbums({ setShowForm, albumId }) {
       </label>
       <div className='edit-album-btns'>
         <button className='edit-album-save'>Save</button>
-        <button className='edit-album-cancel' onclick={() => setShowForm(false)}>Cancel</button>
+        <button className='edit-album-cancel' onclick={() => setShowEditModal(false)}>Cancel</button>
       </div>
     </form>
   );

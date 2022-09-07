@@ -4,7 +4,7 @@ import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { fetchAlbums } from '../../../store/albums';
 import { fetchSong, fetchEditSong } from '../../../store/songs';
 
-function EditSong({ setShowEditForm, setShowForm, songId }) {
+function EditSong({ setShowEditModal, songId }) {
 //   const { songId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -47,7 +47,7 @@ function EditSong({ setShowEditForm, setShowForm, songId }) {
     };
 
     dispatch(fetchEditSong(payload))
-    setShowEditForm(false);
+    setShowEditModal(false);
     // return <Redirect to={`/songs/${song.id}`} />
     
   };
@@ -107,7 +107,7 @@ function EditSong({ setShowEditForm, setShowForm, songId }) {
         </label>
       ))}
       <button type='submit'>Submit</button>
-      <button onClick={() => setShowEditForm(false)}>Cancel</button>
+      <button onClick={() => setShowEditModal(false)}>Cancel</button>
     </form>
   );
 }

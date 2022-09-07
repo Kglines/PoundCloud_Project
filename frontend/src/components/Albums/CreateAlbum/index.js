@@ -4,7 +4,7 @@ import { fetchCreateAlbums } from '../../../store/albums';
 import { useHistory } from 'react-router-dom';
 import './CreateAlbum.css';
 
-function CreateAlbum({ setShowCreateAlbumForm }) {
+function CreateAlbum({ setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -32,7 +32,7 @@ function CreateAlbum({ setShowCreateAlbumForm }) {
             setImageUrl('');
         }
         history.push(`/currentuser/albums`);
-        setShowCreateAlbumForm(false);
+        setShowModal(false);
         return createdAlbum;
     }
 
@@ -70,7 +70,7 @@ function CreateAlbum({ setShowCreateAlbumForm }) {
         />
       </label>
       <button>Submit</button>
-      <button onClick={() => setShowCreateAlbumForm(false)}>Cancel</button>
+      <button onClick={() => setShowModal(false)}>Cancel</button>
     </form>
   );
 }

@@ -3,13 +3,13 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
+    flex-wrap: wrap;
     border: none;
-    width: 80%;
-    height: 200px;
+    width: 90%;
+    height: auto;
     margin: auto;
-    box-sizing: content-box;
+    font-size: 10px;
+    background-color: rgb(230, 230, 230);
 }
 
 .song-header {
