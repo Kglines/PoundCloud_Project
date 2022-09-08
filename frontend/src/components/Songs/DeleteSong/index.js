@@ -5,6 +5,7 @@ import { fetchDeleteSongs } from '../../../store/songs';
 
 function DeleteSong({ setShowDelModal }) {
     const { songId } = useParams();
+    const parsedId = parseInt(songId, 10);
     const dispatch = useDispatch();
     const history = useHistory();
     // console.log('songId', songId)

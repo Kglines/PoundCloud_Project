@@ -4,8 +4,9 @@ import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { fetchAlbums } from '../../../store/albums';
 import { fetchSong, fetchEditSong } from '../../../store/songs';
 
-function EditSong({ setShowEditModal, songId }) {
-//   const { songId } = useParams();
+function EditSong({ setShowEditModal }) {
+  const { songId } = useParams();
+  const parsedId = parseInt(songId, 10);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -40,7 +41,7 @@ function EditSong({ setShowEditModal, songId }) {
     setDisabled(true);
 
     const payload = {
-      id: songId,
+      id: parsedId,
       title,
       description,
       url,
