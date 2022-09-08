@@ -44,7 +44,7 @@ function EditAlbums({ setShowEditModal, albumId }) {
     <form className='edit-form' onSubmit={handleSubmit}>
       <h2 className='edit-form-header'>Edit your album</h2>
       <ul>
-        {validationErrors.length > 0 && validationErrors.map(error => (
+        {validationErrors.map(error => (
           <li className='errors' key={error}>{error}</li>
         ))}
       </ul>

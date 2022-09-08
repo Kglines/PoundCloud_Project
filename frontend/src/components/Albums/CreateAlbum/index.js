@@ -29,22 +29,23 @@ function CreateAlbum({ setShowModal }) {
         await dispatch(fetchCreateAlbums(payload))
           .then(() => {
             history.push(`/currentuser/albums`);
+            setTitle('');
+            setDescription('');
+            setImageUrl('');
+            setShowModal(false);
           })
           .catch(async (res) => {
             const data = await res.json();
             if (data && data.errors) setValidationErrors(data.errors);
           });
-
-        setTitle('');
-        setDescription('');
-        setImageUrl('');
-        setShowModal(false);
     }
+
+    console.log('errors on album create page = ', validationErrors)
 
   return (
     <form onSubmit={handleSubmit}>
     <ul>
-      {validationErrors.length > 0 && validationErrors.map(error => (
+      {validationErrors.map(error => (
         <li className='errors' key={error}>{error}</li>
       ))}
     </ul>

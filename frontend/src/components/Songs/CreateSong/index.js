@@ -24,7 +24,7 @@ function CreateSong({ setShowModal }) {
     const [selectedAlbumId, setSelectedAlbumId] = useState(null);
     const [addToAlbum, setAddToAlbum] = useState(false);
     const [validationErrors, setValidationErrors] = useState([]);
-    const [disabled, setDisabled] = useState(false);
+    
 
 
     useEffect(() => {
@@ -34,7 +34,6 @@ function CreateSong({ setShowModal }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setDisabled(true);
 
         const payload = {
             title,
@@ -44,23 +43,26 @@ function CreateSong({ setShowModal }) {
             albumId: selectedAlbumId
         }
 
-        await dispatch(fetchCreateSongs(payload)).catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setValidationErrors(data.errors);
+        const createdSong = await dispatch(fetchCreateSongs(payload))
+            .then(() => {
+              setShowModal(false);
+            })
+            .catch(async (res) => {
+              const data = await res.json();
+              if (data && data.errors) setValidationErrors(data.errors);
         });
-        setShowModal(false);
-        setDisabled(false);
+      
+        return createdSong;
     }
 
-    console.log('errors', validationErrors)
+    console.log('errors on create song page', validationErrors)
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>Create a song</h2>
       <ul>
-        {validationErrors > 0 &&
-          validationErrors.map((error) => 
-            <li key={error}>{error}</li>
+        {validationErrors.map((error) => 
+            <li className='errors' key={error}>{error}</li>
         )}
       </ul>
       <label>
@@ -116,10 +118,10 @@ function CreateSong({ setShowModal }) {
         </label>
       ))}
 
-      <button type='submit' disabled={validationErrors.length}>
+      <button type='submit'>
         Submit
       </button>
-      <button disabled={disabled} onClick={() => setShowModal(false)}>Cancel</button>
+      <button onClick={() => setShowModal(false)}>Cancel</button>
     </form>
   );
 }
