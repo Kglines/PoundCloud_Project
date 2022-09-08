@@ -52,24 +52,26 @@ export const deleteSongs = (id) => {
 // THUNKS
 // Get all songs thunk
 export const fetchAllSongs = () => async (dispatch) => {
-  const songs = await csrfFetch('/api/songs');
+  const res = await csrfFetch('/api/songs');
 
-  if (songs.ok) {
-    const res = await songs.json();
-    dispatch(getSongs(res.Songs));
+  if (res.ok) {
+    const songs = await res.json();
+    dispatch(getSongs(songs.Songs));
     return songs;
   }
+  return res;
 };
 
 // Get a song thunk
 export const fetchSong = (songId) => async (dispatch) => {
-  const song = await csrfFetch(`/api/songs/${songId}`);
+  const res = await csrfFetch(`/api/songs/${songId}`);
 
-  if(song.ok){
-    const res = await song.json();
-    dispatch(getSong(res));
+  if(res.ok){
+    const song = await res.json();
+    dispatch(getSong(song));
     return song;
   }
+  return res;
 }
 
 // Create a song thunk
@@ -84,8 +86,9 @@ export const fetchCreateSongs = (song) => async (dispatch) => {
   if(res.ok){
     const song = await res.json();
     dispatch(createSongs(song));
-    return res;
+    return song;
   }
+  return res;
 }
 
 // Edit song thunk
@@ -99,8 +102,9 @@ export const fetchEditSong = (song) => async (dispatch) => {
   if (res.ok) {
     const song = await res.json();
     dispatch(editSong(song));
-    return res;
+    return song;
   }
+  return res;
 };
 
 // Delete a song thunk

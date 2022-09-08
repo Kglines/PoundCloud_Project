@@ -57,8 +57,9 @@ export const fetchAlbums = () => async (dispatch) => {
   if (res.ok) {
     const albums = await res.json();
     dispatch(getAlbums(albums.Albums));
-    return res;
+    return albums;
   }
+  return res;
 };
 
 // Get one album thunk
@@ -68,8 +69,9 @@ export const fetchAlbum = (albumId) => async (dispatch) => {
   if(res.ok){
     const album = await res.json();
     dispatch(getAlbum(album))
-    return res;
+    return album;
   }
+  return res;
 }
 
 // Create Albums thunk
@@ -83,8 +85,9 @@ export const fetchCreateAlbums = (album) => async (dispatch) => {
   if (res.ok) {
     const album = await res.json();
     dispatch(createAlbum(album));
-    return res;
+    return album;
   }
+  return res;
 };
 
 // Edit albums thunk
@@ -98,8 +101,9 @@ export const fetchEditAlbums = (album) => async (dispatch) => {
   if (res.ok) {
     const album = await res.json();
     dispatch(editAlbums(album));
-    return res;
+    return album;
   }
+  return res;
 };
 
 // Delete albums thunk
@@ -111,8 +115,9 @@ export const fetchDeleteAlbums = (albumId) => async (dispatch) => {
   if (res.ok) {
     const album = await res.json();
     dispatch(deleteAlbums(album));
-    return res;
+    return album;
   }
+  return res;
 };
 
 const initialState = {};

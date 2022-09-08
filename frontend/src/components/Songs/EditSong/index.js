@@ -52,8 +52,7 @@ function EditSong({ setShowEditModal }) {
     dispatch(fetchEditSong(payload))
       .then(() => {
         setShowEditModal(false);
-        history.push('/currentuser/songs')
-        // return <Redirect to={`/currentuser/songs`} />;
+        history.push('/currentuser/songs');
       })
       .catch(async (res) => {
         const data = await res.json();
