@@ -89,7 +89,7 @@ router.get('/', validateQuery, async (req, res) => {
     if(page < 0) page = 0;
     if(page > 10) page = 10;
 
-    if(size < 0) size = 0;
+    if(size < 1) size = 1;
     if(size > 20) size = 20;
 
     const Songs = await Song.findAll({
