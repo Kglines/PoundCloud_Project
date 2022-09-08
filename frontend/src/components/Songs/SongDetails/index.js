@@ -9,6 +9,7 @@ import { Modal } from '../../../context/Modal';
 
 function SongDetails() {
   const { songId } = useParams();
+  const parsedId = parseInt(songId, 10);
   const dispatch = useDispatch();
   const songs = useSelector(state => state.songs);
   const user = useSelector(state => state.session.user);
@@ -20,8 +21,8 @@ function SongDetails() {
 
 
   useEffect(() => {
-    dispatch(fetchSong(songId))
-  }, [dispatch, songId])
+    dispatch(fetchSong(parsedId))
+  }, [dispatch, parsedId])
 
   return (
     <>

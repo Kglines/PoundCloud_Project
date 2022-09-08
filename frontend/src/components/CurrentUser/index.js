@@ -51,7 +51,7 @@ function CurrentUser() {
           to see all of your albums...
         </p>
         <div className='user-album-container'>
-          {albumList.map((album) => (
+          {albumList.length > 0 ? albumList.map((album) => (
             <div key={album.id} className='user-album-card'>
               <Link className='album-links' to={`/albums/${album.id}`}>
                 <img
@@ -60,10 +60,9 @@ function CurrentUser() {
                   alt={album.title}
                 />
                 <h4 className='album-title-home'>{album.title}</h4>
-                {/* <p>{album.description}</p> */}
               </Link>
             </div>
-          ))}
+          )) : <h3>No Albums Created Yet...</h3>}
         </div>
         <h4>{user.username}'s Songs: </h4>
         <p className='user-songs-p'>
@@ -73,7 +72,7 @@ function CurrentUser() {
           to see all of your songs...
         </p>
         <div className='user-songs-container'>
-          {songList.map((song) => (
+          {songList.length > 0 ? songList.map((song) => (
             <div className='user-song-card'>
               <Link to={`/songs/${song.id}`}>
                 <img
@@ -85,7 +84,7 @@ function CurrentUser() {
               </Link>
               {/* <p>{song.description}</p> */}
             </div>
-          ))}
+          )) : <h3>No Songs Created Yet...</h3>}
         </div>
       </div>
     </div>
