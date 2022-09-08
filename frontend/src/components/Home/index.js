@@ -31,11 +31,17 @@ function Home() {
   }
 
   useEffect(() => {
-    dispatch(fetchAlbums(albums));
+    dispatch(fetchAlbums(albums)).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setValidationErrors(data.errors);
+    });
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchAllSongs(songs))
+    dispatch(fetchAllSongs(songs)).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setValidationErrors(data.errors);
+    });
   }, [dispatch]);
 
   return (
@@ -48,10 +54,10 @@ function Home() {
           alt='Credit Greyson Joralemon'
         />
         <div className='home-container'>
-          {validationErrors.length > 0 &&
-            validationErrors.map((error) => <h2>{error}</h2>)}
           <div className='album-banner-home'>
             <h2>Top Albums</h2>
+          {validationErrors.length > 0 &&
+            validationErrors.map((error) => <h2>{error}</h2>)}
             <p>Discover the best albums on SoundCloud</p>
           </div>
           <ol>
