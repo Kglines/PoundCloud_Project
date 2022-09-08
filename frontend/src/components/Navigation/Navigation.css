@@ -12,17 +12,6 @@
     background-color: black;
 }
 
-.item-1 {
-    grid-area: 'home';
-}
-
-.item-2 {
-    grid-area: 'my-btn';
-}
-
-.item-3 {
-    grid-area: 'profile-btn';
-}
 
 .home, .navbar-albums, .navbar-songs {
     color: white;
@@ -51,19 +40,30 @@
     margin: 3px;
  }
 
+ .profile-btn {
+   width: 30px;
+ }
+
  .logout-btn {
     background-color: red;
     color: white;
     border-radius: 5px;
     padding: 0px 2px;
-    font-size: 12px;
+    font-size: 16px;
     margin-top: 3px;
+ }
+
+ .nav-link {
+   font-size: 14px;
+   margin-top: 10px;
  }
 
  .my-btn {
     background-color: orange;
     border-radius: 5px;
-    padding: 0px 5px;
+    padding: 5px;
+    height: 30px;
+    margin-top: 5px;
  }
 
  .my-btn:hover {
@@ -87,9 +87,7 @@
    color: orange;
  }
 
- .nav-link {
-   font-size: 14px;
- }
+ 
 
  .home-icon {
    color: white;
