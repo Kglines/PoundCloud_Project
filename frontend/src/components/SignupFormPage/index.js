@@ -40,7 +40,7 @@ function SignupFormPage() {
   
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='signup-form' onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
@@ -100,7 +100,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <button type='submit'>Sign Up</button>
+      <button className='signup-btn' type='submit'>Sign Up</button>
       <p>Already a member? <NavLink to='/login'>Click Here</NavLink></p>
     </form>
   );

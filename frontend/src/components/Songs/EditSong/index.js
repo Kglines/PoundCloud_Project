@@ -25,7 +25,7 @@ function EditSong({ setShowEditModal, songId }) {
   const [url, setUrl] = useState(song.url);
   const [imageUrl, setImageUrl] = useState(song.previewImage);
   const [selectedAlbumId, setSelectedAlbumId] = useState(null);
-  const [validationErros, setValidationErrors] = useState([]);
+  const [validationErrors, setValidationErrors] = useState([]);
 
   console.log('SELECTED ALBUM ID =', selectedAlbumId)
 
@@ -47,8 +47,15 @@ function EditSong({ setShowEditModal, songId }) {
     };
 
     dispatch(fetchEditSong(payload))
-    setShowEditModal(false);
-    // return <Redirect to={`/songs/${song.id}`} />
+      .then(() => {
+        setShowEditModal(false);
+        history.push('/currentuser/songs')
+        // return <Redirect to={`/currentuser/songs`} />;
+      })
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setValidationErrors(data.errors);
+      });
     
   };
 

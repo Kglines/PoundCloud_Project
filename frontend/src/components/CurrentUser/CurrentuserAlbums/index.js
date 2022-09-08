@@ -15,8 +15,8 @@ function CurrentuserAlbums() {
 
     const albumList = [];
 
-    albums.forEach((album) => {
-      if (album.userId === user.id) albumList.push(album);
+    albums.forEach(async (album) => {
+      if (album.userId === user.id) await albumList.push(album);
     });
 
     useEffect(() => {

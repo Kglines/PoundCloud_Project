@@ -12,7 +12,7 @@ function SongDetails() {
   const dispatch = useDispatch();
   const songs = useSelector(state => state.songs);
   const user = useSelector(state => state.session.user);
-  const userSong = user.id === songs.userId;
+  // const userSong = user.id === songs.userId;
   const { Artist, Album } = songs;
 
   const [showEditModal, setShowEditModal] = useState(false);
@@ -27,9 +27,11 @@ function SongDetails() {
   return (
     <>
       {user ? (
-        <NavLink className='return-link' to='/currentuser/songs'>Back to My Songs</NavLink>
+        <NavLink className='return-link' to='/currentuser/songs'>
+          Back to My Songs
+        </NavLink>
       ) : (
-        <NavLink to='/songs'>Back to all songs</NavLink>
+        <NavLink className='return-link' to='/songs'>Back to all songs</NavLink>
       )}
       <div className='song-detail-container'>
         <img
@@ -42,12 +44,14 @@ function SongDetails() {
         <p>
           by: <strong>{Artist?.username}</strong>
         </p>
-        <p>
-          Album title: <strong>{Album?.title}</strong>
-        </p>
+        {Album && (
+          <p>
+            Album title: <strong>{Album?.title}</strong>
+          </p>
+        )}
       </div>
       <div className='song-detail-btns'>
-        {user && userSong && (
+        {user && user.id === songs.userId && (
           <button
             className='song-detail-edit-btn'
             onClick={() => setShowEditModal(true)}
@@ -61,7 +65,7 @@ function SongDetails() {
             <EditSong setShowEditModal={setShowEditModal} songId={songId} />
           </Modal>
         )}
-        {user && userSong && (
+        {user && user.id === songs.userId && (
           <button
             className='song-detail-delete-btn'
             onClick={() => setShowDelModal(true)}
