@@ -5,17 +5,25 @@ import { fetchAllSongs } from '../../store/songs';
 import './Songs.css';
 
 function Songs() {
+  const [validationErrors, setValidationErrors] = useState([])
   const dispatch = useDispatch();
   const songs = Object.values(useSelector((state) => state.songs));
   // console.log('songs = ', songs);
-  const [showCreateSong, setShowCreateSong] = useState(false)
 
   useEffect(() => {
-    dispatch(fetchAllSongs(songs));
+    dispatch(fetchAllSongs(songs)).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setValidationErrors(data.errors);
+    });
   }, [dispatch]);
 
   return (
     <div>
+      {validationErrors && (
+        validationErrors.map(error => (
+          <h2>{error}</h2>
+        ))
+      )}
       <h2 className='song-header'>SoundCloud Songs</h2>
       <div className='song-container'>
         {songs.map((song) => (
