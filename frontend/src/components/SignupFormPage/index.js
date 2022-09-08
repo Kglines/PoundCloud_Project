@@ -39,13 +39,13 @@ function SignupFormPage() {
     ]);
   };
 
-  
+  console.log('sign up form page errors = ', errors)
 
   return (
     <form className='signup-form' onSubmit={handleSubmit}>
     <ul>
-      {errors.length > 0 && errors.map(error => (
-        <li className='errors' key={error}>{error}</li>
+      {errors.map(error => (
+        <li className='errors' key={error}>{error.message}</li>
       ))}
     </ul>
       <label>

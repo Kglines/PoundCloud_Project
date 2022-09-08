@@ -40,7 +40,7 @@ export const restoreUser = () => async (dispatch) => {
   return response;
 };
 
-// SIGNUP ... route = /signup instead of users
+// SIGNUP 
 export const signup = (user) => async (dispatch) => {
   const { username, firstName, lastName, email, password } = user;
   const response = await csrfFetch('/api/signup', {
