@@ -1,15 +1,16 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchDeleteSongs } from '../../../store/songs';
 
-function DeleteSong({ parsedId, setShowDelModal }) {
+function DeleteSong({ setShowDelModal }) {
+    const { songId } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
     // console.log('songId', songId)
 
     const onDelete = () => {
-        dispatch(fetchDeleteSongs(parsedId));
+        dispatch(fetchDeleteSongs(songId));
         return history.push('/currentuser/songs');
     }
 
