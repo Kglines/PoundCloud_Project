@@ -57,7 +57,7 @@ export const fetchAllSongs = () => async (dispatch) => {
   if (songs.ok) {
     const res = await songs.json();
     dispatch(getSongs(res.Songs));
-    return res;
+    return songs;
   }
 };
 
@@ -68,6 +68,7 @@ export const fetchSong = (songId) => async (dispatch) => {
   if(song.ok){
     const res = await song.json();
     dispatch(getSong(res));
+    return song;
   }
 }
 
@@ -83,6 +84,7 @@ export const fetchCreateSongs = (song) => async (dispatch) => {
   if(res.ok){
     const song = await res.json();
     dispatch(createSongs(song));
+    return res;
   }
 }
 
@@ -97,7 +99,7 @@ export const fetchEditSong = (song) => async (dispatch) => {
   if (res.ok) {
     const song = await res.json();
     dispatch(editSong(song));
-    return song
+    return res;
   }
 };
 
@@ -110,7 +112,7 @@ export const fetchDeleteSongs = (songId) => async (dispatch) => {
   if (res.ok) {
     const song = await res.json();
     dispatch(deleteSongs(song));
-    return song;
+    return res;
   }
 };
 

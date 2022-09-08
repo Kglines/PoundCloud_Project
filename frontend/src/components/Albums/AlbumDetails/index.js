@@ -64,7 +64,7 @@ function AlbumDetails() {
         <div className='album-detail-btns'>
           {sessionUser && sessionUser.id === album.userId && (
             <button
-              className='album-detail-edit'
+              className='save-btn'
               disabled={sessionUser.id !== album.userId}
               onClick={() => setShowEditModal(true)}
             >
@@ -73,7 +73,7 @@ function AlbumDetails() {
           )}
           {sessionUser && sessionUser.id === album.userId && (
             <button
-              className='album-detail-delete'
+              className='cancel-btn'
               disabled={sessionUser.id !== album.userId}
               onClick={() => setShowDeleteModal(true)}
             >

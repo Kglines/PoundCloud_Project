@@ -57,7 +57,7 @@ export const fetchAlbums = () => async (dispatch) => {
   if (res.ok) {
     const albums = await res.json();
     dispatch(getAlbums(albums.Albums));
-    return albums;
+    return res;
   }
 };
 
@@ -68,6 +68,7 @@ export const fetchAlbum = (albumId) => async (dispatch) => {
   if(res.ok){
     const album = await res.json();
     dispatch(getAlbum(album))
+    return res;
   }
 }
 
@@ -82,7 +83,7 @@ export const fetchCreateAlbums = (album) => async (dispatch) => {
   if (res.ok) {
     const album = await res.json();
     dispatch(createAlbum(album));
-    return album;
+    return res;
   }
 };
 
@@ -97,7 +98,7 @@ export const fetchEditAlbums = (album) => async (dispatch) => {
   if (res.ok) {
     const album = await res.json();
     dispatch(editAlbums(album));
-    return album;
+    return res;
   }
 };
 
@@ -110,7 +111,7 @@ export const fetchDeleteAlbums = (albumId) => async (dispatch) => {
   if (res.ok) {
     const album = await res.json();
     dispatch(deleteAlbums(album));
-    return album;
+    return res;
   }
 };
 
