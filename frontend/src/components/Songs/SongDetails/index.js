@@ -54,7 +54,7 @@ function SongDetails() {
       <div className='song-detail-btns'>
         {user && user.id === songs.userId && (
           <button
-            className='song-detail-edit-btn'
+            className='save-btn'
             onClick={() => setShowEditModal(true)}
           >
             Edit
@@ -68,7 +68,7 @@ function SongDetails() {
         )}
         {user && user.id === songs.userId && (
           <button
-            className='song-detail-delete-btn'
+            className='cancel-btn'
             onClick={() => setShowDelModal(true)}
           >
             Delete

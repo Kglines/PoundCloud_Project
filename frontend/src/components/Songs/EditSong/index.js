@@ -109,6 +109,7 @@ function EditSong({ setShowEditModal, songId }) {
           placeholder='Image url'
         />
       </label>
+      <p style={{ opacity: 0.5}}>(Select the album to add your song to...)</p>
       {myAlbums.map((album) => (
         <label key={album.id}>
           <input
@@ -120,8 +121,8 @@ function EditSong({ setShowEditModal, songId }) {
           {album.title}
         </label>
       ))}
-      <button disabled={disabled} type='submit'>Submit</button>
-      <button onClick={() => setShowEditModal(false)}>Cancel</button>
+      <button className='submit-btn' disabled={disabled} type='submit'>Submit</button>
+      <button className='cancel-btn' onClick={() => setShowEditModal(false)}>Cancel</button>
     </form>
   );
 }

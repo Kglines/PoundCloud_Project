@@ -27,14 +27,16 @@ function AlbumDetails() {
     
   return (
     <>
-    {sessionUser ? (
-      <NavLink className='return-link' to='/currentuser/albums'>
-        Back to My Albums
-      </NavLink>
-    ) : (
-      <NavLink className='return-link' to='/albums'>Back to all albums</NavLink>
-    )}
-      
+      {sessionUser ? (
+        <NavLink className='return-link' to='/currentuser/albums'>
+          Back to My Albums
+        </NavLink>
+      ) : (
+        <NavLink className='return-link' to='/albums'>
+          Back to all albums
+        </NavLink>
+      )}
+
       <div className='album-detail-container'>
         <div className='album-detail-card'>
           <div className='album-side'>

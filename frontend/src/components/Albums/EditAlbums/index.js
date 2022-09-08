@@ -79,8 +79,8 @@ function EditAlbums({ setShowEditModal, albumId }) {
         />
       </label>
       <div className='edit-album-btns'>
-        <button className='edit-album-save'>Save</button>
-        <button className='edit-album-cancel' onclick={() => setShowEditModal(false)}>Cancel</button>
+        <button className='save-btn'>Save</button>
+        <button className='cancel-btn' onclick={() => setShowEditModal(false)}>Cancel</button>
       </div>
     </form>
   );

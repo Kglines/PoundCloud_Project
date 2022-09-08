@@ -66,3 +66,7 @@
 .album-detail-delete:hover{
     background-color: rgb(47, 92, 198);
 }
+
+.edit-album-modal {
+    width: 100px;
+}

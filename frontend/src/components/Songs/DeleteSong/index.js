@@ -16,8 +16,8 @@ function DeleteSong({ songId, setShowDelModal }) {
   return (
     <div>
       <h2>Are you sure you want to delete this song?</h2>
-      <button onClick={() => onDelete()}>Delete</button>
-      <button onClick={() => setShowDelModal(false)}>Cancel</button>
+      <button className='save-btn' onClick={() => onDelete()}>Delete</button>
+      <button className='cancel-btn' onClick={() => setShowDelModal(false)}>Cancel</button>
     </div>
   );
 }
