@@ -17,7 +17,7 @@ function Home() {
   const albums = Object.values(useSelector(state => state.albums));
   const songs = Object.values(useSelector(state => state.songs));
 
-  console.log('home page albums', albums)
+  // console.log('home page albums', albums)
 
   const demoLogin = () => {
     return dispatch(

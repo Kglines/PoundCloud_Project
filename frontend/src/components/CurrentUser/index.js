@@ -35,7 +35,7 @@ function CurrentUser() {
         dispatch(fetchAlbums());
     }, [dispatch]);
 
-    console.log('songs  current user file = ', songs);
+    // console.log('songs  current user file = ', songs);
 
     if (!user) return <Redirect to='/login' />;
 

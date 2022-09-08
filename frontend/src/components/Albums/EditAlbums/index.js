@@ -20,7 +20,8 @@ function EditAlbums({ setShowEditModal, albumId }) {
     // const [artistDetails, setArtistDetails] = useState(Artist);
     // const [showModal, setShowModal] = useState(true);
     const [validationErrors, setValidationErrors] = useState([])
-    console.log('SONGS on edit album page', Songs, 'ARTIST on edit page', Artist)
+    
+    // console.log('SONGS on edit album page', Songs, 'ARTIST on edit page', Artist)
 
     useEffect(() => {
       dispatch(fetchAlbum(albumId));

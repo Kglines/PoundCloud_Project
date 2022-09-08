@@ -14,7 +14,7 @@ function EditSong({ setShowEditModal, songId }) {
   const song = useSelector((state) => state.songs);
   const myAlbums = [];
 
-  console.log('song = ', song)
+  // console.log('song = ', song)
 
   albums.forEach((album) => {
     if (album.userId === user.id) myAlbums.push(album);
@@ -27,7 +27,7 @@ function EditSong({ setShowEditModal, songId }) {
   const [selectedAlbumId, setSelectedAlbumId] = useState(null);
   const [validationErrors, setValidationErrors] = useState([]);
 
-  console.log('SELECTED ALBUM ID =', selectedAlbumId)
+  // console.log('SELECTED ALBUM ID =', selectedAlbumId)
 
   useEffect(() => {
     dispatch(fetchAlbums());

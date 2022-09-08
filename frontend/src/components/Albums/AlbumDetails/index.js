@@ -19,7 +19,7 @@ function AlbumDetails() {
     // const userAlbum = sessionUser.id === album.userId;
     const { Artist, Songs } = album;
 
-    console.log('albumDetails song = ', album)
+    // console.log('albumDetails song = ', album)
     
     useEffect(() => {
       dispatch(fetchAlbum(albumId))

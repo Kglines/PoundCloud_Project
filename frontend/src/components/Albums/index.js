@@ -13,7 +13,7 @@ function Albums() {
   // console.log(user)
 
   const albums = Object.values(useSelector(state => state.albums));
-console.log('albums = ', albums)
+// console.log('albums = ', albums)
   useEffect(() => {
     dispatch(fetchAlbums(albums));
   }, [dispatch]);
