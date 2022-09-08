@@ -11,7 +11,7 @@ function Songs() {
   // console.log('songs = ', songs);
 
   useEffect(() => {
-    dispatch(fetchAllSongs(songs)).catch(async (res) => {
+    dispatch(fetchAllSongs()).catch(async (res) => {
       const data = await res.json();
       if (data && data.errors) setValidationErrors(data.errors);
     });
