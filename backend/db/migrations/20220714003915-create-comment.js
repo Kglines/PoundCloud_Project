@@ -14,7 +14,8 @@ module.exports = {
         references: {
           model: 'Users',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE'
       },
       songId: {
         allowNull: false,
@@ -22,7 +23,8 @@ module.exports = {
         references: {
           model: 'Songs',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE'
       },
       body: {
         type: Sequelize.STRING
