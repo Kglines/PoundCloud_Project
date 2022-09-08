@@ -24,6 +24,7 @@ function CreateSong({ setShowModal }) {
     const [selectedAlbumId, setSelectedAlbumId] = useState(null);
     const [addToAlbum, setAddToAlbum] = useState(false);
     const [validationErrors, setValidationErrors] = useState([]);
+    const [disabled, setDisabled] = useState(false);
 
 
     useEffect(() => {
@@ -33,6 +34,7 @@ function CreateSong({ setShowModal }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setDisabled(true);
 
         const payload = {
             title,
@@ -47,14 +49,20 @@ function CreateSong({ setShowModal }) {
           if (data && data.errors) setValidationErrors(data.errors);
         });
         setShowModal(false);
-        // return <Redirect to='/currentuser' />
+        setDisabled(false);
     }
+
+    console.log('errors', validationErrors)
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>Create a song</h2>
-      {validationErrors > 0 &&
-        validationErrors.map((error) => <h2>{error}</h2>)}
+      <ul>
+        {validationErrors > 0 &&
+          validationErrors.map((error) => 
+            <li key={error}>{error}</li>
+        )}
+      </ul>
       <label>
         Title
         <input
@@ -111,7 +119,7 @@ function CreateSong({ setShowModal }) {
       <button type='submit' disabled={validationErrors.length}>
         Submit
       </button>
-      <button onClick={() => setShowModal(false)}>Cancel</button>
+      <button disabled={disabled} onClick={() => setShowModal(false)}>Cancel</button>
     </form>
   );
 }

@@ -33,7 +33,7 @@ function Navigation({ isLoaded }) {
     <ul className='navbar'>
       <li className='navbar-items'>
         <NavLink className='home-icon nav-link' to='/'>
-          <i class='fa-brands fa-soundcloud'></i>
+          <i className='fa-brands fa-soundcloud'></i>
         </NavLink>
         {/* <NavLink className='home' exact to='/'>
           Home

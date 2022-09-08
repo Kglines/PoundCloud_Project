@@ -56,8 +56,12 @@ function Home() {
         <div className='home-container'>
           <div className='album-banner-home'>
             <h2>Top Albums</h2>
-          {validationErrors.length > 0 &&
-            validationErrors.map((error) => <h2>{error}</h2>)}
+            <ul>
+              {validationErrors.length > 0 &&
+                validationErrors.map((error) => 
+                  <li className='errors' key={error}>{error}</li>)}
+
+            </ul>
             <p>Discover the best albums on SoundCloud</p>
           </div>
           <ol>
@@ -117,13 +121,13 @@ function Home() {
           <h3>Join Our Community!</h3>
           <div className='media-links'>
             <a target='_blank' href='https://twitter.com/SoundCloud'>
-              <i class='fa-brands fa-square-twitter'></i>
+              <i className='fa-brands fa-square-twitter'></i>
             </a>
             <a target='_blank' href='https://www.facebook.com/SoundCloud'>
-              <i class='fa-brands fa-square-facebook'></i>
+              <i className='fa-brands fa-square-facebook'></i>
             </a>
             <a target='_blank' href='https://www.instagram.com/soundcloud/'>
-              <i class='fa-brands fa-square-instagram'></i>
+              <i className='fa-brands fa-square-instagram'></i>
             </a>
           </div>
           {!user && (

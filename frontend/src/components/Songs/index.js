@@ -18,11 +18,13 @@ function Songs() {
 
   return (
     <div>
+    <ul>
       {validationErrors && (
         validationErrors.map(error => (
-          <h2>{error}</h2>
+          <li className='errors' key={error}>{error}</li>
         ))
       )}
+    </ul>
       <h2 className='song-header'>SoundCloud Songs</h2>
       <div className='song-container'>
         {songs.map((song) => (

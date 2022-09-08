@@ -17,8 +17,7 @@ function SongDetails() {
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDelModal, setShowDelModal] = useState(false);
-  
-  // console.log('Get a song = ', songs);
+
 
   useEffect(() => {
     dispatch(fetchSong(songId))
@@ -31,7 +30,9 @@ function SongDetails() {
           Back to My Songs
         </NavLink>
       ) : (
-        <NavLink className='return-link' to='/songs'>Back to all songs</NavLink>
+        <NavLink className='return-link' to='/songs'>
+          Back to all songs
+        </NavLink>
       )}
       <div className='song-detail-container'>
         <img

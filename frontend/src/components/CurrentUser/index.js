@@ -35,8 +35,6 @@ function CurrentUser() {
         dispatch(fetchAlbums());
     }, [dispatch]);
 
-    // console.log('songs  current user file = ', songs);
-
     if (!user) return <Redirect to='/login' />;
 
   return (
@@ -54,12 +52,8 @@ function CurrentUser() {
         </p>
         <div className='user-album-container'>
           {albumList.map((album) => (
-            <div className='user-album-card'>
-              <Link
-                className='album-links'
-                key={album.id}
-                to={`/albums/${album.id}`}
-              >
+            <div key={album.id} className='user-album-card'>
+              <Link className='album-links' to={`/albums/${album.id}`}>
                 <img
                   className='user-album-art'
                   src={album.previewImage}

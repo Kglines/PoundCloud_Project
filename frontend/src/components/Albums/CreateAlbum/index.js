@@ -11,6 +11,7 @@ function CreateAlbum({ setShowModal }) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [imageUrl, setImageUrl] = useState('');
+    const [validationErrors, setValidationErrors] = useState([])
 
     // useEffect(() => {
 
@@ -24,20 +25,29 @@ function CreateAlbum({ setShowModal }) {
             description,
             imageUrl
         }
-        let createdAlbum = await dispatch(fetchCreateAlbums(payload));
+        
+        await dispatch(fetchCreateAlbums(payload))
+          .then(() => {
+            history.push(`/currentuser/albums`);
+          })
+          .catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setValidationErrors(data.errors);
+          });
 
-        if(createdAlbum){
-            setTitle('');
-            setDescription('');
-            setImageUrl('');
-        }
-        history.push(`/currentuser/albums`);
+        setTitle('');
+        setDescription('');
+        setImageUrl('');
         setShowModal(false);
-        return createdAlbum;
     }
 
   return (
     <form onSubmit={handleSubmit}>
+    <ul>
+      {validationErrors.length > 0 && validationErrors.map(error => (
+        <li className='errors' key={error}>{error}</li>
+      ))}
+    </ul>
       <h2>Create an album</h2>
       <label>
         Title

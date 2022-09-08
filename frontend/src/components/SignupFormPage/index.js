@@ -31,6 +31,8 @@ function SignupFormPage() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
+
+      
     }
     return setErrors([
       'Confirm Password field must be the same as the Password field',
@@ -41,11 +43,11 @@ function SignupFormPage() {
 
   return (
     <form className='signup-form' onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
+    <ul>
+      {errors.length > 0 && errors.map(error => (
+        <li className='errors' key={error}>{error}</li>
+      ))}
+    </ul>
       <label>
         Email
         <input

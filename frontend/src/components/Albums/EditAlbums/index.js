@@ -7,21 +7,13 @@ import './EditAlbums.css';
 function EditAlbums({ setShowEditModal, albumId }) {
     const dispatch = useDispatch();
     const history = useHistory();
-    // const { albumId } = useParams();
     const album = useSelector((state) => state.albums);
-    // const {Artist, Songs} = album;
 
     const [title, setTitle] = useState(album.title);
     const [description, setDescription] = useState(album.description);
     const [imageUrl, setImageUrl] = useState(album.previewImage);
-    const [ Artist, setArtist] = useState(album.Artist);
-    const [Songs, setSongs] = useState(album.Songs)
-    // const [songDetails, setSongDetails] = useState(Songs);
-    // const [artistDetails, setArtistDetails] = useState(Artist);
-    // const [showModal, setShowModal] = useState(true);
     const [validationErrors, setValidationErrors] = useState([])
     
-    // console.log('SONGS on edit album page', Songs, 'ARTIST on edit page', Artist)
 
     useEffect(() => {
       dispatch(fetchAlbum(albumId));
@@ -35,8 +27,6 @@ function EditAlbums({ setShowEditModal, albumId }) {
         title,
         description,
         previewImage: imageUrl,
-        // Artist: album.userId,
-        // Songs: album.Songs
       };
 
       await dispatch(fetchEditAlbums(payload))
@@ -53,6 +43,11 @@ function EditAlbums({ setShowEditModal, albumId }) {
   return (
     <form className='edit-form' onSubmit={handleSubmit}>
       <h2 className='edit-form-header'>Edit your album</h2>
+      <ul>
+        {validationErrors.length > 0 && validationErrors.map(error => (
+          <li className='errors' key={error}>{error}</li>
+        ))}
+      </ul>
       <label>
         Title
         <input

@@ -1,7 +1,11 @@
+
+.home-page {
+    height: 100%;
+}
 .home-container {
     width: 50%;
-    height: 100%;
-    margin: 90px 30px;
+    height: 100vh;
+    margin: 55px 30px;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
@@ -11,7 +15,7 @@
 .home-page-title {
     text-align: center;
     padding-top: 20px;
-    font-size: 50px;
+    font-size: 60px;
     color: orange;
     text-shadow: 1px 1px 8px white;
     z-index: 2;
@@ -21,7 +25,7 @@
 .home-banner-img {
     margin: 0px auto;
     width: 100vw;
-    height: 200px;
+    height: 175px;
     position: absolute;
     top: 0px;
     z-index: -1;
@@ -41,19 +45,11 @@
     
 }
 
-.song-container-home {
-    /* border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    padding-bottom: 40px;
-    padding-right: 15px; */
-}
-
-
 .album-banner-home h2, .song-banner-home h2{
-    font-size: 16px;
+    font-size: 30px;
 }
 .album-banner-home p, .song-banner-home p{
-    font-size: 10px;
+    font-size: 16px;
     opacity: 0.5;
 }
 .album-banner-home, .song-banner-home {
@@ -61,11 +57,11 @@
 }
 
 .album-title-home, .song-title-home {
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .album-item-home, .song-item-home {
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .song-banner-home {
@@ -74,8 +70,8 @@
 }
 
 .album-card-home, .song-card-home {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin: 5px;
 }
 
@@ -89,11 +85,11 @@
     position: absolute;
     right: 100px;
     top: 0px;
-    font-size: 10px;
+    font-size: 24px;
 }
 
 .media-links {
-    width: 45px;
+    width: 75px;
     display: flex;
     justify-content: space-between;
 }
@@ -101,15 +97,17 @@
 .fa-brands {
     color: orange;
     margin: 4px;
-    font-size: 17px;
+    font-size: 30px;
 }
 
 .demo-btn {
     background-color: orange;
     color: white;
     border-radius: 5px;
-    width: 65px;
+    width: 100px;
+    height: 50px;
     margin-top: 10px;
+    font-size: 20px;
 }
 
 
