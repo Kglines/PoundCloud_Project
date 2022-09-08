@@ -33,7 +33,7 @@ function EditSong({ setShowEditModal }) {
 
   useEffect(() => {
     dispatch(fetchAlbums());
-    dispatch(fetchSong());
+    dispatch(fetchSong(songId));
   }, [dispatch]);
 
   const handleSubmit = (e) => {

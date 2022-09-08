@@ -112,8 +112,9 @@ export const fetchDeleteSongs = (songId) => async (dispatch) => {
   if (res.ok) {
     const song = await res.json();
     dispatch(deleteSongs(song));
-    return res;
+    return song;
   }
+  return res;
 };
 
 const initialState = {};
