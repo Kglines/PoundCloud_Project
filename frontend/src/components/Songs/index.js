@@ -8,7 +8,7 @@ function Songs() {
   const [validationErrors, setValidationErrors] = useState([])
   const dispatch = useDispatch();
   const songs = Object.values(useSelector((state) => state.songs));
-  // console.log('songs = ', songs);
+  console.log('songs = ', songs);
 
   useEffect(() => {
     dispatch(fetchAllSongs()).catch(async (res) => {
