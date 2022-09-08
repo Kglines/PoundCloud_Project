@@ -80,17 +80,17 @@ router.get('/:songId', async (req, res) => {
 
 // GET all songs
 router.get('/', validateQuery, async (req, res) => {
-    // let page = parseInt(req.query.page, 10);
-    // let size = parseInt(req.query.size, 10);
+    let page = parseInt(req.query.page, 10);
+    let size = parseInt(req.query.size, 10);
 
-    // if(Number.isNaN(page)) page = 0;
-    // if(Number.isNaN(size)) size = 20;
+    if(Number.isNaN(page)) page = 1;
+    if(Number.isNaN(size)) size = 20;
 
-    // if(page < 0) page = 0;
-    // if(page > 10) page = 10;
+    if(page < 1) page = 1;
+    if(page > 10) page = 10;
 
-    // if(size < 0) size = 0;
-    // if(size > 20) size = 20;
+    if(size < 0) size = 0;
+    if(size > 20) size = 20;
 
     const Songs = await Song.findAll({
         attributes: [
@@ -104,14 +104,14 @@ router.get('/', validateQuery, async (req, res) => {
             "updatedAt",
             "previewImage"
         ],
-        // limit: size,
-        // offset: size * (page - 1)
+        limit: size,
+        offset: size * (page - 1)
     });
     
     res.json({ 
         Songs, 
-        // page, 
-        // size 
+        page, 
+        size 
     });
 });
 
