@@ -78,7 +78,7 @@ function SongDetails() {
 
         {showDelModal && (
           <Modal>
-            <DeleteSong setShowDelModal={setShowDelModal} songId={songId} />
+            <DeleteSong setShowDelModal={setShowDelModal} parsedId={parsedId} />
           </Modal>
         )}
       </div>
