@@ -3,9 +3,6 @@
     flex-direction: column;
     width: 75%;
     margin: auto;
-    /* display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto; */
 }
 
 .user-album-card, .user-song-card {
