@@ -13,6 +13,9 @@ function CreateAlbum({ setShowModal }) {
     const [imageUrl, setImageUrl] = useState('');
     const [validationErrors, setValidationErrors] = useState([])
 
+    const defaultImage =
+      'https://images.unsplash.com/photo-1559424452-eeb3a13ffe2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80';
+
     // useEffect(() => {
 
     // }, [])
@@ -23,7 +26,7 @@ function CreateAlbum({ setShowModal }) {
         const payload = {
             title,
             description,
-            imageUrl
+            imageUrl: imageUrl || defaultImage
         }
         
         await dispatch(fetchCreateAlbums(payload))
@@ -39,8 +42,6 @@ function CreateAlbum({ setShowModal }) {
             if (data && data.errors) setValidationErrors(data.errors);
           });
     }
-
-    // console.log('errors on album create page = ', validationErrors)
 
   return (
     <form onSubmit={handleSubmit}>
@@ -80,8 +81,8 @@ function CreateAlbum({ setShowModal }) {
           placeholder='Album art url'
         />
       </label>
-      <button>Submit</button>
-      <button onClick={() => setShowModal(false)}>Cancel</button>
+      <button className='submit-btn'>Submit</button>
+      <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
     </form>
   );
 }

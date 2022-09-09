@@ -22,9 +22,7 @@ function CreateSong({ setShowModal }) {
     const [url, setUrl] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [selectedAlbumId, setSelectedAlbumId] = useState(null);
-    const [addToAlbum, setAddToAlbum] = useState(false);
     const [validationErrors, setValidationErrors] = useState([]);
-    
 
 
     useEffect(() => {
@@ -55,7 +53,6 @@ function CreateSong({ setShowModal }) {
         return createdSong;
     }
 
-    // console.log('errors on create song page', validationErrors)
 
   return (
     <form onSubmit={handleSubmit}>
@@ -118,10 +115,10 @@ function CreateSong({ setShowModal }) {
         </label>
       ))}
 
-      <button type='submit'>
+      <button className='submit-btn' type='submit'>
         Submit
       </button>
-      <button onClick={() => setShowModal(false)}>Cancel</button>
+      <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
     </form>
   );
 }
