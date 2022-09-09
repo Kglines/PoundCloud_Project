@@ -44,69 +44,71 @@ function SignupFormPage() {
   // console.log('sign up form page errors = ', errors)
 
   return (
-    <form className='signup-form' onSubmit={handleSubmit}>
-    <ul>
-      {errors.map(error => (
-        <li className='errors' key={error}>{error}</li>
-      ))}
-    </ul>
-      <label>
-        Email
-        <input
-          type='text'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Username
-        <input
-          type='text'
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        First Name
-        <input
-          type='text'
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Last Name
-        <input
-          type='text'
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Confirm Password
-        <input
-          type='password'
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button className='signup-btn' type='submit'>Sign Up</button>
-      <p>Already a member? <NavLink to='/login'>Click Here</NavLink></p>
-    </form>
+    <>
+      <ul>
+        {errors.map(error => (
+          <li className='errors' key={error}>{error}</li>
+        ))}
+      </ul>
+      <form className='signup-form' onSubmit={handleSubmit}>
+        <label>
+          Email
+          <input
+            type='text'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Username
+          <input
+            type='text'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          First Name
+          <input
+            type='text'
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Last Name
+          <input
+            type='text'
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Confirm Password
+          <input
+            type='password'
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </label>
+        <button className='signup-btn' type='submit'>Sign Up</button>
+        <p>Already a member? <NavLink to='/login'>Click Here</NavLink></p>
+      </form>
+    </>
   );
 }
 

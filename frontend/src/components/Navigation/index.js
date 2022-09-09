@@ -38,6 +38,7 @@ function Navigation({ isLoaded }) {
           </NavLink>
           <a
             className='nav-link'
+            target='_blank'
             href='https://github.com/Kglines/SoundCloud_Project'
           >
             About
