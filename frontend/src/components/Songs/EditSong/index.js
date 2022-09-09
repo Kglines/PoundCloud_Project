@@ -46,7 +46,7 @@ function EditSong({ setShowEditModal }) {
       description,
       url,
       previewImage: imageUrl,
-      albumId: selectedAlbumId,
+      // albumId: selectedAlbumId,
     };
 
     dispatch(fetchEditSong(payload))
@@ -109,8 +109,8 @@ function EditSong({ setShowEditModal }) {
           placeholder='Image url'
         />
       </label>
-      <p style={{ opacity: 0.5}}>(Select the album to add your song to...)</p>
-      {myAlbums.map((album) => (
+      {/* <p style={{ opacity: 0.5}}>(Select the album to add your song to...)</p> */}
+      {/* {myAlbums.map((album) => (
         <label key={album.id}>
           <input
             type='button'
@@ -120,7 +120,7 @@ function EditSong({ setShowEditModal }) {
           ></input>
           {album.title}
         </label>
-      ))}
+      ))} */}
       <button className='submit-btn' disabled={disabled} type='submit'>Submit</button>
       <button className='cancel-btn' onClick={() => setShowEditModal(false)}>Cancel</button>
     </form>
