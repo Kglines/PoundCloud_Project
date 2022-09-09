@@ -49,8 +49,8 @@ function AlbumDetails() {
             <p>{album.description}</p>
           </div>
           <div className='songs-side'>
-            <p>Artist: {Artist && Artist.username}</p>
-            <h4>Songs</h4>
+            <h4>Artist: {Artist && Artist.username}</h4>
+            <h4>Songs:</h4>
             <ol className='album-detail-song-list'>
               {Songs &&
                 Songs.map((song) => (

@@ -1,6 +1,6 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, Redirect, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
@@ -30,23 +30,28 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <ul className='navbar'>
-      <li className='navbar-items'>
-        <NavLink className='home-icon nav-link' to='/'>
-          <i className='fa-brands fa-soundcloud'></i>
-        </NavLink>
-        {/* <NavLink className='home' exact to='/'>
-          Home
-        </NavLink> */}
-        <NavLink className='navbar-albums nav-link' to='/albums'>
-          All Albums
-        </NavLink>
-        <NavLink className='navbar-songs nav-link' to='/songs'>
-          All Songs
-        </NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <>
+      <ul className='navbar'>
+        <li className='navbar-items'>
+          <NavLink className='home-icon nav-link' to='/'>
+            <i className='fa-brands fa-soundcloud'></i>
+          </NavLink>
+          <a
+            className='nav-link'
+            href='https://github.com/Kglines/SoundCloud_Project'
+          >
+            About
+          </a>
+          <NavLink className='navbar-albums nav-link' to='/albums'>
+            All Albums
+          </NavLink>
+          <NavLink className='navbar-songs nav-link' to='/songs'>
+            All Songs
+          </NavLink>
+          {isLoaded && sessionLinks}
+        </li>
+      </ul>
+    </>
   );
 }
 

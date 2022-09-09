@@ -11,7 +11,7 @@
 }
 
 .return-link {
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .song-detail-img {
@@ -27,6 +27,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 5px;
 }
 
 .song-detail-edit-btn {
