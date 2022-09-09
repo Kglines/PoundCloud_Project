@@ -1,5 +1,27 @@
 # `SoundCloud`
 
+## Welcome to my SoundCloud Clone Project
+This project mimics some of the functions that SoundCloud has to offer. As you go to the main page, you can login, sign-up, or try the web app by clicking the Demo-User button, as well as see some of the albums and songs on the project. Once you're logged in, you can create songs, create albums, see all of the created songs and all of the created albums, even by other users. Each song and album can have their own name, description, and even cover art. Each song can also be added to any of your own albums, so you can build your album with your songs!
+
+Have fun playing around with this project!
+
+## To get started
+Clone the repo and run `npm install` to install dependencies.
+
+You can also navigate to https://aa-soundcloud-project.herokuapp.com/ to view the live site.
+
+## Tech used in this project
+* HTML
+* CSS
+* JavaScript
+* React
+* React-Redux
+* Express
+* bcrypt
+* CSRF
+* Sequelize
+* SQLite3 (development) 
+* PostGreSQL (production)
 ## Database Schema Design
 
 <img src='./frontend/public/images/db.png'>
