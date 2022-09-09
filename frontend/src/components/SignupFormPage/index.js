@@ -39,7 +39,7 @@ function SignupFormPage() {
     ]);
   };
 
-  console.log('sign up form page errors = ', errors)
+  // console.log('sign up form page errors = ', errors)
 
   return (
     <form className='signup-form' onSubmit={handleSubmit}>

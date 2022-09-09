@@ -40,7 +40,7 @@ function CreateAlbum({ setShowModal }) {
           });
     }
 
-    console.log('errors on album create page = ', validationErrors)
+    // console.log('errors on album create page = ', validationErrors)
 
   return (
     <form onSubmit={handleSubmit}>

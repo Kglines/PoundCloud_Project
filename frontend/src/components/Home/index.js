@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import { NavLink, Link, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { fetchAlbums } from '../../store/albums';
 import { fetchAllSongs } from '../../store/songs';
 import './Home.css';
 
 function Home() {
-  const [credential, setCredential] = useState('');
-  const [password, setPassword] = useState('');
   const [validationErrors, setValidationErrors] = useState('')
 
   const dispatch = useDispatch();

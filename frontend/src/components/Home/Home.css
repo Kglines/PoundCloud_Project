@@ -5,8 +5,8 @@
 .home-container {
     width: 50%;
     height: 100vh;
-    margin: 55px 30px;
-    padding-top: 10px;
+    margin: 0px 30px;
+    padding-top: 40px;
     display: flex;
     flex-direction: column;
     border-right: 1px solid black;
@@ -33,7 +33,7 @@
 }
 
 .album-container-home, .song-container-home {
-    /* position: relative; */
+   
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -41,7 +41,6 @@
     flex-wrap: wrap;
     height: auto;
     padding: 10px;
-    /* box-sizing: content-box; */
     
 }
 

@@ -55,7 +55,7 @@ function CreateSong({ setShowModal }) {
         return createdSong;
     }
 
-    console.log('errors on create song page', validationErrors)
+    // console.log('errors on create song page', validationErrors)
 
   return (
     <form onSubmit={handleSubmit}>
