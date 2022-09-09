@@ -2,7 +2,7 @@
 
 ## Database Schema Design
 
-<img src='./images/db.png'>
+<img src='./frontend/public/images/db.png'>
 
 
 ## API Documentation

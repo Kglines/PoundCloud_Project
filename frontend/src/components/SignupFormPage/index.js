@@ -27,7 +27,9 @@ function SignupFormPage() {
       
       return dispatch(
         sessionActions.signup({ email, username, firstName, lastName, password })
-      ).catch(async (res) => {
+      )
+        // .then(() => <Redirect to='/currentuser' />)
+        .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
@@ -45,7 +47,7 @@ function SignupFormPage() {
     <form className='signup-form' onSubmit={handleSubmit}>
     <ul>
       {errors.map(error => (
-        <li className='errors' key={error}>{error.message}</li>
+        <li className='errors' key={error}>{error}</li>
       ))}
     </ul>
       <label>
