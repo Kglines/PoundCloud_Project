@@ -5,6 +5,21 @@
     margin: auto;
 }
 
+.currentuser-welcome-banner {
+    height: 60px;
+    margin-top: 20px;
+    font-size: 33px;
+}
+
+.user-albums, .user-songs {
+    height: 30px;
+    font-size: 20px;
+}
+
+.user-albums-p, .user-songs-p {
+    font-size: 16px;
+}
+
 .user-album-card, .user-song-card {
     width: 80px;
     height: auto;
@@ -49,7 +64,7 @@
 
 .user-albums-btn, .user-songs-btn {
     color: orange;
-    font-size: 10px;
+    font-size: 16px;
     
 }
 

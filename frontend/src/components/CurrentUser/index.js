@@ -41,7 +41,7 @@ function CurrentUser() {
     <div>
       <div className='currentuser-container'>
         <div className='currentuser-banner'>
-          <h2 className='welcome-banner'>Welcome {user.username}!</h2>
+          <h2 className='currentuser-welcome-banner'>Welcome {user.username}!</h2>
         </div>
         <h4 className='user-albums'>{user.username}'s Albums: </h4>
         <p className='user-albums-p'>
@@ -64,7 +64,7 @@ function CurrentUser() {
             </div>
           )) : <h3>No Albums Created Yet...</h3>}
         </div>
-        <h4>{user.username}'s Songs: </h4>
+        <h4 className='user-songs'>{user.username}'s Songs: </h4>
         <p className='user-songs-p'>
           <NavLink className='user-songs-btn' to='/currentuser/songs'>
             Click Here
