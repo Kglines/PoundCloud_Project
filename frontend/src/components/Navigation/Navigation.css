@@ -1,15 +1,22 @@
 .navbar {
     margin: 0px;
+    margin-left: -40px;
     list-style: none;
+    width: 100vw;
 }
 
 .navbar-items {
-    display: flex;
-    justify-content: space-around;
-    padding: 5px 10px 5px 10px;
-    height: 50px;
-    width: 100%;
+    display: block;
+    margin: 2px 40px;
+    /* padding: 5px 10px 5px 10px; */
+    height: auto;
+    width: 100vw;
     background-color: #333;
+}
+
+.nav-link {
+   margin: 0px 60px;
+   padding: 0px 10px;
 }
 
 
@@ -25,15 +32,19 @@
  .profile-dropdown {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    right: 0px;
+    top: 0px;
     list-style: none;
     color: white;
     height: 25vh;
     background-color: #333;
-    width: 15%;
+    width: 20%;
     padding-left: 15px;
     border-radius: 5px;
-    z-index: 1;
+    z-index: 5;
     font-size: 20px;
+    margin-top: 50px;
  }
 
  .profile-dropdown li {

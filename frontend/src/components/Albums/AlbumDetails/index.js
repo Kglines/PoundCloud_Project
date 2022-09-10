@@ -8,7 +8,6 @@ import DeleteAlbum from '../DeleteAlbum';
 import { Modal } from '../../../context/Modal';
 
 function AlbumDetails() {
-  const [showForm, setShowForm] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   
@@ -19,7 +18,7 @@ function AlbumDetails() {
     // const userAlbum = sessionUser.id === album.userId;
     const { Artist, Songs } = album;
 
-    // console.log('albumDetails song = ', album)
+    // console.log('albumDetails song = ', Songs)
     
     useEffect(() => {
       dispatch(fetchAlbum(albumId))

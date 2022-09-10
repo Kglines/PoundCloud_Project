@@ -10,8 +10,9 @@ function DeleteAlbum({ albumId, setShowDeleteModal }) {
     // console.log('albumId', albumId);
 
     const onDelete = () => {
-        dispatch(fetchDeleteAlbums(albumId));
-        return history.push('/currentuser/albums');
+        dispatch(fetchDeleteAlbums(albumId)).then(() => {
+          return history.push('/currentuser/albums');
+        })
     }
 
   return (
