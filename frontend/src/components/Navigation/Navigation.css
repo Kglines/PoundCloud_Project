@@ -30,12 +30,16 @@
     text-decoration: underline;
 }
 
+#my-music-btn{
+   margin-top: -10px;
+}
+
  .profile-dropdown {
     display: flex;
     flex-direction: column;
     position: absolute;
     right: 0px;
-    top: -10px;
+    top: 0px;
     list-style: none;
     color: white;
     height: 25vh;
@@ -58,7 +62,7 @@
 
  .fa-user-circle {
    color: orange;
-   height: 25px;
+   height: 35px;
    font-size: 25px;
    padding: 5px 2px;
  }

@@ -14,7 +14,7 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <button className='my-btn nav-link' onClick={() => history.push('/currentuser')}>My Music</button>
+        <button id='my-music-btn' className='my-btn nav-link' onClick={() => history.push('/currentuser')}>My Music</button>
         <ProfileButton className='profile-btn nav-link' user={sessionUser} />
       </>
     )
