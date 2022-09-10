@@ -76,12 +76,12 @@ function SongDetails() {
           </Modal>
         )}
       </div>
-      <div className='music-player'>
+      {/* <div className='music-player'>
         <i className='fa-regular fa-backward player-icon'></i>
         <i className='fa-regular fa-play-pause player-icon'></i>
         <i className='fa-regular fa-stop player-icon'></i>
         <i className='fa-regular fa-forward player-icon'></i>
-      </div>
+      </div> */}
     </>
   );
 }
