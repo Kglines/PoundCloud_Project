@@ -77,10 +77,24 @@ function SongDetails() {
         )}
       </div>
       {/* <div className='music-player'>
-        <i className='fa-regular fa-backward player-icon'></i>
-        <i className='fa-regular fa-play-pause player-icon'></i>
-        <i className='fa-regular fa-stop player-icon'></i>
-        <i className='fa-regular fa-forward player-icon'></i>
+          <p className='player-title'>{songs.title}</p>
+          <div className='player-controls'>
+            <button>
+              <i className='fa-solid fa-backward player-icon'></i>
+            </button>
+            <button>
+              <i className='fa-solid fa-play player-icon'></i>
+            </button>
+            <button>
+              <i className='fa-solid fa-pause player-icon'></i>
+            </button>
+            <button>
+              <i className='fa-solid fa-stop player-icon'></i>
+            </button>
+            <button>
+              <i className='fa-solid fa-forward player-icon'></i>
+            </button>
+          </div>
       </div> */}
     </>
   );

@@ -28,6 +28,7 @@ You can also navigate to https://aa-soundcloud-project.herokuapp.com/ to view th
 * Add a 'genre' category
 * Create a search bar for songs, albums, and artists
 * Pagination to deal with large scale data storage
+* Functioning playback controls
 
 ## Tech used in this project
 * HTML
