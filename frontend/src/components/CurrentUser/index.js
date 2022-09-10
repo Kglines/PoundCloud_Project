@@ -3,16 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink, Redirect, useHistory } from 'react-router-dom';
 import { fetchAllSongs } from '../../store/songs';
 import { fetchAlbums } from '../../store/albums';
-import CreateAlbum from '../Albums/CreateAlbum';
-import './CurrentUser.css';
-import CreateSong from '../Songs/CreateSong';
 
 
 function CurrentUser() {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
-  const [showCreateAlbumForm, setShowCreateAlbumForm] = useState(false);
   
   
   const user = useSelector((state) => state.session.user);

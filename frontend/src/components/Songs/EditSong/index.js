@@ -27,7 +27,6 @@ function EditSong({ setShowEditModal }) {
   const [imageUrl, setImageUrl] = useState(song.previewImage);
   const [selectedAlbumId, setSelectedAlbumId] = useState(null);
   const [validationErrors, setValidationErrors] = useState([]);
-  const [disabled, setDisabled] = useState(false);
 
   // console.log('SELECTED ALBUM ID =', selectedAlbumId)
 
@@ -38,7 +37,7 @@ function EditSong({ setShowEditModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setDisabled(true);
+    
 
     const payload = {
       id: parsedId,
@@ -58,7 +57,7 @@ function EditSong({ setShowEditModal }) {
         const data = await res.json();
         if (data && data.errors) setValidationErrors(data.errors);
       });
-    setDisabled(false);
+    
   };
 
   return (
@@ -121,7 +120,7 @@ function EditSong({ setShowEditModal }) {
           {album.title}
         </label>
       ))} */}
-      <button className='submit-btn' disabled={disabled} type='submit'>Submit</button>
+      <button className='submit-btn' type='submit'>Submit</button>
       <button className='cancel-btn' onClick={() => setShowEditModal(false)}>Cancel</button>
     </form>
   );
