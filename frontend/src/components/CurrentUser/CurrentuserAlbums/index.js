@@ -37,23 +37,27 @@ function CurrentuserAlbums() {
         </button>
       )}
       <div className='user-album-container'>
-        {albumList.map((album) => (
-          <div className='user-album-card'>
-            <Link
-              className='album-links'
-              key={album.id}
-              to={`/albums/${album.id}`}
-            >
-              <img
-                className='user-album-art'
-                src={album.previewImage}
-                alt={album.title}
-              />
-              <h4 className='album-title-home'>{album.title}</h4>
-            </Link>
-            <p>{album.description}</p>
-          </div>
-        ))}
+        {albumList ? (
+          albumList.map((album) => (
+            <div className='user-album-card'>
+              <Link
+                className='album-links'
+                key={album.id}
+                to={`/albums/${album.id}`}
+              >
+                <img
+                  className='user-album-art'
+                  src={album.previewImage}
+                  alt={album.title}
+                />
+                <h4 className='album-title-home'>{album.title}</h4>
+              </Link>
+              <p>{album.description}</p>
+            </div>
+          ))
+        ) : (
+          <h3>No Albums Created Yet...</h3>
+        )}
       </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

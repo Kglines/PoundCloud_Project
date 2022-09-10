@@ -27,28 +27,34 @@ function CurrentuserSongs() {
   return (
     <div>
       <h3 className='song-header'>My Songs: </h3>
-      <button className='user-add-song-btn' onClick={() => setShowModal(true)}>+Add Song</button>
+      <button className='user-add-song-btn' onClick={() => setShowModal(true)}>
+        +Add Song
+      </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <CreateSong setShowModal={setShowModal} />
         </Modal>
       )}
       <div className='user-songs-container'>
-        {songList.map((song) => (
-          <div key={song.id} className='song-card'>
-            <Link className='song-link' to={`/songs/${song.id}`}>
-              <div className='song-banner'>
-                <img
-                  className='song-img'
-                  src={song.previewImage}
-                  alt={song.title}
-                />
-                <h4 className='song-title-home'>{song.title}</h4>
-              </div>
-            </Link>
-            <p>{song.description}</p>
-          </div>
-        ))}
+        {songList ? (
+          songList.map((song) => (
+            <div key={song.id} className='song-card'>
+              <Link className='song-link' to={`/songs/${song.id}`}>
+                <div className='song-banner'>
+                  <img
+                    className='song-img'
+                    src={song.previewImage}
+                    alt={song.title}
+                  />
+                  <h4 className='song-title-home'>{song.title}</h4>
+                </div>
+              </Link>
+              <p>{song.description}</p>
+            </div>
+          ))
+        ) : (
+          <h3>No Songs Created Yet...</h3>
+        )}
       </div>
     </div>
   );
