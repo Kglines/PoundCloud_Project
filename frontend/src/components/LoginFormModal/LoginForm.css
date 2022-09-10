@@ -5,7 +5,7 @@ form {
     align-items: center;
 }
 
-.log-in-btn {
+#log-in-btn {
     font-size: 14px;
     width: 65px;
     height: 25px;
