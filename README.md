@@ -21,16 +21,20 @@ Have fun playing around with this project!
 ## To get started on your local environment
 Clone the repo and run `npm install` to install dependencies.
 
-CD into the backend and run `npm install`
+cd into the backend and run `npm install`
 Create a .env file with the following variables:
-* PORT
-* DB_FILE
-* JWT_SECRET
-* JWT_EXPIRES_IN
+* PORT=8000
+* DB_FILE=db/dev.db
+* JWT_SECRET=[create a secret]
+* JWT_EXPIRES_IN=604800
+
+Run `dotenv npx sequelize db:migrate` to start the db
+
+Run `dotenv npx sequelize db:seed:all` to seed the db
 
 Run `npm start` to get the backend started
 
-CD into the frontend and run `npm install`
+cd into the frontend and run `npm install`
 Run `npm start` to get the frontend started
 
 You can also navigate to https://aa-soundcloud-project.herokuapp.com/ to view the live site.
