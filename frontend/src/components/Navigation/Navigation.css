@@ -15,7 +15,7 @@
 }
 
 .nav-link {
-   margin: 0px 60px;
+   margin: 0px 55px;
    padding: 0px 10px;
 }
 
@@ -34,7 +34,7 @@
     flex-direction: column;
     position: absolute;
     right: 0px;
-    top: 0px;
+    top: -10px;
     list-style: none;
     color: white;
     height: 25vh;
