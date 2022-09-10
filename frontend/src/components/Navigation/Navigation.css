@@ -51,9 +51,10 @@
     margin: 3px;
  }
 
- .profile-btn {
+ /* .profile-btn {
    width: 30px;
- }
+   color: orange;
+ } */
 
  .fa-user-circle {
    color: orange;
