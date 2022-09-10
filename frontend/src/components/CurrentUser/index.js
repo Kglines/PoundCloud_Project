@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink, Redirect, useHistory } from 'react-router-dom';
 import { fetchAllSongs } from '../../store/songs';
 import { fetchAlbums } from '../../store/albums';
+import './CurrentUser.css'
 
 
 function CurrentUser() {

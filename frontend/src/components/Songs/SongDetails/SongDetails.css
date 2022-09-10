@@ -59,3 +59,20 @@
 .song-detail-delete-btn:hover{
     background-color: rgb(47, 92, 198);
 }
+
+.music-player {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 75px;
+    background-color: #333;
+    border-radius: 5px;
+}
+
+.player-icon {
+    align-items: center;
+    font-size: 40px;
+    color: orange;
+    margin: 20px;
+}

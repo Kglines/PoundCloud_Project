@@ -54,10 +54,7 @@ function SongDetails() {
       </div>
       <div className='song-detail-btns'>
         {user && user.id === songs.userId && (
-          <button
-            className='save-btn'
-            onClick={() => setShowEditModal(true)}
-          >
+          <button className='save-btn' onClick={() => setShowEditModal(true)}>
             Edit
           </button>
         )}
@@ -68,10 +65,7 @@ function SongDetails() {
           </Modal>
         )}
         {user && user.id === songs.userId && (
-          <button
-            className='cancel-btn'
-            onClick={() => setShowDelModal(true)}
-          >
+          <button className='cancel-btn' onClick={() => setShowDelModal(true)}>
             Delete
           </button>
         )}
@@ -81,6 +75,12 @@ function SongDetails() {
             <DeleteSong setShowDelModal={setShowDelModal} parsedId={parsedId} />
           </Modal>
         )}
+      </div>
+      <div className='music-player'>
+        <i className='fa-regular fa-backward player-icon'></i>
+        <i className='fa-regular fa-play-pause player-icon'></i>
+        <i className='fa-regular fa-stop player-icon'></i>
+        <i className='fa-regular fa-forward player-icon'></i>
       </div>
     </>
   );
