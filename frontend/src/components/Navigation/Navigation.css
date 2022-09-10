@@ -58,6 +58,8 @@
 
  .fa-user-circle {
    color: orange;
+   height: 25px;
+   font-size: 25px;
  }
 
  .logout-btn {
