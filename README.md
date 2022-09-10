@@ -1,7 +1,20 @@
 # `SoundCloud`
 
 ## Welcome to my SoundCloud Clone Project
-This project mimics some of the functions that SoundCloud has to offer. As you go to the main page, you can login, sign-up, or try the web app by clicking the Demo-User button, as well as see some of the albums and songs on the project. Once you're logged in, you can create songs, create albums, see all of the created songs and all of the created albums, even by other users. Each song and album can have their own name, description, and even cover art. Each song can also be added to any of your own albums, so you can build your album with your songs!
+This project mimics some of the functions that SoundCloud has to offer. 
+
+## Features
+* Signup
+* Login
+* Demo user login - fully functional
+* View all songs
+* View all albums
+* Current user page with your albums and songs
+* Create, Read, Update, and Delete only your songs.
+* Create, Read, Update, Delete only your albums.
+* Choose which album to add your song into when creating the song
+* Social Media Links
+* Logout
 
 Have fun playing around with this project!
 
@@ -9,6 +22,12 @@ Have fun playing around with this project!
 Clone the repo and run `npm install` to install dependencies.
 
 You can also navigate to https://aa-soundcloud-project.herokuapp.com/ to view the live site.
+
+## Future Upgrades
+* Create, Read, Update, and Delete Playlists
+* Add a 'genre' category
+* Create a search bar for songs, albums, and artists
+* Pagination to deal with large scale data storage
 
 ## Tech used in this project
 * HTML
