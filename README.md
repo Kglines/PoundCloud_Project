@@ -18,17 +18,22 @@ This project mimics some of the functions that SoundCloud has to offer.
 
 Have fun playing around with this project!
 
-## To get started
+## To get started on your local environment
 Clone the repo and run `npm install` to install dependencies.
 
-You can also navigate to https://aa-soundcloud-project.herokuapp.com/ to view the live site.
+CD into the backend and run `npm install`
+Create a .env file with the following variables:
+* PORT
+* DB_FILE
+* JWT_SECRET
+* JWT_EXPIRES_IN
 
-## Future Upgrades
-* Create, Read, Update, and Delete Playlists
-* Add a 'genre' category
-* Create a search bar for songs, albums, and artists
-* Pagination to deal with large scale data storage
-* Functioning playback controls
+Run `npm start` to get the backend started
+
+CD into the frontend and run `npm install`
+Run `npm start` to get the frontend started
+
+You can also navigate to https://aa-soundcloud-project.herokuapp.com/ to view the live site.
 
 ## Tech used in this project
 * HTML
@@ -39,9 +44,17 @@ You can also navigate to https://aa-soundcloud-project.herokuapp.com/ to view th
 * Express
 * bcrypt
 * CSRF
+* JWT
 * Sequelize
 * SQLite3 (development) 
 * PostGreSQL (production)
+
+## Future Upgrades
+* Create, Read, Update, and Delete Playlists
+* Add a 'genre' category
+* Create a search bar for songs, albums, and artists
+* Pagination to deal with large scale data storage
+* Functioning playback controls
 ## Database Schema Design
 
 <img src='./frontend/public/images/db.png'>
