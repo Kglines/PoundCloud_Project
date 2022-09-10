@@ -55,6 +55,10 @@
    width: 30px;
  }
 
+ .fa-user-circle {
+   color: orange;
+ }
+
  .logout-btn {
     background-color: red;
     color: white;
