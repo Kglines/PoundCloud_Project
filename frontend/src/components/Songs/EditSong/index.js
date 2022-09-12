@@ -44,7 +44,7 @@ function EditSong({ setShowEditModal }) {
       title,
       description,
       url,
-      previewImage: imageUrl,
+      imageUrl,
       // albumId: selectedAlbumId,
     };
 
