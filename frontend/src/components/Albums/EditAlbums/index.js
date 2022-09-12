@@ -26,7 +26,7 @@ function EditAlbums({ setShowEditModal, albumId }) {
         id: albumId,
         title,
         description,
-        previewImage: imageUrl,
+        imageUrl,
       };
 
       await dispatch(fetchEditAlbums(payload))
