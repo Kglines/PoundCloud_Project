@@ -37,7 +37,7 @@ function CurrentuserAlbums() {
         </button>
       )}
       <div className='user-album-container'>
-        {albumList ? (
+        {albumList.length > 0 ? (
           albumList.map((album) => (
             <div className='user-album-card'>
               <Link

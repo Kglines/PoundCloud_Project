@@ -36,7 +36,7 @@ function CurrentuserSongs() {
         </Modal>
       )}
       <div className='user-songs-container'>
-        {songList ? (
+        {songList.length > 0 ? (
           songList.map((song) => (
             <div key={song.id} className='song-card'>
               <Link className='song-link' to={`/songs/${song.id}`}>
