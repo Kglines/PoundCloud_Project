@@ -6,7 +6,6 @@ import CreateAlbum from '../../Albums/CreateAlbum';
 import { Modal } from '../../../context/Modal';
 
 function CurrentuserAlbums() {
-    const [showCreateAlbumForm, setShowCreateAlbumForm] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
     const dispatch = useDispatch();
@@ -39,7 +38,7 @@ function CurrentuserAlbums() {
       <div className='user-album-container'>
         {albumList.length > 0 ? (
           albumList.map((album) => (
-            <div className='user-album-card'>
+            <div key={album.id} className='user-album-card'>
               <Link
                 className='album-links'
                 key={album.id}

@@ -18,28 +18,33 @@ function Songs() {
 
   return (
     <div>
-    <ul>
-      {validationErrors && (
-        validationErrors.map(error => (
-          <li className='errors' key={error}>{error}</li>
-        ))
-      )}
-    </ul>
+      <ul>
+        {validationErrors &&
+          validationErrors.map((error) => (
+            <li className='errors' key={error}>
+              {error}
+            </li>
+          ))}
+      </ul>
       <h2 className='song-header'>SoundCloud Songs</h2>
       <div className='song-container'>
         {songs.map((song) => (
-          <div className='song-card'>
-            <NavLink 
-              className='song-link' 
-              key={song.id} 
+          <div key={song.id} className='song-card'>
+            <NavLink
+              className='song-link'
+              key={song.id}
               to={`/songs/${song.id}`}
-              >
+            >
               <div className='song-banner'>
-                <img className='song-img' src={song.previewImage} alt={song.title} />
+                <img
+                  className='song-img'
+                  src={song.previewImage}
+                  alt={song.title}
+                />
                 <h3 className='song-title'>{song.title}</h3>
               </div>
             </NavLink>
-              <p className='song-desc'>{song.description}</p>
+            <p className='song-desc'>{song.description}</p>
           </div>
         ))}
       </div>

@@ -67,20 +67,23 @@ function Home() {
               {albums.map((album) => {
                 return (
                   <div className='album-card-home'>
-                    <li className='album-item-home'>
                       <NavLink
                         className='album-link-home'
                         to={`/albums/${album.id}`}
                       >
-                        <h4 className='album-title-home'>{album.title}</h4>
+                    <li className='album-item-home'>
+                    <div>
                         <img
                           className='album-img-home'
                           src={album.previewImage}
                           alt={album.title}
                         />
-                      </NavLink>
+                        <h4 className='album-title-home'>{album.title}</h4>
+
+                    </div>
                       <p className='album-desc-home'>{album.description}</p>
                     </li>
+                      </NavLink>
                   </div>
                 );
               })}
@@ -95,20 +98,23 @@ function Home() {
               {songs.map((song) => {
                 return (
                   <div className='song-card-home'>
-                    <li className='song-item-home'>
                       <NavLink
                         className='song-link-home'
                         to={`/songs/${song.id}`}
                       >
-                        <h2 className='song-title-home'>{song.title}</h2>
+                    <li className='song-item-home'>
+                    <div>
                         <img
                           className='song-img-home'
                           src={song.previewImage}
                           alt={song.title}
                         />
-                      </NavLink>
+                        <h2 className='song-title-home'>{song.title}</h2>
+
+                    </div>
                       <p className='song-desc-home'>{song.description}</p>
                     </li>
+                      </NavLink>
                   </div>
                 );
               })}

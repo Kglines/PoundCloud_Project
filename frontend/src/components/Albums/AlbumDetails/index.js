@@ -52,7 +52,7 @@ function AlbumDetails() {
             <h4>Songs:</h4>
             <ol className='album-detail-song-list'>
               {Songs && Songs.map((song) => (
-                  <li className='album-detail-song-item'>
+                  <li key={song.id} className='album-detail-song-item'>
                     <NavLink to={`/songs/${song.id}`}>{song.title}</NavLink>
                   </li>
                 ))}

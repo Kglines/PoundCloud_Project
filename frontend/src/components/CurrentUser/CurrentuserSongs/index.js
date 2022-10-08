@@ -23,7 +23,9 @@ function CurrentuserSongs() {
         dispatch(fetchAllSongs())
     }, [dispatch])
 
+
     if (!user) return <Redirect to='/login' />;
+
   return (
     <div>
       <h3 className='song-header'>My Songs: </h3>

@@ -6,7 +6,7 @@ import { fetchDeleteAlbums } from '../../../store/albums';
 
 function DeleteAlbum({ albumId, setShowDeleteModal }) {
     const history = useHistory();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     // console.log('albumId', albumId);
 
     const onDelete = () => {

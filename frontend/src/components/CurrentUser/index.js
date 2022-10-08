@@ -28,8 +28,8 @@ function CurrentUser() {
   });
   
     useEffect(() => {
-        dispatch(fetchAllSongs());
         dispatch(fetchAlbums());
+        dispatch(fetchAllSongs());
     }, [dispatch]);
 
     if (!user) return <Redirect to='/login' />;

@@ -32,6 +32,11 @@
     border: 1px solid white;
 }
 
+.album-link-home, .song-link-home {
+    text-decoration: none;
+    color: rgb(53, 53, 53);
+}
+
 .album-container-home, .song-container-home {
    
     display: flex;
@@ -40,7 +45,9 @@
     align-items: center;
     flex-wrap: wrap;
     height: auto;
+    margin-left: 50px;
     padding: 10px;
+    overflow: scroll;
     
 }
 
@@ -57,10 +64,21 @@
 
 .album-title-home, .song-title-home {
     font-size: 14px;
+    
 }
 
 .album-item-home, .song-item-home {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     font-size: 14px;
+    padding:5px;
+    
+}
+
+.album-desc-home, .song-desc-home {
+    margin-left: 10px;
 }
 
 .song-banner-home {
@@ -69,14 +87,22 @@
 }
 
 .album-card-home, .song-card-home {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 75px;
     margin: 5px;
+    background-color: rgb(225, 223, 223);
+    border: 1px solid grey;
+    
+}
+
+.album-card-home:hover, .song-card-home:hover{
+    background-color: silver;
+    border: 2px solid grey;
 }
 
 .song-img-home, .album-img-home {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 45px;
 }
 
 .right-container {
