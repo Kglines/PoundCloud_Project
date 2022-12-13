@@ -8,10 +8,10 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-   up: (queryInterface, Sequelize) => {
+  async up (queryInterface, Sequelize) {
     
    options.tableName = 'Users'
-   return queryInterface.bulkInsert(options, [
+   await queryInterface.bulkInsert(options, [
     {
       firstName: 'Demo',
       lastName: 'lition',
@@ -39,10 +39,10 @@ module.exports = {
    ], {})
   },
 
-  down: (queryInterface, Sequelize) => {
+  async down (queryInterface, Sequelize) {
     
     options.tableName = 'Users'
-    return queryInterface.bulkDelete(options, {
+    await queryInterface.bulkDelete(options, {
       username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
     }, {})
   }
