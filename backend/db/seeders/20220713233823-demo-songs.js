@@ -2,6 +2,11 @@
 
 const { Op } = require('sequelize');
 
+let options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.schema = process.env.SCHEMA; // define your schema in options object
+}
+
 module.exports = {
   async up (queryInterface, Sequelize) {
     /**
@@ -13,7 +18,8 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-   await queryInterface.bulkInsert('Songs', [
+   options.tableName = 'Songs';
+   await queryInterface.bulkInsert(options, [
      {
        userId: 1,
        albumId: 1,
@@ -51,6 +57,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('Songs', null, {})
+    options.tableName = 'Songs';
+     await queryInterface.bulkDelete(options, null, {})
   }
 };
