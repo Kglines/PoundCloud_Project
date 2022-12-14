@@ -3,6 +3,20 @@
 ## Welcome to my SoundCloud Clone Project
 This project mimics some of the functions that SoundCloud has to offer. 
 
+## Tech used in this project
+* HTML
+* CSS
+* JavaScript
+* React
+* React-Redux
+* Express
+* bcrypt
+* CSRF
+* JWT
+* Sequelize
+* SQLite3 (development) 
+* PostGreSQL (production)
+
 ## Features
 * Signup
 * Login
@@ -39,19 +53,6 @@ Run `npm start` to get the frontend started
 
 You can also navigate to https://aa-soundcloud-project.herokuapp.com/ to view the live site.
 
-## Tech used in this project
-* HTML
-* CSS
-* JavaScript
-* React
-* React-Redux
-* Express
-* bcrypt
-* CSRF
-* JWT
-* Sequelize
-* SQLite3 (development) 
-* PostGreSQL (production)
 
 ## Future Upgrades
 * Create, Read, Update, and Delete Playlists
