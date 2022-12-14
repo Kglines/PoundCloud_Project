@@ -70,15 +70,16 @@
 .album-item-home, .song-item-home {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     font-size: 14px;
     padding:5px;
-    
+    box-shadow: 1px 2px 8px silver;
 }
 
 .album-desc-home, .song-desc-home {
     margin-left: 10px;
+    /* text-align: right; */
 }
 
 .song-banner-home {
@@ -133,6 +134,10 @@
     height: 50px;
     margin-top: 10px;
     font-size: 20px;
+}
+
+.demo-btn:hover{
+    cursor: pointer;
 }
 
 
