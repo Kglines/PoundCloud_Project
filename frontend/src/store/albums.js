@@ -2,7 +2,7 @@ import { csrfFetch } from './csrf';
 
 // Album Action Variables
 const GET_ALBUMS = 'albums/get';
-const GET_ALBUM = 'album/get'
+const GET_ALBUM = 'album/get';
 const CREATE_ALBUMS = 'albums/create';
 const EDIT_ALBUMS = 'albums/edit';
 const DELETE_ALBUMS = 'albums/delete';
