@@ -60,7 +60,7 @@ function SongDetails() {
         )}
 
         {showEditModal && (
-          <Modal>
+          <Modal onClose={() => setShowEditModal(false)}>
             <EditSong setShowEditModal={setShowEditModal} songId={songId} />
           </Modal>
         )}
@@ -77,7 +77,6 @@ function SongDetails() {
         )}
       </div>
       <ReactAudioPlayer className='audio-player' src={songs?.url} controls />
-      
     </>
   );
 }

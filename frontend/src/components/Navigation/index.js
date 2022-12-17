@@ -49,6 +49,9 @@ function Navigation({ isLoaded }) {
           <NavLink className='navbar-songs nav-link' to='/songs'>
             All Songs
           </NavLink>
+          <NavLink className='navbar-songs nav-link' to='/playlists'>
+            All Playlists
+          </NavLink>
           {isLoaded && sessionLinks}
         </li>
       </ul>

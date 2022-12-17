@@ -88,7 +88,7 @@ function EditSong({ setShowEditModal }) {
           placeholder='Description'
         />
       </label>
-      <label>
+      {/* <label>
         Song Url
         <input
           type='text'
@@ -97,7 +97,7 @@ function EditSong({ setShowEditModal }) {
           name='url'
           placeholder='Song url'
         />
-      </label>
+      </label> */}
       <label>
         Image Url
         <input

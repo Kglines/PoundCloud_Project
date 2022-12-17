@@ -16,7 +16,7 @@ function CurrentuserSongs() {
     const songList = [];
 
     songs.forEach(async (song) => {
-      if (song.userId === user.id) await songList.push(song);
+      if (song?.userId === user?.id) await songList.push(song);
     });
 
     useEffect(() => {

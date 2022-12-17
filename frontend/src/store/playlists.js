@@ -20,7 +20,7 @@ export const getPlaylists = (playlists) => {
 // GET one Playlist
 export const getPlaylist = (playlist) => {
     return {
-        type: getPlaylist,
+        type: GET_PLAYLIST,
         payload: playlist
     }
 }
@@ -132,6 +132,7 @@ const playlistReducer = (state = initialState, action) => {
             return newState;
         case GET_PLAYLIST:
             newState = action.payload;
+
             return newState;
         case CREATE_PLAYLISTS:
             newState = { ...state, [action.payload.id]: action.payload }
