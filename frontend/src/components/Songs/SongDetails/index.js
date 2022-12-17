@@ -6,6 +6,7 @@ import './SongDetails.css';
 import EditSong from '../EditSong';
 import DeleteSong from '../DeleteSong';
 import { Modal } from '../../../context/Modal';
+import ReactAudioPlayer from 'react-audio-player';
 
 function SongDetails() {
   const { songId } = useParams();
@@ -18,7 +19,6 @@ function SongDetails() {
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDelModal, setShowDelModal] = useState(false);
-
 
   useEffect(() => {
     dispatch(fetchSong(parsedId))
@@ -76,26 +76,8 @@ function SongDetails() {
           </Modal>
         )}
       </div>
-      {/* <div className='music-player'>
-          <p className='player-title'>{songs.title}</p>
-          <div className='player-controls'>
-            <button>
-              <i className='fa-solid fa-backward player-icon'></i>
-            </button>
-            <button>
-              <i className='fa-solid fa-play player-icon'></i>
-            </button>
-            <button>
-              <i className='fa-solid fa-pause player-icon'></i>
-            </button>
-            <button>
-              <i className='fa-solid fa-stop player-icon'></i>
-            </button>
-            <button>
-              <i className='fa-solid fa-forward player-icon'></i>
-            </button>
-          </div>
-      </div> */}
+      <ReactAudioPlayer className='audio-player' src={songs?.url} controls />
+      
     </>
   );
 }

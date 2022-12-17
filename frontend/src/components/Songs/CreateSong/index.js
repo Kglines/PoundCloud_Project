@@ -22,6 +22,7 @@ function CreateSong({ setShowModal }) {
     const [url, setUrl] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [selectedAlbumId, setSelectedAlbumId] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
     const [validationErrors, setValidationErrors] = useState([]);
 
 
@@ -32,6 +33,7 @@ function CreateSong({ setShowModal }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
         const payload = {
             title,
@@ -40,9 +42,10 @@ function CreateSong({ setShowModal }) {
             imageUrl,
             albumId: selectedAlbumId
         }
-
+        
         const createdSong = await dispatch(fetchCreateSongs(payload))
             .then(() => {
+              setIsLoading(false);
               setShowModal(false);
             })
             .catch(async (res) => {
@@ -53,10 +56,16 @@ function CreateSong({ setShowModal }) {
         return createdSong;
     }
 
+    const updateFile = (e) => {
+      const file = e.target.files[0];
+      if (file) setUrl(file);
+    };
+
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>Create a song</h2>
+      {isLoading && <p>Loading...</p>}
       <ul>
         {validationErrors.map((error) => 
             <li className='errors' key={error}>{error}</li>
@@ -85,11 +94,12 @@ function CreateSong({ setShowModal }) {
       <label>
         Song Url
         <input
-          type='text'
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
+          type='file'
+          // value={url}
+          accept='audio/*'
+          onChange={updateFile}
           name='url'
-          placeholder='Song url'
+          // placeholder='Song url'
         />
       </label>
       <label>

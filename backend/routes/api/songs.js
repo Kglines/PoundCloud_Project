@@ -2,6 +2,7 @@ const express = require('express');
 const { Song, Album, User, Comment } = require('../../db/models')
 const { validateSong, validateComment, validateQuery } = require('../../utils/validation');
 const { requireAuth } = require('../../utils/auth');
+const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
 const router = express.Router();
 
 
@@ -118,20 +119,27 @@ router.get('/', validateQuery, async (req, res) => {
 /******************** POST ********************/
 
 // Create a Song
-router.post('/', [requireAuth, validateSong], async (req, res) => {
+router.post(
+  '/',
+  requireAuth, 
+  singleMulterUpload('url'),
+//   validateSong,
+  async (req, res) => {
     const { user } = req;
-    const { title, description, url, imageUrl, albumId } = req.body;
+    const { title, description, imageUrl, albumId } = req.body;
+    const url = await singlePublicFileUpload(req.file);
     const song = await Song.create({
-        userId: user.id,
-        title,
-        description,
-        url,
-        previewImage: imageUrl,
-        albumId
-    })
+      userId: user.id,
+      title,
+      description,
+      url,
+      previewImage: imageUrl,
+      albumId,
+    });
     res.status(201);
     res.json(song);
-})
+  }
+);
 
 // Create a Comment for a song based on the Song's id
 router.post('/:songId/comments', [requireAuth, validateComment], async (req, res) => {

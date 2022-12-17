@@ -7,6 +7,12 @@ const { validatePlaylist } = require('../../utils/validation')
 
 /******************** GET ********************/
 
+// GET All Playlists
+router.get('/', async (req, res) => {
+    const Playlists = await Playlist.findAll();
+    res.json({ Playlists });
+})
+
 // GET details of a Playlist from an id
 router.get('/:playlistId', async (req, res) => {
     const { playlistId } = req.params;

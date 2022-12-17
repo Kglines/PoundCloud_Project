@@ -70,7 +70,7 @@ function CurrentUser() {
         </p>
         <div className='user-songs-container'>
           {songList.length > 0 ? songList.map((song) => (
-            <div className='user-song-card'>
+            <div key={song?.id} className='user-song-card'>
               <Link to={`/songs/${song.id}`}>
                 <img
                   className='user-song-art'

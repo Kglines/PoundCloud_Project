@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { fetchAllSongs } from '../../store/songs';
+import ReactAudioPlayer from 'react-audio-player'
 import './Songs.css';
 
 function Songs() {
@@ -48,6 +49,12 @@ function Songs() {
           </div>
         ))}
       </div>
+      {/* <ReactAudioPlayer 
+        // src='my_audio_file.ogg' 
+        className='audio-player'
+        controls 
+        controlsList
+        /> */}
     </div>
   );
 }

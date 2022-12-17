@@ -5,6 +5,8 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { fetchAlbums } from '../../store/albums';
 import { fetchAllSongs } from '../../store/songs';
 import './Home.css';
+import { fetchPlaylists } from '../../store/playlists';
+import PlaylistList from '../Playlists/PlaylistList';
 
 function Home() {
   const [validationErrors, setValidationErrors] = useState('')
@@ -14,6 +16,9 @@ function Home() {
   const user = useSelector(state => state.session.user);
   const albums = Object.values(useSelector(state => state.albums));
   const songs = Object.values(useSelector(state => state.songs));
+  const playlists = useSelector(state => state.playlists)
+
+  // console.log('PLAYLISTS = ', playlists)
 
   // console.log('home page albums', albums)
 
@@ -42,6 +47,14 @@ function Home() {
     });
   }, [dispatch]);
 
+
+  useEffect(() => {
+    dispatch(fetchPlaylists()).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setValidationErrors(data.errors);
+    });
+  }, [dispatch])
+
   return (
     <>
       <div className='home-page'>
@@ -56,9 +69,11 @@ function Home() {
             <h2>Top Albums</h2>
             <ul>
               {validationErrors.length > 0 &&
-                validationErrors.map((error) => 
-                  <li className='errors' key={error}>{error}</li>)}
-
+                validationErrors.map((error) => (
+                  <li className='errors' key={error}>
+                    {error}
+                  </li>
+                ))}
             </ul>
             <p>Discover the best albums on SoundCloud</p>
           </div>
@@ -66,24 +81,23 @@ function Home() {
             <div className='album-container-home'>
               {albums.map((album) => {
                 return (
-                  <div className='album-card-home'>
-                      <NavLink
-                        className='album-link-home'
-                        to={`/albums/${album.id}`}
-                      >
-                    <li className='album-item-home'>
-                    <div>
-                        <img
-                          className='album-img-home'
-                          src={album.previewImage}
-                          alt={album.title}
-                        />
-                        <h4 className='album-title-home'>{album.title}</h4>
-
-                    </div>
-                      <p className='album-desc-home'>{album.description}</p>
-                    </li>
-                      </NavLink>
+                  <div key={album.id} className='album-card-home'>
+                    <NavLink
+                      className='album-link-home'
+                      to={`/albums/${album.id}`}
+                    >
+                      <li className='album-item-home'>
+                        <div>
+                          <img
+                            className='album-img-home'
+                            src={album.previewImage}
+                            alt={album.title}
+                          />
+                          <h4 className='album-title-home'>{album.title}</h4>
+                        </div>
+                        <p className='album-desc-home'>{album.description}</p>
+                      </li>
+                    </NavLink>
                   </div>
                 );
               })}
@@ -97,27 +111,49 @@ function Home() {
             <div className='song-container-home'>
               {songs.map((song) => {
                 return (
-                  <div className='song-card-home'>
-                      <NavLink
-                        className='song-link-home'
-                        to={`/songs/${song.id}`}
-                      >
-                    <li className='song-item-home'>
-                    <div>
-                        <img
-                          className='song-img-home'
-                          src={song.previewImage}
-                          alt={song.title}
-                        />
-                        <h2 className='song-title-home'>{song.title}</h2>
-
-                    </div>
-                      <p className='song-desc-home'>{song.description}</p>
-                    </li>
-                      </NavLink>
+                  <div key={song.id} className='song-card-home'>
+                    <NavLink
+                      className='song-link-home'
+                      to={`/songs/${song.id}`}
+                    >
+                      <li className='song-item-home'>
+                        <div>
+                          <img
+                            className='song-img-home'
+                            src={song.previewImage}
+                            alt={song.title}
+                          />
+                          <h2 className='song-title-home'>{song.title}</h2>
+                        </div>
+                        <p className='song-desc-home'>{song.description}</p>
+                      </li>
+                    </NavLink>
                   </div>
                 );
               })}
+            </div>
+          </ol>
+          <div className='playlist-banner-home'>
+            <h2>Top Playlists</h2>
+            <p>The best playlists are on SoundCloud</p>
+          </div>
+          <ol>
+            <div className='playlist-container-home'>
+              {/* {playlists?.Playlists?.map((playlist) => (
+                <div className='playlist-card-home' key={playlist.id}>
+                <NavLink className='playlist-link-home' to={`/playlists/${playlist?.id}`}>
+                  <li className='playlist-item-home'>
+                    <img 
+                      className='playlist-img-home' 
+                      src={playlist.previewImage} 
+                      alt={playlist.title} />
+                      <h2 className='playlist-title-home'>{playlist.name}</h2>
+                  </li>
+                </NavLink>
+                 
+                </div>
+              ))} */}
+              <PlaylistList playlists={playlists} />
             </div>
           </ol>
         </div>
@@ -144,7 +180,9 @@ function Home() {
               <p>OR</p>
               <p>Try it for yourself.</p>
               <p>Click the button below for a Demo login!</p>
-              <button className='demo-btn' onClick={demoLogin}>DEMO USER</button>
+              <button className='demo-btn' onClick={demoLogin}>
+                DEMO USER
+              </button>
             </>
           )}
         </div>
