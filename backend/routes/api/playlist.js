@@ -123,12 +123,12 @@ router.put('/:playlistId', [requireAuth, validatePlaylist], async (req, res) => 
     const { name, imageUrl } = req.body;
 
     const playlist = await Playlist.findByPk(playlistId);
-
+    console.log('PLAYLIST in ROUTES = ', playlist)
     if(playlist){
         if(playlist.userId === user.id){
             await playlist.update({
-                name,
-                previewImage: imageUrl
+              name,
+              previewImage: imageUrl
             });
             res.json(playlist);
         } else {

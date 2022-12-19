@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { fetchEditPlaylist } from '../../../store/playlists'
+import { fetchEditPlaylist, fetchPlaylist } from '../../../store/playlists'
 
 function EditPlaylist({ playlist, setShowEditModal }) {
     const dispatch = useDispatch()
@@ -10,6 +10,7 @@ function EditPlaylist({ playlist, setShowEditModal }) {
     const [errors, setErrors] = useState([])
     const [name, setName] = useState(playlist.name)
     const [imageUrl, setImageUrl] = useState(playlist.previewImage)
+    // const [songs, setSongs] = useState(playlist.Songs)
     
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -21,6 +22,7 @@ function EditPlaylist({ playlist, setShowEditModal }) {
         }
         await dispatch(fetchEditPlaylist(payload))
           .then(() => {
+            dispatch(fetchPlaylist(playlist.id))
             setShowEditModal(false);
           })
           .catch(async (res) => {

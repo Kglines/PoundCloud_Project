@@ -6,6 +6,7 @@ const GET_PLAYLIST = 'playlist/get';
 const CREATE_PLAYLISTS = 'playlists/create';
 const EDIT_PLAYLISTS = 'playlists/edit';
 const DELETE_PLAYLISTS = 'playlists/delete';
+const ADD_TO_PLAYLIST = 'playlist/add';
 
 // Playlist Actions
 
@@ -48,6 +49,13 @@ export const deletePlaylist = (playlist) => {
         payload: playlist
     };
 };
+
+export const addToPlaylist = (song) => {
+    return {
+        type: ADD_TO_PLAYLIST,
+        payload: song
+    }
+}
 
 // PLAYLIST THUNKS
 
@@ -121,6 +129,23 @@ export const fetchDeletePlaylist = (playlistId) => async (dispatch) => {
     return res;
 };
 
+// ADD Song to Playlist
+export const fetchAddToPlaylist = (song, playlistId) => async (dispatch) => {
+    console.log(song, playlistId)
+    const res = await csrfFetch(`/api/playlists/${playlistId}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(song)
+    });
+
+    if (res.ok){
+        const song = await res.json();
+        dispatch(addToPlaylist(song));
+        return song;
+    };
+    return res;
+};
+
 // REDUCER
 const initialState = {};
 
@@ -132,7 +157,6 @@ const playlistReducer = (state = initialState, action) => {
             return newState;
         case GET_PLAYLIST:
             newState = action.payload;
-
             return newState;
         case CREATE_PLAYLISTS:
             newState = { ...state, [action.payload.id]: action.payload }
@@ -142,6 +166,9 @@ const playlistReducer = (state = initialState, action) => {
             return newState;
         case DELETE_PLAYLISTS:
             delete newState[action.payload];
+            return newState;
+        case ADD_TO_PLAYLIST:
+            newState = action.payload;
             return newState;
         default:
             return newState;
