@@ -117,7 +117,7 @@ function Playlist() {
               </NavLink>
             </div>
             <div>
-              <ReactAudioPlayer className='audio-controls' controls />
+              <ReactAudioPlayer src={song.url} className='audio-controls' controls />
             </div>
           </div>
         ))}
