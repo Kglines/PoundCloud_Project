@@ -9,9 +9,9 @@ function PlaylistListItem({ playlist }) {
         <div className='playlist-item-home'>
           <div>
             <img className='playlist-img-home' src={playlist.previewImage} />
-            <div className='playlist-desc-home'>{playlist.User.username}</div>
+            <p className='playlist-title-home'>{playlist.name}</p>
           </div>
-          <p className='playlist-title-home'>{playlist.name}</p>
+            <p className='playlist-desc-home'> by: {playlist.User.username}</p>
         </div>
       </NavLink>
     </div>
