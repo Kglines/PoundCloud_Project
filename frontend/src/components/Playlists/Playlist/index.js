@@ -94,19 +94,23 @@ function Playlist() {
             </Modal>
           )}
         </div>
-        <div>
-          <form onSubmit={addToPlaylist}>
-            <select
-              value={selectSong}
-              onChange={(e) => setSelectSong(e.target.value)}
-            >
-              {allSongs?.map((song) => (
-                <option key={song.id} value={song.id}>{song.title}</option>
-              ))}
-            </select>
-            <button>Add to Playlist</button>
-          </form>
-        </div>
+        {user && user?.id === playlist?.userId && (
+          <div>
+            <form onSubmit={addToPlaylist}>
+              <select
+                value={selectSong}
+                onChange={(e) => setSelectSong(e.target.value)}
+              >
+                {allSongs?.map((song) => (
+                  <option key={song.id} value={song.id}>
+                    {song.title}
+                  </option>
+                ))}
+              </select>
+              <button>Add to Playlist</button>
+            </form>
+          </div>
+        )}
       </div>
       <div className='playlist-songs-container'>
         {playlist?.Songs?.map((song) => (
@@ -117,7 +121,11 @@ function Playlist() {
               </NavLink>
             </div>
             <div>
-              <ReactAudioPlayer src={song.url} className='audio-controls' controls />
+              <ReactAudioPlayer
+                src={song.url}
+                className='audio-controls'
+                controls
+              />
             </div>
           </div>
         ))}

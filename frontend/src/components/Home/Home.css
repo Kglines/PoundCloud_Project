@@ -32,7 +32,7 @@
     border: 1px solid white;
 }
 
-.album-link-home, .song-link-home {
+.album-link-home, .song-link-home, .playlist-link-home {
     text-decoration: none;
     color: rgb(53, 53, 53);
 }

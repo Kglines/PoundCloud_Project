@@ -1,7 +1,7 @@
 const e = require('express');
 const express = require('express');
 const router = express.Router();
-const { Playlist, Song, PlaylistSong } = require('../../db/models/');
+const { Playlist, Song, PlaylistSong, User } = require('../../db/models/');
 const { requireAuth } = require('../../utils/auth');
 const { validatePlaylist } = require('../../utils/validation')
 
@@ -9,7 +9,7 @@ const { validatePlaylist } = require('../../utils/validation')
 
 // GET All Playlists
 router.get('/', async (req, res) => {
-    const Playlists = await Playlist.findAll();
+    const Playlists = await Playlist.findAll({ include: User });
     res.json({ Playlists });
 })
 
