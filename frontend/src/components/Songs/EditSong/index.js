@@ -30,10 +30,10 @@ function EditSong({ setShowEditModal }) {
 
   // console.log('SELECTED ALBUM ID =', selectedAlbumId)
 
-  useEffect(() => {
-    dispatch(fetchAlbums());
-    dispatch(fetchSong(songId));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchAlbums());
+  //   dispatch(fetchSong(songId));
+  // }, [dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,16 +48,17 @@ function EditSong({ setShowEditModal }) {
       // albumId: selectedAlbumId,
     };
 
-    dispatch(fetchEditSong(payload))
+    const newSong = dispatch(fetchEditSong(payload))
       .then(() => {
         setShowEditModal(false);
-        history.push('/currentuser/songs');
+        // dispatch(fetchSong(songId));
+        history.push(`/songs/${songId}`);
       })
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setValidationErrors(data.errors);
       });
-    
+    return newSong;
   };
 
   return (

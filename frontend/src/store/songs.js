@@ -110,9 +110,10 @@ export const fetchEditSong = (song) => async (dispatch) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(song),
   });
-
+  
   if (res.ok) {
     const song = await res.json();
+    console.log('SONG IN EDIT THUNK = ', song)
     dispatch(editSong(song));
     return song;
   }

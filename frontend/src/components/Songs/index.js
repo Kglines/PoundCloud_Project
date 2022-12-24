@@ -2,26 +2,41 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { fetchAllSongs } from '../../store/songs';
-import ReactAudioPlayer from 'react-audio-player'
 import './Songs.css';
 
 function Songs() {
   const [validationErrors, setValidationErrors] = useState([])
   const dispatch = useDispatch();
   const songs = Object.values(useSelector((state) => state.songs));
+  const [data, setData] = useState('')
+  // const songs = useSelector(state => state.songs)
+  console.log('SONGS in SONGS = ', songs)
+
+  // useEffect(() => {
+  //   dispatch(fetchAllSongs())
+  //     .catch(async (res) => {
+  //       const data = await res.json();
+  //       if (data && data.errors) setValidationErrors(data.errors);
+  //     });
+  // }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchAllSongs()).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setValidationErrors(data.errors);
-    });
-  }, [dispatch]);
-
+    const fetchData = async () => {
+      const data = await dispatch(fetchAllSongs())
+      setData(data)
+    }
+    fetchData()
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setValidationErrors(data.errors);
+      });
+  }, [dispatch])
+console.log('DATA = ', data.Songs)
   return (
     <div>
       <ul>
         {validationErrors &&
-          validationErrors.map((error) => (
+          validationErrors?.map((error) => (
             <li className='errors' key={error}>
               {error}
             </li>
@@ -29,32 +44,26 @@ function Songs() {
       </ul>
       <h2 className='song-header'>SoundCloud Songs</h2>
       <div className='song-container'>
-        {songs.map((song) => (
-          <div key={song.id} className='song-card'>
+        {data?.Songs?.map((song) => (
+          <div key={song?.id} className='song-card'>
             <NavLink
               className='song-link'
-              key={song.id}
-              to={`/songs/${song.id}`}
+              key={song?.id}
+              to={`/songs/${song?.id}`}
             >
               <div className='song-banner'>
                 <img
                   className='song-img'
-                  src={song.previewImage}
-                  alt={song.title}
+                  src={song?.previewImage}
+                  alt={song?.title}
                 />
-                <h3 className='song-title'>{song.title}</h3>
+                <h3 className='song-title'>{song?.title}</h3>
               </div>
             </NavLink>
-            <p className='song-desc'>{song.description}</p>
+            <p className='song-desc'>{song?.description}</p>
           </div>
         ))}
       </div>
-      {/* <ReactAudioPlayer 
-        // src='my_audio_file.ogg' 
-        className='audio-player'
-        controls 
-        controlsList
-        /> */}
     </div>
   );
 }

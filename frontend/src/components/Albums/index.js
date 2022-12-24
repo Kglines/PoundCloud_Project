@@ -8,37 +8,48 @@ import CreateAlbum from './CreateAlbum';
 
 function Albums() {
   const dispatch = useDispatch();
-  
+  const [data, setData] = useState('')
+  const [errors, setErrors] = useState([])
   const user = useSelector(state => state.session.user);
   // console.log(user)
 
   const albums = Object.values(useSelector(state => state.albums));
 // console.log('albums = ', albums)
   useEffect(() => {
-    dispatch(fetchAlbums(albums));
+    const fetchData = async () => {
+      const data = await dispatch(fetchAlbums())
+      setData(data)
+    }
+    fetchData()
+      .catch(async (res) => {
+        const data = await res.json()
+        if (data && data.errors) setErrors(data.errors)
+      })
   }, [dispatch]);
+
+  console.log('ALBUMS DATA = ', data.Albums)
 
   return (
     <>
       <h2 className='album-header-home'>SoundCloud Albums</h2>
       <div className='album-container'>
-        {albums.map((album) => (
-          <div className='album-card'>
+        {data?.Albums?.map((album) => (
+          <div className='album-card' key={album?.id}>
             <NavLink
               className='album-link'
-              key={album.id}
-              to={`/albums/${album.id}`}
+              key={album?.id}
+              to={`/albums/${album?.id}`}
             >
               <div className='album-banner'>
                 <img
                   className='album-img'
-                  src={album.previewImage}
-                  alt={album.title}
+                  src={album?.previewImage}
+                  alt={album?.title}
                 />
-                <h3 className='album-title-home'>{album.title}</h3>
+                <h3 className='album-title-home'>{album?.title}</h3>
               </div>
             </NavLink>
-            <p className='album-desc-home'>{album.description}</p>
+            <p className='album-desc-home'>{album?.description}</p>
           </div>
         ))}
         

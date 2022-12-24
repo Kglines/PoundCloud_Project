@@ -41,7 +41,7 @@ function Playlist() {
         songId: parseInt(selectSong)
       }
 
-      console.log('PAYLOAD = ', payload)
+      console.log('PAYLOAD IN PLAYLIST COMPONENT = ', payload)
 
       const res = await dispatch(fetchAddToPlaylist(payload, playlistId))
         .then(() => dispatch(fetchPlaylist(playlistId)))

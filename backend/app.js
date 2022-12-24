@@ -5,11 +5,11 @@ const cors = require('cors');
 const csurf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
+
 const { environment } = require('./config');
-const isProduction = environment === 'Production';
+const isProduction = environment === 'production';
 const routes = require('./routes');
 const { ValidationError } = require('sequelize');
-// const { User, Artist, Album, Song, Comment, Playlist } = require('./db/models');
 
 const app = express();
 

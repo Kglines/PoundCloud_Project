@@ -10,7 +10,7 @@ function DeleteSong({ setShowDelModal }) {
     const [validationErrors, setValidationErrors] = useState([])
     // console.log('songId', songId)
 
-    const onDelete = () => {
+    const onDelete = (songId) => {
         dispatch(fetchDeleteSongs(songId))
           .then(() => {
             return history.push('/currentuser');
@@ -18,7 +18,7 @@ function DeleteSong({ setShowDelModal }) {
           .catch(async (res) => {
             const data = await res.json();
             if (data && data.errors) setValidationErrors(data.errors);
-          });
+          })
     }
 
   return (
@@ -27,7 +27,7 @@ function DeleteSong({ setShowDelModal }) {
       {validationErrors?.map(error => (
         <p key={error} className='errors'>{error}</p>
       ))}
-      <button className='save-btn' onClick={() => onDelete()}>Delete</button>
+      <button className='save-btn' onClick={() => onDelete(songId)}>Delete</button>
       <button className='cancel-btn' onClick={() => setShowDelModal(false)}>Cancel</button>
     </div>
   );

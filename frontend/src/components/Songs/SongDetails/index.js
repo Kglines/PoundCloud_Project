@@ -7,22 +7,56 @@ import EditSong from '../EditSong';
 import DeleteSong from '../DeleteSong';
 import { Modal } from '../../../context/Modal';
 import ReactAudioPlayer from 'react-audio-player';
+import { fetchGetComments } from '../../../store/comments';
 
 function SongDetails() {
   const { songId } = useParams();
   const parsedId = parseInt(songId, 10);
   const dispatch = useDispatch();
-  const songs = useSelector(state => state.songs);
-  const user = useSelector(state => state.session.user);
-  // const userSong = user.id === songs.userId;
-  const { Artist, Album } = songs;
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDelModal, setShowDelModal] = useState(false);
+  const [songs, setSongs] = useState('');
+  const [comments, setComments] = useState(null);
+  const [errors, setErrors] = useState([]);
+  const songState = useSelector(state => state.songs);
+  // const songs = data
+  const user = useSelector(state => state.session.user);
+  // const userSong = user.id === songs.userId;
+  const { Artist, Album } = songs;
+  // const comments = useSelector(state => state.comments)
+  console.log('SONGS in SONG DETAILS = ', songs)
+  console.log('SONGSTATE = ', songState)
+  console.log('COMMENTS in SONG DETAILS = ', comments)
+
+  
 
   useEffect(() => {
-    dispatch(fetchSong(parsedId))
+    const fetchData = async () => {
+      const song = await dispatch(fetchSong(parsedId));
+      setSongs(song)
+    }
+    fetchData()
+      .catch(async (res) => {
+        const data = await res.json()
+        if(data && data.errors) setErrors(data.errors)
+      })
+    
   }, [dispatch, parsedId])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const comments = await dispatch(fetchGetComments(parsedId));
+      setComments(comments)
+    }
+    fetchData()
+      .catch(async (res) => {
+        const data = res.json()
+        if (data && data.errors) setErrors(data.errors)
+      })
+    
+  }, [dispatch, parsedId])
+
 
   return (
     <>
@@ -38,11 +72,11 @@ function SongDetails() {
       <div className='song-detail-container'>
         <img
           className='song-detail-img'
-          src={songs?.previewImage}
-          alt={songs.title}
+          src={songState?.previewImage}
+          alt={songState?.title}
         />
-        <h3 className='song-detail-title'>{songs?.title}</h3>
-        <p>{songs?.description}</p>
+        <h3 className='song-detail-title'>{songState?.title}</h3>
+        <p>{songState?.description}</p>
         <p>
           by: <strong>{Artist?.username}</strong>
         </p>
@@ -53,7 +87,7 @@ function SongDetails() {
         )}
       </div>
       <div className='song-detail-btns'>
-        {user && user.id === songs.userId && (
+        {user && user?.id === songs?.userId && (
           <button className='save-btn' onClick={() => setShowEditModal(true)}>
             Edit
           </button>
@@ -64,7 +98,7 @@ function SongDetails() {
             <EditSong setShowEditModal={setShowEditModal} songId={songId} />
           </Modal>
         )}
-        {user && user.id === songs.userId && (
+        {user && user?.id === songs?.userId && (
           <button className='cancel-btn' onClick={() => setShowDelModal(true)}>
             Delete
           </button>
@@ -77,6 +111,12 @@ function SongDetails() {
         )}
       </div>
       <ReactAudioPlayer className='audio-player' src={songs?.url} controls />
+      {comments?.Comments?.map(comment => (
+        <div key={comment?.id}>
+          <p>{comment?.body}</p>
+          <p>{comment?.User?.username}</p>
+        </div>
+      ))}
     </>
   );
 }

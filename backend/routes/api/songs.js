@@ -105,14 +105,14 @@ router.get('/', validateQuery, async (req, res) => {
             "updatedAt",
             "previewImage"
         ],
-        limit: size,
-        offset: size * (page - 1)
+        // limit: size,
+        // offset: size * (page - 1)
     });
     
     res.json({ 
         Songs, 
-        page, 
-        size 
+        // page, 
+        // size 
     });
 });
 
@@ -203,10 +203,9 @@ router.put('/:songId', [requireAuth, validateSong], async (req, res) => {
 router.delete('/:songId', requireAuth, async (req, res) => {
     const { user } = req;
     const { songId } = req.params;
-
-    const song = await Song.findByPk(songId);
-
+    const song = await Song.findByPk(parseInt(songId, 10));
     if(song){
+        console.log('SONG ########### = ', song)
         if(song.userId === user.id){
             await song.destroy();
             res.json({

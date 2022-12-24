@@ -62,7 +62,7 @@ router.post('/:playlistId', requireAuth, async (req, res) => {
     const { songId } = req.body;
 
     const playlist = await Playlist.findByPk(playlistId);
-    const song = await Song.findByPk(songId);
+    const song = await Song.findByPk(parseInt(songId));
 
     if(playlist){
         if(song){
