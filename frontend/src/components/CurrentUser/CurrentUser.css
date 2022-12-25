@@ -68,7 +68,7 @@
     
 }
 
-.user-add-song-btn, .user-add-album-btn {
+.user-add-song-btn, .user-add-album-btn, .user-add-playlist-btn {
     background-color: orange;
     color: white;
     padding: 5px;
@@ -77,7 +77,8 @@
     border-radius: 5px;
 }
 
-.user-add-song-btn:hover {
+.user-add-song-btn:hover, .user-add-album-btn:hover, .user-add-playlist-btn:hover {
+    cursor: pointer;
     background-color: rgb(232, 153, 6);
 }
 

@@ -52,6 +52,11 @@ function ProfileButton({ user }) {
             </NavLink>
           </li>
           <li>
+            <NavLink className='nav-song-link' to='/currentuser/playlists'>
+              My Playlists
+            </NavLink>
+          </li>
+          <li>
             <button className='logout-btn' onClick={logout}>
               Log Out
             </button>

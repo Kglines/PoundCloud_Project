@@ -65,7 +65,10 @@ function CreateSong({ setShowModal }) {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Create a song</h2>
-      {isLoading && <p>Loading...</p>}
+      {isLoading ? 
+        <h2>Loading...</h2>
+        :
+        <div>
       <ul>
         {validationErrors.map((error) => 
             <li className='errors' key={error}>{error}</li>
@@ -129,6 +132,8 @@ function CreateSong({ setShowModal }) {
         Submit
       </button>
       <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+        </div>
+        }
     </form>
   );
 }
