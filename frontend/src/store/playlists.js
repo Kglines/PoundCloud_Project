@@ -7,6 +7,7 @@ const CREATE_PLAYLISTS = 'playlists/create';
 const EDIT_PLAYLISTS = 'playlists/edit';
 const DELETE_PLAYLISTS = 'playlists/delete';
 const ADD_TO_PLAYLIST = 'playlist/add';
+const REMOVE_FROM_PLAYLIST = 'playlist/remove';
 
 // Playlist Actions
 
@@ -50,9 +51,18 @@ export const deletePlaylist = (playlist) => {
     };
 };
 
+// ADD Song to Playlist
 export const addToPlaylist = (song) => {
     return {
         type: ADD_TO_PLAYLIST,
+        payload: song
+    }
+}
+
+// Remove Song From Playlist
+export const removeFromPlaylist = (song) => {
+    return {
+        type: REMOVE_FROM_PLAYLIST,
         payload: song
     }
 }
@@ -129,9 +139,9 @@ export const fetchDeletePlaylist = (playlistId) => async (dispatch) => {
     return res;
 };
 
-// ADD Song to Playlist
+// ADD Song to Playlist Thunk
 export const fetchAddToPlaylist = (song, playlistId) => async (dispatch) => {
-    console.log(song, playlistId)
+    console.log(song, parseInt(playlistId))
     const res = await csrfFetch(`/api/playlists/${playlistId}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -141,6 +151,20 @@ export const fetchAddToPlaylist = (song, playlistId) => async (dispatch) => {
     if (res.ok){
         const song = await res.json();
         dispatch(addToPlaylist(song));
+        return song;
+    };
+    return res;
+};
+
+// Remove Song From Playlist Thunk
+export const fetchRemoveFromPlaylist = (song, playlistId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/playlists/${playlistId}/${song.id}`, {
+        method: 'DELETE'
+    });
+    console.log('RES IN REMOVE SONG = ', res)
+    if(res.ok){
+        const song = await res.json();
+        dispatch(removeFromPlaylist(song));
         return song;
     };
     return res;
@@ -170,6 +194,9 @@ const playlistReducer = (state = initialState, action) => {
         case ADD_TO_PLAYLIST:
             newState = action.payload;
             return newState;
+        case REMOVE_FROM_PLAYLIST:
+            delete newState[action.payload]
+            return newState
         default:
             return newState;
     }

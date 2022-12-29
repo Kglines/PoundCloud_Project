@@ -9,6 +9,7 @@ const playlistRouter = require('./playlist.js');
 const commentRouter = require('./comments.js');
 const albumRouter = require('./albums.js');
 const artistRouter = require('./artists.js');
+const playlistSongRouter = require('./playlistSong.js');
 const { User } = require('../../db/models');
 const { restoreUser, setTokenCookie, requireAuth } = require("../../utils/auth.js");
 
@@ -25,6 +26,7 @@ router.use('/playlists', playlistRouter);
 router.use('/comments', commentRouter);
 router.use('/albums', albumRouter);
 router.use('/artists', artistRouter);
+router.use('/playlistsongs', playlistSongRouter)
 
 // GET /api/set-token-cookie
 router.get('/set-token-cookie', async (_req, res) => {

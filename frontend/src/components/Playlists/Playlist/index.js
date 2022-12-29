@@ -3,10 +3,12 @@ import ReactAudioPlayer from 'react-audio-player';
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useParams } from 'react-router-dom'
 import { Modal } from '../../../context/Modal';
-import { fetchAddToPlaylist, fetchPlaylist } from '../../../store/playlists'
+import { fetchAddToPlaylist, fetchPlaylist, fetchRemoveFromPlaylist } from '../../../store/playlists'
+import { fetchCreatePlaylistSong, fetchPlaylistSongs } from '../../../store/playlistSongs';
 import { fetchAllSongs } from '../../../store/songs';
 import DeletePlaylist from '../DeletePlaylist';
 import EditPlaylist from '../EditPlaylist';
+import AddToPlaylist from './AddToPlaylist';
 import './Playlist.css';
 
 function Playlist() {
@@ -15,41 +17,46 @@ function Playlist() {
 
     const [showEditModal, setShowEditModal] = useState(false)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
-    const [selectSong, setSelectSong] = useState('')
+    
     const [errors, setErrors] = useState([])
 
-    console.log('SELECTED SONG = ', selectSong)
+    // console.log('SELECTED SONG = ', selectSong)
 
     const playlist = useSelector(state => state.playlists);
     const user = useSelector(state => state.session.user);
     const allSongs = Object.values(useSelector(state => state.songs));
+    const playlistSongs = useSelector(state => state.playlistSongs)
 
+    console.log('PLAYLISTSONGS ====== ', playlistSongs)
+
+    console.log('PLAYLIST IN PLAYLIST INDEX ===== ', playlist)
     console.log('ALL SONGS = ', allSongs)
 
     useEffect(() => {
-        dispatch(fetchPlaylist(playlistId))
+      dispatch(fetchPlaylistSongs(playlistId))
     }, [dispatch, playlistId])
 
     useEffect(() => {
       dispatch(fetchAllSongs())
     }, [dispatch])
 
-    const addToPlaylist = async (e) => {
-      e.preventDefault();
+    
 
-      const payload = {
-        songId: parseInt(selectSong)
-      }
+    const removeFromPlaylist = async (song) => {
+      const res = await dispatch(fetchRemoveFromPlaylist(song, playlistId))
+      .then(() => dispatch(fetchPlaylist(playlistId)))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
+      console.log('REMOVE RES = ', res)
+      // return res;
+    };
 
-      console.log('PAYLOAD IN PLAYLIST COMPONENT = ', payload)
+    useEffect(() => {
+      dispatch(fetchPlaylist(playlistId));
+    }, [dispatch, playlistId]);
 
-      const res = await dispatch(fetchAddToPlaylist(payload, playlistId))
-        .then(() => dispatch(fetchPlaylist(playlistId)))
-        .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-        });
-    }
   return (
     <div className='playlist-container'>
       <div className='playlist-detail-container'>
@@ -94,7 +101,7 @@ function Playlist() {
             </Modal>
           )}
         </div>
-        {user && user?.id === playlist?.userId && (
+        {/* {user && user?.id === playlist?.userId && (
           <div>
             <form onSubmit={addToPlaylist}>
               <select
@@ -103,6 +110,7 @@ function Playlist() {
               >
                 {allSongs?.map((song) => (
                   <option key={song?.id} value={song?.id}>
+                  {console.log('SONG IN ALL SONGS IN PLAYLIST COMP = ', song)}
                     {song?.title}
                   </option>
                 ))}
@@ -110,7 +118,8 @@ function Playlist() {
               <button>Add to Playlist</button>
             </form>
           </div>
-        )}
+        )} */}
+        <AddToPlaylist playlistId={playlistId} user={user} playlist={playlist} />
       </div>
       <div className='playlist-songs-container'>
         {playlist?.Songs?.map((song) => (
@@ -127,6 +136,7 @@ function Playlist() {
                 controls
               />
             </div>
+              <button onClick={() => removeFromPlaylist(song)}>X</button>
           </div>
         ))}
       </div>

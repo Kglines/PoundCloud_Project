@@ -1,4 +1,3 @@
-const e = require('express');
 const express = require('express');
 const router = express.Router();
 const { Playlist, Song, PlaylistSong, User } = require('../../db/models/');
@@ -53,6 +52,17 @@ router.get('/:playlistId', async (req, res) => {
     res.json(playlist)
 })
 
+// GET PlaylistSongs
+router.get('/:playlistId/songs', async (req, res) => {
+    const { playlistId } = req.params;
+    const playlist = await Playlist.findByPk(parseInt(playlistId))
+    // console.log('************', playlist)
+    const songs = await PlaylistSong.findAll({ where: {
+        playlistId: playlist.id
+    }})
+    res.json({ songs })
+})
+
 /******************** POST ********************/
 
 // Add a Song to a Playlist based on the Playlist's id
@@ -64,6 +74,7 @@ router.post('/:playlistId', requireAuth, async (req, res) => {
     const playlist = await Playlist.findByPk(playlistId);
     const song = await Song.findByPk(parseInt(songId));
 
+    console.log('SONG IN BACKEND PLAYLISt SONG = ', song)
     if(playlist){
         if(song){
             if(playlist.userId === user.id){
@@ -168,6 +179,32 @@ router.delete('/:playlistId', requireAuth, async (req, res) => {
         }
     } else {
         const error = new Error("Playlist couldn't be found");
+        error.status = 404;
+        throw error;
+    }
+})
+
+// Remove a song based on playlist id
+router.delete('/:playlistId/:songId', requireAuth, async (req, res) => {
+    const { user } = req;
+    const { playlistId } = req.params;
+    const { songId } = req.params;
+
+    console.log('SONG ID IN ROUTE = ', songId);
+
+    const playlist = await Playlist.findByPk(playlistId);
+    const playlistSong = await PlaylistSong.findOne({ where: {songId: parseInt(songId) }});
+
+    if (playlist){
+        if(playlist.userId === user.id){
+            await playlistSong.destroy()
+        } else {
+            const error = new Error('Unauthorized');
+            error.status = 403;
+            throw error;
+        }
+    } else {
+        const error = new Error("PlaylistSong couldn't be found");
         error.status = 404;
         throw error;
     }
