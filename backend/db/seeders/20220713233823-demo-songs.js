@@ -26,7 +26,7 @@ module.exports = {
        albumId: 2,
        title: 'Title2',
        description: 'Description2',
-       url: 'www.song2.com',
+       url: 'https://app-academy-project-soundcloud.s3.us-east-2.amazonaws.com/1671984165176.mp3',
        previewImage:
          'https://images.unsplash.com/photo-1506792006437-256b665541e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
      },
@@ -35,7 +35,7 @@ module.exports = {
        albumId: 3,
        title: 'Title3',
        description: 'Description3',
-       url: 'www.song2.com',
+       url: 'https://app-academy-project-soundcloud.s3.us-east-2.amazonaws.com/1671588465141.mp3',
        previewImage:
          'https://images.unsplash.com/photo-1588581282844-4c6eea7bd3d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
      },

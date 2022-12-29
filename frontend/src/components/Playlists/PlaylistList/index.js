@@ -17,12 +17,12 @@ function PlaylistList({ playlists }) {
     <div>
       {playlists
         ? playlists?.Playlists?.map((playlist) => (
-            <div key={playlist.id}>
+            <div key={playlist?.id}>
               <PlaylistListItem playlist={playlist} />
             </div>
           ))
         : lists?.Playlists?.map((playlist) => (
-            <div key={playlist.id}>
+            <div key={playlist?.id}>
               <PlaylistListItem playlist={playlist} />
             </div>
           ))}

@@ -102,8 +102,8 @@ function Playlist() {
                 onChange={(e) => setSelectSong(e.target.value)}
               >
                 {allSongs?.map((song) => (
-                  <option key={song.id} value={song.id}>
-                    {song.title}
+                  <option key={song?.id} value={song?.id}>
+                    {song?.title}
                   </option>
                 ))}
               </select>
@@ -114,15 +114,15 @@ function Playlist() {
       </div>
       <div className='playlist-songs-container'>
         {playlist?.Songs?.map((song) => (
-          <div className='playlist-songs' key={song.id}>
+          <div className='playlist-songs' key={song?.id}>
             <div className='playlist-songs-title'>
-              <NavLink to={`/songs/${song.id}`}>
+              <NavLink to={`/songs/${song?.id}`}>
                 <p key={song?.id}>{song?.title}</p>
               </NavLink>
             </div>
             <div>
               <ReactAudioPlayer
-                src={song.url}
+                src={song?.url}
                 className='audio-controls'
                 controls
               />
