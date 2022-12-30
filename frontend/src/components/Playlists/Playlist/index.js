@@ -10,6 +10,7 @@ import DeletePlaylist from '../DeletePlaylist';
 import EditPlaylist from '../EditPlaylist';
 import AddToPlaylist from './AddToPlaylist';
 import './Playlist.css';
+import RemoveFromPlaylist from './RemoveFromPlaylist';
 
 function Playlist() {
     const dispatch = useDispatch();
@@ -20,21 +21,15 @@ function Playlist() {
     
     const [errors, setErrors] = useState([])
 
-    // console.log('SELECTED SONG = ', selectSong)
-
     const playlist = useSelector(state => state.playlists);
     const user = useSelector(state => state.session.user);
     const allSongs = Object.values(useSelector(state => state.songs));
     const playlistSongs = useSelector(state => state.playlistSongs)
-
-    console.log('PLAYLISTSONGS ====== ', playlistSongs)
-
-    console.log('PLAYLIST IN PLAYLIST INDEX ===== ', playlist)
-    console.log('ALL SONGS = ', allSongs)
+   
 
     useEffect(() => {
       dispatch(fetchPlaylistSongs(playlistId))
-    }, [dispatch, playlistId])
+    }, [dispatch, playlistId, playlistSongs?.id])
 
     useEffect(() => {
       dispatch(fetchAllSongs())
@@ -42,16 +37,15 @@ function Playlist() {
 
     
 
-    const removeFromPlaylist = async (song) => {
-      const res = await dispatch(fetchRemoveFromPlaylist(song, playlistId))
-      .then(() => dispatch(fetchPlaylist(playlistId)))
-      .catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      });
-      console.log('REMOVE RES = ', res)
-      // return res;
-    };
+    // const removeFromPlaylist = async (song) => {
+    //   const res = await dispatch(fetchRemoveFromPlaylist(song, playlistId))
+    //   .then(() => dispatch(fetchPlaylist(playlistId)))
+    //   .catch(async (res) => {
+    //     const data = await res.json();
+    //     if (data && data.errors) setErrors(data.errors);
+    //   });
+    //   // return res;
+    // };
 
     useEffect(() => {
       dispatch(fetchPlaylist(playlistId));
@@ -136,7 +130,8 @@ function Playlist() {
                 controls
               />
             </div>
-              <button onClick={() => removeFromPlaylist(song)}>X</button>
+              {/* <button onClick={() => removeFromPlaylist(song)}>X</button> */}
+              <RemoveFromPlaylist song={song} playlistId={playlistId} playlistSongs={playlistSongs} />
           </div>
         ))}
       </div>

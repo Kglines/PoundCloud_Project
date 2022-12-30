@@ -127,7 +127,6 @@ export const fetchEditPlaylist = (playlist) => async (dispatch) => {
 
 // DELETE Playlist
 export const fetchDeletePlaylist = (playlistId) => async (dispatch) => {
-    console.log('DELETE FETCH = ', playlistId)
     const res = await csrfFetch(`/api/playlists/${playlistId}`, {
         method: 'DELETE'
     });
@@ -141,7 +140,6 @@ export const fetchDeletePlaylist = (playlistId) => async (dispatch) => {
 
 // ADD Song to Playlist Thunk
 export const fetchAddToPlaylist = (song, playlistId) => async (dispatch) => {
-    console.log(song, parseInt(playlistId))
     const res = await csrfFetch(`/api/playlists/${playlistId}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -161,7 +159,7 @@ export const fetchRemoveFromPlaylist = (song, playlistId) => async (dispatch) =>
     const res = await csrfFetch(`/api/playlists/${playlistId}/${song.id}`, {
         method: 'DELETE'
     });
-    console.log('RES IN REMOVE SONG = ', res)
+    
     if(res.ok){
         const song = await res.json();
         dispatch(removeFromPlaylist(song));

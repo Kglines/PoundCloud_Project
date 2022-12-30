@@ -10,7 +10,6 @@ function Songs() {
   const songs = Object.values(useSelector((state) => state.songs));
   const [data, setData] = useState('')
   // const songs = useSelector(state => state.songs)
-  console.log('SONGS in SONGS = ', songs)
 
   // useEffect(() => {
   //   dispatch(fetchAllSongs())
@@ -31,7 +30,7 @@ function Songs() {
         if (data && data.errors) setValidationErrors(data.errors);
       });
   }, [dispatch])
-console.log('DATA = ', data.Songs)
+  
   return (
     <div>
       <ul>

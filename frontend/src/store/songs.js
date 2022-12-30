@@ -87,14 +87,14 @@ export const fetchCreateSongs = (song) => async (dispatch) => {
   // formData.append('url', url);
   if(url) formData.append('url', url);
   
-  // console.log('SONG IN FETCH = ', song)
+  
 
   const res = await csrfFetch('/api/songs', {
     method: 'POST',
     headers: { 'Content-Type': 'multipart/form-data' },
     body: formData,
   });
-  // console.log('RES IN THUNK = ', res)
+
   if(res.ok){
     const data = await res.json();
     dispatch(createSongs(data));
@@ -113,7 +113,6 @@ export const fetchEditSong = (song) => async (dispatch) => {
   
   if (res.ok) {
     const song = await res.json();
-    console.log('SONG IN EDIT THUNK = ', song)
     dispatch(editSong(song));
     return song;
   }

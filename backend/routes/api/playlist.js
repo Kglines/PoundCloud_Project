@@ -56,10 +56,12 @@ router.get('/:playlistId', async (req, res) => {
 router.get('/:playlistId/songs', async (req, res) => {
     const { playlistId } = req.params;
     const playlist = await Playlist.findByPk(parseInt(playlistId))
-    // console.log('************', playlist)
+   
     const songs = await PlaylistSong.findAll({ where: {
         playlistId: playlist.id
-    }})
+    },
+        attributes: ['id', 'playlistId', 'songId']
+    })
     res.json({ songs })
 })
 
@@ -74,7 +76,6 @@ router.post('/:playlistId', requireAuth, async (req, res) => {
     const playlist = await Playlist.findByPk(playlistId);
     const song = await Song.findByPk(parseInt(songId));
 
-    console.log('SONG IN BACKEND PLAYLISt SONG = ', song)
     if(playlist){
         if(song){
             if(playlist.userId === user.id){
@@ -134,7 +135,7 @@ router.put('/:playlistId', [requireAuth, validatePlaylist], async (req, res) => 
     const { name, imageUrl } = req.body;
 
     const playlist = await Playlist.findByPk(playlistId);
-    console.log('PLAYLIST in ROUTES = ', playlist)
+    
     if(playlist){
         if(playlist.userId === user.id){
             await playlist.update({
@@ -189,8 +190,6 @@ router.delete('/:playlistId/:songId', requireAuth, async (req, res) => {
     const { user } = req;
     const { playlistId } = req.params;
     const { songId } = req.params;
-
-    console.log('SONG ID IN ROUTE = ', songId);
 
     const playlist = await Playlist.findByPk(playlistId);
     const playlistSong = await PlaylistSong.findOne({ where: {songId: parseInt(songId) }});

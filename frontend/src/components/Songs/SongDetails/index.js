@@ -24,13 +24,7 @@ function SongDetails() {
   const user = useSelector(state => state.session.user);
   // const userSong = user.id === songs.userId;
   const { Artist, Album } = songs;
-  // const comments = useSelector(state => state.comments)
-  console.log('SONGS in SONG DETAILS = ', songs)
-  console.log('SONGSTATE = ', songState)
-  console.log('COMMENTS in SONG DETAILS = ', comments)
-
   
-
   useEffect(() => {
     const fetchData = async () => {
       const song = await dispatch(fetchSong(parsedId));

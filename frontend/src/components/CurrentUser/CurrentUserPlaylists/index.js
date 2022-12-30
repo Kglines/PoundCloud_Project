@@ -13,8 +13,6 @@ function CurrentuserPlaylists() {
     const user = useSelector(state => state.session.user);
     const userPlaylists = [];
 
-    console.log('PLAYLISTS in CURRENT USER PLAYLISTS = ', user)
-
     useEffect(() => {
         dispatch(fetchPlaylists())
     }, [dispatch])
@@ -23,7 +21,6 @@ function CurrentuserPlaylists() {
         if (playlist?.userId === user?.id) userPlaylists.push(playlist)
     })
 
-    console.log('LIST', userPlaylists)
 
   return (
     <div>

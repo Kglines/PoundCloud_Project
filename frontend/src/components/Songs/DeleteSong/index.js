@@ -8,7 +8,6 @@ function DeleteSong({ setShowDelModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const [validationErrors, setValidationErrors] = useState([])
-    // console.log('songId', songId)
 
     const onDelete = (songId) => {
         dispatch(fetchDeleteSongs(songId))

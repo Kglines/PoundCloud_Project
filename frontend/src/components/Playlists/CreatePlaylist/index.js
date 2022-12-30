@@ -7,8 +7,6 @@ function CreatePlaylist({ user, setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    console.log('USER IN CREATE PLAYLIST = ', user)
-
     const [name, setName] = useState('');
     const [previewImage, setPreviewImage] = useState('');
     const [errors, setErrors] = useState([]);

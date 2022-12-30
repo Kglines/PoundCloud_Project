@@ -205,7 +205,6 @@ router.delete('/:songId', requireAuth, async (req, res) => {
     const { songId } = req.params;
     const song = await Song.findByPk(parseInt(songId, 10));
     if(song){
-        console.log('SONG ########### = ', song)
         if(song.userId === user.id){
             await song.destroy();
             res.json({

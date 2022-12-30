@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 function PlaylistListItem({ playlist }) {
-   console.log('PLAYLIST in PLAYLIST ITEM = ', playlist)
+   
   return (
     <div className='playlist-card-home'>
       <NavLink className='playlist-link-home' to={`/playlists/${parseInt(playlist?.id)}`}>

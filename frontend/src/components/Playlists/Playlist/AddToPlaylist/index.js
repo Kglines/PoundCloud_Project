@@ -29,7 +29,6 @@ function AddToPlaylist({ playlistId, user, playlist }) {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
         });
-        console.log('RES RES RES === ', res)
       return res;
     };
   return (
@@ -42,7 +41,6 @@ function AddToPlaylist({ playlistId, user, playlist }) {
             >
             {allSongs?.map((song) => (
                 <option key={song?.id} value={song?.id}>
-                {console.log('SONG IN ALL SONGS IN PLAYLIST COMP = ', song)}
                 {song?.title}
                 </option>
             ))}

@@ -41,8 +41,6 @@ function SignupFormPage() {
     ]);
   };
 
-  // console.log('sign up form page errors = ', errors)
-
   return (
     <>
       <ul>

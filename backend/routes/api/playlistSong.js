@@ -7,10 +7,7 @@ const { validatePlaylist } = require('../../utils/validation');
 // GET Playlist Songs based on playlist id
 
 router.get('/', async (req, res) => {
-    // console.log('************************', req);
-    // const playlist = await Playlist.findOne({ where: {
-    //     playlistId: playlist.id
-    // }})
+    
     const playlistSongs = await PlaylistSong.findAll()
     res.json({ playlistSongs })
 })
@@ -28,5 +25,27 @@ router.post('/', requireAuth, async (req, res) => {
   res.status(201);
   res.json(playlistSong);
 });
+
+// Remove a song from playlist songs
+router.delete('/:playlistSongId', requireAuth, async (req, res) => {
+    const { playlistSongId } = req.params;
+    const playlistSong = await PlaylistSong.findOne({
+        where: {
+            id: parseInt(playlistSongId)
+        }
+    });
+
+    if(playlistSong){
+        await playlistSong.destroy();
+        res.json({
+            message: "Successfully deleted",
+            statusCode: 200
+        })
+    } else {
+        const error = new Error("Playlist Song couldn't be found");
+        error.status = 404;
+        throw error;
+    }
+})
 
 module.exports = router;

@@ -18,10 +18,6 @@ function Home() {
   const songs = Object.values(useSelector(state => state.songs));
   const playlists = useSelector(state => state.playlists)
 
-  console.log('PLAYLISTS = ', playlists)
-
-  // console.log('home page albums', albums)
-
   const demoLogin = () => {
     return dispatch(
       sessionActions.login({ credential: 'Demo-lition', password: 'password' })

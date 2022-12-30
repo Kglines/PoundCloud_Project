@@ -11,10 +11,10 @@ function Albums() {
   const [data, setData] = useState('')
   const [errors, setErrors] = useState([])
   const user = useSelector(state => state.session.user);
-  // console.log(user)
+  
 
   const albums = Object.values(useSelector(state => state.albums));
-// console.log('albums = ', albums)
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await dispatch(fetchAlbums())
@@ -26,8 +26,6 @@ function Albums() {
         if (data && data.errors) setErrors(data.errors)
       })
   }, [dispatch]);
-
-  console.log('ALBUMS DATA = ', data.Albums)
 
   return (
     <>

@@ -44,18 +44,30 @@ export const fetchPlaylistSongs = (playlistId) => async (dispatch) => {
 };
 
 export const fetchCreatePlaylistSong = (playlistSong) => async (dispatch) => {
-    console.log('FETCH = ', playlistSong)
     const res = await csrfFetch(`/api/playlistsongs`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(playlistSong)
     })
 
-    console.log('FETCH RES ===== ', res)
     if (res.ok){
         const song = await res.json();
         dispatch(createPlaylistSongs(song));
         return song;
+    };
+    return res;
+};
+
+// Delete Playlist Song Thunk
+export const fetchDeletePlaylistSong = (playlistSong) => async (dispatch) => {
+    const res = await csrfFetch(`/api/playlistsongs/${playlistSong.id}`, {
+      method: 'DELETE',
+    });
+    
+    if (res.ok){
+        const playlistSong = await res.json();
+        dispatch(deletePlaylistSong(playlistSong));
+        return playlistSong;
     };
     return res;
 };
@@ -70,6 +82,9 @@ const playlistSongReducer = (state = initialState, action) => {
     switch(action.type){
         case GET_PLAYLIST_SONGS:
             newState = action.payload;
+            return newState;
+        case DELETE_PLAYLIST_SONGS:
+            delete newState[action.payload];
             return newState;
         default:
             return newState
