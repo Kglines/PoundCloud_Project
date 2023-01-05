@@ -7,7 +7,7 @@
 
 .navbar-items {
     display: block;
-    margin: 2px 30px;
+    margin: 2px 40px;
     /* padding: 5px 10px 5px 10px; */
     height: auto;
     width: 100vw;
@@ -16,7 +16,7 @@
 }
 
 .nav-link {
-   margin: 0px 65px;
+   margin: 0px 55px;
    padding: 0px 10px;
 }
 
