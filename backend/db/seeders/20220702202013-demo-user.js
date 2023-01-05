@@ -13,7 +13,6 @@ module.exports = {
    options.tableName = 'Users'
    await queryInterface.bulkInsert(options, [
     {
-      id: 1,
       firstName: 'Demo',
       lastName: 'lition',
       email: 'demo@user.io',
