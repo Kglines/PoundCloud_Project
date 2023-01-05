@@ -95,24 +95,6 @@ function Playlist() {
             </Modal>
           )}
         </div>
-        {/* {user && user?.id === playlist?.userId && (
-          <div>
-            <form onSubmit={addToPlaylist}>
-              <select
-                value={selectSong}
-                onChange={(e) => setSelectSong(e.target.value)}
-              >
-                {allSongs?.map((song) => (
-                  <option key={song?.id} value={song?.id}>
-                  {console.log('SONG IN ALL SONGS IN PLAYLIST COMP = ', song)}
-                    {song?.title}
-                  </option>
-                ))}
-              </select>
-              <button>Add to Playlist</button>
-            </form>
-          </div>
-        )} */}
         <AddToPlaylist playlistId={playlistId} user={user} playlist={playlist} />
       </div>
       <div className='playlist-songs-container'>
