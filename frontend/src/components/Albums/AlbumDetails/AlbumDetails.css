@@ -32,8 +32,11 @@
 }
 
 .album-detail-btns {
+    display: flex;
+    flex-direction: row;
     text-align: end;
     margin: 10px;
+    padding-bottom: 5px;
     width: 120px;
 }
 
