@@ -14,7 +14,7 @@ function PlaylistList({ playlists }) {
   }, [dispatch])
     
   return (
-    <div>
+    <div className='playlist-container-home'>
       {playlists
         ? playlists?.Playlists?.map((playlist) => (
             <div key={playlist?.id}>

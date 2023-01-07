@@ -134,7 +134,7 @@ function Home() {
             <p>The best playlists are on SoundCloud</p>
           </div>
           <ol>
-            <div className='playlist-container-home'>
+            <div>
               {/* {playlists?.Playlists?.map((playlist) => (
                 <div className='playlist-card-home' key={playlist.id}>
                 <NavLink className='playlist-link-home' to={`/playlists/${playlist?.id}`}>
