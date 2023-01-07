@@ -24,7 +24,7 @@ function CurrentuserPlaylists() {
 
   return (
     <div>
-      <h3>My Playlists: </h3>
+      <h3 className='playlist-header'>My Playlists: </h3>
       {user && (
         <button
           className='user-add-playlist-btn'
@@ -38,17 +38,17 @@ function CurrentuserPlaylists() {
           <CreatePlaylist user={user} setShowModal={setShowModal} />
         </Modal>
       )}
-      <div>
+      <div className='user-playlist-container'>
         {userPlaylists?.length > 0 ? (
           userPlaylists?.map((playlist) => (
-            <div key={playlist?.id}>
-              <NavLink to={`/playlists/${playlist?.id}`}>
+            <div key={playlist?.id} className='song-card'>
+              <NavLink className='playlist-links' to={`/playlists/${playlist?.id}`}>
                 <img
-                  className='user-album-art'
+                  className='song-img'
                   src={playlist?.previewImage}
                   alt={playlist?.name}
                 />
-                <h4>{playlist?.name}</h4>
+                <h4 className='playlist-title-home'>{playlist?.name}</h4>
               </NavLink>
             </div>
           ))

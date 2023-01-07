@@ -38,14 +38,14 @@ function CurrentuserAlbums() {
       <div className='user-album-container'>
         {albumList.length > 0 ? (
           albumList.map((album) => (
-            <div key={album.id} className='user-album-card'>
+            <div key={album.id} className='song-card'>
               <Link
                 className='album-links'
                 key={album.id}
                 to={`/albums/${album.id}`}
               >
                 <img
-                  className='user-album-art'
+                  className='song-img'
                   src={album.previewImage}
                   alt={album.title}
                 />

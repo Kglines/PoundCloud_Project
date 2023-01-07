@@ -11,16 +11,16 @@
     font-size: 33px;
 }
 
-.user-albums, .user-songs {
+.user-albums, .user-songs, .user-playlists {
     height: 30px;
     font-size: 20px;
 }
 
-.user-albums-p, .user-songs-p {
+.user-albums-p, .user-songs-p, .user-playlists-p {
     font-size: 16px;
 }
 
-.user-album-card, .user-song-card {
+.user-album-card, .user-song-card, .user-playlist-card {
     width: 80px;
     height: auto;
     border: 1px solid black;
@@ -42,12 +42,12 @@
     border: 1px solid black;
 }
 
-.user-album-art, .user-song-art {
+.user-album-art, .user-song-art, .user-playlist-art {
     width: 60px;
     height: 60px;
 }
 
-.user-album-container, .user-songs-container {
+.user-album-container, .user-songs-container, .user-playlist-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -62,7 +62,7 @@
     background-color: rgb(230, 230, 230);
 }
 
-.user-albums-btn, .user-songs-btn {
+.user-albums-btn, .user-songs-btn, .user-playlists-btn {
     color: orange;
     font-size: 16px;
     
