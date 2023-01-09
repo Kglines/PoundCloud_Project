@@ -67,6 +67,17 @@ router.get('/:songId', async (req, res) => {
                     'title',
                     'previewImage'
                 ]
+            },
+            {
+                model: Comment,
+                attributes: [
+                    'id',
+                    'userId',
+                    'songId',
+                    'body',
+                    'createdAt',
+                    'updatedAt'
+                ]
             }
         ],
     })
@@ -148,7 +159,7 @@ router.post('/:songId/comments', [requireAuth, validateComment], async (req, res
     const { body } = req.body;
 
     const song = await Song.findByPk(songId);
-
+    
     if(song){
         const comment = await Comment.create({
             body,

@@ -45,12 +45,54 @@ export const deleteComment = (comment) => {
 
 // ******** THUNKS ********
 export const fetchGetComments = (songId) => async (dispatch) => {
-    const res = await fetch(`/api/songs/${songId}/comments`)
+    const res = await csrfFetch(`/api/songs/${songId}/comments`);
 
     if (res.ok){
         const comments = await res.json();
         dispatch(getComments(comments));
         return comments;
+    };
+    return res;
+};
+
+export const fetchCreateComments = (songId, comment) => async (dispatch) => {
+    const res = await csrfFetch(`/api/songs/${songId}/comments`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(comment),
+    });
+    if(res.ok){
+        const comment = await res.json();
+        dispatch(createComment(comment));
+        return comment;
+    };
+    return res;
+};
+
+export const fetchEditComments = (comment) => async (dispatch) => {
+    const res = await csrfFetch(`/api/comments/${comment.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(comment)
+    });
+
+    if (res.ok){
+        const comment = await res.json();
+        dispatch(editComment(comment));
+        return comment;
+    };
+    return res;
+};
+
+export const fetchDeleteComments = (comment) => async (dispatch) => {
+    const res = await csrfFetch(`/api/comments/${comment}`, {
+        method: 'DELETE'
+    });
+
+    if (res.ok){
+        const comment = await res.json();
+        dispatch(deleteComment(comment));
+        return comment;
     };
     return res;
 };
@@ -67,6 +109,15 @@ export const commentsReducer = (state = initialState, action) => {
         case GET_COMMENTS:
             newState = action.payload
             return newState
+        case CREATE_COMMENT:
+            newState = { ...state, [action.payload.id]: action.payload};
+            return newState;
+        case EDIT_COMMENT:
+            newState = action.payload;
+            return newState;
+        case DELETE_COMMENT:
+            delete newState[action.payload]
+            return newState;
         default:
             return newState
     }

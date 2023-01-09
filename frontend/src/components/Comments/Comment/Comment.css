@@ -1,0 +1,19 @@
+.comment-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px auto;
+    text-align: left;
+    /* border-bottom: 0.5px solid silver; */
+    width: 50%;
+    padding-bottom: 10px;
+}
+
+.comment-body {
+    margin-top: 5px;
+    padding: 0px 20px;
+}
+
+.comment-time{
+    color: grey;
+}

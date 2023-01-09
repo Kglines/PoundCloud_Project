@@ -33,7 +33,7 @@ function CurrentuserSongs() {
         +Add Song
       </button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal className='create-song-modal' onClose={() => setShowModal(false)}>
           <CreateSong setShowModal={setShowModal} />
         </Modal>
       )}

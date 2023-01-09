@@ -46,7 +46,7 @@ router.delete('/:commentId', requireAuth, async (req, res) => {
     const { commentId } = req.params;
 
     const comment = await Comment.findByPk(commentId);
-
+    
     if(comment){
         if(comment.userId === user.id){
             await comment.destroy();

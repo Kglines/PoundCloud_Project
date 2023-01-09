@@ -63,7 +63,7 @@ function CreateSong({ setShowModal }) {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='create-song-form' onSubmit={handleSubmit}>
       <h2>Create a song</h2>
       {isLoading ? 
         <h2>Loading...</h2>

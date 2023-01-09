@@ -1,0 +1,25 @@
+.create-comment-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.create-comment-form input {
+    width: 450px;
+    height: 30px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.submit-comment {
+    background-color: transparent;
+    color: orange;
+    border: none;
+    margin-left: 5px;
+}
+.submit-comment:hover {
+    cursor: pointer;
+    color: rgb(224, 151, 16);
+    border: none;
+}
+

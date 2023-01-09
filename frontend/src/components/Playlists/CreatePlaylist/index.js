@@ -57,7 +57,7 @@ function CreatePlaylist({ user, setShowModal }) {
         placeholder='Image'
       />
       <button className='submit-btn' type='submit'>Submit</button>
-      <button className='cancel-btn'>Cancel</button>
+      <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
     </form>
   )
 }

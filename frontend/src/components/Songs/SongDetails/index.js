@@ -7,7 +7,8 @@ import EditSong from '../EditSong';
 import DeleteSong from '../DeleteSong';
 import { Modal } from '../../../context/Modal';
 import ReactAudioPlayer from 'react-audio-player';
-import { fetchGetComments } from '../../../store/comments';
+import Comments from '../../Comments/Comments';
+import CreateComment from '../../Comments/CreateComment';
 
 function SongDetails() {
   const { songId } = useParams();
@@ -17,12 +18,10 @@ function SongDetails() {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDelModal, setShowDelModal] = useState(false);
   const [songs, setSongs] = useState('');
-  const [comments, setComments] = useState(null);
   const [errors, setErrors] = useState([]);
   const songState = useSelector(state => state.songs);
-  // const songs = data
   const user = useSelector(state => state.session.user);
-  // const userSong = user.id === songs.userId;
+  // const comments = useSelector(state => state.comments)
   const { Artist, Album } = songs;
   
   useEffect(() => {
@@ -34,19 +33,6 @@ function SongDetails() {
       .catch(async (res) => {
         const data = await res.json()
         if(data && data.errors) setErrors(data.errors)
-      })
-    
-  }, [dispatch, parsedId])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const comments = await dispatch(fetchGetComments(parsedId));
-      setComments(comments)
-    }
-    fetchData()
-      .catch(async (res) => {
-        const data = res.json()
-        if (data && data.errors) setErrors(data.errors)
       })
     
   }, [dispatch, parsedId])
@@ -105,12 +91,8 @@ function SongDetails() {
         )}
       </div>
       <ReactAudioPlayer className='audio-player' src={songs?.url} controls />
-      {comments?.Comments?.map(comment => (
-        <div key={comment?.id}>
-          <p>{comment?.body}</p>
-          <p>{comment?.User?.username}</p>
-        </div>
-      ))}
+      <CreateComment song={songs} />
+      <Comments song={songs} />
     </>
   );
 }
