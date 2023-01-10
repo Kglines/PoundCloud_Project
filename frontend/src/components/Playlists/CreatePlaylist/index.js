@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { fetchCreatePlaylist } from '../../../store/playlists';
+import './CreatePlaylist.css';
 
 function CreatePlaylist({ user, setShowModal }) {
     const dispatch = useDispatch();
@@ -35,8 +36,8 @@ function CreatePlaylist({ user, setShowModal }) {
     };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Create a playlist</h2>
+    <form className='create-playlist-form' onSubmit={handleSubmit}>
+      <h2>Create a Playlist</h2>
       <ul>
         {errors?.map(error => (
           <li className='errors' key={error}>{error}</li>
@@ -47,17 +48,19 @@ function CreatePlaylist({ user, setShowModal }) {
         value={name}
         onChange={(e) => setName(e.target.value)}
         name='name'
-        placeholder='Title'
+        placeholder='Title...'
       />
       <input
         type='text'
         value={previewImage}
         onChange={(e) => setPreviewImage(e.target.value)}
         name='previewImage'
-        placeholder='Image'
+        placeholder='Image URL...'
       />
-      <button className='submit-btn' type='submit'>Submit</button>
-      <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+      <div>
+        <button className='submit-btn' type='submit'>Submit</button>
+        <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+      </div>
     </form>
   )
 }
