@@ -68,70 +68,76 @@ function CreateSong({ setShowModal }) {
       {isLoading ? 
         <h2>Loading...</h2>
         :
-        <div>
-      <ul>
-        {validationErrors.map((error) => 
-            <li className='errors' key={error}>{error}</li>
-        )}
-      </ul>
-      <label>
-        Title
-        <input
-          type='text'
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          name='title'
-          placeholder='Title'
-        />
-      </label>
-      <label>
-        Description
-        <input
-          type='text'
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          name='description'
-          placeholder='Description'
-        />
-      </label>
-      <label>
-        Song Url
-        <input
-          type='file'
-          // value={url}
-          accept='audio/*'
-          onChange={updateFile}
-          name='url'
-          // placeholder='Song url'
-        />
-      </label>
-      <label>
-        Image Url
-        <input
-          type='text'
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-          name='imageUrl'
-          placeholder='Image url'
-        />
-      </label>
-
-      {myAlbums.map((album) => (
-        <label key={album.id}>
-          <input
-            type='button'
-            value={album.id}
-            onClick={(e) => setSelectedAlbumId(e.target.value)}
-            className='select-album-input'
-          ></input>
-          {album.title}
-        </label>
-      ))}
-
-      <button className='submit-btn' type='submit'>
-        Submit
-      </button>
-      <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+        <div className='create-song-container'>
+          <ul>
+            {validationErrors.map((error) => 
+                <li className='errors' key={error}>{error}</li>
+            )}
+          </ul>
+          {/* <label> */}
+            {/* Title */}
+            <input
+            className='create-song-input'
+              type='text'
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              name='title'
+              placeholder='Title'
+            />
+          {/* </label> */}
+          {/* <label> */}
+            {/* Description */}
+            <input
+            className='create-song-input'
+              type='text'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              name='description'
+              placeholder='Description'
+            />
+          {/* </label> */}
+          {/* <label> */}
+            {/* Song Url */}
+            <input
+            className='create-song-input'
+              type='file'
+              // value={url}
+              accept='audio/*'
+              onChange={updateFile}
+              name='url'
+              // placeholder='Song url'
+            />
+          {/* </label> */}
+          {/* <label> */}
+            {/* Image Url */}
+            <input
+            className='create-song-input'
+              type='text'
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
+              name='imageUrl'
+              placeholder='Image url'
+            />
+          {/* </label> */}
+            <div className='select-album'>
+              {myAlbums.map((album) => (
+                <label key={album.id}>
+                  <input
+                    type='button'
+                    value={album.id}
+                    onClick={(e) => setSelectedAlbumId(e.target.value)}
+                    className='select-album-input'
+                  ></input>
+                  {album.title}
+                </label>
+              ))}
+            </div>
+          <div className='create-song-btns'>
+            <button className='submit-btn' type='submit'>
+              Submit
+            </button>
+            <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+          </div>
         </div>
         }
     </form>
