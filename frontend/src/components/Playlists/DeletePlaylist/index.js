@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { fetchDeletePlaylist } from '../../../store/playlists'
+import './DeletePlaylist.css'
 
 function DeletePlaylist({ setShowDeleteModal, playlist}) {
   const { playlistId } = useParams();
@@ -21,17 +22,19 @@ function DeletePlaylist({ setShowDeleteModal, playlist}) {
       });
   };
   return (
-    <div>
+    <div className='delete-playlist'>
       <h2>Are you sure you want to delete this playlist?</h2>
       {errors?.map((error) => (
         <p key={error} className='errors'>
           {error}
         </p>
       ))}
-      <button className='save-btn' onClick={() => onDelete()}>
-        Delete
-      </button>
-      <button className='cancel-btn' onClick={() => setShowDeleteModal(false)}>Cancel</button>
+      <div>
+        <button className='save-btn' onClick={() => onDelete()}>
+          Delete
+        </button>
+        <button className='cancel-btn' onClick={() => setShowDeleteModal(false)}>Cancel</button>
+      </div>
     </div>
   );
 }
