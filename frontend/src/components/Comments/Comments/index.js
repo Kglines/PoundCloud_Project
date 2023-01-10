@@ -17,15 +17,16 @@ function Comments({ song }) {
         const comments = await dispatch(fetchGetComments(song?.id));
         setComments(comments);
         };
-        fetchData().catch(async (res) => {
-          const data = res.json();
-          if (data && data.errors) setErrors(data.errors);
-        });
-    }, [dispatch, song?.id, comments?.Comments?.length])
+        fetchData()
+          .catch(async (res) => {
+            const data = res.json();
+            if (data && data.errors) setErrors(data.errors);
+          });
+    }, [dispatch, song?.id])
 
   return (
     <div className='comments-container'>
-      <p className='comments-total'>{comments?.Comments?.length} comments</p>
+      <p className='comments-total'>{commentsArr?.Comments?.length} comments</p>
       {commentsArr?.Comments?.map((comment) => (
         <div key={comment?.id}>
           <Comment comment={comment} song={song} user={comment?.User?.username} />

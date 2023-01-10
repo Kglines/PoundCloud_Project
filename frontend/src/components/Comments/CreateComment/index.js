@@ -25,16 +25,10 @@ function CreateComment({ song }) {
             // dispatch(fetchSong(song?.id))
             setBody('');
           })
-          .then(async (res) => {
-            if (res.ok === false) {
-              const data = await res.json();
-              if (data && data.errors) setErrors(data.errors);
-            } else {
-              
-              setErrors([]);
-            }
-          });
-          
+          .catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors)
+          })
     }
 
   return (

@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Modal } from '../../../context/Modal';
 import DeleteComments from '../DeleteComment';
+import EditComment from '../EditComment';
 import './Comment.css';
 
 function Comment({ song, comment, user }) {
+
+    const [showModal, setShowModal] = useState('')
 
     let commentYear = comment?.createdAt.slice(0, 4);
     let commentMonth = comment?.createdAt.slice(5, 7);
@@ -29,7 +33,12 @@ function Comment({ song, comment, user }) {
       </div>
       <div>
         <p className='comment-time'>{commentMonth}-{commentDay}-{commentYear} {commentHour}:{commentMinute}{amPm}</p>
-        <button>Edit</button>
+        <button onClick={() => setShowModal(true)}>Edit</button>
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <EditComment comment={comment} setShowModal={setShowModal} />
+          </Modal>
+        )}
         <DeleteComments song={song} comment={comment} />
       </div>
     </div>
