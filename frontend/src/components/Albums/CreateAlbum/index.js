@@ -81,8 +81,10 @@ function CreateAlbum({ setShowModal }) {
           placeholder='Album art url'
         />
       </label>
-      <button className='submit-btn'>Submit</button>
-      <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+      <div>
+        <button className='submit-btn'>Submit</button>
+        <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+      </div>
     </form>
   );
 }
