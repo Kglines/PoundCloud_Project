@@ -54,7 +54,7 @@ function Home() {
   return (
     <>
       <div className='home-page'>
-        <h1 className='home-page-title'>Welcome To SoundCloud</h1>
+        <h1 className='home-page-title'>Welcome To PoundCloud</h1>
         <img
           className='home-banner-img'
           src='https://images.unsplash.com/photo-1483821838526-8d9756a6e1ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2768&q=80'
@@ -71,7 +71,7 @@ function Home() {
                   </li>
                 ))}
             </ul>
-            <p>Discover the best albums on SoundCloud</p>
+            <p>Discover the best albums on PoundCloud</p>
           </div>
           <ol>
             <div className='album-container-home'>
@@ -101,7 +101,7 @@ function Home() {
           </ol>
           <div className='song-banner-home'>
             <h2>Top Songs</h2>
-            <p>The best hit music is on SoundCloud</p>
+            <p>The best hit music is on PoundCloud</p>
           </div>
           <ol>
             <div className='song-container-home'>
@@ -131,24 +131,10 @@ function Home() {
           </ol>
           <div className='playlist-banner-home'>
             <h2>Top Playlists</h2>
-            <p>The best playlists are on SoundCloud</p>
+            <p>The best playlists are on PoundCloud</p>
           </div>
           <ol>
             <div>
-              {/* {playlists?.Playlists?.map((playlist) => (
-                <div className='playlist-card-home' key={playlist.id}>
-                <NavLink className='playlist-link-home' to={`/playlists/${playlist?.id}`}>
-                  <li className='playlist-item-home'>
-                    <img 
-                      className='playlist-img-home' 
-                      src={playlist.previewImage} 
-                      alt={playlist.title} />
-                      <h2 className='playlist-title-home'>{playlist.name}</h2>
-                  </li>
-                </NavLink>
-                 
-                </div>
-              ))} */}
               <PlaylistList playlists={playlists} />
             </div>
           </ol>
