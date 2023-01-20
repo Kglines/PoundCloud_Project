@@ -46,6 +46,7 @@
     /* align-items: center; */
     /* flex-wrap: wrap; */
     height: 120px;
+    margin-top: 30px;
     /* margin-left: 50px; */
     /* padding: 10px; */
     overflow-x: auto;
@@ -60,9 +61,11 @@
 .playlist-banner-home p{
     font-size: 16px;
     opacity: 0.5;
+    height: 30px;
 }
 .album-banner-home, .song-banner-home, .playlist-banner-home {
     border-bottom: 1px dashed black;
+    /* height: 50px; */
 }
 
 .album-title-home, .song-title-home, .playlist-title-home {
@@ -113,7 +116,7 @@
 .right-container {
     margin: 225px 0px;
     position: absolute;
-    right: 100px;
+    right: 10%;
     top: 0px;
     font-size: 24px;
 }
@@ -143,5 +146,6 @@
 .demo-btn:hover{
     cursor: pointer;
 }
+
 
 

@@ -153,7 +153,7 @@ function Home() {
             </a>
           </div>
           {!user && (
-            <>
+            <div className='sidebar-intro'>
               <p>
                 Click the <NavLink to='/login'>Login</NavLink> or the{' '}
                 <NavLink to='/signup'>Signup</NavLink> links above <br></br> to
@@ -165,7 +165,7 @@ function Home() {
               <button className='demo-btn' onClick={demoLogin}>
                 DEMO USER
               </button>
-            </>
+            </div>
           )}
         </div>
       </div>
