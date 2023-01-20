@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import { Modal } from '../../../context/Modal';
 import DeleteComments from '../DeleteComment';
 import EditComment from '../EditComment';
 import './Comment.css';
 
 function Comment({ song, comment, user }) {
-
+    const sessionUser = useSelector(state => state.session.user)
+console.log(comment)
     const [showModal, setShowModal] = useState('')
 
     let commentYear = comment?.createdAt.slice(0, 4);
@@ -33,6 +35,7 @@ function Comment({ song, comment, user }) {
       </div>
       <div>
         <p className='comment-time'>{commentMonth}-{commentDay}-{commentYear} {commentHour}:{commentMinute}{amPm}</p>
+        {sessionUser?.id ===comment?.userId && (
         <div className='comment-btns'>
           <button className='edit-btn' onClick={() => setShowModal(true)}>Edit</button>
           {showModal && (
@@ -42,6 +45,7 @@ function Comment({ song, comment, user }) {
           )}
           <DeleteComments song={song} comment={comment} />
         </div>
+        )}
       </div>
     </div>
   );
