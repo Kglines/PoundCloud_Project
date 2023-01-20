@@ -71,7 +71,7 @@ function Home() {
                   </li>
                 ))}
             </ul>
-            <p>Discover the best albums on PoundCloud</p>
+            <p>Discover the best head Pounding albums on PoundCloud</p>
           </div>
           <ol>
             <div className='album-container-home'>
@@ -101,7 +101,7 @@ function Home() {
           </ol>
           <div className='song-banner-home'>
             <h2>Top Songs</h2>
-            <p>The best hit music is on PoundCloud</p>
+            <p>The best head Pounding hit music is on PoundCloud</p>
           </div>
           <ol>
             <div className='song-container-home'>
@@ -131,7 +131,7 @@ function Home() {
           </ol>
           <div className='playlist-banner-home'>
             <h2>Top Playlists</h2>
-            <p>The best playlists are on PoundCloud</p>
+            <p>The best head Pounding playlists are on PoundCloud</p>
           </div>
           <ol>
             <div>

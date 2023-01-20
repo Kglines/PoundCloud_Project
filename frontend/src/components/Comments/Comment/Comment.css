@@ -17,3 +17,30 @@
 .comment-time{
     color: grey;
 }
+
+.comment-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+
+.edit-btn {
+    background-color: transparent;
+    border: none;
+    color: orange;
+}
+.edit-btn:hover {
+    color: rgb(197, 136, 23);
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: transparent;
+    border: none;
+}
+
+.delete-btn:hover {
+    cursor: pointer;
+    color: rgb(129, 128, 128);
+}

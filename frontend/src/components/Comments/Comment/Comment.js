@@ -33,13 +33,15 @@ function Comment({ song, comment, user }) {
       </div>
       <div>
         <p className='comment-time'>{commentMonth}-{commentDay}-{commentYear} {commentHour}:{commentMinute}{amPm}</p>
-        <button onClick={() => setShowModal(true)}>Edit</button>
-        {showModal && (
-          <Modal onClose={() => setShowModal(false)}>
-            <EditComment comment={comment} setShowModal={setShowModal} />
-          </Modal>
-        )}
-        <DeleteComments song={song} comment={comment} />
+        <div className='comment-btns'>
+          <button className='edit-btn' onClick={() => setShowModal(true)}>Edit</button>
+          {showModal && (
+            <Modal onClose={() => setShowModal(false)}>
+              <EditComment comment={comment} setShowModal={setShowModal} />
+            </Modal>
+          )}
+          <DeleteComments song={song} comment={comment} />
+        </div>
       </div>
     </div>
   );
