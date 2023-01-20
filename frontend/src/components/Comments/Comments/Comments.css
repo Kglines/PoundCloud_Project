@@ -1,6 +1,11 @@
+.comments-container{
+    /* background-color: red; */
+}
+
 .comments-total {
     margin: 0px auto;
     text-align: center;
+    padding: 10px;
     border-bottom: 1px dotted silver;
-    width: 50%;
+    width: 40%;
 }
