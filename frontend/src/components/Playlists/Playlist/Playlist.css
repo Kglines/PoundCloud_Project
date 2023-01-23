@@ -12,14 +12,14 @@
     /* display: grid;
     grid-template-columns: 2fr 2fr 2fr; */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     margin: 0px 10%;
     width: 80%;
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 2px 2px 12px silver;
-    background-color: rgb(243, 240, 240);
+    background-color: rgba(210, 210, 210, 0.505);
 }
 
 .playlist-detail-container h3 {
@@ -36,11 +36,19 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items:center;
+    /* align-items: flex-end; */
     
     overflow: auto;
-    width: 80%;
+    width: 75%;
     margin: 2% auto;
+}
+
+.playlist-songs{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 80%;
+    margin: 1.5%;
 }
 
 .playlist-btns{
@@ -72,14 +80,17 @@
     color: rgb(51, 51, 51);
 }
 
-
-.playlist-songs{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: end;
-    margin: 10px;
+.playlist-length{
+    background-color: black;
+    color: white;
+    border-radius: 65px;
+    width: 155px;
+    height: 100px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 30px;
 }
+
 
 .playlist-songs-link{
     text-decoration: none;
@@ -87,16 +98,21 @@
 }
 
 .playlist-songs-title p {
-    color: rgb(66, 66, 66);
+    color: rgb(100, 100, 100);
 }
 
 .playlist-songs-title p:hover{
     color: black;
 }
 
+.react-player-container{
+    display: flex;
+    flex-direction: row;
+}
+
 .audio-controls{
     height: 20px;
-    width: 500px;
+    width: 600px;
 }
 
 .add-to-playlist-select{

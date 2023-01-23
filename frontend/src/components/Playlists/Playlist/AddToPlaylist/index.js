@@ -12,7 +12,6 @@ function AddToPlaylist({ playlistId, user, playlist }) {
     const [selectSong, setSelectSong] = useState(1);
     const [errors, setErrors] = useState([]);
 
-
     const addToPlaylist = async (e) => {
       e.preventDefault();
 
@@ -29,12 +28,15 @@ function AddToPlaylist({ playlistId, user, playlist }) {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
         });
+
       return res;
     };
+
   return (
     <div className='add-to-playlist-container'>
       {user && user.id === playlist?.userId && (
         <form className='add-to-playlist-form' onSubmit={addToPlaylist}>
+            <label>Song List</label>
             <select
             value={selectSong}
             onChange={(e) => setSelectSong(e.target.value)}
@@ -46,6 +48,9 @@ function AddToPlaylist({ playlistId, user, playlist }) {
                 </option>
             ))}
             </select>
+            {errors?.map(error => (
+              <li key={error}>{error}</li>
+            ))}
             <button className='add-to-playlist-btn'>+Add to Playlist</button>
         </form>
       )}

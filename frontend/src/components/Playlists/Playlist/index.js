@@ -25,7 +25,7 @@ function Playlist() {
     const user = useSelector(state => state.session.user);
     const allSongs = Object.values(useSelector(state => state.songs));
     const playlistSongs = useSelector(state => state.playlistSongs)
-   
+   console.log('Playlist = ', playlist?.Songs?.length)
 
     useEffect(() => {
       dispatch(fetchPlaylistSongs(playlistId))
@@ -44,66 +44,85 @@ function Playlist() {
   return (
     <div className='playlist-container'>
       <div className='playlist-detail-container'>
-        <h3>{playlist?.name}</h3>
-        <img
-          className='playlist-img'
-          src={playlist?.previewImage}
-          alt={playlist?.name}
-        />
-        <div className='playlist-btns'>
-          {user && user?.id === playlist?.userId && (
-            <div>
-              <button
-                className='playlist-edit-btn'
-                onClick={() => setShowEditModal(true)}
-              >
-                Edit
-              </button>
-              <button
-                className='playlist-delete-btn'
-                onClick={() => setShowDeleteModal(true)}
-              >
-                Delete
-              </button>
-            </div>
-          )}
-          {showEditModal && (
-            <Modal onClose={() => setShowEditModal(false)}>
-              <EditPlaylist
-                setShowEditModal={setShowEditModal}
-                playlist={playlist}
-              />
-            </Modal>
-          )}
-          {showDeleteModal && (
-            <Modal onClose={() => setShowDeleteModal(false)}>
-              <DeletePlaylist
-                playlist={playlist}
-                setShowDeleteModal={setShowDeleteModal}
-              />
-            </Modal>
-          )}
-        </div>
+        <div>
+          <h3>{playlist?.name}</h3>
+          <img
+            className='playlist-img'
+            src={playlist?.previewImage}
+            alt={playlist?.name}
+          />
 
+          <div className='playlist-btns'>
+            {user && user?.id === playlist?.userId && (
+              <div>
+                <button
+                  className='playlist-edit-btn'
+                  onClick={() => setShowEditModal(true)}
+                >
+                  Edit
+                </button>
+                <button
+                  className='playlist-delete-btn'
+                  onClick={() => setShowDeleteModal(true)}
+                >
+                  Delete
+                </button>
+              </div>
+            )}
+            {showEditModal && (
+              <Modal onClose={() => setShowEditModal(false)}>
+                <EditPlaylist
+                  setShowEditModal={setShowEditModal}
+                  playlist={playlist}
+                />
+              </Modal>
+            )}
+            {showDeleteModal && (
+              <Modal onClose={() => setShowDeleteModal(false)}>
+                <DeletePlaylist
+                  playlist={playlist}
+                  setShowDeleteModal={setShowDeleteModal}
+                />
+              </Modal>
+            )}
+          </div>
+
+        </div>
+        <div className='playlist-length'>
+          {playlist?.Songs?.length}
+          <p>Tracks</p>
+
+        </div>
       </div>
       <div className='playlist-songs-container'>
-        <AddToPlaylist playlistId={playlistId} user={user} playlist={playlist} />
+        <AddToPlaylist
+          playlistId={playlistId}
+          user={user}
+          playlist={playlist}
+        />
         {playlist?.Songs?.map((song) => (
           <div className='playlist-songs' key={song?.id}>
+          {console.log('SONG in Playlist = ', song?.url)}
             <div className='playlist-songs-title'>
-              <NavLink className='playlist-songs-link' to={`/songs/${song?.id}`}>
+              <NavLink
+                className='playlist-songs-link'
+                to={`/songs/${song?.id}`}
+              >
                 <p key={song?.id}>{song?.title}</p>
               </NavLink>
             </div>
-            <div>
+            <div className='react-player-container'>
               <ReactAudioPlayer
                 src={song?.url}
                 className='audio-controls'
                 controls
               />
+              <RemoveFromPlaylist
+                song={song}
+                playlistId={playlistId}
+                playlistSongs={playlistSongs}
+              />
             </div>
-              {/* <button onClick={() => removeFromPlaylist(song)}>X</button> */}
-              <RemoveFromPlaylist song={song} playlistId={playlistId} playlistSongs={playlistSongs} />
           </div>
         ))}
       </div>
