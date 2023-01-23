@@ -44,24 +44,23 @@ function Playlist() {
   return (
     <div className='playlist-container'>
       <div className='playlist-detail-container'>
+        <h3>{playlist?.name}</h3>
         <img
-          className='song-detail-img'
+          className='playlist-img'
           src={playlist?.previewImage}
           alt={playlist?.name}
         />
-        <h3>{playlist?.name}</h3>
-
         <div className='playlist-btns'>
           {user && user?.id === playlist?.userId && (
             <div>
               <button
-                className='save-btn'
+                className='playlist-edit-btn'
                 onClick={() => setShowEditModal(true)}
               >
                 Edit
               </button>
               <button
-                className='cancel-btn'
+                className='playlist-delete-btn'
                 onClick={() => setShowDeleteModal(true)}
               >
                 Delete
@@ -85,13 +84,14 @@ function Playlist() {
             </Modal>
           )}
         </div>
-        <AddToPlaylist playlistId={playlistId} user={user} playlist={playlist} />
+
       </div>
       <div className='playlist-songs-container'>
+        <AddToPlaylist playlistId={playlistId} user={user} playlist={playlist} />
         {playlist?.Songs?.map((song) => (
           <div className='playlist-songs' key={song?.id}>
             <div className='playlist-songs-title'>
-              <NavLink to={`/songs/${song?.id}`}>
+              <NavLink className='playlist-songs-link' to={`/songs/${song?.id}`}>
                 <p key={song?.id}>{song?.title}</p>
               </NavLink>
             </div>
