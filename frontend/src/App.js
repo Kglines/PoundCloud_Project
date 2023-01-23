@@ -19,6 +19,7 @@ import EditSong from './components/Songs/EditSong';
 import Playlist from './components/Playlists/Playlist';
 import PlaylistList from './components/Playlists/PlaylistList';
 import CurrentuserPlaylists from './components/CurrentUser/CurrentUserPlaylists';
+import Footer from './components/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -73,6 +74,7 @@ function App() {
           </Route>
           <Route exact path='/'>
             <Home />
+            <Footer />
           </Route>
           <Route>
             :Page Not Found

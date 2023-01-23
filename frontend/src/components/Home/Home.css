@@ -4,9 +4,8 @@
 }
 .home-container {
     width: 50%;
-    height: 100%;
     margin: 0px 30px;
-    padding-top: 40px;
+    padding-top: 3%;
     display: flex;
     flex-direction: column;
     border-right: 1px solid black;
@@ -48,20 +47,26 @@
     height: 120px;
     margin-top: 30px;
     /* margin-left: 50px; */
-    /* padding: 10px; */
+    padding-bottom: 2%;
     overflow-x: auto;
     
+}
+
+.playlist-container-home {
+    margin-bottom: 5%;
 }
 
 .album-banner-home h2, .song-banner-home h2, 
 .playlist-banner-home h2{
     font-size: 30px;
+    padding-top: 5px;
 }
 .album-banner-home p, .song-banner-home p, 
 .playlist-banner-home p{
     font-size: 16px;
     opacity: 0.5;
     height: 30px;
+    padding-top: 5px;
 }
 .album-banner-home, .song-banner-home, .playlist-banner-home {
     border-bottom: 1px dashed black;

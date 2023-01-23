@@ -1,0 +1,23 @@
+.footer-container {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: rgb(56, 56, 56);
+    color: white;
+    
+    height: 55px;
+}
+
+.footer-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    text-decoration: none;
+    padding-top: 15px;
+}
+
+.footer-container p {
+    text-align: center;
+    margin: 3px;
+}
