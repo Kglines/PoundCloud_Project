@@ -35,17 +35,7 @@ function Playlist() {
       dispatch(fetchAllSongs())
     }, [dispatch])
 
-    
-
-    // const removeFromPlaylist = async (song) => {
-    //   const res = await dispatch(fetchRemoveFromPlaylist(song, playlistId))
-    //   .then(() => dispatch(fetchPlaylist(playlistId)))
-    //   .catch(async (res) => {
-    //     const data = await res.json();
-    //     if (data && data.errors) setErrors(data.errors);
-    //   });
-    //   // return res;
-    // };
+   
 
     useEffect(() => {
       dispatch(fetchPlaylist(playlistId));

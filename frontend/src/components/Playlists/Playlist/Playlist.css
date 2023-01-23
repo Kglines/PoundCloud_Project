@@ -46,3 +46,17 @@
 .audio-controls{
     height: 20px;
 }
+
+.add-to-playlist-select{
+    margin: 5px;
+}
+
+.add-to-playlist-btn {
+    color: orange;
+    border: none;
+    background-color: transparent;
+}
+.add-to-playlist-btn:hover{
+    color: black;
+    cursor: pointer;
+}

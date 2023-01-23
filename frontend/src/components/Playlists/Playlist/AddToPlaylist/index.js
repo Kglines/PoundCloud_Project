@@ -32,20 +32,21 @@ function AddToPlaylist({ playlistId, user, playlist }) {
       return res;
     };
   return (
-    <div>
+    <div className='add-to-playlist-container'>
       {user && user.id === playlist?.userId && (
-        <form onSubmit={addToPlaylist}>
+        <form className='add-to-playlist-form' onSubmit={addToPlaylist}>
             <select
             value={selectSong}
             onChange={(e) => setSelectSong(e.target.value)}
+            className='add-to-playlist-select'
             >
             {allSongs?.map((song) => (
-                <option key={song?.id} value={song?.id}>
+                <option className='add-to-playlist-options' key={song?.id} value={song?.id}>
                 {song?.title}
                 </option>
             ))}
             </select>
-            <button>Add to Playlist</button>
+            <button className='add-to-playlist-btn'>+Add to Playlist</button>
         </form>
       )}
     </div>
