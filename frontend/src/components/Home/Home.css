@@ -42,11 +42,8 @@
     flex-direction: row;
     width: 100%;
     justify-content: flex-start;
-    /* align-items: center; */
-    /* flex-wrap: wrap; */
     height: 120px;
     margin-top: 30px;
-    /* margin-left: 50px; */
     padding-bottom: 2%;
     overflow-x: auto;
     
@@ -70,7 +67,6 @@
 }
 .album-banner-home, .song-banner-home, .playlist-banner-home {
     border-bottom: 1px dashed black;
-    /* height: 50px; */
 }
 
 .album-title-home, .song-title-home, .playlist-title-home {
@@ -91,7 +87,6 @@
 
 .album-desc-home, .song-desc-home, .playlist-desc-home {
     margin-left: 10px;
-    /* text-align: right; */
 }
 
 .song-banner-home {
