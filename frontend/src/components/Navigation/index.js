@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
+import SearchBar from '../SearchBar';
 
 function Navigation({ isLoaded }) {
   const history = useHistory()
@@ -53,6 +54,7 @@ function Navigation({ isLoaded }) {
             All Playlists
           </NavLink>
           {isLoaded && sessionLinks}
+          <SearchBar className='nav-link'/>
         </li>
       </ul>
     </>

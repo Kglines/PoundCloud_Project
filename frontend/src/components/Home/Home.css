@@ -4,8 +4,8 @@
 }
 .home-container {
     width: 50%;
-    margin: 0px 30px;
-    padding-top: 3%;
+    margin: 2.25% 30px;
+    padding-top: 1%;
     display: flex;
     flex-direction: column;
     border-right: 1px solid black;
@@ -26,7 +26,7 @@
     width: 100vw;
     height: 175px;
     position: absolute;
-    top: 0px;
+    top: 7%;
     z-index: -1;
     border: 1px solid white;
 }
@@ -43,8 +43,8 @@
     width: 100%;
     justify-content: flex-start;
     height: 120px;
-    margin-top: 30px;
-    padding-bottom: 2%;
+    margin-top: 10px;
+    padding-bottom: 0.5%;
     overflow-x: auto;
     
 }
@@ -56,7 +56,7 @@
 .album-banner-home h2, .song-banner-home h2, 
 .playlist-banner-home h2{
     font-size: 30px;
-    padding-top: 5px;
+    padding-top: 4px;
 }
 .album-banner-home p, .song-banner-home p, 
 .playlist-banner-home p{
@@ -117,7 +117,7 @@
     margin: 225px 0px;
     position: absolute;
     right: 10%;
-    top: 0px;
+    top: 5%;
     font-size: 24px;
 }
 
