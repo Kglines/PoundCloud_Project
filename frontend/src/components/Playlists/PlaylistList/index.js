@@ -15,6 +15,7 @@ function PlaylistList({ playlists }) {
     
   return (
     <div className='playlist-container-home'>
+    <h2>PoundCloud Playlists</h2>
       {playlists
         ? playlists?.Playlists?.map((playlist) => (
             <div key={playlist?.id}>

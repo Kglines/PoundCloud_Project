@@ -29,7 +29,7 @@ function Albums() {
 
   return (
     <>
-      <h2 className='album-header-home'>SoundCloud Albums</h2>
+      <h2 className='album-header-home'>PoundCloud Albums</h2>
       <div className='album-container'>
         {data?.Albums?.map((album) => (
           <div className='album-card' key={album?.id}>

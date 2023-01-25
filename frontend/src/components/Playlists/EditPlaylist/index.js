@@ -31,7 +31,7 @@ function EditPlaylist({ playlist, setShowEditModal }) {
           });
     }
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='playlist-form' onSubmit={handleSubmit}>
       <h2>Edit your playlist</h2>
       <ul>
         {errors?.map((error) => (

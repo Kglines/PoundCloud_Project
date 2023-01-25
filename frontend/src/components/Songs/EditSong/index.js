@@ -113,8 +113,10 @@ function EditSong({ setShowEditModal }) {
           {album.title}
         </label>
       ))} */}
-      <button className='submit-btn' type='submit'>Submit</button>
-      <button className='cancel-btn' onClick={() => setShowEditModal(false)}>Cancel</button>
+      <div>
+        <button className='submit-btn' type='submit'>Submit</button>
+        <button className='cancel-btn' onClick={() => setShowEditModal(false)}>Cancel</button>
+      </div>
     </form>
   );
 }
