@@ -54,7 +54,7 @@ function Navigation({ isLoaded }) {
             All Playlists
           </NavLink>
           {isLoaded && sessionLinks}
-          <SearchBar className='nav-link'/>
+          {/* <SearchBar className='nav-link'/> */}
         </li>
       </ul>
     </>

@@ -1,4 +1,4 @@
-.song-container {
+.playlist-list-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -12,32 +12,23 @@
     background-color: rgb(230, 230, 230);
 }
 
-.song-header {
-    text-align: center;
-    margin: 30px auto;
-    font-size: 20px;
-}
-
-.song-card {
+.playlist-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 150px;
     height: 200px;
     margin: 10px;
-    padding: 15px;
+    padding: 12px;
     border: 1px solid black;
     box-shadow: 1px 1px 10px grey;
     background-color: white;
 }
-
-.song-card:hover {
+.playlist-card:hover {
     background-color: rgb(239, 235, 235);
 }
-
-.song-img {
-    width: 120px;
-    height: 130px;
+.playlist-list-header {
+    text-align: center;
+    margin: 30px auto;
+    font-size: 20px;
 }
-
-

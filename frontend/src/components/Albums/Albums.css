@@ -14,7 +14,7 @@
 
 .album-header-home {
     text-align: center;
-    margin-top: 30px;
+    margin: 30px auto;
     font-size: 20px;
 }
 
@@ -46,6 +46,7 @@
 
 .album-title {
     font-size: 12px;
+    
 }
 
 .album-delete-btn {
