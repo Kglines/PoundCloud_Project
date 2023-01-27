@@ -13,7 +13,7 @@ function Footer() {
             <li>Express</li>
             <li>Sequelize</li>
         </ul>
-        <p>Copyright @ keithglines 2022</p>
+        <p>Copyright @ keithglines 2023</p>
     </div>
   )
 }
