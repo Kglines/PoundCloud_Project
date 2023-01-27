@@ -4,6 +4,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, NavLink } from 'react-router-dom';
 import './LoginForm.css'
+import DemoUser from '../DemoUser';
 
 function LoginForm({ setShowModal }) {
   const history = useHistory();
@@ -56,6 +57,7 @@ function LoginForm({ setShowModal }) {
         />
       </label>
       <button className='log-in-btn nav-link' type='submit'>Log In</button>
+      <DemoUser />
       <p>
       Not a member yet? <NavLink to='signup' onClick={() => setShowModal(false)}>Click Here</NavLink> to sign up today!
 

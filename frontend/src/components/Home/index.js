@@ -7,6 +7,7 @@ import { fetchAllSongs } from '../../store/songs';
 import './Home.css';
 import { fetchPlaylists } from '../../store/playlists';
 import PlaylistList from '../Playlists/PlaylistList';
+import DemoUser from '../DemoUser';
 
 function Home() {
   const [validationErrors, setValidationErrors] = useState('')
@@ -74,7 +75,7 @@ function Home() {
             </ul>
             <p>Discover the best head Pounding albums on PoundCloud</p>
           </div>
-          <ol>
+          <ol className='album-list-home'>
             <div className='album-container-home'>
               {albums.map((album) => {
                 return (
@@ -104,7 +105,7 @@ function Home() {
             <h2>Top Songs</h2>
             <p>The best head Pounding hit music is on PoundCloud</p>
           </div>
-          <ol>
+          <ol className='song-list-home'>
             <div className='song-container-home'>
               {songs.map((song) => {
                 return (
@@ -134,7 +135,7 @@ function Home() {
             <h2>Top Playlists</h2>
             <p>The best head Pounding playlists are on PoundCloud</p>
           </div>
-          <ol>
+          <ol className='playlist-list-home'>
             <div className='playlist-container-home'>
               {playlists?.Playlists?.map((playlist) => (
                 <div className='playlist-card-home'>
@@ -182,9 +183,7 @@ function Home() {
               <p>OR</p>
               <p>Try it for yourself.</p>
               <p>Click the button below for a Demo login!</p>
-              <button className='demo-btn' onClick={demoLogin}>
-                DEMO USER
-              </button>
+              <DemoUser />
             </div>
           )}
         </div>
