@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import './PlaylistItem.css'
 
 function PlaylistListItem({ playlist }) {
-   
+   console.log('Playlist = ', playlist)
   return (
     // <div className='playlist-card'>
       <NavLink className='playlist-link' to={`/playlists/${parseInt(playlist?.id)}`}>

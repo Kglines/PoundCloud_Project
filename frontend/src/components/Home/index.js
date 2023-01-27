@@ -17,6 +17,7 @@ function Home() {
   const albums = Object.values(useSelector(state => state.albums));
   const songs = Object.values(useSelector(state => state.songs));
   const playlists = useSelector(state => state.playlists)
+  console.log('PLAYLISTS ++++++ ', playlists)
 
   const demoLogin = () => {
     return dispatch(
@@ -134,8 +135,27 @@ function Home() {
             <p>The best head Pounding playlists are on PoundCloud</p>
           </div>
           <ol>
-            <div>
-              <PlaylistList playlists={playlists} />
+            <div className='playlist-container-home'>
+              {playlists?.Playlists?.map((playlist) => (
+                <div className='playlist-card-home'>
+                  <NavLink
+                    className='playlist-link-home'
+                    to={`/playlists/${playlist?.id}`}
+                  >
+                    <li className='playlist-item-home'>
+                      <div>
+                        <img
+                          className='playlist-img-home'
+                          src={playlist?.previewImage}
+                          alt={playlist?.title}
+                        />
+                        <h2 className='playlist-title-home'>{playlist?.name}</h2>
+                      </div>
+                      <p className='playlist-desc-home'>{playlist?.User?.username}</p>
+                    </li>
+                  </NavLink>
+                </div>
+              ))}
             </div>
           </ol>
         </div>

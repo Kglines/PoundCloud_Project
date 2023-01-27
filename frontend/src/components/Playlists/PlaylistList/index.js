@@ -20,7 +20,7 @@ function PlaylistList({ playlists }) {
       <div className='playlist-list-container'>
         {playlists
           ? playlists?.Playlists?.map((playlist) => (
-              <div className='playlist-card' key={playlist?.id}>
+              <div className='playlist-card-home' key={playlist?.id}>
                 <PlaylistListItem playlist={playlist} />
               </div>
             ))
