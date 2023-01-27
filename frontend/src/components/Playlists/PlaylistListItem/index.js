@@ -5,7 +5,6 @@ import './PlaylistItem.css'
 function PlaylistListItem({ playlist }) {
    console.log('Playlist = ', playlist)
   return (
-    // <div className='playlist-card'>
       <NavLink className='playlist-link' to={`/playlists/${parseInt(playlist?.id)}`}>
         <div className='playlist-item'>
           <div>
@@ -15,7 +14,6 @@ function PlaylistListItem({ playlist }) {
             <p className='playlist-desc'> by: {playlist?.User?.username}</p>
         </div>
       </NavLink>
-    // </div>
   );
 }
 
