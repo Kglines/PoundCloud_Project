@@ -1,36 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import * as sessionActions from '../../store/session';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { fetchAlbums } from '../../store/albums';
 import { fetchAllSongs } from '../../store/songs';
 import './Home.css';
 import { fetchPlaylists } from '../../store/playlists';
-import PlaylistList from '../Playlists/PlaylistList';
 import DemoUser from '../DemoUser';
 
 function Home() {
   const [validationErrors, setValidationErrors] = useState('')
 
   const dispatch = useDispatch();
-  const history = useHistory();
   const user = useSelector(state => state.session.user);
   const albums = Object.values(useSelector(state => state.albums));
   const songs = Object.values(useSelector(state => state.songs));
   const playlists = useSelector(state => state.playlists)
-  console.log('PLAYLISTS ++++++ ', playlists)
 
-  const demoLogin = () => {
-    return dispatch(
-      sessionActions.login({ credential: 'Demo-lition', password: 'password' })
-    )
-      .then(() => history.push('/currentuser'))
-      .catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setValidationErrors(data.errors);
-      });
-  }
-
+  
   useEffect(() => {
     dispatch(fetchAlbums(albums)).catch(async (res) => {
       const data = await res.json();
