@@ -96,7 +96,6 @@
 
 .album-banner-home, .song-banner-home, .playlist-banner-home {
     border-top: 1px dashed black;
-    
 }
 
 .album-card-home, .song-card-home, .playlist-card-home {
@@ -105,12 +104,10 @@
     margin: 5px;
     background-color: rgba(249, 248, 248, 0.825);
     border: 1px solid grey;
-    
 }
 
 .album-card-home:hover, .song-card-home:hover, .playlist-card-home:hover{
     background-color: rgb(230, 228, 228);
-    border: 2px solid grey
 }
 
 .song-img-home, .album-img-home, .playlist-img-home {
