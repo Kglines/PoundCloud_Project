@@ -6,6 +6,7 @@ import { fetchAllSongs } from '../../store/songs';
 import './Home.css';
 import { fetchPlaylists } from '../../store/playlists';
 import DemoUser from '../DemoUser';
+import SearchBar  from '../SearchBar';
 
 function Home() {
   const [validationErrors, setValidationErrors] = useState('')
@@ -48,7 +49,7 @@ function Home() {
           src='https://images.unsplash.com/photo-1483821838526-8d9756a6e1ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2768&q=80'
           alt='Credit Greyson Joralemon'
         />
-        <div className='home-container'>
+        {/* <div className='home-container'>
           <div className='album-banner-home'>
             <h2>Top Albums</h2>
             <ul>
@@ -145,6 +146,9 @@ function Home() {
               ))}
             </div>
           </ol>
+        </div> */}
+        <div>
+          <SearchBar />
         </div>
         <div className='right-container'>
           <h3>Join Our Community!</h3>
