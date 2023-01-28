@@ -10,13 +10,15 @@ import SearchBar  from '../SearchBar';
 
 function Home() {
   const [validationErrors, setValidationErrors] = useState('')
-
+  const [songs, setSongs] = useState([]);
+  
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
   const albums = Object.values(useSelector(state => state.albums));
-  const songs = Object.values(useSelector(state => state.songs));
+  // const songs = Object.values(useSelector(state => state.songs));
   const playlists = useSelector(state => state.playlists)
 
+  console.log('SONGS ===== ', songs)
   
   useEffect(() => {
     dispatch(fetchAlbums(albums)).catch(async (res) => {
@@ -25,12 +27,21 @@ function Home() {
     });
   }, [dispatch]);
 
+  // useEffect(() => {
+  //   dispatch(fetchAllSongs(songs)).catch(async (res) => {
+  //     const data = await res.json();
+  //     if (data && data.errors) setValidationErrors(data.errors);
+  //   });
+  // }, []);
+
   useEffect(() => {
-    dispatch(fetchAllSongs(songs)).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setValidationErrors(data.errors);
-    });
-  }, [dispatch]);
+    const fetchData = async () => {
+      const res = await fetch(`/api/songs`)
+      const songs = await res.json()
+      setSongs(songs)
+    }
+    fetchData()
+  }, [])
 
 
   useEffect(() => {
@@ -147,8 +158,34 @@ function Home() {
             </div>
           </ol>
         </div> */}
-        <div>
+        <div className='search-container'>
+          <p className='search-title'>
+            Search for the <strong>BEST</strong> head-Pounding music on
+            PoundCloud
+          </p>
           <SearchBar />
+          <p className='search-popular'>Popular head-Pounding songs:</p>
+          <div className='song-container-home'>
+            {songs?.Songs?.map((song) => {
+              return (
+                <div key={song?.id} className='song-card-home'>
+                  <NavLink className='song-link-home' to={`/songs/${song?.id}`}>
+                    <li className='song-item-home'>
+                      <div>
+                        <img
+                          className='song-img-home'
+                          src={song?.previewImage}
+                          alt={song?.title}
+                        />
+                        <h2 className='song-title-home'>{song?.title}</h2>
+                      </div>
+                      <p className='song-desc-home'>{song?.description}</p>
+                    </li>
+                  </NavLink>
+                </div>
+              );
+            })}
+          </div>
         </div>
         <div className='right-container'>
           <h3>Join Our Community!</h3>
