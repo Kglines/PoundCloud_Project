@@ -22,9 +22,17 @@
     box-shadow: 2px 2px 10px grey;
 }
 
-.song-side {
+.songs-side {
     width: 100%;
-    margin-left: 50px;
+    margin-left: 150px;
+    padding-left: 250px;
+    padding-right: -200px;
+    
+}
+
+.songs-aside h4 {
+    padding-left: 200px;
+    text-align: left;
 }
 
 .album-detail-song-list {
@@ -72,4 +80,31 @@
 
 .edit-album-modal {
     width: 100px;
+}
+
+.album-detail-song-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px auto;
+}
+
+.album-detail-song-item{
+    margin-right: 25px;
+}
+
+.album-audio-player{
+    width: 350px;
+}
+
+@media screen and (max-width: 1600px){
+    .album-audio-player{
+        width: 250px;
+    }
+}
+@media screen and (max-width: 1400px){
+    .album-audio-player{
+        width: 150px;
+    }
 }

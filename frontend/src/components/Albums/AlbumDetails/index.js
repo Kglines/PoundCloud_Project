@@ -6,6 +6,7 @@ import { fetchAlbum } from '../../../store/albums';
 import EditAlbums from '../EditAlbums';
 import DeleteAlbum from '../DeleteAlbum';
 import { Modal } from '../../../context/Modal';
+import ReactAudioPlayer from 'react-audio-player';
 
 function AlbumDetails() {
   const [showEditModal, setShowEditModal] = useState(false);
@@ -46,15 +47,25 @@ function AlbumDetails() {
             <p>{album.description}</p>
           </div>
           <div className='songs-side'>
-            <h4>Artist: {Artist && Artist.username}</h4>
-            <h4>Songs:</h4>
-            <ol className='album-detail-song-list'>
-              {Songs && Songs.map((song) => (
-                  <li key={song.id} className='album-detail-song-item'>
-                    <NavLink to={`/songs/${song.id}`}>{song.title}</NavLink>
-                  </li>
+            <h4>Artist: {Artist?.username}</h4>
+            <h4>Songs: </h4>
+            <div className='album-detail-song-list'>
+              {Songs &&
+                Songs.map((song) => (
+                  <div key={song.id} className='album-detail-song-container'>
+                    <div className='album-detail-song-item'>
+                      <NavLink to={`/songs/${song.id}`}>{song.title}</NavLink>
+                    </div>
+                    <div>
+                      <ReactAudioPlayer
+                        className='album-audio-player'
+                        src={song?.url}
+                        controls
+                      />
+                    </div>
+                  </div>
                 ))}
-            </ol>
+            </div>
           </div>
         </div>
         <div className='album-detail-btns'>
