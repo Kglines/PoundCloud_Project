@@ -54,9 +54,16 @@
     text-align: center;
  }
 
- @media screen and (max-width: 1500){
+ @media screen and (max-width: 1600px){
    .profile-dropdown{
-      right: 4%;
+      right: 5%;
+   }
+ }
+
+ @media screen and (max-width: 1200px){
+   .profile-dropdown{
+      left: 2%;
+      top: 10%;
    }
  }
 
