@@ -7,7 +7,7 @@
 .search-inputs {
   /* margin-top: 45px; */
   display: flex;
-  /* margin-bottom: 30px; */
+  margin-left: -10px;
   width: 100%;
 }
 
@@ -20,8 +20,8 @@
   font-size: 18px;
   padding: 10px;
   height: 35px;
-  width: 30%;
-  margin-left: 5%;
+  width: 37%;
+  /* margin-left: 5%; */
 }
 
 .search-icon {
@@ -42,9 +42,7 @@ input:focus {
 }
 
 .data-result {
-  /* margin-top: -35px; */
-  margin-left: 5%;
-  width: 31.5%;
+  width: 39%;
   min-height: min-content;
   padding: 5px;
   font-size: 22px;

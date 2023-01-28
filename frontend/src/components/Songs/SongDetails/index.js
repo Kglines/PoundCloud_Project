@@ -91,7 +91,7 @@ function SongDetails() {
         )}
       </div>
       <ReactAudioPlayer className='audio-player' src={songs?.url} controls />
-      <CreateComment song={songs} />
+      {user && <CreateComment song={songs} />}
       <Comments song={songs} />
     </>
   );
