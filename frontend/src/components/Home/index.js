@@ -124,7 +124,7 @@ function Home() {
           <ol className='playlist-list-home'>
             <div className='playlist-container-home'>
               {playlists?.Playlists?.map((playlist) => (
-                <div className='playlist-card-home'>
+                <div key={playlist?.id} className='playlist-card-home'>
                   <NavLink
                     className='playlist-link-home'
                     to={`/playlists/${playlist?.id}`}

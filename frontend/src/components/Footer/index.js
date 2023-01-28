@@ -2,7 +2,7 @@ import React from 'react'
 import './Footer.css';
 function Footer() {
   const today = new Date();
-  console.log(today.getFullYear())
+  
   return (
     <div className='footer-container'>
         <ul className='footer-list'>
