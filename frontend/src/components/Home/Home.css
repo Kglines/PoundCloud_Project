@@ -46,7 +46,8 @@
     flex-direction: row;
     width: 40%;
     justify-content: flex-start;
-    height: 250px;
+    align-items: center;
+    height: 275px;
     padding-top: 15px;
     padding-bottom: 0.5%;
     overflow-x: auto;
@@ -57,19 +58,14 @@
     margin-bottom: 6.5%;
 }
 
-/* .album-banner-home h2, .song-banner-home h2, 
-.playlist-banner-home h2{
-    font-size: 30px;
-    padding-top: 4px;
-} */
-.album-banner-home p, .song-banner p, 
+.album-banner-home p, .song-banner-home p, 
 .playlist-banner-home p{
     font-size: 16px;
     opacity: 0.5;
     height: 30px;
     padding-top: 5px;
 }
-.album-banner-home, .song-banner, .playlist-banner-home {
+.album-banner-home, .song-banner-home, .playlist-banner-home {
     border-bottom: 1px dashed black;
     border-right: 1px solid black;
 }
@@ -85,10 +81,6 @@
 
 .album-desc-home, .song-desc, .playlist-desc-home {
     margin-left: 10px;
-}
-
-.album-banner-home, .song-banner, .playlist-banner-home {
-    border-top: 1px dashed black;
 }
 
 .album-card-home, .song-card-home, .playlist-card-home {

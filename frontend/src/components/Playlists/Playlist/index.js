@@ -42,91 +42,101 @@ function Playlist() {
     }, [dispatch, playlistId]);
 
   return (
-    <div className='playlist-container'>
-      <div className='playlist-detail-container'>
-        <div>
-          <h3>{playlist?.name}</h3>
-          <img
-            className='playlist-img'
-            src={playlist?.previewImage}
-            alt={playlist?.name}
+    <>
+      {user ? (
+        <NavLink className='return-link' to='/currentuser/playlists'>
+          Back to My Playlists
+        </NavLink>
+      ) : (
+        <NavLink className='return-link' to='/playlists'>
+          Back to all Playlists
+        </NavLink>
+      )}
+      <div className='playlist-container'>
+        <div className='playlist-detail-container'>
+          <div>
+            <h3>{playlist?.name}</h3>
+            <img
+              className='playlist-img'
+              src={playlist?.previewImage}
+              alt={playlist?.name}
+            />
+
+            <div className='playlist-btns'>
+              {user && user?.id === playlist?.userId && (
+                <div>
+                  <button
+                    className='playlist-edit-btn'
+                    onClick={() => setShowEditModal(true)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className='playlist-delete-btn'
+                    onClick={() => setShowDeleteModal(true)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
+              {showEditModal && (
+                <Modal onClose={() => setShowEditModal(false)}>
+                  <EditPlaylist
+                    setShowEditModal={setShowEditModal}
+                    playlist={playlist}
+                  />
+                </Modal>
+              )}
+              {showDeleteModal && (
+                <Modal onClose={() => setShowDeleteModal(false)}>
+                  <DeletePlaylist
+                    playlist={playlist}
+                    setShowDeleteModal={setShowDeleteModal}
+                  />
+                </Modal>
+              )}
+            </div>
+          </div>
+          <div className='playlist-length'>
+            {playlist?.Songs?.length}
+            <p>Tracks</p>
+          </div>
+        </div>
+        <div className='playlist-songs-container'>
+          <AddToPlaylist
+            playlistId={playlistId}
+            user={user}
+            playlist={playlist}
           />
-
-          <div className='playlist-btns'>
-            {user && user?.id === playlist?.userId && (
-              <div>
-                <button
-                  className='playlist-edit-btn'
-                  onClick={() => setShowEditModal(true)}
+          {playlist?.Songs?.map((song) => (
+            <div className='playlist-songs' key={song?.id}>
+              {console.log('SONG in Playlist = ', song?.url)}
+              <div className='playlist-songs-title'>
+                <NavLink
+                  className='playlist-songs-link'
+                  to={`/songs/${song?.id}`}
                 >
-                  Edit
-                </button>
-                <button
-                  className='playlist-delete-btn'
-                  onClick={() => setShowDeleteModal(true)}
-                >
-                  Delete
-                </button>
+                  <p key={song?.id}>{song?.title}</p>
+                </NavLink>
               </div>
-            )}
-            {showEditModal && (
-              <Modal onClose={() => setShowEditModal(false)}>
-                <EditPlaylist
-                  setShowEditModal={setShowEditModal}
-                  playlist={playlist}
+              <div className='react-player-container'>
+                <ReactAudioPlayer
+                  src={song?.url}
+                  className='audio-controls'
+                  controls
                 />
-              </Modal>
-            )}
-            {showDeleteModal && (
-              <Modal onClose={() => setShowDeleteModal(false)}>
-                <DeletePlaylist
-                  playlist={playlist}
-                  setShowDeleteModal={setShowDeleteModal}
+                <RemoveFromPlaylist
+                  song={song}
+                  playlistId={playlistId}
+                  playlistSongs={playlistSongs}
                 />
-              </Modal>
-            )}
-          </div>
-
-        </div>
-        <div className='playlist-length'>
-          {playlist?.Songs?.length}
-          <p>Tracks</p>
-
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      <div className='playlist-songs-container'>
-        <AddToPlaylist
-          playlistId={playlistId}
-          user={user}
-          playlist={playlist}
-        />
-        {playlist?.Songs?.map((song) => (
-          <div className='playlist-songs' key={song?.id}>
-          {console.log('SONG in Playlist = ', song?.url)}
-            <div className='playlist-songs-title'>
-              <NavLink
-                className='playlist-songs-link'
-                to={`/songs/${song?.id}`}
-              >
-                <p key={song?.id}>{song?.title}</p>
-              </NavLink>
-            </div>
-            <div className='react-player-container'>
-              <ReactAudioPlayer
-                src={song?.url}
-                className='audio-controls'
-                controls
-              />
-              <RemoveFromPlaylist
-                song={song}
-                playlistId={playlistId}
-                playlistSongs={playlistSongs}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+
+    </>
   );
 }
 
