@@ -28,7 +28,7 @@ function CurrentuserSongs() {
 
   return (
     <div>
-      <h3 className='song-header'>My Songs: </h3>
+      <h3>My Songs: </h3>
       <button className='user-add-song-btn' onClick={() => setShowModal(true)}>
         +Add Song
       </button>
