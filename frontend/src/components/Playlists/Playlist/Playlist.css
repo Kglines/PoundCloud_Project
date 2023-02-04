@@ -41,7 +41,7 @@
     /* align-items: flex-end; */
     
     overflow: auto;
-    width: 75%;
+    width: 55%;
     margin: 2% auto;
 }
 
@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: row;
     justify-content: end;
-    width: 80%;
+    width: 90%;
     margin: 1.5%;
 }
 
@@ -93,10 +93,14 @@
     margin: 30px;
 }
 
+.playlist-songs-title {
+    margin-right: 5px;
+}
+
 
 .playlist-songs-link{
     text-decoration: none;
-
+    
 }
 
 .playlist-songs-title p {
@@ -117,6 +121,30 @@
     width: 600px;
 }
 
+@media screen and (max-width: 1600px){
+    .react-player-container{
+        width: 400px;
+    }
+}
+@media screen and (max-width: 1400px){
+    .react-player-container{
+        width: 300px;
+    }
+}
+
+.add-to-playlist-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.add-to-playlist-form label {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
 .add-to-playlist-select{
     margin: 5px;
 }
@@ -125,6 +153,7 @@
     color: orange;
     border: none;
     background-color: transparent;
+    margin-right: 10px;
 }
 .add-to-playlist-btn:hover{
     color: black;
