@@ -33,9 +33,12 @@ function LoginForm({ setShowModal }) {
 
   return (
     <form className='login-form' onSubmit={handleSubmit}>
+      <h2>Log In: </h2>
       <ul>
         {errors.map((error) => (
-          <li className='errors' key={error}>{error}</li>
+          <li className='errors' key={error}>
+            {error}
+          </li>
         ))}
       </ul>
       <label>
@@ -56,11 +59,20 @@ function LoginForm({ setShowModal }) {
           required
         />
       </label>
-      <button className='log-in-btn nav-link' type='submit'>Log In</button>
+      <button
+        id='login-btn-form'
+        className='log-in-btn nav-link login-btn-form'
+        type='submit'
+      >
+        Log In
+      </button>
       <DemoUser />
       <p>
-      Not a member yet? <NavLink to='signup' onClick={() => setShowModal(false)}>Click Here</NavLink> to sign up today!
-
+        Not a member yet?{' '}
+        <NavLink to='signup' onClick={() => setShowModal(false)}>
+          Click Here
+        </NavLink>{' '}
+        to sign up today!
       </p>
     </form>
   );

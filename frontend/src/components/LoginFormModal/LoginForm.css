@@ -2,8 +2,21 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 52%;
+    margin: 5%;
+}
+
+.login-form h2 {
+    margin: 4% 6%;
+    font-size: 30px;
+ }
 
 #log-in-btn, .log-in-btn {
     font-size: 14px;
@@ -28,4 +41,8 @@ form {
 
 .log-in-btn:hover {
     background-color: rgb(231, 150, 0);
+}
+
+#login-btn-form{
+    margin: 10px 0.5%;
 }
