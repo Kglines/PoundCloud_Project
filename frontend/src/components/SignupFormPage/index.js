@@ -49,6 +49,7 @@ function SignupFormPage() {
         ))}
       </ul>
       <form className='signup-form' onSubmit={handleSubmit}>
+          <h2>Sign Up for PoundCloud: </h2>
         <label>
           Email
           <input

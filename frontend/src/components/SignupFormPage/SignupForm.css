@@ -2,12 +2,18 @@
     font-size: 20px;
     /* border: 1px solid silver; */
     width: 50%;
-    margin: 10px auto;
+    margin: 50px auto;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     padding-right: 300px;
     justify-content: center;
+}
+
+.signup-form h2 {
+    margin-bottom: 30px;
+    margin-right: -5%;
+    font-weight: bold;
 }
 
 .signup-form input {
