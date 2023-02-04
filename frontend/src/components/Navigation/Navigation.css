@@ -108,6 +108,11 @@
     outline: none;
  }
 
+ .logout-btn:hover{
+   cursor: pointer;
+   background-color: rgba(255, 0, 0, 0.837);
+ }
+
  .nav-link {
    font-size: 14px;
    margin-top: 10px;
