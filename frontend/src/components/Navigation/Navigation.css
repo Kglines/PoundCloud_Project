@@ -1,26 +1,25 @@
 .navbar {
-   display: block;
-    /* margin: 0px -40px; */
+   display: grid;
+   grid-template-columns: repeat(7, 1fr);
     list-style: none;
     width: 100%;
+    background-color: #333;
+    height: 55px;
+}
+
+.fa-bars {
+   display: none;
+   width: 10px;
+   height: 10px;
+}
+
+#home-icon {
+   color: red;
 }
 
 .navbar-items {
-    /* display: block; */
-    /* margin: 0px 80px; */
-    /* padding: 5px 20px 5px 20px; */
-    height: auto;
-    width: 100%;
-    background-color: #333;
-    /* padding: 0px 15%; */
-    padding-bottom: 10px;
-}
-
-.nav-link {
-   margin: 0px 4.5%;
-   /* padding: 0px 10px; */
-   
-}
+    margin: 20px auto;
+   }
 
 
 .home, .navbar-albums, .navbar-songs {
@@ -33,14 +32,19 @@
 }
 
 #my-music-btn{
-   margin-top: -10px;
+   /* margin-top: -10px; */
    outline: none;
    border: none;
+   width: 100px;
+   margin-top: 12px;
 }
 
 .profile-btn {
    width: 70px;
+   height: 35px;
 }
+
+
 
 .fa-chevron-down, .fa-chevron-up{
    color:#333;
@@ -50,8 +54,8 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 13.5%;
-    top: 7%;
+    right: 3.5%;
+    top: 6%;
     list-style: none;
     color: white;
     height: 30vh;
@@ -151,20 +155,20 @@
  .home-icon {
    color: white;
    font-size: 24px;
-   margin-top: -2px;
+   margin-top: -12px;
  }
 
  .nav-signup-btn {
-   padding-top: 2px;
+   padding-top: 10px;
    text-decoration: none;
    color: white;
+   border: none;
  }
 
  .nav-signup-btn:hover {
    text-decoration: none;
-   padding-bottom: 5px;
-   border-bottom: 1px solid orange;
    color: orange;
+   cursor: pointer;
  }
 
  

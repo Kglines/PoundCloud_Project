@@ -36,7 +36,7 @@ function ProfileButton({ user }) {
     <>
       <button
         id='profile-btn'
-        className='profile-btn nav-link'
+        className='profile-btn nav-link navbar-item'
         onClick={openMenu}
       >
         <i className='fas fa-user-circle' />

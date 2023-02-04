@@ -32,10 +32,15 @@ function Navigation({ isLoaded }) {
   return (
     <>
       <ul className='navbar'>
+        <i class='fa-solid fa-bars'></i>
         <li className='navbar-items'>
-          <NavLink className='home-icon nav-link' to='/'>
+          <NavLink id='home-icon' className='home-icon nav-link' to='/'>
             <i className='fa-brands fa-soundcloud'></i>
           </NavLink>
+
+          {/* <SearchBar className='nav-link'/> */}
+        </li>
+        <li className='navbar-items'>
           <a
             className='nav-link'
             target='_blank'
@@ -43,18 +48,24 @@ function Navigation({ isLoaded }) {
           >
             About
           </a>
+        </li>
+        <li className='navbar-items'>
           <NavLink className='navbar-albums nav-link' to='/albums'>
             All Albums
           </NavLink>
+        </li>
+        <li className='navbar-items'>
           <NavLink className='navbar-songs nav-link' to='/songs'>
             All Songs
           </NavLink>
+        </li>
+        <li className='navbar-items'>
+          {' '}
           <NavLink className='navbar-songs nav-link' to='/playlists'>
             All Playlists
           </NavLink>
-          {isLoaded && sessionLinks}
-          {/* <SearchBar className='nav-link'/> */}
         </li>
+        {isLoaded && sessionLinks}
       </ul>
     </>
   );
