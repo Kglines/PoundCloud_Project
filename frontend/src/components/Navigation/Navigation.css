@@ -13,8 +13,9 @@
    height: 10px;
 }
 
-#home-icon {
-   color: red;
+#home-icon{
+   display: flex;
+   margin: -25% 100%;
 }
 
 .navbar-items {
@@ -143,19 +144,6 @@
 
  .nav-album-link:hover, .nav-song-link:hover {
     text-decoration: underline;
- }
-
- .home-icon:hover, .fa-user-circle:hover{
-   color: orange;
-   
- }
-
- 
-
- .home-icon {
-   color: white;
-   font-size: 24px;
-   margin-top: -12px;
  }
 
  .nav-signup-btn {
