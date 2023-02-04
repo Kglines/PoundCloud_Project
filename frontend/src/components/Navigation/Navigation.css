@@ -116,7 +116,7 @@
  }
 
  .nav-link:hover {
-   text-decoration: underline;
+   color: orange;
  }
 
  .my-btn {
@@ -129,12 +129,13 @@
 
  .my-btn:hover {
     background-color: rgb(233, 152, 2);
+    color: floralwhite;
     text-decoration: none;
     cursor: pointer;
  }
 
  .navbar-albums:hover, .navbar-songs:hover {
-    text-decoration: underline;
+    color: orange;
  }
 
  .nav-album-link, .nav-song-link {
