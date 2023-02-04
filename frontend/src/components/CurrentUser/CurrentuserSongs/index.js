@@ -28,15 +28,17 @@ function CurrentuserSongs() {
 
   return (
     <div>
-      <h3>My Songs: </h3>
-      <button className='user-add-song-btn' onClick={() => setShowModal(true)}>
-        +Add Song
-      </button>
-      {showModal && (
-        <Modal className='create-song-modal' onClose={() => setShowModal(false)}>
-          <CreateSong setShowModal={setShowModal} />
-        </Modal>
-      )}
+      <div className='user-song-header'>
+        <h3>My Songs: </h3>
+        <button className='user-add-song-btn' onClick={() => setShowModal(true)}>
+          +Add Song
+        </button>
+        {showModal && (
+          <Modal className='create-song-modal' onClose={() => setShowModal(false)}>
+            <CreateSong setShowModal={setShowModal} />
+          </Modal>
+        )}
+      </div>
       <div className='user-songs-container'>
         {songList.length > 0 ? (
           songList.map((song) => (

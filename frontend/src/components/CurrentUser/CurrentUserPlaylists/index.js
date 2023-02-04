@@ -24,20 +24,22 @@ function CurrentuserPlaylists() {
 
   return (
     <div>
-      <h3 className='playlist-header'>My Playlists: </h3>
-      {user && (
-        <button
-          className='user-add-playlist-btn'
-          onClick={() => setShowModal(true)}
-        >
-          +Add Playlist
-        </button>
-      )}
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <CreatePlaylist user={user} setShowModal={setShowModal} />
-        </Modal>
-      )}
+      <div className='user-playlist-header'>
+        <h3 className='playlist-header'>My Playlists: </h3>
+        {user && (
+          <button
+            className='user-add-playlist-btn'
+            onClick={() => setShowModal(true)}
+          >
+            +Add Playlist
+          </button>
+        )}
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <CreatePlaylist user={user} setShowModal={setShowModal} />
+          </Modal>
+        )}
+      </div>
       <div className='user-playlist-container'>
         {userPlaylists?.length > 0 ? (
           userPlaylists?.map((playlist) => (

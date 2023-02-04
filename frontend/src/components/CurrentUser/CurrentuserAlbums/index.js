@@ -26,15 +26,17 @@ function CurrentuserAlbums() {
 
   return (
     <div>
-      <h3 className='album-header'>My Albums: </h3>
-      {user && (
-        <button
-          className='user-add-album-btn'
-          onClick={() => setShowModal(true)}
-        >
-          +Add Album
-        </button>
-      )}
+      <div className='user-album-header'>
+        <h3 className='album-header'>My Albums: </h3>
+        {user && (
+          <button
+            className='user-add-album-btn'
+            onClick={() => setShowModal(true)}
+          >
+            +Add Album
+          </button>
+        )}
+      </div>
       <div className='user-album-container'>
         {albumList.length > 0 ? (
           albumList.map((album) => (

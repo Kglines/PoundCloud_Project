@@ -53,7 +53,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
+    width: 90%;
     height: auto;
     margin: 10px auto;
     padding: 5px;
@@ -84,4 +84,7 @@
     background-color: rgb(232, 153, 6);
 }
 
-
+.user-album-header, .user-song-header, .user-playlist-header{
+    width: 90%;
+    margin: 10px auto;
+}
