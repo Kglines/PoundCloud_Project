@@ -1,4 +1,15 @@
+.create-playlist-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-playlist-modal-header{
+    margin-bottom: 5%;
+}
+
 .create-playlist-form input {
     width: 250px;
-    height: 26px;
+    height: 28px;
 }

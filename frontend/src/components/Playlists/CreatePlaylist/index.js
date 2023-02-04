@@ -37,7 +37,9 @@ function CreatePlaylist({ user, setShowModal }) {
 
   return (
     <form className='create-playlist-form' onSubmit={handleSubmit}>
-      <h2>Create a Playlist</h2>
+      <div className='create-playlist-modal-header'>
+        <h2>Create a Playlist</h2>
+      </div>
       <ul>
         {errors?.map(error => (
           <li className='errors' key={error}>{error}</li>

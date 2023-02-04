@@ -1,0 +1,16 @@
+.create-album-modal{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-album-modal input {
+    width: 250px;
+    height: 28px;
+}
+
+.create-album-modal-header{
+    width: 100%;
+}
