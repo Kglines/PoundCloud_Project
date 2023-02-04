@@ -6,10 +6,11 @@ import { useHistory, NavLink } from 'react-router-dom';
 import './LoginForm.css'
 import DemoUser from '../DemoUser';
 
-function LoginForm({ setShowModal }) {
+function LoginForm({ setShowModal, showModal }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
+  console.log(showModal)
 
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
@@ -41,24 +42,26 @@ function LoginForm({ setShowModal }) {
           </li>
         ))}
       </ul>
-      <label>
-        Username or Email
-        <input
-          type='text'
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
+      <div className='login-form-inputs'>
+        <label>
+          Username or Email
+          <input
+            type='text'
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+      </div>
       <button
         id='login-btn-form'
         className='log-in-btn nav-link login-btn-form'
