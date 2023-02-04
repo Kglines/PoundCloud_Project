@@ -65,16 +65,18 @@
 .user-albums-btn, .user-songs-btn, .user-playlists-btn {
     color: orange;
     font-size: 16px;
-    
+    border: none;
 }
 
 .user-add-song-btn, .user-add-album-btn, .user-add-playlist-btn {
     background-color: orange;
     color: white;
-    padding: 5px;
+    padding: 10px;
     font-size: 12px;
-    margin: 10px;
+    margin: 10px 0px;
     border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 5px silver;
 }
 
 .user-add-song-btn:hover, .user-add-album-btn:hover, .user-add-playlist-btn:hover {

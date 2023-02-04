@@ -1,11 +1,10 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
-import { NavLink, Redirect, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
-import SearchBar from '../SearchBar';
 
 function Navigation({ isLoaded }) {
   const history = useHistory()

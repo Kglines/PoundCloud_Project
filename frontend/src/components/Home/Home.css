@@ -133,10 +133,15 @@
     height: 50px;
     margin-top: 10px;
     font-size: 20px;
+    border: none;
+    box-shadow: 2px 2px 5px silver;
 }
 
 .demo-btn:hover{
     cursor: pointer;
+    background-color: rgba(255, 166, 0, 0.891);
+    border: 1px solid rgb(230, 168, 13);
+    box-shadow: 2px 2px 10px grey;
 }
 
 .search-container {

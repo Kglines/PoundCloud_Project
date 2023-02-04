@@ -21,9 +21,16 @@ p {
     background-color:black;
     color: white;
     width: 55px;
-    padding: 3px;
+    padding: 5px;
     border-radius: 5px;
     margin-right: 5px;
+    border: none;
+    outline: none;
+}
+
+.cancel-btn:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.801);
 }
 
 .save-btn, .submit-btn {
@@ -33,6 +40,13 @@ p {
     padding: 3px;
     margin-right: 5px;
     border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.save-btn:hover, .submit-btn:hover{
+    background-color: rgba(255, 166, 0, 0.894);
+    cursor: pointer;
 }
 
 .return-link {

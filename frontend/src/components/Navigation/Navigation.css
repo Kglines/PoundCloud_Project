@@ -34,6 +34,8 @@
 
 #my-music-btn{
    margin-top: -10px;
+   outline: none;
+   border: none;
 }
 
  .profile-dropdown {
@@ -41,7 +43,7 @@
     flex-direction: column;
     position: absolute;
     right: 13.5%;
-    top: 6%;
+    top: 7%;
     list-style: none;
     color: white;
     height: 30vh;
@@ -79,16 +81,18 @@
    color: orange;
    height: 35px;
    font-size: 25px;
-   padding: 5px 2px;
+   padding: 3px 5px;
  }
 
  .logout-btn {
     background-color: red;
     color: white;
     border-radius: 5px;
-    padding: 2px 3px;
+    padding: 3px 5px;
     font-size: 16px;
     margin-top: 5px;
+    border: none;
+    outline: none;
  }
 
  .nav-link {
@@ -112,6 +116,8 @@
 
  .my-btn:hover {
     background-color: rgb(233, 152, 2);
+    text-decoration: none;
+    cursor: pointer;
  }
 
  .navbar-albums:hover, .navbar-songs:hover {
@@ -129,6 +135,7 @@
 
  .home-icon:hover, .fa-user-circle:hover{
    color: orange;
+   
  }
 
  
@@ -146,7 +153,9 @@
  }
 
  .nav-signup-btn:hover {
-   text-decoration: underline;
+   text-decoration: none;
+   padding-bottom: 5px;
+   border-bottom: 1px solid orange;
    color: orange;
  }
 
