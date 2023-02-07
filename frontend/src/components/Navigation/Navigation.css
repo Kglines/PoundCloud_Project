@@ -5,6 +5,7 @@
     width: 100%;
     background-color: #333;
     height: 55px;
+    z-index: -1;
 }
 
 .fa-bars {
@@ -38,7 +39,12 @@
    border: none;
    width: 100px;
    margin: 12px 15%;
+   /* background-color: transparent; */
 }
+#my-music-btn:hover{
+   color: orange;
+}
+
 
 .profile-btn {
    width: 70px;
@@ -165,6 +171,31 @@
    cursor: pointer;
  }
 
- 
+ /* Trial */
 
- 
+ .navbar {
+   /* position: absolute; */
+   /* top: 0; */
+   /* float: right; */
+   /* background-color: #333; */
+   /* width: 100%; */
+ }
+/* 
+ .navbar ul {
+   margin: 0;
+  padding: 0;
+  list-style: none;
+ }
+.navbar li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+
+  position: relative;
+}
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+} */

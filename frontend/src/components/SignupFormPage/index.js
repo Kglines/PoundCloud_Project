@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect, useHistory } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
+import {Modal} from '../../context/Modal';
+import LoginForm from '../LoginFormModal/LoginForm';
 import './SignupForm.css';
 
 function SignupFormPage() {
@@ -17,6 +19,7 @@ function SignupFormPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState([]);
+  const [showLoginModal, setShowLoginModal] = useState(false);
   
   if (sessionUser) return <Redirect to='/currentuser' />;
 
@@ -44,12 +47,14 @@ function SignupFormPage() {
   return (
     <>
       <ul>
-        {errors.map(error => (
-          <li className='errors' key={error}>{error}</li>
+        {errors.map((error) => (
+          <li className='errors' key={error}>
+            {error}
+          </li>
         ))}
       </ul>
       <form className='signup-form' onSubmit={handleSubmit}>
-          <h2>Sign Up for PoundCloud: </h2>
+        <h2>Sign Up for PoundCloud: </h2>
         <label>
           Email
           <input
@@ -104,9 +109,23 @@ function SignupFormPage() {
             required
           />
         </label>
-        <button className='signup-btn' type='submit'>Sign Up</button>
-        <p>Already a member? <NavLink to='/login'>Click Here</NavLink></p>
+        <button className='signup-btn' type='submit'>
+          Sign Up
+        </button>
       </form>
+      <p className='login-btn-container'>
+        Already a member?
+        <button
+          onClick={() => setShowLoginModal(true)}
+        >
+          CLICK HERE
+        </button>
+      </p>
+      {showLoginModal && (
+        <Modal onClose={() => setShowLoginModal(false)}>
+          <LoginForm />
+        </Modal>
+      )}
     </>
   );
 }

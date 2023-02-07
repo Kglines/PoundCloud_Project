@@ -40,3 +40,22 @@
     cursor: pointer;
 }
 
+.login-btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btn-container button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: orange;
+    margin-left: 5px;
+}
+.login-btn-container button:hover{
+    cursor: pointer;
+    color: rgba(255, 166, 0, 0.891);
+    text-decoration: underline;
+}
