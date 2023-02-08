@@ -1,6 +1,7 @@
 // frontend/src/components/LoginFormModal/index.js
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
+import { NavLink } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import './LoginForm.css'
 
@@ -9,13 +10,14 @@ function LoginFormModal() {
 
   return (
     <>
-      <button
-        id='log-in-btn'
+      <NavLink
+        // id='log-in-btn'
         className='nav-link'
         onClick={() => setShowModal(true)}
+        to={''}
       >
         Log In
-      </button>
+      </NavLink>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm setShowModal={setShowModal} showModal={showModal} />

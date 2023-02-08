@@ -37,20 +37,21 @@ function ProfileButton({ user }) {
       <button
         id='profile-btn'
         className='profile-btn nav-link navbar-item'
-        onClick={openMenu}
+        // onClick={openMenu}
+        onClick={() => history.push('/currentuser')}
       >
         <i className='fas fa-user-circle' />
-        {showMenu ? (
+        {/* {showMenu ? (
           <i class='fa-sharp fa-solid fa-chevron-up'></i>
         ) : (
           <i class='fa-sharp fa-solid fa-chevron-down'></i>
-        )}
+        )} */}
       </button>
       {showMenu && (
         <ul className='profile-dropdown'>
           <li>{user.username}</li>
           <li>{user.email}</li>
-          <li>
+          {/* <li>
             <NavLink className='nav-album-link' to='/currentuser/albums'>
               My Albums
             </NavLink>
@@ -64,7 +65,7 @@ function ProfileButton({ user }) {
             <NavLink className='nav-song-link' to='/currentuser/playlists'>
               My Playlists
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <button className='logout-btn' onClick={logout}>
               Log Out
