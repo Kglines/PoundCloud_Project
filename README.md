@@ -1,6 +1,6 @@
-# `SoundCloud`
+# `PoundCloud`
 
-## Welcome to my SoundCloud Clone Project call PoundCloud
+## Welcome to my SoundCloud imitation Project call PoundCloud
 This project mimics some of the functions that SoundCloud has to offer. 
 
 ## Tech used in this project
