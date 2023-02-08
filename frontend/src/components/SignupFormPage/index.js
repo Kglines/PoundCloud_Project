@@ -45,7 +45,7 @@ function SignupFormPage() {
   };
 
   return (
-    <>
+    <div className='signup-form-container'>
       <ul>
         {errors.map((error) => (
           <li className='errors' key={error}>
@@ -126,7 +126,7 @@ function SignupFormPage() {
           <LoginForm />
         </Modal>
       )}
-    </>
+    </div>
   );
 }
 
