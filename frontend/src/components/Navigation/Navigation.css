@@ -4,7 +4,7 @@ header {
   position: fixed;
   z-index: 999;
   width: 100%;
-  height: 45px;
+  height: 50px;
 }
 
 .nav-toggle {
@@ -69,6 +69,9 @@ nav ul {
   list-style: none;
 }
 nav li {
+  /* position: fixed; */
+  top: 12px;
+  right: 10;
    margin-bottom: 1em;
   margin-left: 1em;
    }
@@ -80,6 +83,19 @@ nav li {
   text-transform: uppercase;
   opacity: 0;
   transition: opacity 200ms ease-in-out;
+}
+
+#nav-about{
+  position: fixed;
+  top: 15px;
+  right: 0px;
+  text-align: center;
+}
+
+#nav-about, .navbar-items {
+  margin-left: 10%;
+  margin-bottom: 5px;
+  width: 130px;
 }
 
 .nav-link:hover{
@@ -149,7 +165,7 @@ nav li {
     height: 5px;
     background: orange;
     position: absolute;
-    top: -.75em;
+    bottom: -.70em;
     left: 0;
     right: 0;
     transform: scale(0, 1);
@@ -161,22 +177,20 @@ nav li {
   }
 }
 
-#my-music-btn{
-   /* margin-top: -10px; */
-   outline: none;
-   border: none;
-   width: 100px;
-   margin: 12px 15%;
-   /* background-color: transparent; */
-}
-#my-music-btn:hover{
-   color: orange;
-}
-
-
 .profile-btn {
-   width: 70px;
-   height: 35px;
+  position: fixed;
+  margin-top: -7px;
+  right: -150px;
+  top: 13px;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+}
+
+.profile-btn:hover{
+  cursor: pointer;
+  background-color: orange;
+  transition: color 0.5s ease-in-out;
 }
 
 .fa-chevron-down, .fa-chevron-up{
@@ -184,23 +198,54 @@ nav li {
 }
 
  .profile-dropdown {
-    /* display: flex; */
-    /* flex-direction: column; */
+    display: flex;
+    flex-direction: column;
     position: relative;
-    right: 3.5%;
-    top: 6%;
+    right: -200%;
+    margin-top: 40%;
+    padding-top: 50px;
     list-style: none;
     color: white;
-    height: 30vh;
+    height: 11vh;
     background-color: #333;
-    width: 15%;
+    width: 180px;
     border-radius: 5px;
     z-index: 5;
     font-size: 20px;
     padding: 1%;
     text-align: center;
+    /* margin-left: -90%; */
  }
 
+ .profile-dropdown li {
+  padding-top: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 27%;
+  position: relative;
+  text-align: center;
+  width: 100px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+ 
+ }
+
+ .dropdown-link{
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  /* opacity: 0; */
+  transition: opacity 200ms ease-in-out;
+ }
+
+ .dropdown-link:hover{
+  color: orange;
+  border-bottom: 2px solid orange;
+ }
+/* 
  @media screen and (max-width: 1600px){
    .profile-dropdown{
       right: 5%;
@@ -216,7 +261,7 @@ nav li {
 
  .profile-dropdown li {
     margin: 2%;
- }
+ } */
 
  /* #profile-btn {
    margin-top: 0px 0px 0px 0px;
@@ -224,9 +269,14 @@ nav li {
 
  .fa-user-circle {
    color: orange;
-   height: 35px;
-   font-size: 25px;
-   padding: 3px 5px;
+   height: 30px;
+   font-size: 30px;
+   padding: 1px 1px 2px 1px;
+ }
+
+ .fa-user-circle:hover{
+  color: white;
+  transition: color 0.5s ease-in-out;
  }
 
  .logout-btn {
