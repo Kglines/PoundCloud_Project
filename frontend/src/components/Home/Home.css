@@ -1,8 +1,14 @@
-
+.home-page-container{
+    width: 90%;
+    background-color: white;
+    margin: 0px auto;
+    height: 110vh;
+}
 .home-page {
     height: 90%;
     /* margin-top: 100px; */
     padding-top: 5%;
+    background-color: white;
 }
 .home-container {
     width: 50%;

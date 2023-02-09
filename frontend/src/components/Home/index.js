@@ -52,7 +52,7 @@ function Home() {
   }, [dispatch])
 
   return (
-    <>
+    <div className='home-page-container'>
       <div className='home-page'>
         <h1 className='home-page-title'>Welcome To PoundCloud</h1>
         <img
@@ -215,7 +215,7 @@ function Home() {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
