@@ -3,9 +3,10 @@
     background-color: white;
     margin: 0px auto;
     height: 110vh;
+    position: relative;
 }
 .home-page {
-    height: 90%;
+    height: auto;
     /* margin-top: 100px; */
     padding-top: 5%;
     background-color: white;
@@ -21,21 +22,22 @@
 
 .home-page-title {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 30%;
     font-size: 60px;
     color: orange;
     text-shadow: 1px 1px 8px white;
-    z-index: 1;
+    z-index: 2;
 }
 
 
 .home-banner-img {
     margin: 0px auto;
-    width: 100vw;
-    height: 175px;
+    width: 89.5vw;
+    height: 50%;
     position: absolute;
     top: 4%;
-    z-index: -1;
+    object-fit: cover;
+    /* z-index: -1; */
 }
 
 .album-link-home, .song-link-home, .playlist-link-home {
@@ -154,7 +156,7 @@
 
 .search-container {
     margin-top: 6%;
-    margin-left: 10%;
+    margin-left: 25%;
 }
 .search-title {
     font-size: 26px;

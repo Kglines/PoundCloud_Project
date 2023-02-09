@@ -32,7 +32,7 @@ function Songs() {
   }, [dispatch])
   
   return (
-    <div>
+    <div className='songs-page-container'>
       <ul>
         {validationErrors &&
           validationErrors?.map((error) => (

@@ -27,7 +27,7 @@ function CurrentuserSongs() {
     if (!user) return <Redirect to='/login' />;
 
   return (
-    <div>
+    <div className=''>
       <div className='user-song-header'>
         <h3>My Songs: </h3>
         <button className='user-add-song-btn' onClick={() => setShowModal(true)}>

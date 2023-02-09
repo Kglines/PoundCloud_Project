@@ -24,7 +24,7 @@ function AlbumDetails() {
     }, [dispatch, albumId]);
     
   return (
-    <>
+    <div className='album-page-container'>
       {sessionUser ? (
         <NavLink className='return-link' to='/currentuser/albums'>
           Back to My Albums
@@ -106,7 +106,7 @@ function AlbumDetails() {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
