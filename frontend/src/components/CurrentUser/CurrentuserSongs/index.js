@@ -12,7 +12,7 @@ function CurrentuserSongs() {
     const dispatch = useDispatch();
     const songs = Object.values(useSelector((state) => state.songs));
     const user = useSelector((state) => state.session.user);
-    console.log('USER SONGS = ', songs);
+    
 
     const songList = [];
 
@@ -28,7 +28,7 @@ function CurrentuserSongs() {
     if (!user) return <Redirect to='/login' />;
 
   return (
-    <div className=''>
+    <div>
       <div className='user-song-header'>
         <h3>My Songs: </h3>
         <button className='user-add-song-btn' onClick={() => setShowModal(true)}>

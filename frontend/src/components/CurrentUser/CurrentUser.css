@@ -108,3 +108,28 @@
     width: 90%;
     margin: 10px auto;
 }
+
+.user-song-container {
+    width: 90%;
+    background-color: white;
+    height: 100vh;
+    margin: 0px auto;
+    padding-top: 100px;
+}
+
+.songs-container-currentuser{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    height: auto;
+    margin: 10px auto;
+    padding: 5px;
+}
+.curr-user-summary-songs-container{
+    display: flex;
+    flex-direction: row;
+    padding-left: 5%;
+}
