@@ -12,6 +12,7 @@ function CurrentuserSongs() {
     const dispatch = useDispatch();
     const songs = Object.values(useSelector((state) => state.songs));
     const user = useSelector((state) => state.session.user);
+    console.log('USER SONGS = ', songs);
 
     const songList = [];
 

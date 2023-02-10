@@ -22,7 +22,12 @@ router.get('/albums', requireAuth, async (req, res) => {
             "previewImage"
         ]
     });
-    res.json({ Albums });
+    const albumCount = await Album.count({
+        where: {
+            userId: user.id
+        }
+    })
+    res.json({ Albums, albumCount });
 })
 
 // GET all Playlists created by the current user
@@ -42,7 +47,13 @@ router.get('/playlists', requireAuth, async (req, res) => {
             "previewImage"
         ]
     })
-    res.json({ Playlists });
+
+    const playlistCount = await Playlist.count({
+        where: {
+            userId: user.id
+        }
+    })
+    res.json({ Playlists, playlistCount });
 })
 
 // GET all songs by currentUser
@@ -65,8 +76,14 @@ router.get('/songs', requireAuth, async (req, res) => {
             'previewImage'
         ]
     })
+
+    const songCount = await Song.count({
+        where: {
+            userId : user.id
+        }
+    })
     
-    res.json({ Songs });
+    res.json({ Songs, songCount });
 })
 
 // Get Current User

@@ -11,8 +11,39 @@ import CurrentuserPlaylists from './CurrentUserPlaylists';
 
 function CurrentUser() {
   const dispatch = useDispatch();
-  
   const user = useSelector((state) => state.session.user);
+
+  const [songCount, setSongCount] = useState(0);
+  const [albumCount, setAlbumCount] = useState(0);
+  const [playlistCount, setPlaylistCount] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch('/api/currentuser/songs')
+      const count = await res.json()
+      setSongCount(count.songCount)
+    }
+    fetchData()
+  }, [])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch('/api/currentuser/albums')
+      const count = await res.json()
+      setAlbumCount(count.albumCount)
+    }
+    fetchData()
+  }, [])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch('/api/currentuser/playlists')
+      const count = await res.json()
+      setPlaylistCount(count.playlistCount)
+    }
+    fetchData()
+  }, [])
+  
   
     useEffect(() => {
         dispatch(fetchAlbums());
@@ -25,7 +56,18 @@ function CurrentUser() {
     <div>
       <div className='currentuser-container'>
         <div className='currentuser-banner'>
-          <h2 className='currentuser-welcome-banner'>Welcome {user.username}!</h2>
+          <div className='currentuser-welcome-banner'>
+            <h2>Welcome {user.username}!</h2>
+            <p>
+              <strong>{songCount}</strong> songs
+            </p>
+            <p>
+              <strong>{albumCount}</strong> albums
+            </p>
+            <p>
+              <strong>{playlistCount}</strong> playlists
+            </p>
+          </div>
         </div>
         <CurrentuserAlbums />
         <CurrentuserSongs />
