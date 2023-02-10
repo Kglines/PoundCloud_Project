@@ -39,9 +39,20 @@ function Navigation({ isLoaded }) {
 
   return (
     <header>
-      <NavLink id='home-icon' className='home-icon' to='/'>
-        <i className='fa-brands fa-soundcloud'></i>
-      </NavLink>
+      <div>
+        <NavLink id='home-icon' className='home-icon' to='/'>
+          <i className='fa-brands fa-soundcloud'></i>
+        </NavLink>
+        <a
+          id='nav-about'
+          rel='noreferrer'
+          className='nav-link'
+          target='_blank'
+          href='https://github.com/Kglines/SoundCloud_Project'
+        >
+          About
+        </a>
+      </div>
       <input type='checkbox' id='nav-toggle' className='nav-toggle' />
       <nav className='navbar'>
         <ul>
@@ -66,17 +77,7 @@ function Navigation({ isLoaded }) {
             </li>
           )}
 
-          <li className='navbar-items'>
-            <a
-              id='nav-about'
-              rel='noreferrer'
-              className='nav-link'
-              target='_blank'
-              href='https://github.com/Kglines/SoundCloud_Project'
-            >
-              About
-            </a>
-          </li>
+          {/* <li className='navbar-items'></li> */}
         </ul>
       </nav>
       <label for='nav-toggle' className='nav-toggle-label'>

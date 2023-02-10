@@ -70,10 +70,20 @@ nav ul {
 }
 nav li {
   /* position: fixed; */
-  top: 12px;
-  right: 10;
-   margin-bottom: 1em;
-  margin-left: 1em;
+  /* top: 15px; */
+  /* right: 10; */
+   /* margin-bottom: 1em; */
+  /* margin-left: 1em; */
+  /* background-color: red; */
+  /* padding-right: 40px; */
+  /* margin-right: -50px; */
+   }
+
+   .navbar-items{
+    /* margin-right: -100px;
+    position: absolute;
+    top: 15px;
+    right: 0; */
    }
 
 .nav-link{
@@ -88,7 +98,7 @@ nav li {
 #nav-about{
   position: fixed;
   top: 15px;
-  right: 0px;
+  left: 50px;
   text-align: center;
 }
 
@@ -201,7 +211,7 @@ nav li {
     display: flex;
     flex-direction: column;
     position: relative;
-    right: -200%;
+    right: -120%;
     margin-top: 40%;
     padding-top: 50px;
     list-style: none;
@@ -219,9 +229,10 @@ nav li {
 
  .profile-dropdown li {
   padding-top: 2px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 27%;
+  margin: 5px auto;
+  /* margin-top: 5px; */
+  /* margin-left: 24%; */
+  /* margin-bottom: 5px; */
   position: relative;
   text-align: center;
   width: 100px;
