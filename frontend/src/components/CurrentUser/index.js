@@ -59,13 +59,31 @@ function CurrentUser() {
           <div className='currentuser-welcome-banner'>
             <h2>Welcome {user.username}!</h2>
             <p>
-              <strong>{songCount}</strong> songs
+              <strong>{songCount} </strong>
+              <NavLink
+                to='/currentuser/songs'
+                className='current-user-nav-link'
+              >
+                songs
+              </NavLink>
             </p>
             <p>
-              <strong>{albumCount}</strong> albums
+              <strong>{albumCount} </strong>
+              <NavLink
+                className='current-user-nav-link'
+                to='/currentuser/albums'
+              >
+                albums
+              </NavLink>
             </p>
             <p>
-              <strong>{playlistCount}</strong> playlists
+              <strong>{playlistCount}</strong>{' '}
+              <NavLink
+                className='current-user-nav-link'
+                to='/currentuser/playlists'
+              >
+                playlists
+              </NavLink>
             </p>
           </div>
         </div>
