@@ -121,18 +121,18 @@ function CurrentUser() {
           <div className='curr-user-summary-songs-container'>
             {songs.map((song) => (
               <div key={song.id} className=''>
-                <div className='song-card'>
-                  <Link className='song-link' to={`/songs/${song.id}`}>
+                <div className='song-card-home'>
+                  <Link className='song-link-home' to={`/songs/${song.id}`}>
                     <div className='song-banner'>
                       <img
-                        className='song-img'
+                        className='song-img-home'
                         src={song.previewImage}
                         alt={song.title}
                       />
                       <h4 className='song-title-home'>{song.title}</h4>
                     </div>
                   </Link>
-                  <p>{song.description}</p>
+                  <p className='song-desc-home'>{song.description}</p>
                 </div>
               </div>
             ))}
@@ -157,20 +157,20 @@ function CurrentUser() {
           )}
           <div className='curr-user-summary-albums-container'>
             {albums?.map((album) => (
-              <div key={album.id} className='song-card'>
+              <div key={album.id} className='song-card-home'>
                 <Link
-                  className='album-links'
+                  className='album-link-home'
                   key={album.id}
                   to={`/albums/${album.id}`}
                 >
                   <img
-                    className='song-img'
+                    className='song-img-home'
                     src={album.previewImage}
                     alt={album.title}
                   />
                   <h4 className='album-title-home'>{album.title}</h4>
                 </Link>
-                <p>{album.description}</p>
+                <p className='song-desc-home'>{album.description}</p>
               </div>
             ))}
           </div>
@@ -198,13 +198,13 @@ function CurrentUser() {
           </div>
           <div className='curr-user-summary-playlist-container'>
             {playlists.map((playlist) => (
-              <div key={playlist?.id} className='song-card'>
+              <div key={playlist?.id} className='song-card-home'>
                 <NavLink
-                  className='playlist-links'
+                  className='playlist-link-home'
                   to={`/playlists/${playlist?.id}`}
                 >
                   <img
-                    className='song-img'
+                    className='song-img-home'
                     src={playlist?.previewImage}
                     alt={playlist?.name}
                   />
