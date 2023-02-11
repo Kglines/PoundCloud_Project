@@ -24,8 +24,9 @@ p {
 }
 
 .cancel-btn {
-    background-color:black;
-    color: white;
+    background-color:transparent;
+
+    color: black;
     width: 55px;
     padding: 5px;
     border-radius: 5px;
@@ -36,12 +37,12 @@ p {
 
 .cancel-btn:hover{
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.801);
+    color: rgba(0, 0, 0, 0.632);
 }
 
 .save-btn, .submit-btn {
-    background-color: orange;
-    color: white;
+    background-color: transparent;
+    color: orange;
     width: 60px;
     padding: 5px;
     margin-right: 5px;
@@ -51,7 +52,7 @@ p {
 }
 
 .save-btn:hover, .submit-btn:hover{
-    background-color: rgba(255, 166, 0, 0.894);
+    color: rgba(236, 157, 11, 0.684);
     cursor: pointer;
 }
 

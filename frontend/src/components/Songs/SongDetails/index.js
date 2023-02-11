@@ -65,7 +65,11 @@ function SongDetails() {
                 </p>
                 {Album && (
                   <p className='song-detail'>
-                    Album title: <strong>{Album?.title}</strong>
+                    Album title: 
+                    {/* <strong>{Album?.title}</strong> */}
+                    <strong>
+                      <NavLink className='song-link-home' to={`/albums/${Album?.id}`}> {Album?.title}</NavLink>
+                    </strong>
                   </p>
                 )}
               </div>
@@ -77,12 +81,14 @@ function SongDetails() {
               controls
             />
           </div>
-          <div>
-            <img
-              className='song-detail-img'
-              src={songState?.previewImage}
-              alt={songState?.title}
-            />
+          <div className='song-detail-img-and-buttons'>
+            <div className='song-detail-img-container'>
+              <img
+                className='song-detail-img'
+                src={songState?.previewImage}
+                alt={songState?.title}
+              />
+            </div>
             <div className='song-detail-btns'>
               {user && user?.id === songs?.userId && (
                 <button

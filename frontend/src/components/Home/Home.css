@@ -42,6 +42,10 @@
 
 .album-link-home, .song-link-home, .playlist-link-home {
     text-decoration: none;
+    color: rgb(164, 126, 55);
+}
+.album-link-home:hover, .song-link-home:hover, .playlist-link-home:hover {
+    text-decoration: underline;
     color: rgb(53, 53, 53);
 }
 
