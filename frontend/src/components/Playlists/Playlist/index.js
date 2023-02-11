@@ -44,18 +44,30 @@ function Playlist() {
   return (
     <>
       <div className='playlist-container'>
-      {user ? (
-        <NavLink className='return-link' to='/currentuser/playlists'>
-          Back to My Playlists
-        </NavLink>
-      ) : (
-        <NavLink className='return-link' to='/playlists'>
-          Back to all Playlists
-        </NavLink>
-      )}
+        {user ? (
+          <NavLink className='return-link' to='/currentuser/playlists'>
+            Back to My Playlists
+          </NavLink>
+        ) : (
+          <NavLink className='return-link' to='/playlists'>
+            Back to all Playlists
+          </NavLink>
+        )}
         <div className='playlist-detail-container'>
+          <div className='playlist-detail-data'>
+            <div className='playlist-detail-info'>
+              <h3>{playlist?.name}</h3>
+              <p>
+                Created by: <strong>{playlist?.User?.username}</strong>
+              </p>
+            </div>
+            <div className='playlist-length'>
+              {playlist?.Songs?.length}
+              <p>Tracks</p>
+            </div>
+          </div>
           <div>
-            <h3>{playlist?.name}</h3>
+            {/* <h3>{playlist?.name}</h3> */}
             <img
               className='playlist-img'
               src={playlist?.previewImage}
@@ -97,10 +109,6 @@ function Playlist() {
               )}
             </div>
           </div>
-          <div className='playlist-length'>
-            {playlist?.Songs?.length}
-            <p>Tracks</p>
-          </div>
         </div>
         <div className='playlist-songs-container'>
           <AddToPlaylist
@@ -135,7 +143,6 @@ function Playlist() {
           ))}
         </div>
       </div>
-
     </>
   );
 }
