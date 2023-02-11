@@ -191,16 +191,19 @@ nav li {
   position: fixed;
   margin-top: -7px;
   right: -150px;
-  top: 13px;
-   width: 40px;
-   height: 40px;
-   border-radius: 50%;
+  top: 10px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  
 }
 
 .profile-btn:hover{
   cursor: pointer;
   background-color: orange;
-  transition: color 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .fa-chevron-down, .fa-chevron-up{
@@ -211,20 +214,18 @@ nav li {
     display: flex;
     flex-direction: column;
     position: relative;
-    right: -120%;
-    margin-top: 40%;
+    right: -130%;
+    margin-top: 35%;
     padding-top: 50px;
     list-style: none;
     color: white;
-    height: 11vh;
+    height: 8vh;
     background-color: #333;
-    width: 180px;
-    border-radius: 5px;
+    width: 150px;
     z-index: 5;
     font-size: 20px;
     padding: 1%;
     text-align: center;
-    /* margin-left: -90%; */
  }
 
  .profile-dropdown li {
@@ -240,7 +241,6 @@ nav li {
   text-decoration: none;
   font-size: 1.1rem;
   text-transform: uppercase;
- 
  }
 
  .dropdown-link{
@@ -248,41 +248,18 @@ nav li {
   text-decoration: none;
   font-size: 1.1rem;
   text-transform: uppercase;
-  /* opacity: 0; */
-  transition: opacity 200ms ease-in-out;
  }
 
  .dropdown-link:hover{
   color: orange;
   border-bottom: 2px solid orange;
  }
-/* 
- @media screen and (max-width: 1600px){
-   .profile-dropdown{
-      right: 5%;
-   }
- }
-
- @media screen and (max-width: 1200px){
-   .profile-dropdown{
-      left: 2%;
-      top: 10%;
-   }
- }
-
- .profile-dropdown li {
-    margin: 2%;
- } */
-
- /* #profile-btn {
-   margin-top: 0px 0px 0px 0px;
- } */
 
  .fa-user-circle {
    color: orange;
    height: 30px;
    font-size: 30px;
-   padding: 1px 1px 2px 1px;
+   padding-right: 1px;
  }
 
  .fa-user-circle:hover{
