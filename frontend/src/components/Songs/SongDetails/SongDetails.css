@@ -1,14 +1,49 @@
+.song-detail-page-container{
+    width: 90%;
+    margin: 0px auto;
+    background-color: white;
+    height: 100vh;
+    padding-top: 50px;
+}
+
 .song-detail-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    width: 30%;
-    height: auto;
-    margin: 2% auto;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 10%;
     padding: 5px;
-    box-shadow: 2px 1px 10px silver;
+    width: 80%;
+    height: 60%;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 12px silver;
+    background-color: rgba(210, 210, 210, 0.505);
+}
+
+.song-detail-data{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.song-detail-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    width: 500px;
+}
+
+.song-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 5px;
+    line-height: 1.5rem;
 }
 
 .return-link {
@@ -16,12 +51,23 @@
 }
 
 .song-detail-img {
-    width: 200px;
-    height: 200px;
+    width: 450px;
+    height: 350px;
+    margin: 5px 2%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.song-detail {
+    margin-left: 5px;
 }
 
 .song-detail-title {
     font-size: 16px;
+}
+
+.description {
+    color: rgb(100, 100, 100);
 }
 
 .song-detail-btns {
@@ -96,6 +142,15 @@
     color: orange;
 }
 .audio-player{
-    margin: 20px auto;
+    margin-top: 55%;
+    margin-left: 5px;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 95%;
+}
+
+.song-details-comments-container{
+    width: 100%;
 }

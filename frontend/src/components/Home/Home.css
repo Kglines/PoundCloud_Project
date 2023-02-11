@@ -118,7 +118,7 @@
 .album-card-home:hover, .song-card-home:hover, .playlist-card-home:hover{
     /* background-color: rgb(230, 228, 228); */
     opacity: 0.75;
-    border: 1px solid rgb(221, 221, 221);
+    border: 1px solid rgba(255, 166, 0, 0.487);
 }
 
 .song-img-home, .album-img-home, .playlist-img-home {

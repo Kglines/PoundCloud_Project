@@ -39,7 +39,7 @@ function SongDetails() {
 
 
   return (
-    <>
+    <div className='song-detail-page-container'>
       {user ? (
         <NavLink className='return-link' to='/currentuser/songs'>
           Back to My Songs
@@ -50,50 +50,83 @@ function SongDetails() {
         </NavLink>
       )}
       <div className='song-detail-container'>
-        <img
-          className='song-detail-img'
-          src={songState?.previewImage}
-          alt={songState?.title}
-        />
-        <h3 className='song-detail-title'>{songState?.title}</h3>
-        <p>{songState?.description}</p>
-        <p>
-          by: <strong>{Artist?.username}</strong>
-        </p>
-        {Album && (
-          <p>
-            Album title: <strong>{Album?.title}</strong>
-          </p>
-        )}
-      </div>
-      <div className='song-detail-btns'>
-        {user && user?.id === songs?.userId && (
-          <button className='save-btn' onClick={() => setShowEditModal(true)}>
-            Edit
-          </button>
-        )}
+        <div className='song-detail-data'>
+          <div className='song-detail-info'>
+            <div className='song-details'>
+              <div className='song-details-title-side'>
+                <h3 className='song-detail'>{songState?.title}</h3>
+                <p className='song-detail description'>
+                  {songState?.description}
+                </p>
+              </div>
+              <div className='song-details-album-side'>
+                <p className='song-detail'>
+                  by: <strong>{Artist?.username}</strong>
+                </p>
+                {Album && (
+                  <p className='song-detail'>
+                    Album title: <strong>{Album?.title}</strong>
+                  </p>
+                )}
+              </div>
+            </div>
 
-        {showEditModal && (
-          <Modal onClose={() => setShowEditModal(false)}>
-            <EditSong setShowEditModal={setShowEditModal} songId={songId} />
-          </Modal>
-        )}
-        {user && user?.id === songs?.userId && (
-          <button className='cancel-btn' onClick={() => setShowDelModal(true)}>
-            Delete
-          </button>
-        )}
+            <ReactAudioPlayer
+              className='audio-player'
+              src={songs?.url}
+              controls
+            />
+          </div>
+          <div>
+            <img
+              className='song-detail-img'
+              src={songState?.previewImage}
+              alt={songState?.title}
+            />
+            <div className='song-detail-btns'>
+              {user && user?.id === songs?.userId && (
+                <button
+                  className='save-btn'
+                  onClick={() => setShowEditModal(true)}
+                >
+                  Edit
+                </button>
+              )}
 
-        {showDelModal && (
-          <Modal>
-            <DeleteSong setShowDelModal={setShowDelModal} parsedId={parsedId} />
-          </Modal>
-        )}
+              {showEditModal && (
+                <Modal onClose={() => setShowEditModal(false)}>
+                  <EditSong
+                    setShowEditModal={setShowEditModal}
+                    songId={songId}
+                  />
+                </Modal>
+              )}
+              {user && user?.id === songs?.userId && (
+                <button
+                  className='cancel-btn'
+                  onClick={() => setShowDelModal(true)}
+                >
+                  Delete
+                </button>
+              )}
+
+              {showDelModal && (
+                <Modal>
+                  <DeleteSong
+                    setShowDelModal={setShowDelModal}
+                    parsedId={parsedId}
+                  />
+                </Modal>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
-      <ReactAudioPlayer className='audio-player' src={songs?.url} controls />
-      {user && <CreateComment song={songs} />}
-      <Comments song={songs} />
-    </>
+      <div className='song-details-comments-container'>
+        {user && <CreateComment song={songs} />}
+        <Comments song={songs} />
+      </div>
+    </div>
   );
 }
 

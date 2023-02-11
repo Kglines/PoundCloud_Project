@@ -66,6 +66,8 @@
     width: 90%;
     height: 90%;
     margin: 5px 2%;
+    object-fit: cover;
+    object-position: center;
 }
 
 
