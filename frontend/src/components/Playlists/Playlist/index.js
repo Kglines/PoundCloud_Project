@@ -76,7 +76,7 @@ function Playlist() {
 
             <div className='playlist-btns'>
               {user && user?.id === playlist?.userId && (
-                <div>
+                <div className='playtlist-btns-container'>
                   <button
                     className='playlist-edit-btn'
                     onClick={() => setShowEditModal(true)}
@@ -111,36 +111,40 @@ function Playlist() {
           </div>
         </div>
         <div className='playlist-songs-container'>
-          <AddToPlaylist
-            playlistId={playlistId}
-            user={user}
-            playlist={playlist}
-          />
-          {playlist?.Songs?.map((song) => (
-            <div className='playlist-songs' key={song?.id}>
-              {console.log('SONG in Playlist = ', song?.url)}
-              <div className='playlist-songs-title'>
-                <NavLink
-                  className='playlist-songs-link'
-                  to={`/songs/${song?.id}`}
-                >
-                  <p key={song?.id}>{song?.title}</p>
-                </NavLink>
+          <div className='playlist-songs-add-song'>
+            <h3>Song List:</h3>
+            <AddToPlaylist
+              playlistId={playlistId}
+              user={user}
+              playlist={playlist}
+            />
+          </div>
+          <div>
+            {playlist?.Songs?.map((song) => (
+              <div className='playlist-songs' key={song?.id}>
+                <div className='playlist-songs-title'>
+                  <NavLink
+                    className='playlist-songs-link'
+                    to={`/songs/${song?.id}`}
+                  >
+                    <p key={song?.id}>{song?.title}</p>
+                  </NavLink>
+                </div>
+                <div className='react-player-container'>
+                  <ReactAudioPlayer
+                    src={song?.url}
+                    className='audio-controls'
+                    controls
+                  />
+                  <RemoveFromPlaylist
+                    song={song}
+                    playlistId={playlistId}
+                    playlistSongs={playlistSongs}
+                  />
+                </div>
               </div>
-              <div className='react-player-container'>
-                <ReactAudioPlayer
-                  src={song?.url}
-                  className='audio-controls'
-                  controls
-                />
-                <RemoveFromPlaylist
-                  song={song}
-                  playlistId={playlistId}
-                  playlistSongs={playlistSongs}
-                />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>

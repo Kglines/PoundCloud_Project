@@ -36,7 +36,7 @@ function AddToPlaylist({ playlistId, user, playlist }) {
     <div className='add-to-playlist-container'>
       {user && user.id === playlist?.userId && (
         <form className='add-to-playlist-form' onSubmit={addToPlaylist}>
-            <label>Song List</label>
+            {/* <label>Song List</label> */}
             <select
             value={selectSong}
             onChange={(e) => setSelectSong(e.target.value)}

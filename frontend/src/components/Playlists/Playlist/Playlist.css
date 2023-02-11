@@ -73,24 +73,41 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* align-items: flex-end; */
+    align-items: flex-start;
     
     overflow: auto;
-    width: 55%;
+    width: 80%;
     margin: 2% auto;
+}
+
+.playlist-songs-add-song{
+    margin: 5px;
+    padding-bottom: 15px;
+}
+
+.playlist-songs-add-song h3 {
+    margin-bottom: 8px;
 }
 
 .playlist-songs{
     display: flex;
     flex-direction: row;
     justify-content: end;
-    width: 90%;
+    width: 100%;
     margin: 1.5%;
 }
 
 .playlist-btns{
-    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: end;
+    width: 85%;
     margin: 5px 25px;
+}
+
+.playlist-btns-container{
+
 }
 
 .playlist-edit-btn{
@@ -172,19 +189,25 @@
     text-align: center;
 }
 
+.add-to-playlist-form {
+    display: flex;
+    flex-direction: row;
+}
+
 .add-to-playlist-form label {
     font-size: 25px;
     margin-right: 10px;
 }
 
 .add-to-playlist-select{
-    margin: 5px;
+    /* margin: 5px; */
 }
 
 .add-to-playlist-btn {
     color: orange;
     border: none;
     background-color: transparent;
+    margin-left: 10px;
     margin-right: 10px;
 }
 .add-to-playlist-btn:hover{
