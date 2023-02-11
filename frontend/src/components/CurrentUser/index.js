@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, NavLink, Redirect, useHistory } from 'react-router-dom';
+import { Link, NavLink, Redirect } from 'react-router-dom';
 import { fetchAllSongs } from '../../store/songs';
 import { fetchAlbums } from '../../store/albums';
 import './CurrentUser.css'
-import CurrentuserAlbums from './CurrentuserAlbums';
-import CurrentuserSongs from './CurrentuserSongs'
-import CurrentuserPlaylists from './CurrentUserPlaylists';
 import { Modal } from '../../context/Modal';
 import CreateSong from '../Songs/CreateSong';
 import CreateAlbum from '../Albums/CreateAlbum';
+import CreatePlaylist from '../Playlists/CreatePlaylist';
 
 
 function CurrentUser() {
@@ -178,6 +176,44 @@ function CurrentUser() {
           </div>
         </div>
         {/* <CurrentuserPlaylists /> */}
+        <div className='curr-user-summary-playlist'>
+          <div className='user-playlist-header'>
+            <h3 className='playlist-header'>My Playlists: </h3>
+            {user && (
+              <button
+                className='user-add-playlist-btn'
+                onClick={() => setShowPlaylistModal(true)}
+              >
+                +Add Playlist
+              </button>
+            )}
+            {showPlaylistModal && (
+              <Modal onClose={() => setShowPlaylistModal(false)}>
+                <CreatePlaylist
+                  user={user}
+                  setShowModal={setShowPlaylistModal}
+                />
+              </Modal>
+            )}
+          </div>
+          <div className='curr-user-summary-playlist-container'>
+            {playlists.map((playlist) => (
+              <div key={playlist?.id} className='song-card'>
+                <NavLink
+                  className='playlist-links'
+                  to={`/playlists/${playlist?.id}`}
+                >
+                  <img
+                    className='song-img'
+                    src={playlist?.previewImage}
+                    alt={playlist?.name}
+                  />
+                  <h4 className='playlist-title-home'>{playlist?.name}</h4>
+                </NavLink>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
