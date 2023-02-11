@@ -4,6 +4,7 @@ import { fetchAlbums } from '../../../store/albums';
 import { Link, Redirect } from 'react-router-dom';
 import CreateAlbum from '../../Albums/CreateAlbum';
 import { Modal } from '../../../context/Modal';
+import './CurrentuserAlbums.css';
 
 function CurrentuserAlbums() {
     const [showModal, setShowModal] = useState(false);
@@ -25,7 +26,7 @@ function CurrentuserAlbums() {
     if (!user) return <Redirect to='/login' />;
 
   return (
-    <div>
+    <div className='user-album-page-container'>
       <div className='user-album-header'>
         <h3 className='album-header'>My Albums: </h3>
         {user && (
@@ -40,20 +41,20 @@ function CurrentuserAlbums() {
       <div className='user-album-container'>
         {albumList.length > 0 ? (
           albumList.map((album) => (
-            <div key={album.id} className='song-card'>
+            <div key={album.id} className='song-card-home'>
               <Link
-                className='album-links'
+                className='album-link-home'
                 key={album.id}
                 to={`/albums/${album.id}`}
               >
                 <img
-                  className='song-img'
+                  className='song-img-home'
                   src={album.previewImage}
                   alt={album.title}
                 />
                 <h4 className='album-title-home'>{album.title}</h4>
               </Link>
-              <p>{album.description}</p>
+              <p className='song-desc-home'>{album.description}</p>
             </div>
           ))
         ) : (
