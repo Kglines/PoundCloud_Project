@@ -39,6 +39,12 @@ router.get('/:playlistId', async (req, res) => {
                     "previewImage"
                 ],
                 through: { attributes: [] }
+            }, {
+                model: User,
+                attributes: [
+                    'username',
+                    'id'
+                ]
             }
         ]
     });

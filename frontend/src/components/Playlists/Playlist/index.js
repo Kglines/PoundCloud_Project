@@ -25,7 +25,7 @@ function Playlist() {
     const user = useSelector(state => state.session.user);
     const allSongs = Object.values(useSelector(state => state.songs));
     const playlistSongs = useSelector(state => state.playlistSongs)
-   console.log('Playlist = ', playlist?.Songs?.length)
+   console.log('Playlist = ', playlist)
 
     useEffect(() => {
       dispatch(fetchPlaylistSongs(playlistId))
@@ -43,6 +43,7 @@ function Playlist() {
 
   return (
     <>
+      <div className='playlist-container'>
       {user ? (
         <NavLink className='return-link' to='/currentuser/playlists'>
           Back to My Playlists
@@ -52,7 +53,6 @@ function Playlist() {
           Back to all Playlists
         </NavLink>
       )}
-      <div className='playlist-container'>
         <div className='playlist-detail-container'>
           <div>
             <h3>{playlist?.name}</h3>
