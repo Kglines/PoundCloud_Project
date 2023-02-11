@@ -2,7 +2,7 @@
     width: 90%;
     margin: 0px auto;
     background-color: white;
-    height: 100vh;
+    min-height: 100vh;
     padding-top: 1.6%;
 }
 
@@ -103,7 +103,8 @@
 .song-details-comments-container{
     width: 80%;
     margin: 0px auto;
-    padding-bottom: 8%;
+    min-height: 400px;
+    /* padding-bottom: 1%; */
     border-left: 1px solid silver;
     border-right: 1px solid silver;
 }
