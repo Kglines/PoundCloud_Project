@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { Modal } from '../../../context/Modal';
 import { fetchAllSongs } from '../../../store/songs';
 import CreateSong from '../../Songs/CreateSong';
+import './CurrentuserSongs.css';
 
 
 function CurrentuserSongs() {
@@ -28,7 +29,7 @@ function CurrentuserSongs() {
     if (!user) return <Redirect to='/login' />;
 
   return (
-    <div>
+    <div className='current-user-songs-page'>
       <div className='user-song-header'>
         <h3>My Songs: </h3>
         <button className='user-add-song-btn' onClick={() => setShowModal(true)}>
@@ -43,18 +44,18 @@ function CurrentuserSongs() {
       <div className='user-songs-container'>
         {songList.length > 0 ? (
           songList.map((song) => (
-            <div key={song.id} className='song-card'>
+            <div key={song.id} className='song-card-home'>
               <Link className='song-link' to={`/songs/${song.id}`}>
                 <div className='song-banner'>
                   <img
-                    className='song-img'
+                    className='song-img-home'
                     src={song.previewImage}
                     alt={song.title}
                   />
                   <h4 className='song-title-home'>{song.title}</h4>
                 </div>
               </Link>
-              <p>{song.description}</p>
+              <p className='song-desc-home'>{song.description}</p>
             </div>
           ))
         ) : (
