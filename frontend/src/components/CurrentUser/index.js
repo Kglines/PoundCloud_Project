@@ -7,7 +7,9 @@ import './CurrentUser.css'
 import CurrentuserAlbums from './CurrentuserAlbums';
 import CurrentuserSongs from './CurrentuserSongs'
 import CurrentuserPlaylists from './CurrentUserPlaylists';
-import { fetchGetUserSongs } from '../../store/currentUser';
+import { Modal } from '../../context/Modal';
+import CreateSong from '../Songs/CreateSong';
+import CreateAlbum from '../Albums/CreateAlbum';
 
 
 function CurrentUser() {
@@ -15,10 +17,14 @@ function CurrentUser() {
   const user = useSelector((state) => state.session.user);
   const [songs, setSongs] = useState([]);
   const [songCount, setSongCount] = useState(0);
-  const [album, setAlbum] = useState('');
+  const [albums, setAlbums] = useState([]);
   const [albumCount, setAlbumCount] = useState(0);
-  const [playlist, setPlaylist] = useState('');
+  const [playlists, setPlaylists] = useState([]);
   const [playlistCount, setPlaylistCount] = useState(0);
+
+  const [showSongModal, setShowSongModal] = useState(false);
+  const [showAlbumModal, setShowAlbumModal] = useState(false);
+  const [showPlaylistModal, setShowPlaylistModal] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,8 +41,9 @@ function CurrentUser() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch('/api/currentuser/albums')
-      const count = await res.json()
-      setAlbum(count.Album)
+      const count = await res.json();
+
+      setAlbums(count.Albums)
       setAlbumCount(count.albumCount)
     }
     fetchData()
@@ -46,7 +53,7 @@ function CurrentUser() {
     const fetchData = async () => {
       const res = await fetch('/api/currentuser/playlists')
       const count = await res.json()
-      setPlaylist(count.Playlist)
+      setPlaylists(count.Playlists)
       setPlaylistCount(count.playlistCount)
     }
     fetchData()
@@ -95,45 +102,82 @@ function CurrentUser() {
             </p>
           </div>
         </div>
-        {/* <CurrentuserSongs /> */}
-        {/* <div className='user-song-header'>
-          <h3>My Songs: </h3>
-          <button
-            className='user-add-song-btn'
-            onClick={() => setShowModal(true)}
-          >
-            +Add Song
-          </button>
-          {showModal && (
-            <Modal
-              className='create-song-modal'
-              onClose={() => setShowModal(false)}
+        <div className='curr-user-summary-songs'>
+          <div className='user-song-header'>
+            <h3>My Songs: </h3>
+            <button
+              className='user-add-song-btn'
+              onClick={() => setShowSongModal(true)}
             >
-              <CreateSong setShowModal={setShowModal} />
+              +Add Song
+            </button>
+            {showSongModal && (
+              <Modal
+                className='create-song-modal'
+                onClose={() => setShowSongModal(false)}
+              >
+                <CreateSong setShowModal={setShowSongModal} />
+              </Modal>
+            )}
+          </div>
+          <div className='curr-user-summary-songs-container'>
+            {songs.map((song) => (
+              <div key={song.id} className=''>
+                <div className='song-card'>
+                  <Link className='song-link' to={`/songs/${song.id}`}>
+                    <div className='song-banner'>
+                      <img
+                        className='song-img'
+                        src={song.previewImage}
+                        alt={song.title}
+                      />
+                      <h4 className='song-title-home'>{song.title}</h4>
+                    </div>
+                  </Link>
+                  <p>{song.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className='curr-user-summary-albums'>
+          <div className='user-album-header'>
+            <h3 className='album-header'>My Albums: </h3>
+            {user && (
+              <button
+                className='user-add-album-btn'
+                onClick={() => setShowAlbumModal(true)}
+              >
+                +Add Album
+              </button>
+            )}
+          </div>
+          {showAlbumModal && (
+            <Modal onClose={() => setShowAlbumModal(false)}>
+              <CreateAlbum setShowModal={setShowAlbumModal} />
             </Modal>
           )}
-        </div> */}
-        <div className='curr-user-summary-songs-container'>
-          {songs.map((song) => (
-            <div key={song.id} className=''>
-              <div className='song-card'>
-                <Link className='song-link' to={`/songs/${song.id}`}>
-                  <div className='song-banner'>
-                    <img
-                      className='song-img'
-                      src={song.previewImage}
-                      alt={song.title}
-                    />
-                    <h4 className='song-title-home'>{song.title}</h4>
-                  </div>
+          <div className='curr-user-summary-albums-container'>
+            {albums?.map((album) => (
+              <div key={album.id} className='song-card'>
+                <Link
+                  className='album-links'
+                  key={album.id}
+                  to={`/albums/${album.id}`}
+                >
+                  <img
+                    className='song-img'
+                    src={album.previewImage}
+                    alt={album.title}
+                  />
+                  <h4 className='album-title-home'>{album.title}</h4>
                 </Link>
-                <p>{song.description}</p>
+                <p>{album.description}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <CurrentuserAlbums />
-        <CurrentuserPlaylists />
+        {/* <CurrentuserPlaylists /> */}
       </div>
     </div>
   );
