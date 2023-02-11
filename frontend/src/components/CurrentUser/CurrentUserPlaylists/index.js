@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Modal } from '../../../context/Modal';
 import { fetchPlaylists } from '../../../store/playlists';
 import CreatePlaylist from '../../Playlists/CreatePlaylist';
+import './CurrentuserPlaylists.css';
 
 function CurrentuserPlaylists() {
     const [showModal, setShowModal] = useState(false);
@@ -23,7 +24,7 @@ function CurrentuserPlaylists() {
 
 
   return (
-    <div>
+    <div className='user-playlist-page-container'>
       <div className='user-playlist-header'>
         <h3 className='playlist-header'>My Playlists: </h3>
         {user && (
@@ -43,10 +44,10 @@ function CurrentuserPlaylists() {
       <div className='user-playlist-container'>
         {userPlaylists?.length > 0 ? (
           userPlaylists?.map((playlist) => (
-            <div key={playlist?.id} className='song-card'>
-              <NavLink className='playlist-links' to={`/playlists/${playlist?.id}`}>
+            <div key={playlist?.id} className='song-card-home'>
+              <NavLink className='playlist-link-home' to={`/playlists/${playlist?.id}`}>
                 <img
-                  className='song-img'
+                  className='song-img-home'
                   src={playlist?.previewImage}
                   alt={playlist?.name}
                 />
