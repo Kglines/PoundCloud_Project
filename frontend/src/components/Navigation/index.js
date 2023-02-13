@@ -6,6 +6,7 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
+import SearchBar from '../SearchBar';
 
 function Navigation({ isLoaded }) {
   const history = useHistory()
@@ -16,6 +17,7 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
+        
         <button id='my-music-btn' className='my-btn nav-link' onClick={() => history.push('/currentuser')}>My Music</button>
         <ProfileButton className='profile-btn nav-link' user={sessionUser} />
       </>
@@ -69,12 +71,22 @@ function Navigation({ isLoaded }) {
             </li>
           )}
           {sessionUser && (
-            <li className='navbar-items'>
-              <ProfileButton
-                className='profile-btn nav-link'
-                user={sessionUser}
-              />
-            </li>
+            <div>
+              {/* <li className='navbar-search'>
+                <SearchBar />
+              </li> */}
+              <li>
+                <NavLink className='nav-link' to='/library'>
+                  Library
+                </NavLink>
+              </li>
+              <li className='navbar-items'>
+                <ProfileButton
+                  className='profile-btn nav-link'
+                  user={sessionUser}
+                />
+              </li>
+            </div>
           )}
 
           {/* <li className='navbar-items'></li> */}

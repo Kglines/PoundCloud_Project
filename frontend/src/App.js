@@ -20,6 +20,7 @@ import Playlist from './components/Playlists/Playlist';
 import PlaylistList from './components/Playlists/PlaylistList';
 import CurrentuserPlaylists from './components/CurrentUser/CurrentUserPlaylists';
 import Footer from './components/Footer';
+import Library from './components/Library';
 
 function App() {
   const dispatch = useDispatch();
@@ -71,6 +72,9 @@ function App() {
           </Route>
           <Route exact path='/playlists'>
             <PlaylistList />
+          </Route>
+          <Route exact path='/library'>
+            <Library />
           </Route>
           <Route exact path='/'>
             <Home />

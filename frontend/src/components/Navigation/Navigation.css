@@ -187,6 +187,13 @@ nav li {
   }
 }
 
+.navbar-search{
+  /* margin-top: -10.5%; */
+  position: absolute;
+  bottom: 92%;
+  left: 8%;
+}
+
 .profile-btn {
   position: fixed;
   margin-top: -7px;
