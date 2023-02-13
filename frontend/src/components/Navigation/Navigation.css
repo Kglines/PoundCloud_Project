@@ -227,6 +227,11 @@ nav li {
     padding: 1%;
     text-align: center;
  }
+ @media screen and (max-width: 1500px){
+  .profile-dropdown{
+    height: 10vh;
+  }
+ }
 
  .profile-dropdown li {
   padding-top: 2px;
