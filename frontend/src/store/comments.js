@@ -70,7 +70,6 @@ export const fetchCreateComments = (songId, comment) => async (dispatch) => {
 };
 
 export const fetchEditComments = (comment) => async (dispatch) => {
-    console.log('THUNK THUNK === ', comment)
     const res = await csrfFetch(`/api/comments/${comment?.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },

@@ -7,7 +7,7 @@ import './Comment.css';
 
 function Comment({ song, comment, user }) {
     const sessionUser = useSelector(state => state.session.user)
-console.log(comment)
+
     const [showModal, setShowModal] = useState('')
 
     let commentYear = comment?.createdAt.slice(0, 4);

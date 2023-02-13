@@ -19,7 +19,7 @@ function Home() {
   // const songs = Object.values(useSelector(state => state.songs));
   const playlists = useSelector(state => state.playlists)
 
-  console.log('SONGS ===== ', songs)
+  
   
   useEffect(() => {
     dispatch(fetchAlbums(albums)).catch(async (res) => {

@@ -25,7 +25,7 @@ function Playlist() {
     const user = useSelector(state => state.session.user);
     const allSongs = Object.values(useSelector(state => state.songs));
     const playlistSongs = useSelector(state => state.playlistSongs)
-   console.log('Playlist = ', playlist)
+   
 
     useEffect(() => {
       dispatch(fetchPlaylistSongs(playlistId))

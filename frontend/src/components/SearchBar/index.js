@@ -6,7 +6,7 @@ function SearchBar() {
     const [searchInput, setSearchInput] = useState('');
     const [filteredData, setFilteredData] = useState([]);
     const [songs, setSongs] = useState([]);
-    console.log('SONGS = ', filteredData);
+    
 
     useEffect(() => {
         const fetchData = async () => {
