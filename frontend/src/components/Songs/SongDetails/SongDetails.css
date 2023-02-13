@@ -100,6 +100,18 @@
     width: 90%;
 }
 
+@media screen and (max-width: 1500px){
+    .audio-player{
+        margin-top: 72%;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .audio-player{
+        margin-top: 85%;
+    }
+}
+
 .song-details-comments-container{
     width: 80%;
     margin: 0px auto;
