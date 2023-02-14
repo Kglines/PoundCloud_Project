@@ -70,10 +70,10 @@ function LoginForm({ setShowModal, showModal }) {
           </div>
           <button
             id='login-btn-form'
-            className='log-in-btn nav-link login-btn-form'
+            className='log-in-btn login-btn-form'
             type='submit'
           >
-            Log In
+            LOG IN
           </button>
           <DemoUser />
           {/* <p>
