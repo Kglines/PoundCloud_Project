@@ -144,17 +144,18 @@ function CurrentUser() {
           </div>
         </div>
         <div className='curr-user-summary-albums'>
-          <div className='user-album-header'>
-            <h3 className='album-header'>My Albums: </h3>
-            {user && (
-              <button
-                className='user-add-album-btn'
-                onClick={() => setShowAlbumModal(true)}
-              >
-                +Add Album
-              </button>
-            )}
-          </div>
+            <div className='user-album-header'>
+              <h3>My Albums: </h3>
+              {user && (
+                <button
+                  className='user-add-album-btn'
+                  onClick={() => setShowAlbumModal(true)}
+                >
+                  +Add Album
+                </button>
+              )}
+            </div>
+          
           {showAlbumModal && (
             <Modal onClose={() => setShowAlbumModal(false)}>
               <CreateAlbum setShowModal={setShowAlbumModal} />
