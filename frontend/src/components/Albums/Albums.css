@@ -12,10 +12,11 @@
     background-color: rgb(230, 230, 230);
 }
 
-.album-header-home {
-    text-align: center;
-    margin: 30px auto;
-    font-size: 20px;
+.album-header {
+    text-align: left;
+    padding-left: 10%;
+    padding-top: 5%;
+    font-size: 1.2rem;
 }
 
 .album-card {
