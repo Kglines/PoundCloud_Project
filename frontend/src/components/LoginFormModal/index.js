@@ -9,7 +9,7 @@ function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
+    <div>
       <NavLink
         // id='log-in-btn'
         className='nav-link'
@@ -23,7 +23,7 @@ function LoginFormModal() {
           <LoginForm setShowModal={setShowModal} showModal={showModal} />
         </Modal>
       )}
-    </>
+    </div>
   );
 }
 

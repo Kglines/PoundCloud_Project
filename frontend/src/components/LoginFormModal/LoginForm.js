@@ -21,7 +21,11 @@ function LoginForm({ setShowModal, showModal }) {
     e.preventDefault();
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password }))
-      .then(() => history.push('/currentuser'))
+      .then(() => {
+        history.push('/currentuser')
+        setCredential('')
+        setPassword('')
+      })
       .catch(
       async (res) => {
         const data = await res.json();
@@ -36,7 +40,7 @@ function LoginForm({ setShowModal, showModal }) {
     <>
       <div className='login-form-container'>
         <form className='login-form' onSubmit={handleSubmit}>
-          <h2>Log In: </h2>
+          <h2>Log In</h2>
           <ul>
             {errors.map((error) => (
               <li className='errors' key={error}>
@@ -82,7 +86,10 @@ function LoginForm({ setShowModal, showModal }) {
         </form>
         <p className='signup-today-container'>
           Not a member yet?{' '}
-          <button onClick={() => history.push('/signup')}>CLICK HERE</button> to
+          <button onClick={() => {
+            history.push('/signup')
+            setShowModal(false)
+            }}>CLICK HERE</button> to
           sign up today!
         </p>
       </div>
