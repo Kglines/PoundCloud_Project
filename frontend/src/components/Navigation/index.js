@@ -71,7 +71,7 @@ function Navigation({ isLoaded }) {
             </li>
           )}
           {sessionUser && (
-            <div>
+            <div className='session-user-nav-items'>
               {/* <li className='navbar-search'>
                 <SearchBar />
               </li> */}
@@ -80,12 +80,22 @@ function Navigation({ isLoaded }) {
                   Library
                 </NavLink>
               </li>
-              <li className='navbar-items'>
+              <li>
+                <NavLink to='/currentuser' className='nav-link'>
+                  Profile
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className='nav-link' onClick={logout} to='/'>
+                  LOG OUT
+                </NavLink>
+              </li>
+              {/* <li className='navbar-items'>
                 <ProfileButton
                   className='profile-btn nav-link'
                   user={sessionUser}
                 />
-              </li>
+              </li> */}
             </div>
           )}
 
