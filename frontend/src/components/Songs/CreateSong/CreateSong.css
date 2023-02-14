@@ -10,9 +10,10 @@
     padding: 10px;
     margin-bottom: 20px;
     background-color: rgb(191, 136, 33);
+    color: floralwhite;
 }
 
-.create-song-container {
+.create-song-container, .create-album-container {
     display: flex; 
     flex-direction: column;
     align-items: center;

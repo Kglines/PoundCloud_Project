@@ -45,14 +45,18 @@ function CreateAlbum({ setShowModal }) {
 
   return (
     <form className='create-album-modal' onSubmit={handleSubmit}>
-    <ul>
-      {validationErrors.map(error => (
-        <li className='errors' key={error}>{error}</li>
-      ))}
-    </ul>
       <div className='create-album-modal-header'>
         <h2>Create an album</h2>
       </div>
+      <div className='create-album-container'>
+
+        <ul>
+          {validationErrors.map((error) => (
+            <li className='errors' key={error}>
+              {error}
+            </li>
+          ))}
+        </ul>
         <input
           type='text'
           value={title}
@@ -74,9 +78,15 @@ function CreateAlbum({ setShowModal }) {
           name='imageUrl'
           placeholder='Album art url'
         />
-      <div>
-        <button className='submit-btn'>Submit</button>
-        <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+        <div className='create-song-btns'>
+            <button className='submit-btn submit-song'>Submit</button>
+            <button
+              className='cancel-btn cancel-song'
+              onClick={() => setShowModal(false)}
+            >
+              Cancel
+            </button>
+        </div>
       </div>
     </form>
   );
