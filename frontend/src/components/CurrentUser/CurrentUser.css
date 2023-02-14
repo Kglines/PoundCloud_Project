@@ -7,6 +7,13 @@
     margin: auto;
     padding-top: 5%;
     background-color: white;
+    height: 170vh;
+}
+
+@media screen and (max-height: 1600px){
+    .currentuser-container{
+        height: 130vh;
+    }
 }
 
 .currentuser-welcome-banner {
