@@ -51,7 +51,7 @@ Run `npm start` to get the backend started
 cd into the frontend and run `npm install`
 Run `npm start` to get the frontend started
 
-You can also navigate to https://aa-soundcloud-project.herokuapp.com/ to view the live site.
+You can also navigate to https://poundcloud.onrender.com/ to view the live site.
 
 
 ## Future Upgrades
