@@ -8,6 +8,7 @@ import { Modal } from '../../context/Modal';
 import CreateSong from '../Songs/CreateSong';
 import CreateAlbum from '../Albums/CreateAlbum';
 import CreatePlaylist from '../Playlists/CreatePlaylist';
+import {fetchGetUserAlbums, fetchGetUserPlaylists, fetchGetUserSongs} from '../../store/currentUser';
 
 
 function CurrentUser() {
@@ -26,10 +27,11 @@ function CurrentUser() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('/api/currentuser/songs')
-      const songs = await res.json()
-      setSongs(songs.Songs)
-      setSongCount(songs.songCount)
+      // const res = await fetch('/api/currentuser/songs')
+      const res = await dispatch(fetchGetUserSongs());
+      // const songs = await res.json()
+      setSongs(res.Songs)
+      setSongCount(res.songCount)
     }
     fetchData()
   }, [dispatch])
@@ -38,24 +40,27 @@ function CurrentUser() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('/api/currentuser/albums')
-      const count = await res.json();
+      // const res = await fetch('/api/currentuser/albums')
+      const res = await dispatch(fetchGetUserAlbums())
+      // const count = await res.json();
 
-      setAlbums(count.Albums)
-      setAlbumCount(count.albumCount)
+      setAlbums(res.Albums)
+      setAlbumCount(res.albumCount)
     }
     fetchData()
-  }, [])
+  }, [dispatch])
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('/api/currentuser/playlists')
-      const count = await res.json()
-      setPlaylists(count.Playlists)
-      setPlaylistCount(count.playlistCount)
+      // const res = await fetch('/api/currentuser/playlists')
+      const res = await dispatch(fetchGetUserPlaylists());
+      // const count = await res.json()
+
+      setPlaylists(res.Playlists)
+      setPlaylistCount(res.playlistCount)
     }
     fetchData()
-  }, [])
+  }, [dispatch])
   
   
     useEffect(() => {
@@ -66,7 +71,7 @@ function CurrentUser() {
     if (!user) return <Redirect to='/login' />;
 
   return (
-    <div>
+    <div className='current-user-page'>
       <div className='currentuser-container'>
         <div className='currentuser-banner'>
           <div className='currentuser-welcome-banner'>

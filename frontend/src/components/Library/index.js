@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { fetchAlbums } from '../../store/albums';
 import { fetchPlaylists } from '../../store/playlists';
@@ -10,29 +10,31 @@ import './Library.css';
 
 const Library = () => {
     const dispatch = useDispatch();
-    const songs = Object.values(useSelector(state => state.songs));
-    const albums = Object.values(useSelector(state => state.albums));
-    const playlists = useSelector(state => state.playlists.Playlists)
 
-    console.log('PL =', playlists);
+    const [songs, setSongs] = useState([]);
+    const [albums, setAlbums] = useState([])
+    const [playlists, setPlaylists] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
-            return await dispatch(fetchAllSongs());
+            const songs = await dispatch(fetchAllSongs());
+            setSongs(songs);
         }
         fetchData()
     }, [dispatch])
 
     useEffect(() => {
         const fetchData = async () => {
-            return await dispatch(fetchAlbums())
+            const albums =  await dispatch(fetchAlbums())
+            setAlbums(albums)
         }
         fetchData()
     }, [dispatch])
 
     useEffect(() => {
         const fetchData = async () => {
-            return await dispatch(fetchPlaylists())
+            const playlists = await dispatch(fetchPlaylists())
+            setPlaylists(playlists)
         }
         fetchData()
     }, [dispatch])
@@ -53,7 +55,7 @@ const Library = () => {
           </h3>
         </div>
         <div className='song-container-home'>
-          {songs?.map((song) => {
+          {songs?.Songs?.map((song) => {
             return (
               <div key={song?.id} className='song-card-home'>
                 <NavLink className='song-link-home' to={`/songs/${song?.id}`}>
@@ -81,7 +83,7 @@ const Library = () => {
           </h3>
         </div>
         <div className='song-container-home'>
-          {albums?.map((album) => {
+          {albums?.Albums?.map((album) => {
             return (
               <div key={album?.id} className='song-card-home'>
                 <NavLink className='song-link-home' to={`/albums/${album?.id}`}>
@@ -109,7 +111,7 @@ const Library = () => {
           </h3>
         </div>
         <div className='song-container-home'>
-          {playlists?.map((playlist) => {
+          {playlists?.Playlists?.map((playlist) => {
             return (
               <div key={playlist?.id} className='song-card-home'>
                 <NavLink
