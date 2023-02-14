@@ -28,19 +28,19 @@ function Albums() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className='album-page-container'>
       <h2 className='album-header-home'>PoundCloud Albums</h2>
-      <div className='album-container'>
+      <div className='album-container-home'>
         {data?.Albums?.map((album) => (
-          <div className='album-card' key={album?.id}>
+          <div className='album-card-home' key={album?.id}>
             <NavLink
-              className='album-link'
+              className='album-link-home'
               key={album?.id}
               to={`/albums/${album?.id}`}
             >
               <div className='album-banner'>
                 <img
-                  className='album-img'
+                  className='album-img-home'
                   src={album?.previewImage}
                   alt={album?.title}
                 />
@@ -53,7 +53,7 @@ function Albums() {
         
       </div>
 
-    </>
+    </div>
   );
 }
 
