@@ -137,10 +137,10 @@ function CreateSong({ setShowModal }) {
             ))}
           </div>
           <div className='create-song-btns'>
-            <button className='submit-btn' type='submit'>
+            <button className='submit-btn submit-song' type='submit'>
               Submit
             </button>
-            <button className='cancel-btn' onClick={() => setShowModal(false)}>
+            <button className='cancel-btn cancel-song' onClick={() => setShowModal(false)}>
               Cancel
             </button>
           </div>

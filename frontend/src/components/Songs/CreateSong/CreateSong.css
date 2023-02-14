@@ -12,9 +12,30 @@
     background-color: rgb(191, 136, 33);
 }
 
+.create-song-container {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
 .create-song-input {
-    width: 250px;
+    width: 300px;
     height: 28px;
+    font-size: 18px;
+}
+
+.submit-song{
+    background-color: orange;
+    color: white;
+}
+.submit-song:hover{
+    background-color: rgba(255, 166, 0, 0.801);
+    color: white;
+}
+.cancel-song {
+    background-color: silver;
+    color: white;
 }
 
 .select-album {
