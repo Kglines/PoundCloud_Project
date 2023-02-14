@@ -21,9 +21,9 @@
 }
 
 .song-header {
-    text-align: center;
-    margin: 30px auto;
-    font-size: 20px;
+    text-align: left;
+    padding-left: 10%;
+    font-size: 1.2rem;
 }
 
 .song-card {

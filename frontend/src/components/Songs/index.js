@@ -41,7 +41,7 @@ function Songs() {
             </li>
           ))}
       </ul>
-      <h2 className='song-header'>PoundCloud Songs</h2>
+      <h2 className='song-header'>PoundCloud Songs:</h2>
       <div className='song-container-home'>
         {data?.Songs?.map((song) => (
           <div key={song?.id} className='song-card-home'>
