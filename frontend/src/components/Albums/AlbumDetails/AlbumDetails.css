@@ -1,9 +1,9 @@
 .album-page-container{
     width: 90%;
-    background-color: white;
     margin: 0px auto;
-    padding: 55px 0px;
-    height: 100vh;
+    background-color: white;
+    min-height: 100vh;
+    padding-top: 1.6%;
 }
 
 .album-detail-container {
@@ -11,7 +11,7 @@
     grid-template-columns: 2fr 2fr 2fr; */
     flex-direction: column;
     justify-content: space-between;
-    margin: 0px 10%;
+    margin: 0px 5%;
     background-color: rgb(225, 224, 224);
 }
 
@@ -19,21 +19,21 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
     margin: 10px;
     padding: 5px;
 }
 
 .album-detail-img {
-    width: 250px;
-    height: 250px;
+    width: 400px;
+    height: 400px;
     box-shadow: 2px 2px 10px grey;
 }
 
 .songs-side {
     width: 100%;
-    margin-left: 5%;
-    padding-left: 20%;
+    /* margin-left: 2%; */
+    padding-left: 10%;
     /* padding-right: -200px; */
     
 }
@@ -43,8 +43,13 @@
     text-align: left;
 }
 
+.album-detail-title{
+    font-size: 2rem;
+}
+
 .album-detail-song-list {
     font-size: 16px;
+    margin-top: 10px;
 }
 
 .album-detail-btns {
@@ -95,24 +100,40 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 0px auto;
+    /* margin: 0px auto; */
+    width: 95%;
 }
 
 .album-detail-song-item{
-    margin-right: 25px;
+    /* margin-right: 25px; */
+    width: 100%;
 }
 
 .album-audio-player{
-    width: 350px;
+    width: 550px;
+    height: 25px;
 }
 
 @media screen and (max-width: 1600px){
     .album-audio-player{
         width: 250px;
     }
+    .album-detail-song-container{
+        width: 400px;
+    }
 }
 @media screen and (max-width: 1400px){
     .album-audio-player{
         width: 150px;
     }
+    .album-detail-song-container{
+        flex-direction: column;
+        width: 200px;
+    }
+}
+
+.album-alternatives{
+    width: 90%;
+    margin: 0px auto;
+    padding-top: 2%;
 }

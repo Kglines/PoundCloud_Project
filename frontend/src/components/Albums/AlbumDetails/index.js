@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './AlbumDetails.css';
-import { fetchAlbum } from '../../../store/albums';
+import { fetchAlbum, fetchAlbums } from '../../../store/albums';
 import EditAlbums from '../EditAlbums';
 import DeleteAlbum from '../DeleteAlbum';
 import { Modal } from '../../../context/Modal';
@@ -15,6 +15,8 @@ function AlbumDetails() {
     const { albumId } = useParams();
     const dispatch = useDispatch();
     const album = useSelector(state => state.albums)
+    const [albums, setAlbums] = useState([]);
+  console.log('ALBUMS === ', albums)
     const sessionUser = useSelector(state => state.session.user);
     // const userAlbum = sessionUser.id === album.userId;
     const { Artist, Songs } = album;
@@ -22,6 +24,27 @@ function AlbumDetails() {
     useEffect(() => {
       dispatch(fetchAlbum(albumId))
     }, [dispatch, albumId]);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        const data = await fetch('/api/albums')
+        const albums = await data.json()
+        setAlbums(albums)
+      }
+      fetchData()
+    }, []);
+
+    let userAlbums = []
+
+    albums?.Albums?.forEach((album) => {
+      if(album.id !== parseInt(albumId, 10)){
+        if(album.userId === Artist.id){
+          userAlbums.push(album)
+        } 
+      } 
+    })
+
+    console.log('USER ALBUMS === ', userAlbums)
     
   return (
     <div className='album-page-container'>
@@ -43,16 +66,18 @@ function AlbumDetails() {
               src={album.previewImage}
               alt={album.title}
             />
-            <h3>{album.title}</h3>
-            <p>{album.description}</p>
+            {/* <h3>{album.title}</h3> */}
+            {/* <p>{album.description}</p> */}
           </div>
           <div className='songs-side'>
-            <h4>Artist: {Artist?.username}</h4>
-            <h4>Songs: </h4>
-            <div className='album-detail-song-list'>
+            <h3 className='album-detail-title'>{album.title}</h3>
+            <p className='album-desc-home'>{album.description}</p>
+            <h4 className='album-detail-artist'>Artist: {Artist?.username}</h4>
+            <h4 className='album-songs-header'>Songs: </h4>
+            <ol className='album-detail-song-list'>
               {Songs &&
                 Songs.map((song) => (
-                  <div key={song.id} className='album-detail-song-container'>
+                  <li key={song.id} className='album-detail-song-container'>
                     <div className='album-detail-song-item'>
                       <NavLink to={`/songs/${song.id}`}>{song.title}</NavLink>
                     </div>
@@ -63,9 +88,9 @@ function AlbumDetails() {
                         controls
                       />
                     </div>
-                  </div>
+                  </li>
                 ))}
-            </div>
+            </ol>
           </div>
         </div>
         <div className='album-detail-btns'>
@@ -104,6 +129,26 @@ function AlbumDetails() {
               />
             </Modal>
           )}
+        </div>
+      </div>
+      <div className='album-alternatives'>
+        <h3>Other albums from this artist:</h3>
+        <div className='album-container-home'>
+        {userAlbums.length > 0 ? (userAlbums?.map((album) => (
+          <div className='song-card-home' key={album?.id}>
+            <NavLink className='album-link-home' to={`/albums/${album?.id}`}>
+              <img
+                className='song-img-home'
+                src={album?.previewImage}
+                alt={album?.title}
+              />
+              <h4>{album?.title}</h4>
+            </NavLink>
+            <p className='song-desc-home'>{album.description}</p>
+          </div>
+        ))) : (
+          <p>No other albums from this artist...yet!</p>
+        )}
         </div>
       </div>
     </div>

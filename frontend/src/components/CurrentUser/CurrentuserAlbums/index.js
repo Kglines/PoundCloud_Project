@@ -5,6 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import CreateAlbum from '../../Albums/CreateAlbum';
 import { Modal } from '../../../context/Modal';
 import './CurrentuserAlbums.css';
+import { fetchGetUserAlbums } from '../../../store/currentUser';
 
 function CurrentuserAlbums() {
     const [showModal, setShowModal] = useState(false);
@@ -22,6 +23,10 @@ function CurrentuserAlbums() {
     useEffect(() => {
         dispatch(fetchAlbums());
     }, [dispatch])
+
+    useEffect(() => {
+      dispatch(fetchGetUserAlbums());
+    })
 
     if (!user) return <Redirect to='/login' />;
 
