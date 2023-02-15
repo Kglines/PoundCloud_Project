@@ -21,13 +21,29 @@ function DeleteSong({ setShowDelModal }) {
     }
 
   return (
-    <div>
-      <h2>Are you sure you want to delete this song?</h2>
-      {validationErrors?.map(error => (
-        <p key={error} className='errors'>{error}</p>
-      ))}
-      <button className='save-btn' onClick={() => onDelete(songId)}>Delete</button>
-      <button className='cancel-btn' onClick={() => setShowDelModal(false)}>Cancel</button>
+    <div className='create-song-form'>
+      <div className='create-song-modal-header'>
+        <h2>Delete Your Song</h2>
+      </div>
+      <div className='create-song-container'>
+        <h2>Are you sure you want to delete this song?</h2>
+        {validationErrors?.map((error) => (
+          <p key={error} className='errors'>
+            {error}
+          </p>
+        ))}
+        <div className='create-song-btns'>
+          <button
+            className='save-btn submit-song'
+            onClick={() => onDelete(songId)}
+          >
+            Delete
+          </button>
+          <button className='cancel-btn cancel-song' onClick={() => setShowDelModal(false)}>
+            Cancel
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
