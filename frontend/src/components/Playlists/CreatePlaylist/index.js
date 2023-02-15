@@ -40,31 +40,44 @@ function CreatePlaylist({ user, setShowModal }) {
       <div className='create-playlist-modal-header'>
         <h2>Create a Playlist</h2>
       </div>
-      <ul>
-        {errors?.map(error => (
-          <li className='errors' key={error}>{error}</li>
-        ))}
-      </ul>
-      <input
-        type='text'
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        name='name'
-        placeholder='Title...'
-      />
-      <input
-        type='text'
-        value={previewImage}
-        onChange={(e) => setPreviewImage(e.target.value)}
-        name='previewImage'
-        placeholder='Image URL...'
-      />
-      <div>
-        <button className='submit-btn' type='submit'>Submit</button>
-        <button className='cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+      <div className='create-playlist-container'>
+        <ul>
+          {errors?.map((error) => (
+            <li className='errors' key={error}>
+              {error}
+            </li>
+          ))}
+        </ul>
+        <input
+          type='text'
+          className='create-playlist-input'
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          name='name'
+          placeholder='Title...'
+        />
+        <input
+          type='text'
+          className='create-playlist-input'
+          value={previewImage}
+          onChange={(e) => setPreviewImage(e.target.value)}
+          name='previewImage'
+          placeholder='Image URL...'
+        />
+        <div>
+          <button className='submit-btn submit-song' type='submit'>
+            Submit
+          </button>
+          <button
+            className='cancel-btn cancel-song'
+            onClick={() => setShowModal(false)}
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </form>
-  )
+  );
 }
 
 export default CreatePlaylist
