@@ -22,18 +22,28 @@ function DeletePlaylist({ setShowDeleteModal, playlist}) {
       });
   };
   return (
-    <div className='delete-playlist'>
-      <h2>Are you sure you want to delete this playlist?</h2>
-      {errors?.map((error) => (
-        <p key={error} className='errors'>
-          {error}
-        </p>
-      ))}
-      <div>
-        <button className='save-btn' onClick={() => onDelete()}>
-          Delete
-        </button>
-        <button className='cancel-btn' onClick={() => setShowDeleteModal(false)}>Cancel</button>
+    <div className='create-playlist-form'>
+      <div className='create-song-modal-header'>
+        <h2>Delete Your Playlist</h2>
+      </div>
+      <div className='create-song-container'>
+        <h2>Are you sure you want to delete this playlist?</h2>
+        {errors?.map((error) => (
+          <p key={error} className='errors'>
+            {error}
+          </p>
+        ))}
+        <div className='create-song-btns'>
+          <button className='save-btn submit-song' onClick={() => onDelete()}>
+            DELETE
+          </button>
+          <button
+            className='cancel-btn cancel-song'
+            onClick={() => setShowDeleteModal(false)}
+          >
+            CANCEL
+          </button>
+        </div>
       </div>
     </div>
   );
