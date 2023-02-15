@@ -31,38 +31,47 @@ function EditPlaylist({ playlist, setShowEditModal }) {
           });
     }
   return (
-    <form className='playlist-form' onSubmit={handleSubmit}>
-      <h2>Edit your playlist</h2>
-      <ul>
-        {errors?.map((error) => (
-          <li className='errors' key={error}>
-            {error}
-          </li>
-        ))}
-      </ul>
-      <label>
-        Name
-        <input
-          type='text'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          name='name'
-        />
-      </label>
-      <label>
-        Image
-        <input
-          type='text'
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-          name='image'
-        />
-      </label>
-      <div>
-        <button className='save-btn'>Save</button>
-        <button className='cancel-btn' onClick={() => setShowEditModal(false)}>
-          Cancel
-        </button>
+    <form className='create-playlist-form' onSubmit={handleSubmit}>
+      <div className='create-playlist-modal-header'>
+        <h2>Edit your playlist</h2>
+      </div>
+      <div className='create-playlist-container'>
+        <ul>
+          {errors?.map((error) => (
+            <li className='errors' key={error}>
+              {error}
+            </li>
+          ))}
+        </ul>
+        <label>
+          Name
+          <input
+            className='create-playlist-input'
+            type='text'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            name='name'
+          />
+        </label>
+        <label>
+          Image
+          <input
+            className='create-playlist-input'
+            type='text'
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            name='image'
+          />
+        </label>
+        <div className='create-song-btns'>
+          <button className='save-btn submit-song'>SAVE</button>
+          <button
+            className='cancel-btn cancel-song'
+            onClick={() => setShowEditModal(false)}
+          >
+            CANCEL
+          </button>
+        </div>
       </div>
     </form>
   );

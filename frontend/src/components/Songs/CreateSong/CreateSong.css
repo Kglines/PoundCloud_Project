@@ -37,6 +37,7 @@
 .cancel-song {
     background-color: silver;
     color: white;
+    padding: 5px;
 }
 
 .select-album {
