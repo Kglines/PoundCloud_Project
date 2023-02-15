@@ -20,6 +20,13 @@
     margin: 20px;
 }
 
+.song-labels-inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 15px;
+}
+
 .create-song-input, .create-playlist-input {
     width: 300px;
     height: 28px;

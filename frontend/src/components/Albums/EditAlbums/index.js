@@ -41,46 +41,62 @@ function EditAlbums({ setShowEditModal, albumId }) {
     }
 
   return (
-    <form className='edit-form' onSubmit={handleSubmit}>
-      <h2 className='edit-form-header'>Edit your album</h2>
-      <ul>
-        {validationErrors.map(error => (
-          <li className='errors' key={error}>{error}</li>
-        ))}
-      </ul>
-      <label>
-        Title
-        <input
-          type='text'
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          name='title'
-          placeholder='Title'
-        />
-      </label>
-      <label>
-        Description
-        <input
-          type='text'
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          name='description'
-          placeholder='Description'
-        />
-      </label>
-      <label>
-        Album Art
-        <input
-          type='text'
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-          name='imageUrl'
-          placeholder='Album art url'
-        />
-      </label>
-      <div className='edit-album-btns'>
-        <button className='save-btn'>Save</button>
-        <button className='cancel-btn' onClick={() => setShowEditModal(false)}>Cancel</button>
+    <form className='create-song-form' onSubmit={handleSubmit}>
+      <div className='create-song-modal-header'>
+        <h2>Edit your album</h2>
+      </div>
+      <div className='create-song-container'>
+        <ul>
+          {validationErrors.map((error) => (
+            <li className='errors' key={error}>
+              {error}
+            </li>
+          ))}
+        </ul>
+        <div className='song-labels-inputs'>
+          <label>
+            Title
+            <input
+              className='create-song-input'
+              type='text'
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              name='title'
+              placeholder='Title'
+            />
+          </label>
+          <label>
+            Description
+            <input
+              className='create-song-input'
+              type='text'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              name='description'
+              placeholder='Description'
+            />
+          </label>
+          <label>
+            Album Art
+            <input
+              className='create-song-input'
+              type='text'
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
+              name='imageUrl'
+              placeholder='Album art url'
+            />
+          </label>
+        </div>
+        <div className='.create-song-btns'>
+          <button className='save-btn submit-song'>SAVE</button>
+          <button
+            className='cancel-btn cancel-song'
+            onClick={() => setShowEditModal(false)}
+          >
+            CANCEL
+          </button>
+        </div>
       </div>
     </form>
   );

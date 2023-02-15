@@ -16,9 +16,9 @@ function AlbumDetails() {
     const dispatch = useDispatch();
     const album = useSelector(state => state.albums)
     const [albums, setAlbums] = useState([]);
-  console.log('ALBUMS === ', albums)
+
     const sessionUser = useSelector(state => state.session.user);
-    // const userAlbum = sessionUser.id === album.userId;
+    
     const { Artist, Songs } = album;
     
     useEffect(() => {
@@ -44,7 +44,6 @@ function AlbumDetails() {
       } 
     })
 
-    console.log('USER ALBUMS === ', userAlbums)
     
   return (
     <div className='album-page-container'>
@@ -66,8 +65,7 @@ function AlbumDetails() {
               src={album.previewImage}
               alt={album.title}
             />
-            {/* <h3>{album.title}</h3> */}
-            {/* <p>{album.description}</p> */}
+            
           </div>
           <div className='songs-side'>
             <h3 className='album-detail-title'>{album.title}</h3>
@@ -75,11 +73,11 @@ function AlbumDetails() {
             <h4 className='album-detail-artist'>Artist: {Artist?.username}</h4>
             <h4 className='album-songs-header'>Songs: </h4>
             <ol className='album-detail-song-list'>
-              {Songs &&
-                Songs.map((song) => (
-                  <li key={song.id} className='album-detail-song-container'>
+              {Songs?.length > 0 ?
+                Songs?.map((song) => (
+                  <li key={song?.id} className='album-detail-song-container'>
                     <div className='album-detail-song-item'>
-                      <NavLink to={`/songs/${song.id}`}>{song.title}</NavLink>
+                      <NavLink to={`/songs/${song?.id}`}>{song?.title}</NavLink>
                     </div>
                     <div>
                       <ReactAudioPlayer
@@ -89,7 +87,9 @@ function AlbumDetails() {
                       />
                     </div>
                   </li>
-                ))}
+                )) : (
+                  <p>No songs added to this album yet.</p>
+                )}
             </ol>
           </div>
         </div>
@@ -114,7 +114,7 @@ function AlbumDetails() {
           )}
 
           {showEditModal && (
-            <Modal>
+            <Modal onClose={() => setShowEditModal(false)}>
               <EditAlbums
                 setShowEditModal={setShowEditModal}
                 albumId={albumId}
@@ -122,7 +122,7 @@ function AlbumDetails() {
             </Modal>
           )}
           {showDeleteModal && (
-            <Modal>
+            <Modal onClose={() => setShowDeleteModal(false)}>
               <DeleteAlbum
                 setShowDeleteModal={setShowDeleteModal}
                 albumId={albumId}

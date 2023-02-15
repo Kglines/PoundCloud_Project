@@ -7,15 +7,26 @@ function DemoUser() {
     const dispatch = useDispatch()
     const history = useHistory()
 
+    const [credential, setCredential] = useState('Demo-lition');
+    const [password, setPassword] = useState('password');
     const [validationErrors, setValidationErrors] = useState([]);
 
     const demoLogin = () => {
-        dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password' }))
-            .then(() => history.push('/currentuser'))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setValidationErrors(data.errors);
-            })
+        dispatch(
+          sessionActions.login({
+            credential,
+            password
+          })
+        )
+          .then(() => {
+            history.push('/currentuser');
+            setCredential('');
+            setPassword('');
+          })
+          .catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setValidationErrors(data.errors);
+          });
     };
 
   return (
