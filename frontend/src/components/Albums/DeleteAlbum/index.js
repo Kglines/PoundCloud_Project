@@ -16,12 +16,30 @@ function DeleteAlbum({ albumId, setShowDeleteModal }) {
     }
 
   return (
-    <div>
+    <div className='create-song-form'>
+      <div className='create-song-modal-header'>
+        <h2>Delete Your Album</h2>
+      </div>
+      <div className='create-song-container'>
         <h5>Are you sure you want to delete this album?</h5>
-        <button className='album-delete-btn' onClick={() => onDelete()}>Delete</button>
-        <button className='album-cancel-del-btn' onClick={() => setShowDeleteModal(false)}>Cancel</button>
+        <div className='create-song-btns'>
+          <button
+            className='album-delete-btn'
+            submit-song
+            onClick={() => onDelete()}
+          >
+            DELETE
+          </button>
+          <button
+            className='album-cancel-del-btn cancel-song'
+            onClick={() => setShowDeleteModal(false)}
+          >
+            CANCEL
+          </button>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export default DeleteAlbum
