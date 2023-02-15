@@ -78,8 +78,6 @@ function CreateSong({ setShowModal }) {
               </li>
             ))}
           </ul>
-          {/* <label> */}
-          {/* Title */}
           <input
             className='create-song-input'
             type='text'

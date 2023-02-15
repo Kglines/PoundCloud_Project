@@ -67,61 +67,43 @@ function EditSong({ setShowEditModal }) {
               </li>
             ))}
         </ul>
-        <label>
-          Title
-          <input
-            type='text'
-            className='create-song-input'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            name='title'
-            placeholder='Title'
-          />
-        </label>
-        <label>
-          Description
-          <input
-            type='text'
-            className='create-song-input'
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            name='description'
-            placeholder='Description'
-          />
-        </label>
-        {/* <label>
-          Song Url
-          <input
-            type='text'
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            name='url'
-            placeholder='Song url'
-          />
-        </label> */}
-        <label>
-          Image Url
-          <input
-            type='text'
-            className='create-song-input'
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
-            name='imageUrl'
-            placeholder='Image url'
-          />
-        </label>
-        {/* <p style={{ opacity: 0.5}}>(Select the album to add your song to...)</p> */}
-        {/* {myAlbums.map((album) => (
-          <label key={album.id}>
+        <div className='song-labels-inputs'>
+          <label>
+            Title
             <input
-              type='button'
-              value={album.id}
-              onClick={(e) => setSelectedAlbumId(e.target.value)}
-              className='select-album-input'
-            ></input>
-            {album.title}
+              type='text'
+              className='create-song-input'
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              name='title'
+              placeholder='Title'
+            />
           </label>
-        ))} */}
+          <label>
+            Description
+            <input
+              type='text'
+              className='create-song-input'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              name='description'
+              placeholder='Description'
+            />
+          </label>
+          
+          <label>
+            Image Url
+            <input
+              type='text'
+              className='create-song-input'
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
+              name='imageUrl'
+              placeholder='Image url'
+            />
+          </label>
+        </div>
+        
         <div>
           <button className='submit-btn submit-song' type='submit'>
             Submit
