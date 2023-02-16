@@ -147,9 +147,13 @@
     width: 90%;
     margin: 0px auto;
     border-bottom: 1px solid rgb(240, 240, 240);
+    overflow-x: auto;
+    display: inline-block;
+    
 }
 .curr-user-summary-songs-container, .curr-user-summary-albums-container, .curr-user-summary-playlist-container{
     display: flex;
     flex-direction: row;
     padding-left: 5%;
+    overflow-x: auto;
 }
