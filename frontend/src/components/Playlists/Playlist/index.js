@@ -136,11 +136,13 @@ function Playlist() {
                     className='audio-controls'
                     controls
                   />
-                  <RemoveFromPlaylist
-                    song={song}
-                    playlistId={playlistId}
-                    playlistSongs={playlistSongs}
-                  />
+                  {user && user?.id === playlist?.userId && (
+                    <RemoveFromPlaylist
+                      song={song}
+                      playlistId={playlistId}
+                      playlistSongs={playlistSongs}
+                    />
+                  )}
                 </div>
               </div>
             ))}

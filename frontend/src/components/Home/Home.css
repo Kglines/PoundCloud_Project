@@ -32,12 +32,11 @@
 
 .home-banner-img {
     margin: 0px auto;
-    width: 89.5vw;
+    width: 89vw;
     height: 50%;
     position: absolute;
     top: 4%;
     object-fit: cover;
-    /* z-index: -1; */
 }
 
 .album-link-home, .song-link-home, .playlist-link-home {
