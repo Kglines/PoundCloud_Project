@@ -32,24 +32,35 @@ function EditComment({ comment, setShowModal }) {
     }
     
   return (
-    <form onSubmit={onSubmit}>
-      <h2>Edit Comment</h2>
-      <ul>
-        {errors?.map((error) => (
-          <li key={error} className='errors'>{error}</li>
-        ))}
-      </ul>
-      <input
-        type='text'
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-        name='title'
-      />
-      <div>
-        <button className='save-btn'>Save</button>
-        <button className='cancel-btn' onClick={() => setShowModal(false)}>
-          Cancel
-        </button>
+    <form className='create-song-form' onSubmit={onSubmit}>
+      <div className='create-song-modal-header'>
+        <h2>Edit Comment</h2>
+      </div>
+      <div className='create-song-container'>
+        <ul>
+          {errors?.map((error) => (
+            <li key={error} className='errors'>
+              {error}
+            </li>
+          ))}
+        </ul>
+        
+          <input
+            className='create-song-input'
+            type='text'
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            name='title'
+          />
+          <div className='create-song-btns'>
+            <button className='save-btn submit-song'>Save</button>
+            <button
+              className='cancel-btn cancel-song'
+              onClick={() => setShowModal(false)}
+            >
+              Cancel
+            </button>
+          </div>
       </div>
     </form>
   );

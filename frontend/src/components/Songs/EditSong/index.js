@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useHistory, useParams } from 'react-router-dom';
-import { fetchAlbums } from '../../../store/albums';
-import { fetchSong, fetchEditSong } from '../../../store/songs';
+import { useHistory, useParams } from 'react-router-dom';
+import { fetchEditSong } from '../../../store/songs';
 
 function EditSong({ setShowEditModal }) {
   const { songId } = useParams();
@@ -23,7 +22,6 @@ function EditSong({ setShowEditModal }) {
   const [description, setDescription] = useState(song.description);
   const [url, setUrl] = useState(song.url);
   const [imageUrl, setImageUrl] = useState(song.previewImage);
-  const [selectedAlbumId, setSelectedAlbumId] = useState(null);
   const [validationErrors, setValidationErrors] = useState([]);
 
 
@@ -37,13 +35,11 @@ function EditSong({ setShowEditModal }) {
       description,
       url,
       imageUrl,
-      // albumId: selectedAlbumId,
     };
 
     const newSong = dispatch(fetchEditSong(payload))
       .then(() => {
         setShowEditModal(false);
-        // dispatch(fetchSong(songId));
         history.push(`/songs/${songId}`);
       })
       .catch(async (res) => {

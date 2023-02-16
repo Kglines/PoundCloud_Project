@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './CreateSong.css'
 import { fetchCreateSongs } from '../../../store/songs';
@@ -7,7 +7,6 @@ import { fetchAlbums } from '../../../store/albums';
 
 function CreateSong({ setShowModal }) {
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const user = useSelector(state => state.session.user);
     const albums = Object.values(useSelector(state => state.albums));
@@ -86,9 +85,6 @@ function CreateSong({ setShowModal }) {
             name='title'
             placeholder='Title'
           />
-          {/* </label> */}
-          {/* <label> */}
-          {/* Description */}
           <input
             className='create-song-input'
             type='text'
@@ -97,21 +93,13 @@ function CreateSong({ setShowModal }) {
             name='description'
             placeholder='Description'
           />
-          {/* </label> */}
-          {/* <label> */}
-          {/* Song Url */}
           <input
             className='create-song-input'
             type='file'
-            // value={url}
             accept='audio/*'
             onChange={updateFile}
             name='url'
-            // placeholder='Song url'
           />
-          {/* </label> */}
-          {/* <label> */}
-          {/* Image Url */}
           <input
             className='create-song-input'
             type='text'
@@ -120,7 +108,6 @@ function CreateSong({ setShowModal }) {
             name='imageUrl'
             placeholder='Image url'
           />
-          {/* </label> */}
           <div className='select-album'>
             {myAlbums.map((album) => (
               <label key={album.id}>
