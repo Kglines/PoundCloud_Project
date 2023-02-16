@@ -21,7 +21,7 @@ function SignupFormPage() {
   const [errors, setErrors] = useState([]);
   const [showLoginModal, setShowLoginModal] = useState(false);
   
-  if (sessionUser) return <Redirect to='/currentuser' />;
+  if (sessionUser) return <Redirect to='/library' />;
 
   const handleSubmit = (e) => {
     e.preventDefault();

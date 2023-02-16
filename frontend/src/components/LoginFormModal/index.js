@@ -11,7 +11,6 @@ function LoginFormModal() {
   return (
     <div>
       <NavLink
-        // id='log-in-btn'
         className='nav-link'
         onClick={() => setShowModal(true)}
         to={''}

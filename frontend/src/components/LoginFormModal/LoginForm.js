@@ -22,7 +22,7 @@ function LoginForm({ setShowModal, showModal }) {
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password }))
       .then(() => {
-        history.push('/currentuser')
+        history.push('/library')
         setCredential('')
         setPassword('')
       })
