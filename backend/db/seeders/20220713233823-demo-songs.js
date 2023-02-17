@@ -15,11 +15,11 @@ module.exports = {
      {
        userId: 1,
        albumId: 1,
-       title: 'Title1',
-       description: 'Description1',
+       title: 'Ghost',
+       description: 'Ghost',
        url: 'https://app-academy-project-soundcloud.s3.us-east-2.amazonaws.com/1671678166200.mp3',
        previewImage:
-         'https://images.unsplash.com/photo-1500640963716-929a14d94483?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
+         'https://images.unsplash.com/photo-1530605290309-ebfe523e6605?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80',
      },
      {
        userId: 2,
