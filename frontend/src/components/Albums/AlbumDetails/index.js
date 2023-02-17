@@ -37,9 +37,9 @@ function AlbumDetails() {
     let userAlbums = []
 
     albums?.Albums?.forEach((album) => {
-      if(album.id !== parseInt(albumId, 10)){
-        if(album.userId === Artist.id){
-          userAlbums.push(album)
+      if(album?.id !== parseInt(albumId, 10)){
+        if(album?.userId === Artist?.id){
+          userAlbums?.push(album)
         } 
       } 
     })
