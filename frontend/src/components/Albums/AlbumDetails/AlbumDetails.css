@@ -28,6 +28,8 @@
     width: 400px;
     height: 400px;
     box-shadow: 2px 2px 10px grey;
+    object-fit: cover;
+    object-position: center;
 }
 
 .songs-side {
