@@ -107,18 +107,18 @@
 }
 
 .album-detail-song-item{
-    /* margin-right: 25px; */
+    padding-right: 150px;
     width: 100%;
 }
 
 .album-audio-player{
-    width: 550px;
+    width: 650px;
     height: 25px;
 }
 
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 1725px){
     .album-audio-player{
-        width: 250px;
+        width: 400px;
     }
     .album-detail-song-container{
         width: 400px;
@@ -126,7 +126,7 @@
 }
 @media screen and (max-width: 1400px){
     .album-audio-player{
-        width: 150px;
+        width: 250px;
     }
     .album-detail-song-container{
         flex-direction: column;
