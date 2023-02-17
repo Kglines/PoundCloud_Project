@@ -19,7 +19,7 @@ function DemoUser() {
           })
         )
           .then(() => {
-            history.push('/currentuser');
+            history.push('/library');
             setCredential('');
             setPassword('');
           })
