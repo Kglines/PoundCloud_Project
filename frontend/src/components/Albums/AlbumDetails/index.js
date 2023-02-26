@@ -47,7 +47,7 @@ function AlbumDetails() {
     
   return (
     <div className='album-page-container'>
-      {sessionUser ? (
+      {/* {sessionUser ? (
         <NavLink className='return-link' to='/currentuser/albums'>
           Back to My Albums
         </NavLink>
@@ -55,7 +55,7 @@ function AlbumDetails() {
         <NavLink className='return-link' to='/albums'>
           Back to all albums
         </NavLink>
-      )}
+      )} */}
 
       <div className='album-detail-container'>
         <div className='album-detail-card'>

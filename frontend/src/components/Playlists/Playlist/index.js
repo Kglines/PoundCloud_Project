@@ -44,7 +44,7 @@ function Playlist() {
   return (
     <>
       <div className='playlist-container'>
-        {user ? (
+        {/* {user ? (
           <NavLink className='return-link' to='/currentuser/playlists'>
             Back to My Playlists
           </NavLink>
@@ -52,7 +52,7 @@ function Playlist() {
           <NavLink className='return-link' to='/playlists'>
             Back to all Playlists
           </NavLink>
-        )}
+        )} */}
         <div className='playlist-detail-container'>
           <div className='playlist-detail-data'>
             <div className='playlist-detail-info'>

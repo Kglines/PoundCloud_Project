@@ -40,7 +40,7 @@ function SongDetails() {
 
   return (
     <div className='song-detail-page-container'>
-      {user ? (
+      {/* {user ? (
         <NavLink className='return-link' to='/currentuser/songs'>
           Back to My Songs
         </NavLink>
@@ -48,7 +48,7 @@ function SongDetails() {
         <NavLink className='return-link' to='/songs'>
           Back to all songs
         </NavLink>
-      )}
+      )} */}
       <div className='song-detail-container'>
         <div className='song-detail-data'>
           <div className='song-detail-info'>
