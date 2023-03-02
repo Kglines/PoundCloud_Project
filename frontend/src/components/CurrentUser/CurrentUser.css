@@ -116,7 +116,7 @@
 
 .user-album-header, .user-song-header, .user-playlist-header{
     width: 90%;
-    margin: 10px auto;
+    margin: 10px 5px;
 }
 
 .user-song-container {
@@ -154,6 +154,6 @@
 .curr-user-summary-songs-container, .curr-user-summary-albums-container, .curr-user-summary-playlist-container{
     display: flex;
     flex-direction: row;
-    padding-left: 5%;
+    padding-left: 1%;
     overflow-x: auto;
 }

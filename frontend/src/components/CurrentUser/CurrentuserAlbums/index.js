@@ -6,6 +6,7 @@ import CreateAlbum from '../../Albums/CreateAlbum';
 import { Modal } from '../../../context/Modal';
 import './CurrentuserAlbums.css';
 import { fetchGetUserAlbums } from '../../../store/currentUser';
+import Card from '../../Card';
 
 function CurrentuserAlbums() {
     const [showModal, setShowModal] = useState(false);
@@ -47,7 +48,8 @@ function CurrentuserAlbums() {
         {albumList.length > 0 ? (
           albumList.map((album) => (
             <div key={album.id} className='song-card-home'>
-              <Link
+              <Card id={album.id} title={album.title} description={album.description} previewImage={album.previewImage} url='albums' />
+              {/* <Link
                 className='album-link-home'
                 key={album.id}
                 to={`/albums/${album.id}`}
@@ -59,7 +61,7 @@ function CurrentuserAlbums() {
                 />
                 <h4 className='album-title-home'>{album.title}</h4>
               </Link>
-              <p className='song-desc-home'>{album.description}</p>
+              <p className='song-desc-home'>{album.description}</p> */}
             </div>
           ))
         ) : (
