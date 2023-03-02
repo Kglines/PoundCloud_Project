@@ -49,19 +49,6 @@ function CurrentuserAlbums() {
           albumList.map((album) => (
             <div key={album.id} className='song-card-home'>
               <Card id={album.id} title={album.title} description={album.description} previewImage={album.previewImage} url='albums' />
-              {/* <Link
-                className='album-link-home'
-                key={album.id}
-                to={`/albums/${album.id}`}
-              >
-                <img
-                  className='song-img-home'
-                  src={album.previewImage}
-                  alt={album.title}
-                />
-                <h4 className='album-title-home'>{album.title}</h4>
-              </Link>
-              <p className='song-desc-home'>{album.description}</p> */}
             </div>
           ))
         ) : (
