@@ -7,6 +7,7 @@ import EditAlbums from '../EditAlbums';
 import DeleteAlbum from '../DeleteAlbum';
 import { Modal } from '../../../context/Modal';
 import ReactAudioPlayer from 'react-audio-player';
+import Card from '../../Card';
 
 function AlbumDetails() {
   const [showEditModal, setShowEditModal] = useState(false);
@@ -47,15 +48,6 @@ function AlbumDetails() {
     
   return (
     <div className='album-page-container'>
-      {/* {sessionUser ? (
-        <NavLink className='return-link' to='/currentuser/albums'>
-          Back to My Albums
-        </NavLink>
-      ) : (
-        <NavLink className='return-link' to='/albums'>
-          Back to all albums
-        </NavLink>
-      )} */}
 
       <div className='album-detail-container'>
         <div className='album-detail-card'>
@@ -136,15 +128,7 @@ function AlbumDetails() {
         <div className='album-container-home'>
         {userAlbums.length > 0 ? (userAlbums?.map((album) => (
           <div className='song-card-home' key={album?.id}>
-            <NavLink className='album-link-home' to={`/albums/${album?.id}`}>
-              <img
-                className='song-img-home'
-                src={album?.previewImage}
-                alt={album?.title}
-              />
-              <h4>{album?.title}</h4>
-            </NavLink>
-            <p className='song-desc-home'>{album.description}</p>
+            <Card id={album.id} title={album.title} description={album.description} previewImage={album.previewImage} url='albums' />
           </div>
         ))) : (
           <p>No other albums from this artist...yet!</p>

@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { fetchAlbums } from '../../store/albums';
 import Card from '../Card';
-import AlbumDetails from './AlbumDetails';
 import './Albums.css';
-import CreateAlbum from './CreateAlbum';
 
 function Albums() {
   const dispatch = useDispatch();
