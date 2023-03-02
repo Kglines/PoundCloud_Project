@@ -5,6 +5,7 @@ import { fetchAlbums } from '../../store/albums';
 import { fetchPlaylists } from '../../store/playlists';
 import { fetchAllSongs } from '../../store/songs';
 import SearchBar from '../SearchBar';
+import Card from '../Card';
 import './Library.css';
 
 
@@ -58,19 +59,7 @@ const Library = () => {
           {songs?.Songs?.map((song) => {
             return (
               <div key={song?.id} className='song-card-home'>
-                <NavLink className='song-link-home' to={`/songs/${song?.id}`}>
-                  <li className='song-item-home'>
-                    <div>
-                      <img
-                        className='song-img-home'
-                        src={song?.previewImage}
-                        alt={song?.title}
-                      />
-                      <h2 className='song-title-home'>{song?.title}</h2>
-                    </div>
-                    <p className='song-desc-home'>{song?.description}</p>
-                  </li>
-                </NavLink>
+                <Card id={song.id} title={song.title} description={song.description} previewImage={song.previewImage} url='songs' />
               </div>
             );
           })}
@@ -86,19 +75,7 @@ const Library = () => {
           {albums?.Albums?.map((album) => {
             return (
               <div key={album?.id} className='song-card-home'>
-                <NavLink className='song-link-home' to={`/albums/${album?.id}`}>
-                  <li className='song-item-home'>
-                    <div>
-                      <img
-                        className='song-img-home'
-                        src={album?.previewImage}
-                        alt={album?.title}
-                      />
-                      <h2 className='song-title-home'>{album?.title}</h2>
-                    </div>
-                    <p className='song-desc-home'>{album?.description}</p>
-                  </li>
-                </NavLink>
+                <Card id={album.id} title={album.title} description={album.description} previewImage={album.previewImage} url='albums' />
               </div>
             );
           })}
@@ -114,22 +91,7 @@ const Library = () => {
           {playlists?.Playlists?.map((playlist) => {
             return (
               <div key={playlist?.id} className='song-card-home'>
-                <NavLink
-                  className='song-link-home'
-                  to={`/playlists/${playlist?.id}`}
-                >
-                  <li className='song-item-home'>
-                    <div>
-                      <img
-                        className='song-img-home'
-                        src={playlist?.previewImage}
-                        alt={playlist?.title}
-                      />
-                      <h2 className='song-title-home'>{playlist?.name}</h2>
-                    </div>
-                    <p className='song-desc-home'>{playlist?.User?.username}</p>
-                  </li>
-                </NavLink>
+                <Card id={playlist.id} title={playlist.name} description={playlist.User.username} previewImage={playlist.previewImage} url='playlists' />
               </div>
             );
           })}
