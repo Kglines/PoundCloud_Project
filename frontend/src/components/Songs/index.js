@@ -47,26 +47,7 @@ function Songs() {
         {data?.Songs?.map((song) => (
           <div>
             <Card id={song?.id} title={song?.title} description={song?.description} previewImage={song?.previewImage} />
-            {/* <div key={song?.id} className='song-card-home'>
-              <NavLink
-                className='song-link-home'
-                key={song?.id}
-                to={`/songs/${song?.id}`}
-              >
-                <div className='song-banner'>
-                  <img
-                    className='song-img-home'
-                    src={song?.previewImage}
-                    alt={song?.title}
-                  />
-                  <h3 className='song-title-home'>{song?.title}</h3>
-                </div>
-              </NavLink>
-              <p className='song-desc-home'>{song?.description}</p>
-            </div> */}
           </div>
-          
-        
         ))}
       </div>
     </div>

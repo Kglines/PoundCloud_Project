@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { fetchAlbums } from '../../store/albums';
+import Card from '../Card';
 import AlbumDetails from './AlbumDetails';
 import './Albums.css';
 import CreateAlbum from './CreateAlbum';
@@ -33,7 +34,8 @@ function Albums() {
       <div className='album-container-home'>
         {data?.Albums?.map((album) => (
           <div className='album-card-home' key={album?.id}>
-            <NavLink
+            <Card id={album.id} title={album.title} description={album.description} previewImage={album.previewImage} url='albums' />
+            {/* <NavLink
               className='album-link-home'
               key={album?.id}
               to={`/albums/${album?.id}`}
@@ -47,7 +49,7 @@ function Albums() {
                 <h3 className='album-title-home'>{album?.title}</h3>
               </div>
             </NavLink>
-            <p className='album-desc-home'>{album?.description}</p>
+            <p className='album-desc-home'>{album?.description}</p> */}
           </div>
         ))}
         
