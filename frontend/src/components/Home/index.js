@@ -8,6 +8,8 @@ import { fetchPlaylists } from '../../store/playlists';
 import DemoUser from '../DemoUser';
 import SearchBar  from '../SearchBar';
 import Footer from '../Footer';
+import Songs from '../Songs';
+import Card from '../Card';
 
 function Home() {
   const [validationErrors, setValidationErrors] = useState('')
@@ -69,11 +71,14 @@ function Home() {
           </p>
           <SearchBar />
           <p className='search-popular'>Popular head-Pounding songs:</p>
+          
           <div className='song-container-home'>
+          
             {songs?.Songs?.map((song) => {
               return (
                 <div key={song?.id} className='song-card-home'>
-                  <NavLink className='song-link-home' to={`/songs/${song?.id}`}>
+                <Card id={song?.id} title={song?.title} description={song?.description} previewImage={song?.previewImage} url='songs' />
+                  {/* <NavLink className='song-link-home' to={`/songs/${song?.id}`}>
                     <li className='song-item-home'>
                       <div>
                         <img
@@ -85,7 +90,7 @@ function Home() {
                       </div>
                       <p className='song-desc-home'>{song?.description}</p>
                     </li>
-                  </NavLink>
+                  </NavLink> */}
                 </div>
               );
             })}

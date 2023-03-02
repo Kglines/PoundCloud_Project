@@ -9,6 +9,7 @@ import CreateSong from '../Songs/CreateSong';
 import CreateAlbum from '../Albums/CreateAlbum';
 import CreatePlaylist from '../Playlists/CreatePlaylist';
 import {fetchGetUserAlbums, fetchGetUserPlaylists, fetchGetUserSongs} from '../../store/currentUser';
+import Card from '../Card';
 
 
 function CurrentUser() {
@@ -126,19 +127,7 @@ function CurrentUser() {
           <div className='curr-user-summary-songs-container'>
             {songs.map((song) => (
               <div key={song.id} className=''>
-                <div className='song-card-home'>
-                  <Link className='song-link-home' to={`/songs/${song.id}`}>
-                    <div className='song-banner'>
-                      <img
-                        className='song-img-home'
-                        src={song.previewImage}
-                        alt={song.title}
-                      />
-                      <h4 className='song-title-home'>{song.title}</h4>
-                    </div>
-                  </Link>
-                  <p className='song-desc-home'>{song.description}</p>
-                </div>
+                <Card id={song.id} title={song.title} description={song.description} previewImage={song.previewImage} url='songs' />
               </div>
             ))}
           </div>
@@ -164,19 +153,7 @@ function CurrentUser() {
           <div className='curr-user-summary-albums-container'>
             {albums?.map((album) => (
               <div key={album.id} className='song-card-home'>
-                <Link
-                  className='album-link-home'
-                  key={album.id}
-                  to={`/albums/${album.id}`}
-                >
-                  <img
-                    className='song-img-home'
-                    src={album.previewImage}
-                    alt={album.title}
-                  />
-                  <h4 className='album-title-home'>{album.title}</h4>
-                </Link>
-                <p className='song-desc-home'>{album.description}</p>
+              <Card id={album.id} title={album.title} description={album.description} previewImage={album.previewImage} url='albums' />
               </div>
             ))}
           </div>
@@ -205,17 +182,7 @@ function CurrentUser() {
           <div className='curr-user-summary-playlist-container'>
             {playlists.map((playlist) => (
               <div key={playlist?.id} className='song-card-home'>
-                <NavLink
-                  className='playlist-link-home'
-                  to={`/playlists/${playlist?.id}`}
-                >
-                  <img
-                    className='song-img-home'
-                    src={playlist?.previewImage}
-                    alt={playlist?.name}
-                  />
-                  <h4 className='playlist-title-home'>{playlist?.name}</h4>
-                </NavLink>
+                <Card id={playlist.id} title={playlist.name} description={playlist.name} previewImage={playlist.previewImage} url='playlists' />
               </div>
             ))}
           </div>
