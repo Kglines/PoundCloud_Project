@@ -35,21 +35,6 @@ function Albums() {
         {data?.Albums?.map((album) => (
           <div className='album-card-home' key={album?.id}>
             <Card id={album.id} title={album.title} description={album.description} previewImage={album.previewImage} url='albums' />
-            {/* <NavLink
-              className='album-link-home'
-              key={album?.id}
-              to={`/albums/${album?.id}`}
-            >
-              <div className='album-banner'>
-                <img
-                  className='album-img-home'
-                  src={album?.previewImage}
-                  alt={album?.title}
-                />
-                <h3 className='album-title-home'>{album?.title}</h3>
-              </div>
-            </NavLink>
-            <p className='album-desc-home'>{album?.description}</p> */}
           </div>
         ))}
         
