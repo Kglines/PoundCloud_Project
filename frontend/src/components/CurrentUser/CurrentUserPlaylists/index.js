@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Modal } from '../../../context/Modal';
 import { fetchPlaylists } from '../../../store/playlists';
+import Card from '../../Card';
 import CreatePlaylist from '../../Playlists/CreatePlaylist';
 import './CurrentuserPlaylists.css';
 
@@ -45,14 +46,7 @@ function CurrentuserPlaylists() {
         {userPlaylists?.length > 0 ? (
           userPlaylists?.map((playlist) => (
             <div key={playlist?.id} className='song-card-home'>
-              <NavLink className='playlist-link-home' to={`/playlists/${playlist?.id}`}>
-                <img
-                  className='song-img-home'
-                  src={playlist?.previewImage}
-                  alt={playlist?.name}
-                />
-                <h4 className='playlist-title-home'>{playlist?.name}</h4>
-              </NavLink>
+            <Card id={playlist.id} title={playlist.name} description={playlist.User.username} previewImage={playlist.previewImage} url='playlists' />
             </div>
           ))
         ) : (
