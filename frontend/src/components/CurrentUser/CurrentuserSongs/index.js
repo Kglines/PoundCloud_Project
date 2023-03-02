@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { Modal } from '../../../context/Modal';
 import { fetchAllSongs } from '../../../store/songs';
+import Card from '../../Card';
 import CreateSong from '../../Songs/CreateSong';
 import './CurrentuserSongs.css';
 
@@ -45,17 +46,7 @@ function CurrentuserSongs() {
         {songList.length > 0 ? (
           songList.map((song) => (
             <div key={song.id} className='song-card-home'>
-              <Link className='song-link' to={`/songs/${song.id}`}>
-                <div className='song-banner'>
-                  <img
-                    className='song-img-home'
-                    src={song.previewImage}
-                    alt={song.title}
-                  />
-                  <h4 className='song-title-home'>{song.title}</h4>
-                </div>
-              </Link>
-              <p className='song-desc-home'>{song.description}</p>
+              <Card id={song.id} title={song.title} description={song.description} previewImage={song.previewImage} url='songs' />
             </div>
           ))
         ) : (
