@@ -104,7 +104,7 @@ const Library = () => {
 export default Library
 
 /**
- *  "render-postbuild": "npm run build --prefix frontend",
+   "render-postbuild": "npm run build --prefix frontend",
     "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
     "dev:backend": "npm install --prefix backend start",
     "dev:frontend": "npm install --prefix frontend start",
