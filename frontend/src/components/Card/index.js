@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 
 const Card = ({ title, description, previewImage, id, url}) => {
+  console.log('URL === ', url)
   return (
     <div key={id} className='song-card-home'>
       <NavLink

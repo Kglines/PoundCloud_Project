@@ -46,7 +46,7 @@ function Songs() {
       <div className='song-container-home'>
         {data?.Songs?.map((song) => (
           <div>
-            <Card id={song?.id} title={song?.title} description={song?.description} previewImage={song?.previewImage} />
+            <Card id={song?.id} title={song?.title} description={song?.description} previewImage={song?.previewImage} url='songs' />
           </div>
         ))}
       </div>
