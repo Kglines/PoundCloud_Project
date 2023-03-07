@@ -52,14 +52,22 @@ const Library = () => {
       <div className='curr-user-summary-songs'>
         <div className='user-song-header'>
           <h3>
-            <NavLink to='/songs'>Songs:</NavLink>
+            <NavLink className='lib-link' to='/songs'>
+              Songs:
+            </NavLink>
           </h3>
         </div>
         <div className='song-container-home'>
           {songs?.Songs?.map((song) => {
             return (
               <div key={song?.id} className='song-card-home'>
-                <Card id={song.id} title={song.title} description={song.description} previewImage={song.previewImage} url='songs' />
+                <Card
+                  id={song.id}
+                  title={song.title}
+                  description={song.description}
+                  previewImage={song.previewImage}
+                  url='songs'
+                />
               </div>
             );
           })}
@@ -68,14 +76,22 @@ const Library = () => {
       <div className='curr-user-summary-albums'>
         <div className='user-album-header'>
           <h3>
-            <NavLink to='/albums'>Albums:</NavLink>
+            <NavLink className='lib-link' to='/albums'>
+              Albums:
+            </NavLink>
           </h3>
         </div>
         <div className='song-container-home'>
           {albums?.Albums?.map((album) => {
             return (
               <div key={album?.id} className='song-card-home'>
-                <Card id={album.id} title={album.title} description={album.description} previewImage={album.previewImage} url='albums' />
+                <Card
+                  id={album.id}
+                  title={album.title}
+                  description={album.description}
+                  previewImage={album.previewImage}
+                  url='albums'
+                />
               </div>
             );
           })}
@@ -84,14 +100,22 @@ const Library = () => {
       <div className='curr-user-summary-playlist'>
         <div className='user-playlist-header'>
           <h3>
-            <NavLink to='/playlists'>Playlists:</NavLink>
+            <NavLink className='lib-link' to='/playlists'>
+              Playlists:
+            </NavLink>
           </h3>
         </div>
         <div className='song-container-home'>
           {playlists?.Playlists?.map((playlist) => {
             return (
               <div key={playlist?.id} className='song-card-home'>
-                <Card id={playlist.id} title={playlist.name} description={playlist.User.username} previewImage={playlist.previewImage} url='playlists' />
+                <Card
+                  id={playlist.id}
+                  title={playlist.name}
+                  description={playlist.User.username}
+                  previewImage={playlist.previewImage}
+                  url='playlists'
+                />
               </div>
             );
           })}
