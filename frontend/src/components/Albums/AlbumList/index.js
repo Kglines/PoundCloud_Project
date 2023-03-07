@@ -12,13 +12,13 @@ function AlbumList() {
         dispatch(fetchAlbums(albums))
     }, [dispatch])
   return (
-    <div>
-      {albums.map((album) => (
-        <div className='album-card'>
-          <AlbumListItem album={album} />
-        </div>
-      ))}
-    </div>
+    // <div>
+    //   {albums.map((album) => (
+    //     <div className='album-card'>
+          {/* <AlbumListItem album={album} /> */}
+    //     </div>
+    //   ))}
+    // </div>
   );
 }
 
