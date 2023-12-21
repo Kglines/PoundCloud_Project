@@ -5,17 +5,19 @@
     margin: 10px auto;
     text-align: left;
     /* border-bottom: 0.5px solid silver; */
-    width: 40%;
+    width: 75%;
     padding-bottom: 10px;
 }
 
 .comment-body {
     margin-top: 5px;
     padding: 0px 20px;
+    margin-right: 20px;
 }
 
 .comment-time{
     color: grey;
+    width: 130px;
 }
 
 .comment-btns{

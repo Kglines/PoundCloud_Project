@@ -1,5 +1,11 @@
 .comments-container{
     /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 150%; */
+    /* margin: 0px -300px; */
 }
 
 .comments-total {
@@ -7,5 +13,5 @@
     text-align: center;
     padding: 10px;
     border-bottom: 1px dotted silver;
-    width: 40%;
+    width: 100%;
 }

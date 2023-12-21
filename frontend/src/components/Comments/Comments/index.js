@@ -26,12 +26,17 @@ function Comments({ song }) {
 
   return (
     <div className='comments-container'>
+    <div>
       <p className='comments-total'>{commentsArr?.Comments?.length} comments</p>
+    </div>
+    <div>
+
       {commentsArr?.Comments?.map((comment) => (
         <div key={comment?.id}>
           <Comment comment={comment} song={song} user={comment?.User?.username} />
         </div>
       ))}
+    </div>
     </div>
   );
 }
