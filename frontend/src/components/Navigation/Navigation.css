@@ -108,6 +108,7 @@ nav li {
 
 .session-user-nav-items{
   display: flex;
+  flex-direction: column;
 }
 
 #nav-about{
@@ -115,6 +116,8 @@ nav li {
   top: 15px;
   left: 50px;
   text-align: center;
+  width: 70px;
+  /* background-color: red; */
 }
 
 #nav-about, .navbar-items {
@@ -175,6 +178,7 @@ nav li {
   
   nav ul {
     display: flex;
+
   }
   
   nav li {
