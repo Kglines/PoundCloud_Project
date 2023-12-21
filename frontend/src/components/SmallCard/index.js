@@ -1,12 +1,12 @@
 import React from 'react'
 import './SmallCard.css';
 
-function SmallCard() {
+function SmallCard({ title, description, previewImage, id, url }) {
   return (
     <section>
-        <div></div>
+      <div></div>
     </section>
-  )
+  );
 }
 
 export default SmallCard
