@@ -109,7 +109,7 @@ nav li {
 
 .session-user-nav-items{
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 #nav-about{
@@ -152,6 +152,8 @@ nav li {
     display: grid;
     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
   }
+
+  
   
   .logo {
     grid-column: 2 / 3;
@@ -258,9 +260,13 @@ nav li {
     padding: 1%;
     text-align: center;
  }
- @media screen and (max-width: 1500px){
+ @media screen and (max-width: 800px){
   .profile-dropdown{
     height: 10vh;
+  }
+  .session-user-nav-items{
+    display: flex;
+    flex-direction: column;
   }
  }
 

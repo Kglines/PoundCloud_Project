@@ -30,10 +30,10 @@
 .edit-btn {
     background-color: transparent;
     border: none;
-    color: orange;
+    color: #ff5500;
 }
 .edit-btn:hover {
-    color: rgb(197, 136, 23);
+    color: #fa4040;
     cursor: pointer;
 }
 
