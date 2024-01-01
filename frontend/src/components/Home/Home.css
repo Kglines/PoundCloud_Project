@@ -147,13 +147,13 @@
 }
 
 .fa-brands {
-    color: orange;
+    color: #ff5500;
     margin: 4px;
     font-size: 30px;
 }
 
 .demo-btn {
-    background: linear-gradient(rgb(255, 217, 0), rgb(203, 141, 25));
+    background: linear-gradient(#ff5500, #afafaf);
     color: white;
     border-radius: 5px;
     width: 100px;
