@@ -18,7 +18,7 @@ form {
 .login-form h2 {
     /* margin: 1% 6%; */
     font-size: 30px;
-    background-color: rgb(191, 136, 33);
+    background-color: #ff5500;
     color: floralwhite;
     width: 100%;
     padding: 0px;
@@ -52,7 +52,7 @@ form {
     font-size: 14px;
     width: 85px;
     height: 25px;
-    background-color: orange;
+    background-color: #ff5500;
     color: white;
     border-radius: 5px;
     padding: 0px 5px;
@@ -64,7 +64,7 @@ form {
 #log-in-btn:hover, .log-in-btn:hover{
     cursor: pointer;
     text-decoration: none;
-    background-color: rgba(255, 166, 0, 0.883);
+    background-color: rgba(235, 56, 22, 0.883);
     box-shadow: 1px 1px 8px grey;
 }
 .login-form p {
@@ -72,7 +72,7 @@ form {
 }
 
 .log-in-btn:hover {
-    background-color: rgb(231, 150, 0);
+    background-color: rgba(235, 56, 22, 0.883);
 }
 
 #login-btn-form{
@@ -86,11 +86,11 @@ form {
 .signup-today-container button{
     background-color: transparent;
     border: none;
-    color: orange;
+    color: #ff5500;
     margin: 0px 3px;
 }
 .signup-today-container button:hover{
     cursor: pointer;
-    color: rgba(255, 166, 0, 0.888);
+    color: rgba(235, 56, 22, 0.883);
     text-decoration: underline;
 }
