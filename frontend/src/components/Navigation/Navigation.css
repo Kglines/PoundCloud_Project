@@ -11,6 +11,7 @@ header {
 .home-icon i{
   font-size: 40px;
   width: 50px;
+  color: #ff5500;
 }
 
 .nav-toggle {
@@ -130,7 +131,7 @@ nav li {
 }
 
 .nav-link:hover{
-   color: orange;
+   color: #ff5500;
 }
 
 .nav-toggle:checked ~ nav {
@@ -154,6 +155,7 @@ nav li {
   
   .logo {
     grid-column: 2 / 3;
+    color: #ff5500;
   }
   
   nav {
@@ -195,7 +197,7 @@ nav li {
     content: '';
     display: block;
     height: 5px;
-    background: orange;
+    background: #ff5500;
     position: absolute;
     bottom: -.70em;
     left: 0;
@@ -231,7 +233,7 @@ nav li {
 
 .profile-btn:hover{
   cursor: pointer;
-  background-color: orange;
+  background-color: #ff5500;
   transition: all 0.5s ease-in-out;
 }
 
@@ -285,12 +287,12 @@ nav li {
  }
 
  .dropdown-link:hover{
-  color: orange;
-  border-bottom: 2px solid orange;
+  color: #ff5500;
+  border-bottom: 2px solid #ff5500;
  }
 
  .fa-user-circle {
-   color: orange;
+   color: #ff5500;
    height: 30px;
    font-size: 30px;
    padding-right: 1px;
@@ -326,11 +328,11 @@ nav li {
  }
 
  .nav-link:hover {
-   color: orange;
+   color: #ff5500 ;
  } */
 
  .my-btn {
-    background-color: orange;
+    background-color: #ff5500    ;
     border-radius: 5px;
     padding: 5px;
     height: 30px;
@@ -338,18 +340,18 @@ nav li {
  }
 
  .my-btn:hover {
-    background-color: rgb(233, 152, 2);
+    background-color: rgb(200, 35, 15);
     color: floralwhite;
     text-decoration: none;
     cursor: pointer;
  }
 
  /* .navbar-albums:hover, .navbar-songs:hover {
-    color: orange;
+    color: #ff5500 ;
  }
 
  .nav-album-link, .nav-song-link {
-    color:orange;
+    color:#ff5500  ;
     text-decoration: none;
  }
 
@@ -366,7 +368,7 @@ nav li {
 
  .nav-signup-btn:hover {
    text-decoration: none;
-   color: orange;
+   color: #ff5500;
    cursor: pointer;
  }
 
