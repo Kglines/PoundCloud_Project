@@ -24,6 +24,7 @@ function CreateComment({ song }) {
             dispatch(fetchGetComments(song?.id));
             // dispatch(fetchSong(song?.id))
             setBody('');
+            setErrors([])
           })
           .catch(async (res) => {
             const data = await res.json();
