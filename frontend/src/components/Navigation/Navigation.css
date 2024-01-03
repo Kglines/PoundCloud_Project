@@ -92,6 +92,11 @@ nav li {
     top: 15px;
     right: 0; */
    }
+   .icon-about-div{
+    width: 600px;
+    text-align: left;
+    padding-left: 100px;
+   }
 
 .nav-link{
    color: white;
@@ -115,15 +120,17 @@ nav li {
 #nav-about{
   position: fixed;
   top: 15px;
-  left: 50px;
-  text-align: center;
-  width: 70px;
-  /* background-color: red; */
+  left: 300px;
+  /* text-align: center; */
+  /* width: 70px; */
+  margin-left: 15px;
+  /* color: white; */
+  /* text-decoration: none; */
+  /* transition: opacity 200ms ease-in-out; */
 }
 
-#nav-about, .navbar-items {
-  margin-left: 15%;
-  margin-bottom: 5px;
+#nav-about:hover{
+  color: #ff5500;
 }
 
 .navbar-items{

@@ -46,11 +46,31 @@ function Navigation({ isLoaded }) {
 
   return (
     <header>
-      <div>
+      <div className='icon-about-div'>
         <NavLink id='home-icon' className='home-icon' to='/'>
           <i className='fa-brands fa-soundcloud'></i>
         </NavLink>
-        <a
+        <NavLink
+          className='nav-link'
+          id='nav-about'
+          target='_blank'
+          to='https://github.com/Kglines/SoundCloud_Project'
+          // style={(isActive) => ({
+          //   color: isActive ? 'green' : 'blue',
+          // })}
+        >
+          {/* <a
+          className='nav-link'
+            id='nav-about'
+            target='_blank'
+            rel='noreferrer'
+            href='https://github.com/Kglines/SoundCloud_Project'
+          >
+            About
+          </a> */}
+          ABOUT
+        </NavLink>
+        {/* <a
           id='nav-about'
           rel='noreferrer'
           className='nav-link'
@@ -58,7 +78,7 @@ function Navigation({ isLoaded }) {
           href='https://github.com/Kglines/SoundCloud_Project'
         >
           About
-        </a>
+        </a> */}
       </div>
       <input type='checkbox' id='nav-toggle' className='nav-toggle' />
       <nav className='navbar'>
