@@ -1,159 +1,176 @@
-
-
 .currentuser-container {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: auto;
-    padding-top: 5%;
-    background-color: white;
-    height: 170vh;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  padding-top: 5%;
+  background-color: white;
+  height: 170vh;
 }
 
-@media screen and (max-height: 1600px){
-    .currentuser-container{
-        height: 160vh;
-    }
+@media screen and (max-height: 1600px) {
+  .currentuser-container {
+    height: 160vh;
+  }
 }
 
 .currentuser-welcome-banner {
-    height: 120px;
-    width: 90%;
-    margin: 30px auto;
-    font-size: 33px;
-    text-align: center;
-    border-bottom: 1px solid rgb(239, 239, 239);
-    
+  height: 120px;
+  width: 90%;
+  margin: 30px auto;
+  font-size: 33px;
+  text-align: center;
+  border-bottom: 1px solid rgb(239, 239, 239);
 }
 
 .currentuser-welcome-banner p {
-    line-height: 1.2rem;
+  line-height: 1.2rem;
 }
 
-.current-user-nav-link{
-    text-decoration: none;
-    color: grey;
-
+.current-user-nav-link {
+  text-decoration: none;
+  color: grey;
 }
 
-.current-user-nav-link:hover{
-    cursor: pointer;
-    color: orange;
+.current-user-nav-link:hover {
+  cursor: pointer;
+  color: #ff5500;
 }
 
-.user-albums, .user-songs, .user-playlists {
-    height: 30px;
-    font-size: 20px;
+.user-albums,
+.user-songs,
+.user-playlists {
+  height: 30px;
+  font-size: 20px;
 }
 
-.user-albums-p, .user-songs-p, .user-playlists-p {
-    font-size: 16px;
+.user-albums-p,
+.user-songs-p,
+.user-playlists-p {
+  font-size: 16px;
 }
 
-.user-album-card, .user-song-card, .user-playlist-card {
-    width: 80px;
-    height: auto;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 3px auto;
-    padding: 5px;
-    background-color: white;
-    box-shadow: 1px 1px 8px grey;
+.user-album-card,
+.user-song-card,
+.user-playlist-card {
+  width: 80px;
+  height: auto;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3px auto;
+  padding: 5px;
+  background-color: white;
+  box-shadow: 1px 1px 8px grey;
 }
 
 .currentuser-album-link-card {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    width: 150px;
-    border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 150px;
+  border: 1px solid black;
 }
 
-.user-album-art, .user-song-art, .user-playlist-art {
-    width: 60px;
-    height: 60px;
+.user-album-art,
+.user-song-art,
+.user-playlist-art {
+  width: 60px;
+  height: 60px;
 }
 
-.user-album-container, .user-songs-container, .user-playlist-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 90%;
-    height: auto;
-    margin: 10px auto;
-    padding: 5px;
-    box-sizing: content-box;
-    border-bottom: 1px solid rgb(239, 239, 239);
-    /* background-color: rgb(230, 230, 230); */
+.user-album-container,
+.user-songs-container,
+.user-playlist-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+  height: auto;
+  margin: 10px auto;
+  padding: 5px;
+  box-sizing: content-box;
+  border-bottom: 1px solid rgb(239, 239, 239);
+  /* background-color: rgb(230, 230, 230); */
 }
 
-.user-albums-btn, .user-songs-btn, .user-playlists-btn {
-    color: orange;
-    font-size: 16px;
-    border: none;
+.user-albums-btn,
+.user-songs-btn,
+.user-playlists-btn {
+  color: #ff5500;
+  font-size: 16px;
+  border: none;
 }
 
-.user-add-song-btn, .user-add-album-btn, .user-add-playlist-btn {
-    background-color: orange;
-    color: white;
-    padding: 10px;
-    font-size: 12px;
-    margin: 10px 0px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 2px 2px 5px silver;
+.user-add-song-btn,
+.user-add-album-btn,
+.user-add-playlist-btn {
+  background-color: #ff5500;
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 2px 5px silver;
 }
 
-.user-add-song-btn:hover, .user-add-album-btn:hover, .user-add-playlist-btn:hover {
-    cursor: pointer;
-    background-color: rgb(232, 153, 6);
+.user-add-song-btn:hover,
+.user-add-album-btn:hover,
+.user-add-playlist-btn:hover {
+  cursor: pointer;
+  background-color: rgb(232, 153, 6);
 }
 
-.user-album-header, .user-song-header, .user-playlist-header{
-    width: 90%;
-    margin: 10px 5px;
+.user-album-header,
+.user-song-header,
+.user-playlist-header {
+  width: 90%;
+  margin: 10px 5px;
 }
 
 .user-song-container {
-    width: 90%;
-    background-color: white;
-    height: 100vh;
-    margin: 0px auto;
-    padding-top: 100px;
+  width: 90%;
+  background-color: white;
+  height: 100vh;
+  margin: 0px auto;
+  padding-top: 100px;
 }
 
-.songs-container-currentuser{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 90%;
-    height: auto;
-    margin: 10px auto;
-    padding: 5px;
+.songs-container-currentuser {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+  height: auto;
+  margin: 10px auto;
+  padding: 5px;
 }
 
-.curr-user-summary-songs, .curr-user-summary-albums, .curr-user-summary-playlist{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: 90%;
-    margin: 0px auto;
-    border-bottom: 1px solid rgb(240, 240, 240);
-    overflow-x: auto;
-    display: inline-block;
-    
+.curr-user-summary-songs,
+.curr-user-summary-albums,
+.curr-user-summary-playlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 90%;
+  margin: 0px auto;
+  border-bottom: 1px solid rgb(240, 240, 240);
+  overflow-x: auto;
+  display: inline-block;
 }
-.curr-user-summary-songs-container, .curr-user-summary-albums-container, .curr-user-summary-playlist-container{
-    display: flex;
-    flex-direction: row;
-    padding-left: 1%;
-    overflow-x: auto;
+.curr-user-summary-songs-container,
+.curr-user-summary-albums-container,
+.curr-user-summary-playlist-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 1%;
+  overflow-x: auto;
 }

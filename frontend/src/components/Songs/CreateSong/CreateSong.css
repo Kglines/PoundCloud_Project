@@ -1,76 +1,79 @@
-
-.create-song-form{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.create-song-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.create-song-modal-header, .create-playlist-modal-header{
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: rgb(191, 136, 33);
-    color: floralwhite;
+.create-song-modal-header,
+.create-playlist-modal-header {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: rgb(191, 136, 33);
+  color: floralwhite;
 }
 
-.create-song-container, .create-album-container, .create-playlist-container {
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
+.create-song-container,
+.create-album-container,
+.create-playlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
 }
 
-.song-labels-inputs{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-bottom: 15px;
+.song-labels-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 15px;
 }
 
-.create-song-input, .create-playlist-input {
-    width: 300px;
-    height: 28px;
-    font-size: 18px;
+.create-song-input,
+.create-playlist-input {
+  width: 300px;
+  height: 28px;
+  font-size: 18px;
 }
 
-.submit-song{
-    background-color: orange;
-    color: white;
+.submit-song {
+  background-color: #ff5500;
+  color: white;
 }
-.submit-song:hover{
-    background-color: rgba(255, 166, 0, 0.801);
-    color: white;
+.submit-song:hover {
+  background-color: rgba(255, 166, 0, 0.801);
+  color: white;
 }
 .cancel-song {
-    background-color: silver;
-    color: white;
-    padding: 5px;
+  background-color: silver;
+  color: white;
+  padding: 5px;
 }
 
 .select-album {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.select-album-input{
-    color: lightgray;
-    background-color: rgb(232, 229, 229);
-    width: 12px;
-    height: 12px;
-    border-radius: 50px;
+.select-album-input {
+  color: lightgray;
+  background-color: rgb(232, 229, 229);
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
 }
 
 .select-album-input:focus {
-    background-color: black;
-    color:black;
+  background-color: black;
+  color: black;
 }
 
 .create-song-btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
 }
