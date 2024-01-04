@@ -16,6 +16,8 @@
 
 .submit-comment {
     background-color: transparent;
+    /* background-color: black; */
+    padding: 5px;
     color: #ff5500;
     border: none;
     margin-left: 5px;
@@ -24,5 +26,8 @@
     cursor: pointer;
     color: rgb(224, 151, 16);
     border: none;
+}
+.submit-comment:disabled{
+    color: grey;
 }
 

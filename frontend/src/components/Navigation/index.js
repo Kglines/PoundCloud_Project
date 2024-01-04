@@ -55,6 +55,7 @@ function Navigation({ isLoaded }) {
           id='nav-about'
           target='_blank'
           to='https://github.com/Kglines/SoundCloud_Project'
+          href='https://github.com/Kglines/SoundCloud_Project'
           // style={(isActive) => ({
           //   color: isActive ? 'green' : 'blue',
           // })}

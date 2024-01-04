@@ -1,36 +1,36 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchCreateComments, fetchGetComments } from '../../../store/comments';
 import { fetchSong } from '../../../store/songs';
-import './CreateComment.css'
+import './CreateComment.css';
 
 function CreateComment({ song }) {
-    const dispatch = useDispatch();
-    
-    const [body, setBody] = useState('');
-    const [errors, setErrors] = useState([]);
+  const dispatch = useDispatch();
 
-    const user = useSelector(state => state.session.user);
+  const [body, setBody] = useState('');
+  const [errors, setErrors] = useState([]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+  const user = useSelector((state) => state.session.user);
 
-        const payload = {
-            body
-        }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        await dispatch(fetchCreateComments(song?.id, payload))
-          .then(() => {
-            dispatch(fetchGetComments(song?.id));
-            // dispatch(fetchSong(song?.id))
-            setBody('');
-            setErrors([])
-          })
-          .catch(async (res) => {
-            const data = await res.json();
-            if (data && data.errors) setErrors(data.errors)
-          })
-    }
+    const payload = {
+      body,
+    };
+
+    await dispatch(fetchCreateComments(song?.id, payload))
+      .then(() => {
+        dispatch(fetchGetComments(song?.id));
+        // dispatch(fetchSong(song?.id))
+        setBody('');
+        setErrors([]);
+      })
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
+  };
 
   return (
     <form onSubmit={handleSubmit} className='create-comment-form'>
@@ -47,11 +47,9 @@ function CreateComment({ song }) {
         name='body'
         placeholder='Write a comment...'
       />
-      
-        <button className='submit-comment'>Submit</button>
-      
+      <button className='submit-comment' disabled={body.length <= 0}>Submit</button>
     </form>
   );
 }
 
-export default CreateComment
+export default CreateComment;
