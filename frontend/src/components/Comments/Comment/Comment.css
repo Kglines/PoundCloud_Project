@@ -1,18 +1,22 @@
 .comment-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin: 10px auto;
+    /* justify-content: space-between; */
     text-align: left;
+    margin: 0px auto;
+    /* margin-left: 50%; */
     /* border-bottom: 0.5px solid silver; */
-    width: 75%;
+    width: 100%;
     padding-bottom: 10px;
+    /* background-color: yellowgreen; */
+
 }
 
 .comment-body {
     margin-top: 5px;
     padding: 0px 20px;
     margin-right: 20px;
+    width: 500px;
 }
 
 .comment-time{
