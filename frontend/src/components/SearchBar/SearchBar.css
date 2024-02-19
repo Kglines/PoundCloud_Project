@@ -1,7 +1,12 @@
 .search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  top: 50px;
-  left: 0px;
+  margin: 0px auto;
+  top: 20px;
+  /* left: 0px; */
+  width: 95%;
 }
 
 .search-inputs {
@@ -20,8 +25,12 @@
   font-size: 18px;
   padding: 10px;
   height: 35px;
-  width: 650px;
-  /* margin-left: 5%; */
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0px auto; */
+  margin-left: 25%;
 }
 
 .search-icon {
@@ -42,7 +51,8 @@ input:focus {
 }
 
 .data-result {
-  width: 98%;
+  width: 52%;
+  margin-left: 2%;
   min-height: min-content;
   padding: 5px;
   font-size: 22px;
@@ -53,6 +63,7 @@ input:focus {
   overflow: hidden;
   overflow-y: auto;
   position: absolute;
+  top: 50px;
   z-index: 5;
 }
 

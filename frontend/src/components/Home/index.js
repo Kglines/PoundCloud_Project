@@ -57,19 +57,23 @@ function Home() {
   return (
     <div className='home-page-container'>
       <div className='home-page'>
+      <div className='home-page-title-container'>
         <h1 className='home-page-title'>Welcome To PoundCloud</h1>
         <img
           className='home-banner-img'
           src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80'
           alt='Credit Aditya Chinchure'
         />
+      </div>
         
         <div className='search-container'>
           <p className='search-title'>
             Search for the <strong>BEST</strong> head-Pounding music on
             PoundCloud
           </p>
-          <SearchBar />
+          <div className='search'>
+            <SearchBar />
+          </div>
           <p className='search-popular'>Popular head-Pounding songs:</p>
           
           <div className='song-container-home'>
