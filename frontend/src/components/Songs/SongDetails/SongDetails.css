@@ -3,7 +3,8 @@
     margin: 0px auto;
     background-color: white;
     min-height: 100vh;
-    padding-top: 1.6%;
+    padding-top: 100px;
+    position: relative;
 }
 
 .song-detail-container {
@@ -36,6 +37,8 @@
     text-align: left;
     width: 50%;
 }
+
+
 
 .song-details{
     display: flex;
@@ -120,4 +123,11 @@
     border-left: 1px solid silver;
     border-right: 1px solid silver;
     background-color: rgb(250, 250, 250);
+}
+
+.song-music-player{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background-color: rgb(240, 240, 240);
 }

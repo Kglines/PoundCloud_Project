@@ -1,0 +1,11 @@
+.music-player-container {
+    position: relative;
+    top: 0px;
+}
+
+.music-player {
+    position: sticky;
+    top: 50px;
+    width: 100%;
+    margin: 0px auto;
+}

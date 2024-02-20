@@ -9,6 +9,7 @@ import { Modal } from '../../../context/Modal';
 import ReactAudioPlayer from 'react-audio-player';
 import Comments from '../../Comments/Comments';
 import CreateComment from '../../Comments/CreateComment';
+import MusicPlayer from '../../MusicPlayer';
 
 function SongDetails() {
   const { songId } = useParams();
@@ -75,11 +76,11 @@ function SongDetails() {
               </div>
             </div>
 
-            <ReactAudioPlayer
+            {/* <ReactAudioPlayer
               className='audio-player'
               src={songs?.url}
               controls
-            />
+            /> */}
           </div>
           <div className='song-detail-img-and-buttons'>
             <div className='song-detail-img-container'>
@@ -131,6 +132,9 @@ function SongDetails() {
       <div className='song-details-comments-container'>
         {user && <CreateComment song={songs} />}
         <Comments song={songs} />
+      </div>
+      <div className='song-music-player'>
+        <MusicPlayer song={songs?.url} />
       </div>
     </div>
   );
