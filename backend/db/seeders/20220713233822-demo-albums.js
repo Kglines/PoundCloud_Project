@@ -34,6 +34,27 @@ module.exports = {
          'https://plus.unsplash.com/premium_photo-1663012869057-6833154b6fe4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
      },
      {
+       userId: 1,
+       title: 'Heavy',
+       description: 'Heavy Metal',
+       previewImage:
+         'https://images.unsplash.com/photo-1561130294-5b4154683c41?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+     },
+     {
+       userId: 1,
+       title: 'Road Trip',
+       description: 'Road Trip Music',
+       previewImage:
+         'https://images.unsplash.com/photo-1619545493446-b378e885c6de?q=80&w=2948&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+     },
+     {
+       userId: 1,
+       title: 'Light as a Feather',
+       description: 'Light',
+       previewImage:
+         'https://images.unsplash.com/photo-1527380992061-b126c88cbb41?q=80&w=2865&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+     },
+     {
        userId: 2,
        title: 'Album2',
        description: 'Album2 description',
