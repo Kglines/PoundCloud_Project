@@ -1,8 +1,35 @@
 .small-card-container {
-    display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   width: 160px;
   height: 200px;
   padding: 2px 2px;
+  background-color: white;
+}
+
+.small-card-container:hover {
+  opacity: 0.75;
+  border: 1px solid rgba(255, 166, 0, 0.487);
+  transform: scale(1.05);
+}
+
+.small-card-link {
+  text-decoration: none;
+  color: #ff5500;
+}
+
+.small-card-image {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.small-card-description {
+    display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: rgb(120, 120, 120);
 }
