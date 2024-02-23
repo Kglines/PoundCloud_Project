@@ -10,6 +10,7 @@ import SearchBar  from '../SearchBar';
 import Footer from '../Footer';
 import Songs from '../Songs';
 import Card from '../Card';
+import SmallCard from '../SmallCard';
 
 function Home() {
   const [validationErrors, setValidationErrors] = useState('')
@@ -81,7 +82,7 @@ function Home() {
             {songs?.Songs?.map((song) => {
               return (
                 <div key={song?.id} className='song-card-home'>
-                <Card id={song?.id} title={song?.title} description={song?.description} previewImage={song?.previewImage} url='songs' />
+                <SmallCard id={song?.id} title={song?.title} description={song?.description} previewImage={song?.previewImage} url='songs' />
                   {/* <NavLink className='song-link-home' to={`/songs/${song?.id}`}>
                     <li className='song-item-home'>
                       <div>
