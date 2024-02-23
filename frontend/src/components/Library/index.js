@@ -7,6 +7,7 @@ import { fetchAllSongs } from '../../store/songs';
 import SearchBar from '../SearchBar';
 import Card from '../Card';
 import './Library.css';
+import SmallCard from '../SmallCard';
 
 
 const Library = () => {
@@ -61,7 +62,7 @@ const Library = () => {
           {songs?.Songs?.map((song) => {
             return (
               <div key={song?.id} className='song-card-home'>
-                <Card
+                <SmallCard
                   id={song.id}
                   title={song.title}
                   description={song.description}
@@ -85,7 +86,7 @@ const Library = () => {
           {albums?.Albums?.map((album) => {
             return (
               <div key={album?.id} className='song-card-home'>
-                <Card
+                <SmallCard
                   id={album.id}
                   title={album.title}
                   description={album.description}
@@ -109,7 +110,7 @@ const Library = () => {
           {playlists?.Playlists?.map((playlist) => {
             return (
               <div key={playlist?.id} className='song-card-home'>
-                <Card
+                <SmallCard
                   id={playlist.id}
                   title={playlist.name}
                   description={playlist.User.username}
