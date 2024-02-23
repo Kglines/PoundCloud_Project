@@ -10,6 +10,7 @@ import CreateAlbum from '../Albums/CreateAlbum';
 import CreatePlaylist from '../Playlists/CreatePlaylist';
 import {fetchGetUserAlbums, fetchGetUserPlaylists, fetchGetUserSongs} from '../../store/currentUser';
 import Card from '../Card';
+import SmallCard from '../SmallCard';
 
 
 function CurrentUser() {
@@ -127,7 +128,7 @@ function CurrentUser() {
           <div className='curr-user-summary-songs-container'>
             {songs.map((song) => (
               <div key={song.id} className=''>
-                <Card id={song.id} title={song.title} description={song.description} previewImage={song.previewImage} url='songs' />
+                <SmallCard id={song.id} title={song.title} description={song.description} previewImage={song.previewImage} url='songs' />
               </div>
             ))}
           </div>
@@ -153,7 +154,7 @@ function CurrentUser() {
           <div className='curr-user-summary-albums-container'>
             {albums?.map((album) => (
               <div key={album.id} className='song-card-home'>
-              <Card id={album.id} title={album.title} description={album.description} previewImage={album.previewImage} url='albums' />
+              <SmallCard id={album.id} title={album.title} description={album.description} previewImage={album.previewImage} url='albums' />
               </div>
             ))}
           </div>
@@ -182,7 +183,7 @@ function CurrentUser() {
           <div className='curr-user-summary-playlist-container'>
             {playlists.map((playlist) => (
               <div key={playlist?.id} className='song-card-home'>
-                <Card id={playlist.id} title={playlist.name} description={playlist.name} previewImage={playlist.previewImage} url='playlists' />
+                <SmallCard id={playlist.id} title={playlist.name} description={playlist.name} previewImage={playlist.previewImage} url='playlists' />
               </div>
             ))}
           </div>
