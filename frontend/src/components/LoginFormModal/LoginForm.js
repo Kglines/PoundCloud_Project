@@ -15,6 +15,7 @@ function LoginForm({ setShowModal, showModal }) {
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
+  const [isVisible, setIsVisible] = useState(false);
 
 
   const handleSubmit = (e) => {
@@ -34,7 +35,7 @@ function LoginForm({ setShowModal, showModal }) {
     ); 
   };
     
-    
+  
 
   return (
     <>
@@ -61,11 +62,16 @@ function LoginForm({ setShowModal, showModal }) {
             <label>
               Password
               <input
-                type='password'
+                type={isVisible ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <i
+                id="eye-icon"
+                className={`fas fa-eye${isVisible ? '-slash' : ''}`}
+                onClick={() => setIsVisible(!isVisible)}
+              ></i>
             </label>
           </div>
           <button
@@ -76,13 +82,6 @@ function LoginForm({ setShowModal, showModal }) {
             LOG IN
           </button>
           <DemoUser />
-          {/* <p>
-          Not a member yet?{' '}
-          <NavLink to='signup' onClick={() => setShowModal(false)}>
-            Click Here
-          </NavLink>{' '}
-          to sign up today!
-        </p> */}
         </form>
         <p className='signup-today-container'>
           Not a member yet?{' '}
