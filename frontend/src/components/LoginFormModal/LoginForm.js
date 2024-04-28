@@ -67,11 +67,11 @@ function LoginForm({ setShowModal, showModal }) {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <i
+              {password && <i
                 id="eye-icon"
                 className={`fas fa-eye${isVisible ? '-slash' : ''}`}
                 onClick={() => setIsVisible(!isVisible)}
-              ></i>
+              ></i>}
             </label>
           </div>
           <button
